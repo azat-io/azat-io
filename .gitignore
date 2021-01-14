@@ -1,0 +1,31 @@
+# Build
+
+dev-dist
+dist
+output
+prod
+
+# Editor SDKs
+
+.idea
+.vim
+.vscode
+.psc-ide-port
+
+# Modules
+
+.spago
+bower_components
+node_modules
+
+# PureScript
+
+.cache
+.psa*
+.psc*
+.pulp-cache
+.purs*
+
+# Misc
+
+.DS_Store
