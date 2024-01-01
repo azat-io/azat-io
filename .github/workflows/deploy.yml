@@ -40,6 +40,14 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile --ignore-scripts
 
+      - name: Setup Astro cache
+        uses: actions/cache@v2
+        with:
+          path: ./node_modules/.astro
+          key: ${{ runner.os }}-astro-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-astro-
+
       - name: Build
         run: pnpm run build
 
