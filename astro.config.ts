@@ -14,6 +14,26 @@ let [gruvboxLight, gruvboxDark] = await Promise.all([
 ])
 
 export default defineConfig({
+  integrations: [
+    svelte(),
+    sitemap(),
+    compress({
+      Image: {
+        sharp: {
+          heif: false,
+          jpeg: false,
+          tiff: false,
+          webp: false,
+          avif: true,
+          gif: false,
+          png: false,
+        },
+      },
+      JavaScript: true,
+      HTML: true,
+      SVG: true,
+    }),
+  ],
   markdown: {
     shikiConfig: {
       experimentalThemes: {
@@ -34,7 +54,6 @@ export default defineConfig({
   image: {
     service: squooshImageService(),
   },
-  integrations: [svelte(), sitemap(), compress()],
   server: {
     port: 8080,
     host: true,
