@@ -1,0 +1,50 @@
+---
+interface Props {
+  active?: boolean
+  class?: string
+  href?: string
+  tag?: string
+}
+
+let { class: className, active = true, tag = 'span', ...props } = Astro.props
+
+let ElementTag = tag
+---
+
+<ElementTag
+  class:list={[
+    'tag',
+    {
+      inveractive: tag === 'a' || tag === 'button',
+      inactive: !active,
+      active,
+    },
+    className,
+  ]}
+  {...props}
+>
+  <slot />
+</ElementTag>
+
+<style>
+  .tag {
+    padding-inline: var(--space-xs);
+    font: var(--font-xs);
+    color: var(--color-content-inverse);
+    user-select: none;
+    border-block-end: none;
+    border-radius: var(--border-radius);
+  }
+
+  .active {
+    background: var(--color-background-brand);
+  }
+
+  .inveractive {
+    transition: all 300ms;
+  }
+
+  .inveractive:hover {
+    background: var(--color-background-brand-hover);
+  }
+</style>

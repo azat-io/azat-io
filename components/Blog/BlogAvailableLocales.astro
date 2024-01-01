@@ -1,0 +1,66 @@
+---
+import BlogLocaleLink from '~/components/Blog/BlogLocaleLink.astro'
+import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
+import { useTranslations } from '~/utils/use-translations'
+import Typography from '~/components/Typography.astro'
+import { getPosts } from '~/utils/get-posts'
+
+interface Props {
+  slug: string
+}
+
+let { slug } = Astro.props
+
+let locale = getLocaleFromUrl(Astro.url)
+let t = useTranslations(locale, 'blog')
+
+let posts = await getPosts()
+
+let samePosts = posts
+  .filter(
+    post =>
+      post.slug === slug.slice(3) && post.id.slice(0, 2) !== locale.slice(0, 2),
+  )
+  .map(post => ({
+    ...post,
+    locale: post.id.slice(0, 2),
+  }))
+---
+
+{
+  samePosts.length ? (
+    <div class="available-languages">
+      <Typography size="xs">{t('also-translated')}</Typography>
+      <div class="list">
+        {samePosts.map(post => (
+          <BlogLocaleLink {...post} />
+        ))}
+      </div>
+    </div>
+  ) : null
+}
+
+<style>
+  .available-languages {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-s);
+    padding: var(--space-m);
+    margin-block: var(--space-m);
+    background: var(--color-background-secondary);
+    border: 1px solid var(--color-border-primary);
+    border-radius: var(--border-radius);
+  }
+
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-s);
+  }
+
+  @media (width >= 768px) {
+    .available-languages {
+      flex-direction: row;
+    }
+  }
+</style>

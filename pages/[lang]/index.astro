@@ -1,0 +1,57 @@
+---
+import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
+import { useTranslations } from '~/utils/use-translations'
+import Typography from '~/components/Typography.astro'
+import LayoutDefault from '~/layouts/Default.astro'
+import Avatar from '~/components/Avatar.astro'
+import { locales } from '~/locales'
+
+let locale = getLocaleFromUrl(Astro.url)
+let t = useTranslations(locale, 'index')
+
+export let getStaticPaths = () =>
+  locales.map(({ code }) => ({ params: { lang: code } }))
+---
+
+<LayoutDefault description={t('description')} title={t('title')}>
+  <main class="main">
+    <div class="content">
+      <Avatar alt={t('avatar')} />
+      <div>
+        <Typography color="brand" size="2xl" bold>
+          {t('website-title')}
+        </Typography>
+        <Typography color="brand" size="l">
+          {t('website-subtitle')}
+        </Typography>
+        <Typography tag="p" mbs="m" mbe="m">
+          {t('greeting')}
+        </Typography>
+      </div>
+    </div>
+  </main>
+</LayoutDefault>
+
+<style>
+  .main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    block-size: 100%;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+    align-items: center;
+    margin-block-end: var(--space-xl);
+  }
+
+  @media (width >= 768px) {
+    .content {
+      flex-direction: row;
+      padding-inline: var(--space-m);
+    }
+  }
+</style>

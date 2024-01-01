@@ -1,0 +1,21 @@
+---
+import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
+
+interface Props {
+  date: Date
+}
+
+let { date } = Astro.props
+
+let locale = getLocaleFromUrl(Astro.url)
+---
+
+<time datetime={date.toISOString()}>
+  {
+    date.toLocaleDateString(locale, {
+      year: 'numeric',
+      day: 'numeric',
+      month: 'long',
+    })
+  }
+</time>

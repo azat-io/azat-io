@@ -1,0 +1,85 @@
+---
+import Typography from '~/components/Typography.astro'
+import InstagramIcon from '~/icons/instagram.svg?raw'
+import LinkedinIcon from '~/icons/linkedin.svg?raw'
+import TelegramIcon from '~/icons/telegram.svg?raw'
+import MastodonIcon from '~/icons/mastodon.svg?raw'
+import EnvelopeIcon from '~/icons/envelope.svg?raw'
+import DiscordIcon from '~/icons/discord.svg?raw'
+import SpotifyIcon from '~/icons/spotify.svg?raw'
+import BlueSkyIcon from '~/icons/bluesky.svg?raw'
+import GithubIcon from '~/icons/github.svg?raw'
+import XIcon from '~/icons/x.svg?raw'
+
+type Type =
+  | 'instagram'
+  | 'linkedin'
+  | 'telegram'
+  | 'mastodon'
+  | 'spotify'
+  | 'discord'
+  | 'bluesky'
+  | 'github'
+  | 'email'
+  | 'x'
+
+interface Props {
+  username: string
+  link: string
+  name: string
+  type: Type
+}
+
+let { username, name, link, type } = Astro.props
+
+let Icon: {
+  [key in Type]: string
+} = {
+  instagram: InstagramIcon,
+  linkedin: LinkedinIcon,
+  telegram: TelegramIcon,
+  mastodon: MastodonIcon,
+  spotify: SpotifyIcon,
+  discord: DiscordIcon,
+  bluesky: BlueSkyIcon,
+  email: EnvelopeIcon,
+  github: GithubIcon,
+  x: XIcon,
+}
+---
+
+<a rel="noopener noreferrer" target="_blank" class="social" href={link}>
+  <Fragment set:html={Icon[type]} />
+  <div>
+    <Typography color="brand" class="text" size="m" mbe="xs">{name}</Typography>
+    <Typography color="secondary" class="text" size="xs">{username}</Typography>
+  </div>
+</a>
+
+<style>
+  .social {
+    display: inline-flex;
+    gap: var(--space-s);
+    align-items: center;
+    padding-block: var(--space-s);
+    border-block-end: none;
+    border-radius: var(--border-radius);
+    transition: all 250ms;
+    will-change: box-shadow, background, color;
+  }
+
+  .social:hover {
+    color: var(--color-content-brand);
+    background: var(--color-background-primary-hover);
+  }
+
+  .social :global(svg) {
+    inline-size: 42px;
+    block-size: 42px;
+    color: var(--color-content-brand);
+  }
+
+  .text {
+    line-height: 1;
+  }
+</style>

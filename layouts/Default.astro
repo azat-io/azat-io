@@ -1,0 +1,36 @@
+---
+import Container from '~/components/Container.astro'
+import Header from '~/components/Header.astro'
+import Footer from '~/components/Footer.astro'
+import Head from '~/components/Head.astro'
+import Html from '~/components/Html.astro'
+
+interface Props {
+  description: string
+  size?: 'm' | 'l'
+  title: string
+}
+
+let { description, size = 'm', title } = Astro.props
+---
+
+<Html>
+  <Head description={description} title={title} />
+  <body>
+    <main class="main">
+      <Header />
+      <Container size={size}>
+        <slot />
+      </Container>
+      <Footer />
+    </main>
+  </body>
+</Html>
+
+<style>
+  .main {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-block-size: 100vb;
+  }
+</style>

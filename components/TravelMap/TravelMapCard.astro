@@ -1,0 +1,38 @@
+---
+import TravelFlag from '~/components/TravelMap/TravelMapFlag.astro'
+import Typography from '~/components/Typography.astro'
+
+interface Props {
+  originName: string
+  name: string
+  code: string
+  tag?: string
+}
+
+let { tag = 'div', originName, name, code } = Astro.props
+
+let Tag = tag
+---
+
+<Tag class:list="card">
+  <TravelFlag code={code} />
+  <div>
+    <Typography color="brand" class="name" mbe="2xs" size="s">
+      {name}
+    </Typography>
+    <Typography class="name" size="2xs">{originName}</Typography>
+  </div>
+</Tag>
+
+<style>
+  .card {
+    display: flex;
+    gap: var(--space-m);
+    place-items: center;
+    margin-block: 0;
+  }
+
+  .name {
+    line-height: 1.1;
+  }
+</style>

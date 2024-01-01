@@ -1,0 +1,72 @@
+---
+import { Picture } from 'astro:assets'
+
+import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
+import { useTranslations } from '~/utils/use-translations'
+import Container from '~/components/Container.astro'
+
+interface Props {
+  name: string
+  id: string
+}
+
+let { name, id } = Astro.props
+
+let locale = getLocaleFromUrl(Astro.url)
+let t = useTranslations(locale, 'blog')
+
+let images = import.meta.glob('../../assets/blog/hero/*')
+images = Object.fromEntries(
+  Object.entries(images).map(([key, value]) => [
+    key.replace('../../assets/blog/hero/', '').replace(/\.png$/, ''),
+    value,
+  ]),
+)
+
+let imageSrc = images[id]?.() as ImageMetadata | undefined
+---
+
+{
+  imageSrc && (
+    <div class="hero">
+      <Container class="container">
+        <Picture
+          sizes={`(max-width: 480px) 480w, (max-width: 768px) 768w, 1200w`}
+          alt={`${t('post-cover-for')} ${name}`}
+          formats={['avif', 'webp']}
+          widths={[480, 768, 1200]}
+          fetchpriority="high"
+          loading="eager"
+          src={imageSrc}
+          class="image"
+          height="630"
+          width="1200"
+        />
+      </Container>
+    </div>
+  )
+}
+
+<style>
+  .hero {
+    background: oklch(96.88% 0.024 85.79);
+  }
+
+  .container {
+    padding-block: 0;
+    overflow: hidden;
+  }
+
+  .image {
+    inline-size: 100%;
+    block-size: auto;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+
+  @media (width >= 768px) {
+    .image {
+      margin-block: calc(0px - var(--space-m));
+    }
+  }
+</style>

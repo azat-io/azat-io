@@ -1,0 +1,108 @@
+---
+import AnimePicture from '~/components/Anime/AnimePicture.astro'
+import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
+import AnimeRating from '~/components/Anime/AnimeRating.astro'
+import { useTranslations } from '~/utils/use-translations'
+import Typography from '~/components/Typography.astro'
+
+type Genre =
+  | 'psychological'
+  | 'slice-of-life'
+  | 'supernatural'
+  | 'adventure'
+  | 'thriller'
+  | 'fantasy'
+  | 'mystery'
+  | 'romance'
+  | 'comedy'
+  | 'action'
+  | 'sci-fi'
+  | 'horror'
+  | 'drama'
+  | 'mecha'
+  | 'music'
+  | 'ecchi'
+
+interface Props {
+  originName: string
+  duration: number
+  episodes: number
+  genres: Genre[]
+  score: number
+  name: string
+  year: number
+  id: string
+}
+
+let { originName, duration, episodes, genres, score, name, year, id } =
+  Astro.props
+
+let locale = getLocaleFromUrl(Astro.url)
+let t = useTranslations(locale, 'anime')
+
+let formattedGenres = genres.map(genre => t(genre)).join(', ')
+let timeConvert = (totalMinutes: number): string => {
+  let hours = totalMinutes / 60
+  let rhours = Math.floor(hours)
+  let minutes = (hours - rhours) * 60
+  let rminutes = Math.round(minutes)
+  return (
+    (rhours > 0 ? `${rhours} ${t('hours')} ` : '') +
+    (rminutes > 0 ? `${rminutes} ${t('minutes')}` : '')
+  )
+}
+let durationTime =
+  episodes === 1
+    ? timeConvert(duration)
+    : `${episodes} ${t('episodes-of')} ${timeConvert(duration)}`
+---
+
+<li class="card">
+  <AnimePicture name={name} id={id} />
+  <div class="data">
+    <div class="info">
+      <Typography class="single-line" color="brand" size="s">
+        {name}
+      </Typography>
+      <Typography class="single-line" color="secondary" size="xs" mbe="xs">
+        {originName}
+      </Typography>
+      <Typography color="primary" size="xs">
+        {`${t('genres')}: ${formattedGenres}`}
+      </Typography>
+      <Typography color="primary" size="xs">
+        {`${t('duration')}: ${durationTime}`}
+      </Typography>
+      <Typography color="primary" size="xs">
+        {`${t('year')}: ${year}`}
+      </Typography>
+    </div>
+    <AnimeRating score={score} />
+  </div>
+</li>
+
+<style>
+  .card {
+    display: flex;
+    gap: var(--space-m);
+    margin-block: 0;
+  }
+
+  .data {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    block-size: 100%;
+  }
+
+  .info {
+    display: grid;
+    gap: 0;
+  }
+
+  .single-line {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+</style>

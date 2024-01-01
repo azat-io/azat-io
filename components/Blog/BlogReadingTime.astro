@@ -1,0 +1,59 @@
+---
+import readingTime from 'reading-time'
+
+import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
+import { useTranslations } from '~/utils/use-translations'
+import Typography from '~/components/Typography.astro'
+import CoffeeIcon from '~/icons/coffee.svg?raw'
+
+interface Props {
+  body: string
+}
+
+let { body } = Astro.props
+
+let locale = getLocaleFromUrl(Astro.url)
+let t = useTranslations(locale, 'blog')
+
+let time = Math.ceil(readingTime(body).minutes)
+let coffeeCups = Math.ceil(time / 5)
+---
+
+<div class="reading-time">
+  {
+    Array.from({ length: coffeeCups }).map(() => (
+      <span class="coffee-cup">
+        <Fragment set:html={CoffeeIcon} />
+      </span>
+    ))
+  }
+  <Typography size="xs">
+    {
+      `${time} ${
+        (
+          t('minutes-to-read') as {
+            [key in Intl.LDMLPluralRule]: string
+          }
+        )[new Intl.PluralRules(locale).select(time)]
+      }`
+    }
+  </Typography>
+</div>
+
+<style>
+  .reading-time {
+    display: flex;
+    gap: var(--space-xs);
+    align-items: start;
+  }
+
+  .coffee-cup {
+    display: flex;
+  }
+
+  .coffee-cup :global(svg) {
+    inline-size: 18px;
+    block-size: 18px;
+    color: var(--color-content-primary);
+  }
+</style>

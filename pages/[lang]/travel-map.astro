@@ -1,0 +1,65 @@
+---
+import { getCollection } from 'astro:content'
+
+import TravelWorldMap from '~/components/TravelMap/TravelMapWorldMap.astro'
+import TravelCard from '~/components/TravelMap/TravelMapCard.astro'
+import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
+import { useTranslations } from '~/utils/use-translations'
+import LayoutDefault from '~/layouts/Default.astro'
+import Title from '~/components/Title.astro'
+import { locales } from '~/locales'
+
+let locale = getLocaleFromUrl(Astro.url)
+let t = useTranslations(locale, 'travel-map')
+
+let collection = (await getCollection('travel-map')).map(({ data }) => data)
+
+export let getStaticPaths = () =>
+  locales.map(({ code }) => ({ params: { lang: code } }))
+---
+
+<LayoutDefault description={t('description')} title={t('title')} size="l">
+  <Title>
+    {t('title')}
+  </Title>
+  <TravelWorldMap countries={collection.map(({ code }) => code)} />
+  <ul class="list">
+    {
+      collection.map(({ originName, code }) => (
+        <TravelCard
+          name={t(code as keyof typeof t)}
+          originName={originName}
+          code={code}
+          tag="li"
+        />
+      ))
+    }
+  </ul>
+</LayoutDefault>
+
+<style>
+  .list {
+    display: grid;
+    gap: var(--space-m) var(--space-xs);
+    inline-size: 100%;
+    padding-inline-start: 0;
+    margin-block-start: var(--space-xl);
+    list-style: none;
+  }
+
+  @media (width >= 768px) {
+    .list {
+      grid-template-rows: repeat(7, 1fr);
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-flow: column;
+    }
+  }
+
+  @media (width >= 1200px) {
+    .list {
+      grid-template-rows: repeat(5, 1fr);
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-flow: column;
+    }
+  }
+</style>

@@ -1,0 +1,56 @@
+---
+import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
+import { useTranslations } from '~/utils/use-translations'
+import Navigation from '~/components/Navigation.svelte'
+import Typography from '~/components/Typography.astro'
+import Logo from '~/components/Logo.astro'
+
+let locale = getLocaleFromUrl(Astro.url)
+let t = useTranslations(locale, 'header')
+---
+
+<header class="header">
+  <a href={`/${locale}`} class="title">
+    <Logo class="logo" />
+    <Typography class="name" size="l" bold>
+      {t('name')}
+    </Typography>
+  </a>
+  <Navigation client:load />
+</header>
+
+<style>
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-s) var(--space-m);
+    background: var(--color-background-primary);
+    box-shadow: 0 1px 1px var(--color-border-primary);
+  }
+
+  .name {
+    white-space: nowrap;
+  }
+
+  .logo {
+    inline-size: 36px;
+    block-size: 36px;
+    color: var(--color-background-brand);
+  }
+
+  .title {
+    display: flex;
+    gap: var(--space-s);
+    align-items: center;
+    color: var(--color-content-primary);
+    text-decoration: none;
+    border-block-end: none;
+  }
+
+  @media (width >= 768px) {
+    .header {
+      padding: var(--space-xs) var(--space-m);
+    }
+  }
+</style>

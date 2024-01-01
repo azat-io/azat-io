@@ -1,0 +1,65 @@
+---
+import type { CollectionEntry } from 'astro:content'
+
+import BlogAvailableLocales from '~/components/Blog/BlogAvailableLocales.astro'
+import BlogAdditionalPosts from '~/components/Blog/BlogAdditionalPosts.astro'
+import BlogEditPageLink from '~/components/Blog/BlogEditPageLink.astro'
+import BlogReadingTime from '~/components/Blog/BlogReadingTime.astro'
+import BlogHero from '~/components/Blog/BlogHero.astro'
+import BlogInfo from '~/components/Blog/BlogInfo.astro'
+import BlogDate from '~/components/Blog/BlogDate.astro'
+import Container from '~/components/Container.astro'
+import Header from '~/components/Header.astro'
+import Footer from '~/components/Footer.astro'
+import Title from '~/components/Title.astro'
+import Head from '~/components/Head.astro'
+import Html from '~/components/Html.astro'
+
+type Props = CollectionEntry<'blog'>['data'] & {
+  body: string
+  slug: string
+}
+
+let { description, title, date, slug, body } = Astro.props
+let id = slug.slice(3)
+
+let images = import.meta.glob('../assets/blog/hero/*')
+images = Object.fromEntries(
+  Object.entries(images).map(([key, value]) => [
+    key.replace('../assets/blog/hero/', '').replace(/\.png$/, ''),
+    value,
+  ]),
+)
+
+let imageSrc = (await images[id]?.()) as { default: ImageMetadata } | undefined
+---
+
+<Html>
+  <Head image={imageSrc?.default.src} description={description} title={title} />
+  <body>
+    <main class="main">
+      <Header />
+      <BlogHero name={title} id={id} />
+      <Container tag="article">
+        <Title align="start">{title}</Title>
+        <BlogInfo>
+          <BlogDate date={date} />
+          <BlogReadingTime body={body} />
+        </BlogInfo>
+        <BlogAvailableLocales slug={slug} />
+        <slot />
+        <BlogEditPageLink slug={slug} />
+        <BlogAdditionalPosts slug={slug} />
+      </Container>
+      <Footer />
+    </main>
+  </body>
+</Html>
+
+<style>
+  .main {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-block-size: 100vb;
+  }
+</style>

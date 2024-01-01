@@ -1,0 +1,4 @@
+{
+  "*.{ts,js,astro}": "eslint",
+  "*.{css,astro}": "stylelint"
+}

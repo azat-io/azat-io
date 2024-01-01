@@ -1,0 +1,23 @@
+---
+import { Picture } from 'astro:assets'
+
+import avatar from '~/assets/avatar.png'
+
+interface Props {
+  alt?: string
+}
+
+let { alt } = Astro.props
+---
+
+<Picture formats={['avif', 'webp']} class="avatar" src={avatar} alt={alt} />
+
+<style>
+  .avatar {
+    inline-size: 200px;
+    block-size: 200px;
+    user-select: none;
+    border-radius: 50%;
+    -webkit-user-drag: none;
+  }
+</style>

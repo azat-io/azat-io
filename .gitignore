@@ -1,0 +1,18 @@
+# Build output
+dist/
+
+# Generated types
+.astro/
+
+# Editors
+.vscode/
+.vim/
+
+# Dependencies
+node_modules/
+
+# Logs
+pnpm-debug.log*
+
+# Misc
+.DS_Store

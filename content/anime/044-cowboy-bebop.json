@@ -1,0 +1,9 @@
+{
+  "id": "cowboy-bebop",
+  "originName": "Cowboy Bebop",
+  "genres": ["action", "adventure", "drama", "sci-fi"],
+  "year": 1998,
+  "duration": 24,
+  "episodes": 26,
+  "score": 7
+}

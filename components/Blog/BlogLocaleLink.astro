@@ -1,0 +1,19 @@
+---
+import ISO6391 from 'iso-639-1'
+
+import Tag from '~/components/Tag.astro'
+
+interface Props {
+  locale: string
+  slug: string
+}
+
+let { locale, slug } = Astro.props
+
+let localeName = ISO6391.getNativeName(locale)
+localeName = localeName.at(0)!.toUpperCase() + localeName.slice(1)
+---
+
+<Tag href={`/${locale}/blog/${slug}`} tag="a">
+  {localeName}
+</Tag>

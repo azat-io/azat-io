@@ -1,0 +1,49 @@
+---
+interface Props {
+  size?: 'm' | 'l'
+  class?: string
+  id: string
+}
+
+let { class: className, size = 'm', id } = Astro.props
+
+let logos = Object.fromEntries(
+  Object.entries(
+    import.meta.glob('../../assets/projects/*', { as: 'raw' }),
+  ).map(([path, getLogo]) => [
+    path.replace('../../assets/projects/', '').replace(/\.svg$/, ''),
+    getLogo,
+  ]),
+)
+
+let logo = await logos[id]?.()
+---
+
+{
+  logo && (
+    <div class:list={['logo', `size-${size}`, className]}>
+      <Fragment set:html={logo} />
+    </div>
+  )
+}
+
+<style>
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo :global(svg) {
+    color: var(--color-content-primary);
+  }
+
+  .size-m :global(svg) {
+    inline-size: 80px;
+    block-size: 80px;
+  }
+
+  .size-l :global(svg) {
+    inline-size: 112px;
+    block-size: 112px;
+  }
+</style>

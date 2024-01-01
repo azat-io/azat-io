@@ -1,0 +1,21 @@
+---
+import AnimeStar from '~/components/Anime/AnimeStar.astro'
+
+interface Props {
+  score: number
+}
+
+let { score } = Astro.props
+---
+
+<div class="rating">
+  {[...Array(10)].map((_, i) => <AnimeStar filled={score >= i + 1} />)}
+</div>
+
+<style>
+  .rating {
+    display: flex;
+    gap: 2px;
+    align-items: center;
+  }
+</style>

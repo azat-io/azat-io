@@ -1,0 +1,57 @@
+---
+import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
+import { useTranslations } from '~/utils/use-translations'
+import Typography from '~/components/Typography.astro'
+import GithubIcon from '~/icons/github.svg?raw'
+import VscodeIcon from '~/icons/vscode.svg?raw'
+import GlobeIcon from '~/icons/globe.svg?raw'
+import NpmIcon from '~/icons/npm.svg?raw'
+
+type Type = 'website' | 'github' | 'vscode' | 'npm'
+
+interface Props {
+  link: string
+  type: Type
+}
+
+let { link, type } = Astro.props
+
+let locale = getLocaleFromUrl(Astro.url)
+let t = useTranslations(locale, 'projects')
+
+let Icon: {
+  [key in Type]: string
+} = {
+  website: GlobeIcon,
+  github: GithubIcon,
+  vscode: VscodeIcon,
+  npm: NpmIcon,
+}
+---
+
+<a rel="noopener noreferrer" target="_blank" class="link" href={link}>
+  <div class="icon">
+    <Fragment set:html={Icon[type]} />
+  </div>
+  <Typography size="m">
+    {t(type)}
+  </Typography>
+</a>
+
+<style>
+  .link {
+    display: flex;
+    gap: var(--space-xs);
+    align-items: center;
+    inline-size: 128px;
+    color: var(--color-content-primary);
+    border-block-end: none;
+    border-radius: var(--border-radius);
+  }
+
+  .icon :global(svg) {
+    display: flex;
+    inline-size: 28px;
+    block-size: 28px;
+  }
+</style>

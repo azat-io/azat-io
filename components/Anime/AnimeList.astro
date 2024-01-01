@@ -1,0 +1,23 @@
+---
+
+---
+
+<ul class="list">
+  <slot />
+</ul>
+
+<style>
+  .list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-l);
+    padding-inline-start: 0;
+    margin-block-start: var(--space-xl);
+  }
+
+  @media (width >= 768px) {
+    .list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

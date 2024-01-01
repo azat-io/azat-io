@@ -1,0 +1,49 @@
+---
+id: eslint-plugin-perfectionist
+title: ESLint Plugin Perfectionist
+description: ESLint плагин сортировки объектов, импортов, типов, JSX пропсов и др.
+type: eslint
+badges:
+  - name: Version
+    url: https://img.shields.io/npm/v/eslint-plugin-perfectionist.svg?color=f6bd40
+  - name: GitHub stars
+    url: https://img.shields.io/github/stars/azat-io/eslint-plugin-perfectionist?style=flat&color=f6bd40
+  - name: Downloads per week
+    url: https://img.shields.io/npm/dw/eslint-plugin-perfectionist?color=f6bd40
+  - name: License
+    url: https://img.shields.io/npm/l/eslint-plugin-perfectionist?color=f6bd40
+links:
+  website: https://eslint-plugin-perfectionist.azat.io
+  github: https://github.com/azat-io/eslint-plugin-perfectionist
+  npm: https://npmjs.com/package/eslint-plugin-perfectionist
+---
+
+Эстетическая и структурная целостность кода — важная вещь при разработке. Тщательно организованная кодовая база повышает её читабельность и увеличивает эффективность совместной работы. ESLint Plugin Perfectionist — это инструмент для решения таких задач.
+
+Этот плагин ESLint предназначен для сортировки различных данных в коде: импортов, объектов, типов и интерфейсов Typescript, свойств JSX, классов и многого другого.
+
+Кроме того, плагин обеспечивает безопасность и целостность в процессе модификации кода. Он разработан таким образом, чтобы такие вещи как комментарии, аннотации JSDoc и спред операторы в объектах учитывались, чтобы суть и функциональность кода остались нетронутыми.
+
+## Как начать его использовать?
+
+Прежде всего, необходимо установить на проект сам ESLint:
+
+```sh
+npm install --save-dev eslint
+```
+
+Затем установите плагин:
+
+```sh
+npm install --save-dev eslint-plugin-perfectionist
+```
+
+Самый простой способ начать использовать плагин - импортировать один из трех готовых конфигов в ваш конфиг `.eslintrc`. Например, конфиг с сортировкой по алфавиту:
+
+```json
+{
+  "extends": ["plugin:perfectionist/recommended-alphabetical"]
+}
+```
+
+После установки линтер покажет множество ошибок в коде. Однако не пугайтесь, потому что все правила плагина можно исправить автоматически. Это значит, что вам не нужно ничего исправлять вручную. Просто запустите ESLint с флагом `--fix`, и плагин исправит всё сам

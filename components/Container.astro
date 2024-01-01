@@ -1,0 +1,31 @@
+---
+interface Props {
+  size?: 'm' | 'l'
+  class?: string
+  tag?: string
+}
+
+let { class: className, tag = 'div', size = 'm', ...props } = Astro.props
+
+let Tag = tag
+---
+
+<Tag class:list={['container', `size-${size}`, className]} {...props}>
+  <slot />
+</Tag>
+
+<style>
+  .container {
+    inline-size: min(840px, 100vi);
+    padding: var(--space-l) var(--space-m);
+    margin-inline: auto;
+  }
+
+  .size-m {
+    inline-size: min(clamp(38.75rem, 13.75rem + 40vi, 53.75rem), 100vi);
+  }
+
+  .size-l {
+    inline-size: min(clamp(57.5rem, 26rem + 45vi, 80rem), 100vi);
+  }
+</style>

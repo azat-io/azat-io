@@ -1,0 +1,63 @@
+---
+import flagAE from '~/assets/flags/flag-ae.svg?raw'
+import flagAM from '~/assets/flags/flag-am.svg?raw'
+import flagAZ from '~/assets/flags/flag-az.svg?raw'
+import flagBY from '~/assets/flags/flag-by.svg?raw'
+import flagFR from '~/assets/flags/flag-fr.svg?raw'
+import flagGE from '~/assets/flags/flag-ge.svg?raw'
+import flagIL from '~/assets/flags/flag-il.svg?raw'
+import flagIN from '~/assets/flags/flag-in.svg?raw'
+import flagKE from '~/assets/flags/flag-ke.svg?raw'
+import flagPS from '~/assets/flags/flag-ps.svg?raw'
+import flagRU from '~/assets/flags/flag-ru.svg?raw'
+import flagTR from '~/assets/flags/flag-tr.svg?raw'
+import flagUA from '~/assets/flags/flag-ua.svg?raw'
+import flagUG from '~/assets/flags/flag-ug.svg?raw'
+import flagUS from '~/assets/flags/flag-us.svg?raw'
+
+interface Props {
+  code: string
+}
+
+let { code } = Astro.props
+
+let flags: {
+  [key: string]: undefined | string
+} = {
+  ae: flagAE,
+  am: flagAM,
+  az: flagAZ,
+  by: flagBY,
+  fr: flagFR,
+  ge: flagGE,
+  il: flagIL,
+  in: flagIN,
+  ke: flagKE,
+  ps: flagPS,
+  ru: flagRU,
+  tr: flagTR,
+  ua: flagUA,
+  ug: flagUG,
+  us: flagUS,
+}
+
+let flag = flags[code]
+---
+
+{
+  flag && (
+    <div class="flag">
+      <Fragment set:html={flags[code]} />
+    </div>
+  )
+}
+
+<style>
+  .flag {
+    inline-size: 48px;
+  }
+
+  .flag :global(svg) {
+    margin-block-start: 4px;
+  }
+</style>

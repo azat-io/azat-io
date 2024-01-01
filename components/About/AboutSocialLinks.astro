@@ -1,0 +1,34 @@
+---
+
+---
+
+<div class="social-links">
+  <slot />
+</div>
+
+<style>
+  .social-links {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: var(--space-m);
+    inline-size: 100%;
+  }
+
+  @media (width >= 768px) {
+    .social-links {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (width >= 1200px) {
+    .social-links {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (width >= 1600px) {
+    .social-links {
+      gap: var(--space-m) var(--space-xl);
+    }
+  }
+</style>

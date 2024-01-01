@@ -1,0 +1,22 @@
+---
+import Typography from '~/components/Typography.astro'
+
+interface Props {
+  align?: 'center' | 'start' | 'end'
+}
+
+let { align = 'center' } = Astro.props
+---
+
+<Typography
+  align={align}
+  color="brand"
+  size="2xl"
+  size="2xl"
+  tag="h1"
+  mbe="m"
+  mbs="l"
+  bold
+>
+  <slot />
+</Typography>

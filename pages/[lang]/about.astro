@@ -1,0 +1,84 @@
+---
+import AboutSocialLinks from '~/components/About/AboutSocialLinks.astro'
+import AboutSocial from '~/components/About/AboutSocial.astro'
+import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
+import { useTranslations } from '~/utils/use-translations'
+import { Content as EnAbout } from '~/content/about/en.md'
+import { Content as RuAbout } from '~/content/about/ru.md'
+import Typography from '~/components/Typography.astro'
+import LayoutDefault from '~/layouts/Default.astro'
+import Title from '~/components/Title.astro'
+import { locales } from '~/locales'
+
+let locale = getLocaleFromUrl(Astro.url)
+let t = useTranslations(locale, 'about')
+
+let xUsername = locale === 'ru' ? 'azat_io' : 'azat_io_en'
+
+export let getStaticPaths = () =>
+  locales.map(({ code }) => ({ params: { lang: code } }))
+---
+
+<LayoutDefault description={t('description')} title={t('title')}>
+  <Title>{t('title')}</Title>
+  {locale === 'ru' ? <RuAbout /> : <EnAbout />}
+  <Typography size="xl" tag="h2" mbs="xl" mbe="l" bold>
+    {t('links')}
+  </Typography>
+  <AboutSocialLinks>
+    <AboutSocial
+      link="mailto:to@azat.io"
+      username="to@azat.io"
+      name={t('email')}
+      type="email"
+    />
+    <AboutSocial
+      link="https://github.com/azat-io"
+      username="@azat-io"
+      name={t('github')}
+      type="github"
+    />
+    <AboutSocial
+      link={`https://twitter.com/${xUsername}`}
+      username={`@${xUsername}`}
+      name={t('x')}
+      type="x"
+    />
+    <AboutSocial
+      link="https://mastodon.social/@azat_io"
+      username="@azat_io@mastodon.social"
+      name={t('mastodon')}
+      type="mastodon"
+    />
+    <AboutSocial
+      link="https://bsky.app/profile/azat-io.bsky.social"
+      username="@azat-io.bsky.social"
+      name={t('blue-sky')}
+      type="bluesky"
+    />
+    <AboutSocial
+      link="https://linkedin.com/in/azat-io"
+      name={t('linkedin')}
+      username="@azat-io"
+      type="linkedin"
+    />
+    <AboutSocial
+      link="https://discordapp.com/users/azat_io"
+      username="@azat_io"
+      name={t('discord')}
+      type="discord"
+    />
+    <AboutSocial
+      link="https://t.me/azat_io"
+      name={t('telegram')}
+      username="@azat_io"
+      type="telegram"
+    />
+    <AboutSocial
+      link="https://instagram.com/azat_io"
+      name={t('instagram')}
+      username="@azat_io"
+      type="instagram"
+    />
+  </AboutSocialLinks>
+</LayoutDefault>

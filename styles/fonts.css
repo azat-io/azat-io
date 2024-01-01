@@ -1,0 +1,52 @@
+@font-face {
+  font-family: 'Co Text';
+  font-weight: 400;
+  src: url('/fonts/co-text-regular.woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Co Text';
+  font-weight: 700;
+  src: url('/fonts/co-text-bold.woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Co Test Fallback';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Arial');
+  size-adjust: 112.01%;
+  ascent-override: 69.46%;
+  descent-override: 19.82%;
+  line-gap-override: 66.51%;
+}
+
+@font-face {
+  font-family: 'Monaspace Neon';
+  src: url('/fonts/monaspace-neon.woff2');
+  font-display: swap;
+}
+
+:root {
+  --font-family-base: 'Co Text', 'Co Test Fallback', sans-serif;
+
+  --font-size-2xs: clamp(0.86rem, -0.52vi + 0.99rem, 0.58rem);
+  --font-size-xs: clamp(0.91rem, -0.34vi + 0.99rem, 0.72rem);
+  --font-size-s: clamp(0.95rem, -0.1vi + 0.98rem, 0.9rem);
+  --font-size-m: clamp(1rem, 0.23vi + 0.94rem, 1.13rem);
+  --font-size-l: clamp(1.05rem, 0.65vi + 0.89rem, 1.41rem);
+  --font-size-xl: clamp(1.1rem, 1.19vi + 0.8rem, 1.76rem);
+  --font-size-2xl: clamp(1.16rem, 1.89vi + 0.69rem, 2.2rem);
+  --font-size-3xl: clamp(1.22rem, 2.78vi + 0.52rem, 2.75rem);
+
+  --font-2xs: 400 var(--font-size-2xs) / 1.75 var(--font-family-base);
+  --font-xs: 400 var(--font-size-xs) / 1.75 var(--font-family-base);
+  --font-s: 400 var(--font-size-s) / 1.75 var(--font-family-base);
+  --font-m: 400 var(--font-size-m) / 1.75 var(--font-family-base);
+  --font-l: 400 var(--font-size-l) / 1.75 var(--font-family-base);
+  --font-xl: 600 var(--font-size-xl) / 1.5 var(--font-family-base);
+  --font-2xl: 600 var(--font-size-2xl) / 1 var(--font-family-base);
+  --font-3xl: 600 var(--font-size-3xl) / 1 var(--font-family-base);
+}

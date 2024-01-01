@@ -1,0 +1,3 @@
+https://azat-io.netlify.app/* https://azat.io/:splat 301!
+/ /ru 302! Language=ru,uk,be
+/ /en 302

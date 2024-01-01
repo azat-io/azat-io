@@ -1,0 +1,50 @@
+---
+import { Picture } from 'astro:assets'
+
+import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
+import { useTranslations } from '~/utils/use-translations'
+
+interface Props {
+  name: string
+  id: string
+}
+
+let { name, id } = Astro.props
+
+let locale = getLocaleFromUrl(Astro.url)
+let t = useTranslations(locale, 'blog')
+
+let images = import.meta.glob('../../assets/blog/thumbnail/*')
+images = Object.fromEntries(
+  Object.entries(images).map(([key, value]) => [
+    key.replace('../../assets/blog/thumbnail/', '').replace(/\.png$/, ''),
+    value,
+  ]),
+)
+
+let imageSrc = images[id]?.() as ImageMetadata | undefined
+---
+
+{
+  imageSrc && (
+    <Picture
+      alt={`${t('post-cover-for')} ${name}`}
+      formats={['avif', 'webp']}
+      loading="eager"
+      src={imageSrc}
+      class="image"
+      height="160"
+      width="160"
+    />
+  )
+}
+
+<style>
+  .image {
+    inline-size: 120px;
+    block-size: 120px;
+    user-select: none;
+    border-radius: 50%;
+    -webkit-user-drag: none;
+  }
+</style>

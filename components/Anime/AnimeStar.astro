@@ -1,0 +1,25 @@
+---
+import StarIcon from '~/icons/star.svg?raw'
+
+interface Props {
+  filled?: boolean
+}
+
+let { filled } = Astro.props
+---
+
+<div class:list={['star', filled && 'filled']}>
+  <Fragment set:html={StarIcon} />
+</div>
+
+<style>
+  .star :global(svg) {
+    inline-size: 18px;
+    block-size: 18px;
+    color: var(--color-content-primary);
+  }
+
+  .filled :global(svg) {
+    fill: var(--color-content-primary);
+  }
+</style>

@@ -1,0 +1,112 @@
+:root {
+  --border-radius: 6px;
+}
+
+::selection {
+  color: var(--color-content-selection);
+  background: var(--color-background-selection);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-family-base);
+  color: var(--color-content-primary);
+  scroll-behavior: smooth;
+}
+
+body {
+  min-inline-size: 320px;
+  margin: 0;
+  font: var(--font-m);
+  background: var(--color-background-primary);
+}
+
+button {
+  appearance: button;
+}
+
+button,
+input,
+select,
+optgroup,
+textarea {
+  font: inherit;
+}
+
+a,
+select:not(:disabled),
+button:not(:disabled) {
+  cursor: pointer;
+}
+
+ul,
+ol {
+  padding-inline-start: 16px;
+}
+
+a {
+  padding-inline: 2px;
+  color: var(--color-content-link);
+  text-decoration: none;
+  border-block-end: 1px solid var(--color-border-brand);
+  outline: none;
+  transition: box-shadow 200ms;
+}
+
+a:hover {
+  color: var(--color-content-link-hover);
+  border-color: var(--color-border-link-hover);
+  transition: all 200ms;
+}
+
+a:focus-visible {
+  background: var(--color-background-overlay);
+  border-block-end: none;
+  border-radius: var(--border-radius);
+  box-shadow: 0 0 0 2px var(--color-border-brand);
+}
+
+p {
+  margin-block: var(--space-m);
+}
+
+picture {
+  display: flex;
+}
+
+pre,
+code {
+  overflow: auto;
+  font-family: 'Monaspace Neon', monospace;
+  font-size: var(--font-size-s);
+  font-variation-settings:
+    'wght' 560,
+    'wdth' 110;
+  line-height: 1.75;
+  background: var(--color-background-secondary) !important;
+  border: 1px solid var(--color-border-primary);
+}
+
+pre {
+  padding: var(--space-m);
+  border-radius: 16px;
+  outline: none;
+  transition: box-shadow 200ms;
+}
+
+pre:focus-visible {
+  box-shadow: 0 0 0 2px var(--color-border-brand);
+}
+
+code {
+  padding: var(--space-2xs);
+  border-radius: var(--border-radius);
+}
+
+pre code {
+  border: 0;
+  border-radius: 0;
+}

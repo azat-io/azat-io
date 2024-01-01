@@ -1,0 +1,66 @@
+---
+import BlogReadingTime from '~/components/Blog/BlogReadingTime.astro'
+import BlogThumbnail from '~/components/Blog/BlogThumbnail.astro'
+import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
+import BlogInfo from '~/components/Blog/BlogInfo.astro'
+import BlogDate from '~/components/Blog/BlogDate.astro'
+import Typography from '~/components/Typography.astro'
+
+interface Props {
+  description: string
+  title: string
+  slug: string
+  body: string
+  date: Date
+}
+
+let { description, title, slug, date, body } = Astro.props
+
+let locale = getLocaleFromUrl(Astro.url)
+---
+
+<li class="item">
+  <a href={`/${locale}/blog/${slug}/`} class="card">
+    <BlogThumbnail name={title} id={slug} />
+    <div>
+      <Typography color="brand" size="l" tag="h2" bold>
+        {title}
+      </Typography>
+      <BlogInfo>
+        <BlogDate date={date} />
+        <BlogReadingTime body={body} />
+      </BlogInfo>
+      <Typography color="secondary" size="s" mbs="s">
+        {description}
+      </Typography>
+    </div>
+  </a>
+</li>
+
+<style>
+  .item {
+    display: flex;
+    margin-block: var(--space-l);
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-m);
+    padding: var(--space-s) var(--space-xs);
+    border-block-end: none;
+    border-radius: var(--border-radius);
+    transition: all 250ms;
+    will-change: box-shadow, background;
+  }
+
+  .card:hover {
+    background: var(--color-background-primary-hover);
+  }
+
+  @media (width >= 768px) {
+    .card {
+      flex-direction: row;
+    }
+  }
+</style>

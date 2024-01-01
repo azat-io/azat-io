@@ -1,0 +1,12 @@
+---
+import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
+
+let locale = getLocaleFromUrl(Astro.url, true)
+---
+
+<!doctype html>
+<html data-theme="dark" lang={locale}>
+  <slot />
+
+
+</html>

@@ -1,0 +1,49 @@
+---
+id: eslint-plugin-perfectionist
+title: ESLint Plugin Perfectionist
+description: ESLint plugin for sorting objects, imports, types, enums, JSX props, etc.
+type: eslint
+badges:
+  - name: Version
+    url: https://img.shields.io/npm/v/eslint-plugin-perfectionist.svg?color=f6bd40
+  - name: GitHub stars
+    url: https://img.shields.io/github/stars/azat-io/eslint-plugin-perfectionist?style=flat&color=f6bd40
+  - name: Downloads per week
+    url: https://img.shields.io/npm/dw/eslint-plugin-perfectionist?color=f6bd40
+  - name: License
+    url: https://img.shields.io/npm/l/eslint-plugin-perfectionist?color=f6bd40
+links:
+  website: https://eslint-plugin-perfectionist.azat.io
+  github: https://github.com/azat-io/eslint-plugin-perfectionist
+  npm: https://npmjs.com/package/eslint-plugin-perfectionist
+---
+
+The aesthetic and structural integrity of code is a vital aspect of software development, one that I find particularly crucial. A meticulously organized codebase not only elevates its readability but also significantly bolsters collaborative efficiency among developers. ESLint Plugin Perfectionist emerges as a standout tool for enhancing code quality.
+
+This ESLint plugin is designed to sort various data in code: imports, objects, Typescript types and interfaces, JSX properties, classes and more.
+
+Moreover, the plugin assures safety and integrity in the modification process. It is designed to respect various elements such as comments, JSDoc annotations, and spreads in objects, thus ensuring that the essence and functionality of the code remain intact.
+
+## How to start using it?
+
+First of all, you need to install ESLint itself on the project:
+
+```sh
+npm install --save-dev eslint
+```
+
+Next, install the plugin:
+
+```sh
+npm install --save-dev eslint-plugin-perfectionist
+```
+
+The easiest way to start using the plugin is to import one of the three ready-made configs into your `.eslintrc` config. For example, the config with alphabetical sorting:
+
+```json
+{
+  "extends": ["plugin:perfectionist/recommended-alphabetical"]
+}
+```
+
+After installation, the linter may show many errors in the code. However, this is not a problem because all of the plugin's rules can be fixed. This means that you do not need to fix anything manually. Just run eslint with the `--fix` flag, and the plugin will fix everything automatically.

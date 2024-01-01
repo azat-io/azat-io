@@ -1,0 +1,72 @@
+---
+import ProjectsLogo from '~/components/Projects/ProjectsLogo.astro'
+import ProjectsLink from '~/components/Projects/ProjectsLink.astro'
+
+interface Props {
+  links: {
+    website?: undefined | string
+    github?: undefined | string
+    vscode?: undefined | string
+    npm?: undefined | string
+  }
+  class?: string
+  id: string
+}
+
+let { class: className, links, id, ...props } = Astro.props
+
+let projectLinks = Object.entries(links).map(
+  ([key, value]: [string, undefined | string]) => ({
+    link: value,
+    type: key,
+  }),
+) as {
+  type: keyof typeof links
+  link: string
+}[]
+---
+
+<div class:list={['infobox', className]} {...props}>
+  <ProjectsLogo size="l" id={id} />
+  <ul class="links">
+    {
+      projectLinks.map(({ link, type }) => (
+        <li>
+          <ProjectsLink link={link} type={type} />
+        </li>
+      ))
+    }
+  </ul>
+</div>
+
+<style>
+  .infobox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    inline-size: 100%;
+    max-inline-size: 280px;
+    padding: var(--space-m);
+    background: var(--color-background-secondary);
+    border: 1px solid var(--color-border-primary);
+    border-radius: var(--border-radius);
+  }
+
+  .links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    align-items: center;
+    inline-size: 100%;
+    padding: 0;
+    margin: 0;
+    margin-block-start: var(--space-m);
+    list-style: none;
+  }
+
+  @media (width >= 768px) {
+    .infobox {
+      inline-size: 280px;
+    }
+  }
+</style>

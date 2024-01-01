@@ -1,0 +1,44 @@
+---
+import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
+import { useTranslations } from '~/utils/use-translations'
+import Typography from '~/components/Typography.astro'
+import PencilIcon from '~/icons/pencil.svg?raw'
+import { repository } from '~/package.json'
+
+interface Props {
+  slug: string
+}
+
+let { slug } = Astro.props
+
+let locale = getLocaleFromUrl(Astro.url)
+let t = useTranslations(locale, 'blog')
+---
+
+<Typography
+  href={`https://github.com/${repository}/blob/main/content/blog/${slug}.md`}
+  rel="noopener noreferrer"
+  class="edit-link"
+  color="brand"
+  tag="a"
+>
+  <Fragment set:html={PencilIcon} />
+  {t('edit-this-page')}
+</Typography>
+
+<style>
+  .edit-link {
+    display: inline-flex;
+    gap: var(--space-xs);
+    align-items: center;
+    margin-block: var(--space-m);
+    color: var(--color-content-link);
+    border-block-end: none;
+    border-radius: var(--border-radius);
+  }
+
+  .edit-link :global(svg) {
+    inline-size: 18px;
+    block-size: 18px;
+  }
+</style>

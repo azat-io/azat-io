@@ -1,0 +1,30 @@
+---
+import { getCollection } from 'astro:content'
+
+import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
+import { useTranslations } from '~/utils/use-translations'
+import AnimeList from '~/components/Anime/AnimeList.astro'
+import AnimeCard from '~/components/Anime/AnimeCard.astro'
+import LayoutDefault from '~/layouts/Default.astro'
+import Title from '~/components/Title.astro'
+import { locales } from '~/locales'
+
+let locale = getLocaleFromUrl(Astro.url)
+let t = useTranslations(locale, 'anime')
+
+let collection = (await getCollection('anime')).map(({ data }) => data)
+
+export let getStaticPaths = () =>
+  locales.map(({ code }) => ({ params: { lang: code } }))
+---
+
+<LayoutDefault description={t('description')} title={t('title')} size="l">
+  <Title>{t('title')}</Title>
+  <AnimeList>
+    {
+      collection.map(anime => (
+        <AnimeCard name={t(anime.id as keyof typeof t)} {...anime} />
+      ))
+    }
+  </AnimeList>
+</LayoutDefault>

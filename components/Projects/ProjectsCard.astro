@@ -1,0 +1,57 @@
+---
+import ProjectsLogo from '~/components/Projects/ProjectsLogo.astro'
+import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
+import Typography from '~/components/Typography.astro'
+
+interface Props {
+  description: string
+  title: string
+  slug: string
+}
+
+let { description, title, slug } = Astro.props
+let locale = getLocaleFromUrl(Astro.url)
+---
+
+<li class="item">
+  <a href={`/${locale}/projects/${slug}/`} class="card">
+    <ProjectsLogo id={slug} />
+    <div>
+      <Typography color="brand" size="m" tag="h2" bold>
+        {title}
+      </Typography>
+      <Typography color="secondary" size="xs">
+        {description}
+      </Typography>
+    </div>
+  </a>
+</li>
+
+<style>
+  .item {
+    display: flex;
+    margin-block: var(--space-l);
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-m);
+    padding: var(--space-s) var(--space-xs);
+    border-block-end: none;
+    border-radius: var(--border-radius);
+    transition: all 250ms;
+    will-change: box-shadow, background;
+  }
+
+  .card:hover {
+    background: var(--color-background-primary-hover);
+  }
+
+  @media (width >= 768px) {
+    .card {
+      flex-direction: row;
+      max-inline-size: 50%;
+    }
+  }
+</style>

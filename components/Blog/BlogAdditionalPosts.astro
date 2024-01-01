@@ -1,0 +1,105 @@
+---
+import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
+import { useTranslations } from '~/utils/use-translations'
+import ArrowRightIcon from '~/icons/arrow-right.svg?raw'
+import ArrowLeftIcon from '~/icons/arrow-left.svg?raw'
+import Typography from '~/components/Typography.astro'
+import { getPosts } from '~/utils/get-posts'
+
+interface Props {
+  slug: string
+}
+
+let { slug } = Astro.props
+
+let locale = getLocaleFromUrl(Astro.url)
+let t = useTranslations(locale, 'blog')
+
+let posts = await getPosts(locale)
+let indexOfCurrentPost = posts.findIndex(
+  post => `${locale}/${post.slug}` === slug,
+)
+let isFirstPost = indexOfCurrentPost === posts.length - 1
+let isLastPost = indexOfCurrentPost === 0
+let previousPost = isFirstPost ? null : posts.at(indexOfCurrentPost + 1)
+let nextPost = isLastPost ? null : posts.at(indexOfCurrentPost - 1)
+---
+
+{
+  locale === slug.slice(0, 2) && (
+    <div class="additional-posts">
+      {!isFirstPost ? (
+        <div class="post-previous">
+          <a
+            href={`/${locale}/blog/${previousPost?.slug}`}
+            class="link link-previous"
+          >
+            <Fragment set:html={ArrowLeftIcon} />
+            <div>
+              <Typography color="primary">{t('previous-post')}</Typography>
+              <Typography color="brand" size="s">
+                {previousPost?.data.title}
+              </Typography>
+            </div>
+          </a>
+        </div>
+      ) : (
+        <div />
+      )}
+      {!isLastPost && (
+        <div class="post-next">
+          <a href={`/${locale}/blog/${nextPost?.slug}`} class="link link-next">
+            <div>
+              <Typography color="primary">{t('next-post')}</Typography>
+              <Typography color="brand" size="s">
+                {nextPost?.data.title}
+              </Typography>
+            </div>
+            <Fragment set:html={ArrowRightIcon} />
+          </a>
+        </div>
+      )}
+    </div>
+  )
+}
+
+<style>
+  .additional-posts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-m);
+    margin-block: var(--space-m);
+  }
+
+  .link {
+    display: inline-flex;
+    gap: var(--space-s);
+    align-items: center;
+    color: var(--color-content-link);
+    border-block-end: none;
+    border-radius: var(--border-radius);
+  }
+
+  .link :global(svg) {
+    inline-size: 18px;
+    block-size: 18px;
+  }
+
+  .link-previous {
+    text-align: start;
+  }
+
+  .link-next {
+    text-align: end;
+  }
+
+  .post-previous {
+    display: flex;
+    justify-content: start;
+  }
+
+  .post-next {
+    display: flex;
+    justify-content: end;
+  }
+</style>

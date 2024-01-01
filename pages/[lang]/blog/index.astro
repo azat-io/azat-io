@@ -1,0 +1,38 @@
+---
+import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
+import { useTranslations } from '~/utils/use-translations'
+import BlogCard from '~/components/Blog/BlogCard.astro'
+import BlogList from '~/components/Blog/BlogList.astro'
+import LayoutDefault from '~/layouts/Default.astro'
+import { getPosts } from '~/utils/get-posts'
+import Title from '~/components/Title.astro'
+import { locales } from '~/locales'
+
+let locale = getLocaleFromUrl(Astro.url)
+let t = useTranslations(locale, 'blog')
+
+let posts = await getPosts(locale)
+
+export let getStaticPaths = () =>
+  locales.map(({ code }) => ({ params: { lang: code } }))
+---
+
+<LayoutDefault
+  description={t('description') as string}
+  title={t('title') as string}
+>
+  <Title>{t('title')}</Title>
+  <BlogList>
+    {
+      posts.map(({ data: { description, title, date }, slug, body }) => (
+        <BlogCard
+          description={description}
+          title={title}
+          date={date}
+          body={body}
+          slug={slug}
+        />
+      ))
+    }
+  </BlogList>
+</LayoutDefault>

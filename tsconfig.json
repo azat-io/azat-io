@@ -1,0 +1,23 @@
+{
+  "include": ["**/*.svelte", "**/*.astro", "**/*.ts"],
+  "extends": "astro/tsconfigs/strictest",
+  "compilerOptions": {
+    "verbatimModuleSyntax": true,
+    "strictNullChecks": true,
+    "baseUrl": ".",
+    "paths": {
+      "~/components/*": ["./components/*"],
+      "~/package.json": ["./package.json"],
+      "~/layouts/*": ["./layouts/*"],
+      "~/locales/*": ["./locales/*"],
+      "~/content/*": ["./content/*"],
+      "~/styles/*": ["./styles/*"],
+      "~/assets/*": ["./assets/*"],
+      "~/pages/*": ["./pages/*"],
+      "~/locales": ["./locales"],
+      "~/utils/*": ["./utils/*"],
+      "~/icons/*": ["./icons/*"],
+      "~/data/*": ["./data/*"]
+    }
+  }
+}
