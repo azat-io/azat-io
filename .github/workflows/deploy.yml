@@ -10,26 +10,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: checkout
+      - name: Checkout
         uses: actions/checkout@v3
 
-      - name: install node
+      - name: Install Node
         uses: actions/setup-node@v3
         with:
           node-version: 20
 
-      - name: install pnpm
+      - name: Install pnpm
         uses: pnpm/action-setup@v2
         with:
           version: 8
           run_install: false
 
-      - name: get pnpm store directory
+      - name: Get pnpm store directory
         shell: bash
         run: |
           echo "PNPM_STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
 
-      - name: setup pnpm cache
+      - name: Setup pnpm cache
         uses: actions/cache@v3
         with:
           path: ${{ env.PNPM_STORE_PATH }}
@@ -37,13 +37,13 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
-      - name: install dependencies
+      - name: Install dependencies
         run: pnpm install --frozen-lockfile --ignore-scripts
 
-      - name: build
+      - name: Build
         run: pnpm run build
 
-      - name: deploy to netlify
+      - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.2
         with:
           publish-dir: './dist'
