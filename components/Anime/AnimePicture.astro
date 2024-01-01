@@ -23,31 +23,38 @@ images = Object.fromEntries(
 )
 ---
 
-<Picture
-  src={images[id]!() as unknown as ImageMetadata}
-  alt={`${t('cover-for')} ${name}`}
-  formats={['avif', 'webp']}
-  decoding="async"
-  loading="lazy"
-  class="image"
-  height="630"
-  width="460"
-/>
+<div class="image-container">
+  <Picture
+    src={images[id]!() as unknown as ImageMetadata}
+    alt={`${t('cover-for')} ${name}`}
+    formats={['avif', 'webp']}
+    decoding="async"
+    loading="lazy"
+    class="image"
+    height="630"
+    width="460"
+  />
+</div>
 
 <style>
-  .image {
-    --origin-image-width: 460px;
-    --origin-image-height: 630px;
+  .image-container {
+    --origin-image-inline-size: 460px;
+    --origin-image-block-size: 630px;
     --origin-image-coefficient: clamp(0.3, 0.15 + 0.1875, 0.375);
     --inline-size: calc(
-      var(--origin-image-width) * var(--origin-image-coefficient)
+      var(--origin-image-inline-size) * var(--origin-image-coefficient)
     );
     --block-size: calc(
-      var(--origin-image-height) * var(--origin-image-coefficient)
+      var(--origin-image-block-size) * var(--origin-image-coefficient)
     );
 
     inline-size: var(--inline-size);
-    block-size: var(--block-height);
+    block-size: var(--block-size);
+  }
+
+  .image {
+    inline-size: 100%;
+    block-size: auto;
     user-select: none;
     filter: sepia(0.6) saturate(2);
   }
