@@ -51,7 +51,7 @@ let Icon: {
 <a rel="noopener noreferrer" target="_blank" class="social" href={link}>
   <Fragment set:html={Icon[type]} />
   <div>
-    <Typography color="brand" class="text" size="m" mbe="xs">{name}</Typography>
+    <Typography color="brand" class="text" size="m">{name}</Typography>
     <Typography color="secondary" class="text" size="xs">{username}</Typography>
   </div>
 </a>
@@ -80,6 +80,6 @@ let Icon: {
   }
 
   .text {
-    line-height: 1;
+    line-height: 1.35 !important;
   }
 </style>
