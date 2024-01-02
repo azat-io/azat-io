@@ -1,4 +1,5 @@
 import { squooshImageService, defineConfig } from 'astro/config'
+import rehypeExternalLinks from 'rehype-external-links'
 import { fileURLToPath } from 'node:url'
 import sitemap from '@astrojs/sitemap'
 import compress from 'astro-compress'
@@ -35,6 +36,15 @@ export default defineConfig({
     }),
   ],
   markdown: {
+    rehypePlugins: [
+      [
+        rehypeExternalLinks,
+        {
+          rel: ['noopener', 'noreferrer'],
+          target: '_blank',
+        },
+      ],
+    ],
     shikiConfig: {
       experimentalThemes: {
         light: gruvboxLight,
