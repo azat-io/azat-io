@@ -65,6 +65,7 @@ export let remarkCopyCode: Plugin<[], Root> =
               ],
             ),
           h('button', {
+            'aria-label': 'Copy code to clipboard',
             class: 'copy-code-button',
             'data-lang': lang,
           }),
