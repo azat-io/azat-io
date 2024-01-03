@@ -7,6 +7,8 @@ import svelte from '@astrojs/svelte'
 import { loadTheme } from 'shiki'
 import path from 'node:path'
 
+import { remarkCopyCode } from './plugins/remark-copy-code'
+
 let dirname = fileURLToPath(path.dirname(import.meta.url))
 
 let [gruvboxLight, gruvboxDark] = await Promise.all([
@@ -51,6 +53,7 @@ export default defineConfig({
         dark: gruvboxDark,
       },
     },
+    remarkPlugins: [remarkCopyCode],
   },
   prefetch: {
     defaultStrategy: 'viewport',

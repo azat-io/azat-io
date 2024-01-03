@@ -17,7 +17,8 @@
       "~/locales": ["./locales"],
       "~/utils/*": ["./utils/*"],
       "~/icons/*": ["./icons/*"],
-      "~/data/*": ["./data/*"]
+      "~/data/*": ["./data/*"],
+      "~/lib/*": ["./lib/*"]
     }
   }
 }
