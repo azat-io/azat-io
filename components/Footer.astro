@@ -26,19 +26,21 @@ let icons = [
 ---
 
 <script is:inline>
-  let buttons = document.querySelectorAll('.copy-code-button')
+  document.addEventListener('astro:after-swap', () => {
+    let buttons = document.querySelectorAll('.copy-code-button')
 
-  for (let button of buttons) {
-    button.addEventListener('click', () => {
-      button.classList.add('copy-code-button-copied')
-      navigator.clipboard.writeText(
-        button.nextElementSibling?.textContent ?? '',
-      )
-      setTimeout(() => {
-        button.classList.remove('copy-code-button-copied')
-      }, 2000)
-    })
-  }
+    for (let button of buttons) {
+      button.addEventListener('click', () => {
+        button.classList.add('copy-code-button-copied')
+        navigator.clipboard.writeText(
+          button.nextElementSibling?.textContent ?? '',
+        )
+        setTimeout(() => {
+          button.classList.remove('copy-code-button-copied')
+        }, 2000)
+      })
+    }
+  })
 </script>
 <footer class="footer">
   <Typography size="m">CC BY-NC-SA 4.0</Typography>
