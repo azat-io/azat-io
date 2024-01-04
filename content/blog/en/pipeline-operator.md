@@ -1,0 +1,394 @@
+---
+title: Pipeline Operator
+description: How will function composition look in JavaScript in the future, what is the pipeline operator, and how does it work?
+date: 2024-01-04
+---
+
+As of early 2024, the pipeline operator [is in Stage 2](https://tc39.es/proposal-pipeline-operator) and is not an ECMAScript language standard. At the moment TC39 is working on discussing its implementation.
+
+For me, the pipeline operator is the most anticipated feature of the language, so today I want to see how it works and what the beautiful JavaScript of the future will look like.
+
+## Background
+
+Often, we have to apply several methods or functions to achieve a certain result.
+
+Let's take a look at such an example:
+
+```js
+const getAdmins = users =>
+  users
+    .filter(({ role }) => status === 'ADMIN')
+    .map(({ firstName, lastName }) => [firstName, lastName].join(' '))
+    .toSorted((a, b) => a.localeCompare(b))
+
+const admins = getAdmins(users)
+```
+
+This function takes as input a list of all users in the system and returns an alphabetically sorted list of administrator names.
+
+What can we say about this function?
+
+1. The description of operations looks rather detailed, which makes the code look not very compact.
+2. The focus in this function is on mechanics rather than operations. Some parts of the function look a bit imperative.
+3. If the function were larger, it would be obviously harder to read it
+4. If we had to use not only built-in JavaScript methods, but also third-party functions - it would look awful, `x => f(g(x.h()).i())`.
+
+And this is where [Ramda](https://ramdajs.com) could come to our rescue.
+
+Ramda is a library for functional programming that includes currying and support for pointless function style. This makes function composition more convenient and concise.
+
+Let's look at the same example using Ramda:
+
+```js
+import {
+  identity,
+  ascend,
+  filter,
+  propEq,
+  props,
+  sort,
+  join,
+  pipe,
+  map,
+} from 'ramda'
+
+const getAdmins = pipe(
+  filter(propEq('ADMIN', 'role')),
+  map(pipe(props(['firstName', 'lastName']), join(' '))),
+  sort(ascend(identity)),
+)
+
+const admins = getAdmins(users)
+```
+
+A developer who is unfamiliar with Ramda and functional programming may be shocked by this style of code writing at first.
+
+The point is that in Ramda all functions are initially curried. A simple example:
+
+```js
+const add = a => b => a + b
+const addFive = add(5)
+const result = addFive(10) // 15
+```
+
+We created the `addFive` function using the `add` function, which returned to us a function with a predefined first argument. The `add` function in our case is a curried function.
+
+Currying is the process of converting a function with several arguments into a sequence of functions, each of which takes one argument.
+
+And since we already know all the arguments of the function except the last one when creating a curried function, it is easy to use them for function composition. Create data processing chains where the output of one function becomes the input for the next function.
+
+Let's take another look at our example with the function of getting the list of administrators written using Ramda.
+
+What do we see here?
+
+1. The function does not list the function arguments, instead the `pipe` function returned us a function that can already be used and applied to an array. This function is also curried.
+2. Our function is written with other small curried Ramda functions, combined inside the `pipe` function into a composition.
+3. The function now looks much more declarative and reads almost like plain text.
+
+The `pipe` function in Ramda is used to compose functions, i.e., to create a function by combining existing functions.
+
+As an example, let's consider another function written in imperative style, it will be a bit more complicated:
+
+```js
+import { getDiscountCoefficient } from './get-discount-coefficient'
+import { showAlert } from '../lib/show-alert'
+
+const countDiscount = ({ purchases }) => {
+  try {
+    let purchasesPrice = 0
+    let purchasesDiscount = 0
+
+    for (let { discount, amount, price } of purchases) {
+      if (discount) {
+        purchasesDiscount += price * amount * discount
+      }
+      purchasesPrice += price * amount
+    }
+
+    const discountCoefficient = getDiscountCoefficient()
+    const baseDiscount = purchasesPrice * discountCoefficient
+
+    return baseDiscount + purchasesDiscount
+  } catch (error) {
+    showAlert(`Error in the discount calculation process: ${error}`)
+  }
+}
+
+const result = countDiscount(data)
+```
+
+This function calculates the amount of discounts for a purchase.
+
+The function takes as input an object that contains a list of purchases. Purchases have a price, number of purchased items and discount percentage per item. In addition, there is also a base discount amount. The function returns the sum of the base discount for the user and the discounts for individual items.
+
+Let's rewrite this function with Ramda:
+
+```js
+import {
+  multiply,
+  converge,
+  tryCatch,
+  always,
+  values,
+  ifElse,
+  reduce,
+  apply,
+  prop,
+  pipe,
+  pick,
+  add,
+  map,
+  sum,
+  has,
+} from 'ramda'
+
+import { getDiscountCoefficient } from './get-discount-coefficient'
+import { showAlert } from '../lib/show-alert'
+
+const countDiscount = tryCatch(
+  converge(add, [
+    pipe(
+      prop('purchases'),
+      map(pipe(pick(['price', 'amount']), values, apply(multiply))),
+      sum,
+      multiply(getDiscountCoefficient()),
+    ),
+    pipe(
+      prop('purchases'),
+      map(
+        ifElse(
+          has('discount'),
+          pipe(
+            pick(['price', 'amount', 'discount']),
+            values,
+            reduce(multiply, 1),
+          ),
+          always(0),
+        ),
+      ),
+      sum,
+    ),
+  ]),
+  showAlert,
+)
+
+const result = countDiscount(data)
+```
+
+Now it is not important how each Ramda function works. We are only interested in the `pipe` function. Notice how it passes our data through many small functions like a conveyor belt. This higher-order function handles the composition of all of our business logic.
+
+Function composition is one of the basic concepts of functional programming. And this is the task that will be handled by the pipeline operator in the future in JavaScript.
+
+The purpose of the pipeline operator is the same as that of the `pipe` function, but it works a bit differently. This will be discussed in the article.
+
+## Presetting
+
+Since the pipeline operator is not supported by Node.js or any of the browsers, we'll have to use Babel to see how it works.
+
+First, let's install Babel:
+
+```bash
+npm install --save-dev @babel/cli @babel/core
+```
+
+And let's install the experimental plugin to support the pipeline operator:
+
+```bash
+npm install --save-dev @babel/plugin-proposal-pipeline-operator
+```
+
+Next, create a configuration file for Babel `.babelrc` in the root of the project:
+
+```json
+{
+  "plugins": [
+    [
+      "@babel/plugin-proposal-pipeline-operator",
+      {
+        "proposal": "hack",
+        "topicToken": "%"
+      }
+    ]
+  ]
+}
+```
+
+Let's try to execute our script `babel ./index.js -d dist && node ./dist/index.js`.
+
+With this, the setup is complete, and you can start using the pipeline operator in your code.
+
+## How the Pipeline Operator Works
+
+According to the specification, the pipeline operator will have syntax similar to that of the [Hack programming language](https://docs.hhvm.com/hack/expressions-and-operators/pipe).
+
+`%` is used as the placeholder. The operator itself is `|>`. The presence of the placeholder after the operator is mandatory.
+
+Let's start with a simple usage example:
+
+```js
+const addFive = num => num + 5
+10 |> addFive(%) // 15
+```
+
+To the left of the operator is the argument value, to the right is a function call specifying the placeholder where the value from the left part of the expression will be placed.
+
+Let's write something closer to reality and of practical use.
+
+For example, we want to convert a list of transactions into an expense report. We need to convert the currency, filter out only the expense transactions and then calculate their total amount.
+
+It looks something like this:
+
+```js
+const convertCurrency = (transactions, rate) =>
+  transactions.map(t => ({ ...t, amount: t.amount * rate }))
+
+const filterExpenses = transactions =>
+  transactions.filter(t => t.type === 'expense')
+
+const sumTransactions = transactions =>
+  transactions.reduce((sum, t) => sum + t.amount, 0)
+
+const transactions = [
+  { type: 'income', amount: 100 },
+  { type: 'expense', amount: 50 },
+  { type: 'expense', amount: 70 },
+]
+
+const exchangeRate = 1.1
+
+const totalExpenses = sumTransactions(
+  filterExpenses(convertCurrency(transactions, exchangeRate)),
+)
+```
+
+Now let's refactor our `totalExpenses` function using the pipeline operator:
+
+```js
+const totalExpenses =
+  transactions
+  |> convertCurrency(%, exchangeRate)
+  |> filterExpenses(%)
+  |> sumTransactions(%)
+```
+
+With the pipeline operator, we managed to improve readability and simplify understanding of the sequence of operations.
+
+Let's return to our original example with Ramda, the function for getting a list of administrators' names. Since all our functions (except for the `pipe` function) take only one argument, we can also use the new operator to enhance the previous code:
+
+<!-- prettier-ignore -->
+```js
+import {
+  identity,
+  ascend,
+  filter,
+  propEq,
+  props,
+  sort,
+  join,
+  map,
+} from 'ramda'
+
+const admins =
+  users
+  |> filter(propEq('ADMIN', 'role'), %)
+  |> map(user => user |> props(['firstName', 'lastName'], %) |> join(' ', %), %)
+  |> sort(ascend(identity), %)
+```
+
+## Recipes
+
+What other opportunities does a pipeline operator give us:
+
+### Working with Asynchronous Code
+
+The pipeline operator can be used when working with asynchronous code. The result of an asynchronous function can be passed to the next function in the pipeline, making the code cleaner and more readable.
+
+Let's look at a simple example where we need to execute `fetch` to get a list of users, decode the response in JSON format and filter out the blocked users of our system:
+
+<!-- prettier-ignore -->
+```js
+const filterBlockedUsers = users =>
+ users.filter(({ isBlocked }) => !isBlocked)
+
+const getUsers = async () => {
+  const response = await fetch('/api/users')
+  const json = await response.json()
+  const filteredUsers = filterBlockedUsers(json)
+
+  return filteredUsers
+}
+```
+
+How would we rewrite this function using the pipeline operator:
+
+<!-- prettier-ignore -->
+```js
+const getUsers = async () =>
+  '/users'
+  |> (await fetch(%))
+  |> (await %?.json())
+  |> filterBlockedUsers(%)
+```
+
+### Working with Template Strings
+
+You can also use the pipeline operator to make it easier to work with template strings. By placing all logic outside the string literal, we can make the code much cleaner.
+
+<!-- prettier-ignore -->
+```js
+const greetUser = async id =>
+  await getUserFirstName(id)
+  |> `Hello, ${%}!`
+```
+
+### Syntactic Sugar for if, catch and for-of
+
+It is also planned to adopt shortcuts for many expressions from the Hack language.
+
+| Status quo                    | Hack-pipe syntax      |
+| ----------------------------- | --------------------- |
+| `const c = f(); if (c) g(c);` | `if (f()) \|> g(%);`  |
+| `catch (e) f(e);`             | `catch \|> f(%);`     |
+| `for (const v of f()) g(v);`  | `for (f()) \|> g(%);` |
+
+This syntax is not currently supported even by Babel, and TC39 is debating whether to implement it.
+
+### Integration with Functional Libraries
+
+The Pipeline operator fits perfectly with popular functional libraries, makes their application much more predictable and reduces the number of possible errors.
+
+#### Lodash
+
+Without operator:
+
+```js
+import _ from 'lodash'
+
+const usersToShow = _.take(
+  _.sortBy(_.map(_.filter(users, 'isActive'), 'name')),
+  10,
+)
+```
+
+With operator:
+
+```js
+import _ from 'lodash'
+
+const usersToShow =
+  users
+  |> _.filter(%, 'isActive')
+  |> _.map(%, 'name')
+  |> _.sortBy(%)
+  |> _.take(%, 10)
+```
+
+## Conclusion
+
+The pipeline operator in JavaScript is a powerful enhancement for functional programming.
+
+It provides a convenient and readable syntax for function composition. It allows developers to express sequences of operations more concisely and clearly, improving the structure and maintainability of the code.
+
+However, the pipeline operator is currently in the proposal stage and is not a part of the JavaScript standard.
+
+Stay tuned.
