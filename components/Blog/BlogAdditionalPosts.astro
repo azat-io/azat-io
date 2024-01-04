@@ -66,7 +66,7 @@ let nextPost = isLastPost ? null : posts.at(indexOfCurrentPost - 1)
 <style>
   .additional-posts {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: var(--space-m);
     margin-block: var(--space-m);
   }
@@ -101,5 +101,11 @@ let nextPost = isLastPost ? null : posts.at(indexOfCurrentPost - 1)
   .post-next {
     display: flex;
     justify-content: end;
+  }
+
+  @media (width >= 768px) {
+    .additional-posts {
+      grid-template-columns: 1fr 1fr;
+    }
   }
 </style>
