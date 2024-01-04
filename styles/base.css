@@ -73,6 +73,27 @@ p {
   margin-block: var(--space-m);
 }
 
+h1 {
+  font: var(--font-2xl);
+}
+
+h2 {
+  margin-block: var(--space-l) var(--space-m);
+  font: var(--font-xl);
+}
+
+h3 {
+  margin-block: var(--space-m);
+  font: var(--font-l);
+  font-weight: 600;
+}
+
+h4 {
+  margin-block: var(--space-m);
+  font: var(--font-m);
+  font-weight: 600;
+}
+
 picture {
   display: flex;
 }
