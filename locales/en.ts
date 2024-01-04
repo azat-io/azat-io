@@ -20,6 +20,7 @@ export default {
       'Demon Slayer: Swordsmith Village Arc',
     'the-melancholy-of-haruhi-suzumiya': 'The Melancholy of Haruhi Suzumiya',
     'attack-on-titan-the-final-season': 'Attack on Titan: The Final Season',
+    'zom-100-bucket-list-of-the-dead': 'Zom 100: Bucket List of the Dead',
     'the-girl-who-leapt-through-time': 'The Girl Who Leapt Through Time',
     'charcoal-feather-federation': 'Charcoal Feather Federation',
     'in-this-corner-of-the-world': 'In This Corner of the World',
