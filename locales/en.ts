@@ -121,17 +121,11 @@ export default {
     hours: 'h.',
     sky: 'Sky',
   },
-  index: {
-    greeting:
-      'Hello, world! My name is Azat. I am a frontend developer. On this website, I share some of my thoughts and ideas about software development with the community and discuss modern technologies',
-    description:
-      'Personal website of Azat S. Front-end developer, creator of technical content, opensource community member',
-    'website-subtitle': 'for reinventing the wheel',
-    title: 'Manual for reinventing the wheel',
-    'website-title': 'Manual',
-    avatar: "Azat's avatar.",
-  },
   blog: {
+    'translate-1':
+      'I am very pleased that you found this post interesting and valuable. Your support helps the development of the blog and I would be grateful for any help. In particular, I am looking for contributors to translate the publication into {language}. Your contribution will help to expand our community.',
+    'translate-2':
+      "If you're ready to contribute, check out the {contributing} file, which contains all the information you need to work on translating the post.",
     description:
       'Personal blog of Azat S. Front-end developer, creator of technical content, opensource community member',
     'minutes-to-read': {
@@ -142,8 +136,40 @@ export default {
     'edit-this-page': 'Edit this page',
     'post-cover-for': 'Post cover for',
     'previous-post': 'Previous post',
+    'locale-lt': 'Lithuanian',
+    'locale-pt': 'Portuguese',
     'next-post': 'Next post',
+    'locale-uk': 'Ukrainian',
+    'locale-et': 'Estonian',
+    'locale-ja': 'Japanese',
+    'locale-tr': 'Turkish',
+    'locale-es': 'Spanish',
+    'locale-it': 'Italian',
+    'locale-lv': 'Latvian',
+    'locale-fa': 'Persian',
+    'locale-zh': 'Chinese',
+    'locale-fr': 'French',
+    'locale-de': 'German',
+    'locale-pl': 'Polish',
+    'locale-da': 'Danish',
+    'locale-ko': 'Korean',
+    'locale-ar': 'Arabic',
+    'locale-he': 'Hebrew',
+    'locale-el': 'Greek',
+    'locale-nl': 'Dutch',
+    'locale-cs': 'Czech',
+    'locale-hi': 'Hindi',
     title: 'Blog',
+  },
+  index: {
+    greeting:
+      'Hello, world! My name is Azat. I am a frontend developer. On this website, I share some of my thoughts and ideas about software development with the community and discuss modern technologies',
+    description:
+      'Personal website of Azat S. Front-end developer, creator of technical content, opensource community member',
+    'website-subtitle': 'for reinventing the wheel',
+    title: 'Manual for reinventing the wheel',
+    'website-title': 'Manual',
+    avatar: "Azat's avatar.",
   },
   'travel-map': {
     description: "List of countries I've visited",

@@ -3,36 +3,26 @@ import BlogLocaleLink from '~/components/Blog/BlogLocaleLink.astro'
 import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
 import { useTranslations } from '~/utils/use-translations'
 import Typography from '~/components/Typography.astro'
-import { getPosts } from '~/utils/get-posts'
 
 interface Props {
-  slug: string
+  translations: {
+    locale: string
+    slug: string
+  }[]
 }
 
-let { slug } = Astro.props
+let { translations } = Astro.props
 
 let locale = getLocaleFromUrl(Astro.url)
 let t = useTranslations(locale, 'blog')
-
-let posts = await getPosts()
-
-let samePosts = posts
-  .filter(
-    post =>
-      post.slug === slug.slice(3) && post.id.slice(0, 2) !== locale.slice(0, 2),
-  )
-  .map(post => ({
-    ...post,
-    locale: post.id.slice(0, 2),
-  }))
 ---
 
 {
-  samePosts.length ? (
+  translations.length ? (
     <div class="available-languages">
       <Typography size="xs">{t('also-translated')}</Typography>
       <div class="list">
-        {samePosts.map(post => (
+        {translations.map(post => (
           <BlogLocaleLink {...post} />
         ))}
       </div>
