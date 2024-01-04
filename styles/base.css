@@ -94,6 +94,36 @@ h4 {
   font-weight: 600;
 }
 
+table,
+th,
+td {
+  border-collapse: collapse;
+  border: 1px solid var(--color-border-primary);
+}
+
+table {
+  overflow: hidden;
+  border-radius: var(--border-radius);
+}
+
+th {
+  text-align: start;
+  background: var(--color-background-secondary);
+}
+
+tr:nth-child(even) {
+  background: var(--color-background-primary);
+}
+
+tr:nth-child(odd) {
+  background: var(--color-background-primary-hover);
+}
+
+th,
+td {
+  padding: var(--space-xs) var(--space-s);
+}
+
 picture {
   display: flex;
 }
