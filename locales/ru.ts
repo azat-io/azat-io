@@ -159,7 +159,10 @@ export default {
     'locale-cs': 'чешский язык',
     'locale-hi': 'хинди',
     'locale-he': 'иврит',
+    'quote-start': '«',
+    'quote-end': '»',
     title: 'Блог',
+    by: '—',
   },
   index: {
     greeting:

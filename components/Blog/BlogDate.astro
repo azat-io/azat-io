@@ -9,6 +9,12 @@ interface Props {
 let { date } = Astro.props
 ---
 
-<Typography size="xs">
+<Typography class="text" size="xs">
   <Date date={date} />
 </Typography>
+
+<style>
+  .text {
+    line-height: 1;
+  }
+</style>

@@ -159,7 +159,10 @@ export default {
     'locale-nl': 'Dutch',
     'locale-cs': 'Czech',
     'locale-hi': 'Hindi',
+    'quote-start': '“',
+    'quote-end': '”',
     title: 'Blog',
+    by: '— by',
   },
   index: {
     greeting:

@@ -7,6 +7,7 @@ import BlogEditPageLink from '~/components/Blog/BlogEditPageLink.astro'
 import BlogTranslation from '~/components/Blog/BlogTranslation.svelte'
 import BlogReadingTime from '~/components/Blog/BlogReadingTime.astro'
 import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
+import BlogShare from '~/components/Blog/BlogShare.astro'
 import BlogHero from '~/components/Blog/BlogHero.astro'
 import BlogInfo from '~/components/Blog/BlogInfo.astro'
 import BlogDate from '~/components/Blog/BlogDate.astro'
@@ -63,6 +64,7 @@ let imageSrc = (await images[id]?.()) as { default: ImageMetadata } | undefined
         <BlogInfo>
           <BlogDate date={date} />
           <BlogReadingTime body={body} />
+          <BlogShare description={description} title={title} />
         </BlogInfo>
         <BlogAvailableLocales translations={translations} />
         <slot />

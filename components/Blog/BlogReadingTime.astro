@@ -20,14 +20,16 @@ let coffeeCups = Math.ceil(time / 5)
 ---
 
 <div class="reading-time">
-  {
-    Array.from({ length: coffeeCups }).map(() => (
-      <span class="coffee-cup">
-        <Fragment set:html={CoffeeIcon} />
-      </span>
-    ))
-  }
-  <Typography size="xs">
+  <div class="coffee">
+    {
+      Array.from({ length: coffeeCups }).map(() => (
+        <span class="coffee-cup">
+          <Fragment set:html={CoffeeIcon} />
+        </span>
+      ))
+    }
+  </div>
+  <Typography class="text" size="xs">
     {
       `${time} ${
         (
@@ -44,7 +46,12 @@ let coffeeCups = Math.ceil(time / 5)
   .reading-time {
     display: flex;
     gap: var(--space-xs);
-    align-items: start;
+    align-items: center;
+  }
+
+  .coffee {
+    display: flex;
+    gap: var(--space-2xs);
   }
 
   .coffee-cup {
@@ -55,5 +62,9 @@ let coffeeCups = Math.ceil(time / 5)
     inline-size: 18px;
     block-size: 18px;
     color: var(--color-content-primary);
+  }
+
+  .text {
+    line-height: 1;
   }
 </style>
