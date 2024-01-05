@@ -5,6 +5,20 @@ import Title from '~/components/Title.astro'
 ---
 
 <Layout description="Page not found" title="404">
-  <Title>404</Title>
-  <Typography align="center">Page not found</Typography>
+  <div class="wrapper">
+    <Title>404</Title>
+    <Typography align="center">
+      Page not found. Back to <a href="/">home</a>
+    </Typography>
+  </div>
 </Layout>
+
+<style>
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    block-size: 100%;
+  }
+</style>
