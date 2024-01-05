@@ -165,6 +165,41 @@ export default {
     title: 'Blog',
     by: '— by',
   },
+  timeline: {
+    description:
+      'My lifetime visualization. Each cell represents one week. There are 52 weeks in each row, which equals 1 year.',
+    'time-since-i-was-born': "It's been a long time since I was born:",
+    minutes: {
+      other: 'minutes',
+      one: 'minute',
+    },
+    seconds: {
+      other: 'seconds',
+      one: 'second',
+    },
+    months: {
+      other: 'months',
+      one: 'month',
+    },
+    'who-monitoring': 'World Health Organization monitoring',
+    years: {
+      other: 'years',
+      one: 'year',
+    },
+    hours: {
+      other: 'hours',
+      one: 'hour',
+    },
+    'life-expectancy-at-birth': 'Life expectancy at birth',
+    'healthy-life-expectancy': 'Healthy life expectancy',
+    days: {
+      other: 'days',
+      one: 'day',
+    },
+    'life-expectancy': 'Life expectancy data based on',
+    'past-week': 'Past week',
+    title: 'Timeline',
+  },
   index: {
     greeting:
       'Hello, world! My name is Azat. I am a frontend developer. On this website, I share some of my thoughts and ideas about software development with the community and discuss modern technologies',

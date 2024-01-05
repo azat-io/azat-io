@@ -11,6 +11,7 @@
   --color-background-secondary: oklch(98% 0.0095 83);
   --color-background-secondary-hover: oklch(95% 0.0095 83);
   --color-background-inverse: oklch(60% 0.0095 97.5);
+  --color-background-inverse-hover: oklch(68% 0.0095 97.5);
   --color-background-overlay: oklch(83% 0.15 83 / 20%);
 
   --color-content-brand: oklch(37.39% 0.029 56.18);
@@ -24,6 +25,7 @@
   --color-border-link: oklch(70% 0.143 77.71);
   --color-border-link-hover: oklch(65% 0.143 77.71);
   --color-border-primary: oklch(82% 0 0);
+  --color-border-inverse: oklch(60% 0.0095 97.5);
 }
 
 :root[data-theme='dark'] {
@@ -39,6 +41,7 @@
   --color-background-secondary: oklch(21% 0 0);
   --color-background-secondary-hover: oklch(23% 0 0);
   --color-background-inverse: oklch(98% 0.05 97.5);
+  --color-background-inverse-hover: oklch(85% 0.05 97.5);
   --color-background-overlay: oklch(83% 0.15 83 / 20%);
 
   --color-content-brand: oklch(83% 0.15 83);
@@ -52,6 +55,7 @@
   --color-border-link: oklch(83% 0.15 83);
   --color-border-link-hover: oklch(88% 0.15 83);
   --color-border-primary: oklch(28% 0 0);
+  --color-border-inverse: oklch(85% 0.05 97.5);
 }
 
 [data-theme='dark'] code,

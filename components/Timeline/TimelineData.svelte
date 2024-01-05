@@ -1,0 +1,124 @@
+<script lang="ts">
+  import { onMount } from 'svelte'
+
+  import TimelineRelativeDate from '~/components/Timeline/TimelineRelativeDate.svelte'
+  import TimelineCell from '~/components/Timeline/TimelineCell.svelte'
+  import TimelineDemo from '~/components/Timeline/TimelineDemo.svelte'
+  import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
+  import { useTranslations } from '~/utils/use-translations'
+
+  let url: undefined | URL
+  $: locale = getLocaleFromUrl(url)
+  $: t = useTranslations(locale, 'timeline')
+
+  let today = new Date()
+  let dateOfBirth = new Date('1992-02-16')
+  let healthyLifeExpectancy = 60.7
+  let lifeExpectancyAtBirth = 68.2
+  let weeksInYear = 52
+
+  let totalWeeks = Math.floor(weeksInYear * lifeExpectancyAtBirth)
+  $: passedFullYears = Math.floor(
+    (Number(today) - Number(dateOfBirth)) / (1000 * 60 * 60 * 24 * 7 * 52),
+  )
+  $: getDaysBetweenDates = (date1: Date, date2: Date) =>
+    Math.floor((Number(date1) - Number(date2)) / (1000 * 60 * 60 * 24))
+
+  $: lastBirthday = new Date(
+    new Date(
+      today.getFullYear(),
+      dateOfBirth.getMonth(),
+      dateOfBirth.getDate(),
+    ) > today
+      ? today.getFullYear() - 1
+      : today.getFullYear(),
+    dateOfBirth.getMonth(),
+    dateOfBirth.getDate(),
+  )
+
+  $: nextBirthday = new Date(
+    today >
+    new Date(today.getFullYear(), dateOfBirth.getMonth(), dateOfBirth.getDate())
+      ? today.getFullYear() + 1
+      : today.getFullYear(),
+    dateOfBirth.getMonth(),
+    dateOfBirth.getDate(),
+  )
+  $: daysInLastYear = getDaysBetweenDates(nextBirthday, lastBirthday)
+
+  $: passedWeeksInLastYear = Math.floor(
+    (getDaysBetweenDates(today, lastBirthday) / daysInLastYear) * weeksInYear,
+  )
+
+  onMount(() => (url = new URL(window.location.href)))
+
+  onMount(() => {
+    let interval = setInterval(() => {
+      today = new Date()
+    }, 1000)
+
+    return () => {
+      clearInterval(interval)
+    }
+  })
+</script>
+
+{#if url}
+  <TimelineDemo />
+  <p>{t('time-since-i-was-born')}</p>
+  <p><TimelineRelativeDate date={today} {dateOfBirth} /></p>
+  <ul class="timeline">
+    {#each Array(totalWeeks) as _, index}
+      <TimelineCell
+        class={[
+          'timeline-cell',
+          (index + 1) % (weeksInYear * 4) === 0 ? 'counter' : '',
+        ]
+          .join(' ')
+          .trim()}
+        passed={index + 1 <=
+          passedFullYears * weeksInYear + passedWeeksInLastYear}
+        healthy={index + 1 <= healthyLifeExpectancy * weeksInYear}
+      />
+    {/each}
+  </ul>
+{/if}
+
+<style>
+  .timeline {
+    display: grid;
+    grid-template-columns: repeat(52, 1fr);
+    gap: 2px;
+    inline-size: 100%;
+    margin-inline: auto;
+    list-style: none;
+    padding-inline-start: 0;
+    margin-block: 0;
+  }
+
+  @media (width >= 768px) {
+    .timeline {
+      gap: 3px;
+    }
+
+    .timeline :global(.timeline-cell:nth-child(52n)) {
+      counter-increment: year;
+    }
+
+    .timeline :global(.timeline-cell::before) {
+      display: block;
+      inline-size: 100%;
+      padding-block-end: 100%;
+      content: '';
+    }
+
+    .timeline :global(.counter::after) {
+      position: absolute;
+      inset-block-start: calc(50% + 2px);
+      inset-inline-start: calc(100% + var(--space-xs));
+      font: var(--font-xs);
+      content: counter(year);
+      transform: translateY(-50%);
+    }
+  }
+</style>
