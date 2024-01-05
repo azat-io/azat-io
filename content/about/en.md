@@ -6,4 +6,4 @@ In my free time I like to do [opensource development](./projects). It's a great 
 
 Below you can subscribe to my social media where I mostly write about frontend technologies.
 
-Outside of programming my interests also include video games, [traveling](./travel-map) and learning about cultures of different countries, and [watching anime]('./anime'). These hobbies help me relax and get inspiration for new projects.
+Outside of programming my interests also include video games, [traveling](./travel-map) and learning about cultures of different countries, and [watching anime](./anime). These hobbies help me relax and get inspiration for new projects.
