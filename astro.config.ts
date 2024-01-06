@@ -3,11 +3,13 @@ import rehypeExternalLinks from 'rehype-external-links'
 import { fileURLToPath } from 'node:url'
 import sitemap from '@astrojs/sitemap'
 import compress from 'astro-compress'
+import remarkMath from 'remark-math'
 import svelte from '@astrojs/svelte'
 import { loadTheme } from 'shiki'
 import path from 'node:path'
 
 import { remarkCopyCode } from './plugins/remark-copy-code'
+import { remarkKatex } from './plugins/remark-katex'
 
 let dirname = fileURLToPath(path.dirname(import.meta.url))
 
@@ -17,6 +19,24 @@ let [gruvboxLight, gruvboxDark] = await Promise.all([
 ])
 
 export default defineConfig({
+  markdown: {
+    rehypePlugins: [
+      [
+        rehypeExternalLinks,
+        {
+          rel: ['noopener', 'noreferrer'],
+          target: '_blank',
+        },
+      ],
+    ],
+    shikiConfig: {
+      experimentalThemes: {
+        light: gruvboxLight,
+        dark: gruvboxDark,
+      },
+    },
+    remarkPlugins: [remarkCopyCode, remarkMath, remarkKatex],
+  },
   integrations: [
     svelte(),
     sitemap(),
@@ -37,24 +57,6 @@ export default defineConfig({
       SVG: true,
     }),
   ],
-  markdown: {
-    rehypePlugins: [
-      [
-        rehypeExternalLinks,
-        {
-          rel: ['noopener', 'noreferrer'],
-          target: '_blank',
-        },
-      ],
-    ],
-    shikiConfig: {
-      experimentalThemes: {
-        light: gruvboxLight,
-        dark: gruvboxDark,
-      },
-    },
-    remarkPlugins: [remarkCopyCode],
-  },
   prefetch: {
     defaultStrategy: 'viewport',
     prefetchAll: true,
