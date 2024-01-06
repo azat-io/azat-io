@@ -281,7 +281,7 @@ export default {
     name: 'Азат Ш.',
   },
   footer: {
-    'follow-me-on': 'Пописаться в',
+    'follow-me-on': 'Подписаться в',
     github: 'ГитХаб',
     x: 'X',
   },
