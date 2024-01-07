@@ -17,11 +17,11 @@ interface Props {
 let {
   color = 'primary',
   class: className,
-  align = 'start',
   noWrap = false,
   bold = false,
   size = 'm',
   tag = 'p',
+  align,
   mbs,
   mbe,
   ...props
@@ -35,12 +35,12 @@ let Tag = tag
     'typography',
     `size-${size}`,
     `color-${color}`,
-    `align-${align}`,
     {
       'weight-normal': !bold,
       'weight-bold': bold,
       'no-wrap': noWrap,
     },
+    align && `align-${align}`,
     mbs && `mbs-${mbs}`,
     mbe && `mbe-${mbe}`,
     className,

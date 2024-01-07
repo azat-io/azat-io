@@ -95,7 +95,7 @@ let nextPost = isLastPost ? null : posts.at(indexOfCurrentPost - 1)
   }
 
   .link-next {
-    text-align: end;
+    flex-direction: row-reverse;
   }
 
   .post-previous {
@@ -105,12 +105,20 @@ let nextPost = isLastPost ? null : posts.at(indexOfCurrentPost - 1)
 
   .post-next {
     display: flex;
-    justify-content: end;
   }
 
   @media (width >= 768px) {
     .additional-posts {
       grid-template-columns: 1fr 1fr;
+    }
+
+    .link-next {
+      flex-direction: row;
+    }
+
+    .post-next {
+      justify-content: end;
+      text-align: end;
     }
   }
 </style>
