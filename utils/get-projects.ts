@@ -8,14 +8,14 @@ export let getProjects = async (locale?: string) => {
       if (!locale) {
         return true
       }
-      let [lang] = page.slug.split('/')
-      return lang === locale
+      let [_, localeValue] = page.slug.split('/')
+      return localeValue === locale
     })
     .map(page => {
-      let [_lang, ...slug] = page.slug.split('/')
+      let [slug] = page.slug.split('/')
       return {
         ...page,
-        slug: slug.join('/'),
+        slug,
       }
     })
 }

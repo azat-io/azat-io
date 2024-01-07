@@ -9,14 +9,19 @@ let { class: className, size = 'm', id } = Astro.props
 
 let logos = Object.fromEntries(
   Object.entries(
-    import.meta.glob('../../assets/projects/*', { as: 'raw' }),
-  ).map(([path, getLogo]) => [
-    path.replace('../../assets/projects/', '').replace(/\.svg$/, ''),
-    getLogo,
-  ]),
+    import.meta.glob('../../content/projects/**/**', { as: 'raw' }),
+  )
+    .filter(([key]) => key.includes('assets/logo'))
+    .map(([path, getLogo]) => [
+      path
+        .replace('../../content/projects/', '')
+        .replace('/assets/logo', '')
+        .replace(/\.svg$/, ''),
+      getLogo,
+    ]),
 )
 
-let logo = await logos[id]?.()
+let logo = logos[id]?.()
 ---
 
 {

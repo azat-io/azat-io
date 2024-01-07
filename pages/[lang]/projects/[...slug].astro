@@ -13,14 +13,17 @@ let project = Astro.props
 let { Content } = await project.render()
 
 export let getStaticPaths = async () => {
-  let posts = await getCollection('projects')
-  return posts.map(post => ({
-    params: {
-      slug: post.slug.slice(Math.max(0, post.slug.indexOf('/') + 1)),
-      lang: getLocaleFromUrl(new URL(post.slug, homepage)),
-    },
-    props: post,
-  }))
+  let projects = await getCollection('projects')
+  return projects.map(currentProject => {
+    let [slug, locale] = currentProject.slug.split('/')
+    return {
+      params: {
+        lang: getLocaleFromUrl(new URL(locale!, homepage), true),
+        slug,
+      },
+      props: currentProject,
+    }
+  })
 }
 ---
 

@@ -22,7 +22,7 @@ export let getStaticPaths = () =>
   <ProjectsList>
     {
       projects.map(({ data: { description, title }, slug }) => (
-        <ProjectsCard description={description} title={title} slug={slug} />
+        <ProjectsCard description={description} title={title} slug={slug!} />
       ))
     }
   </ProjectsList>
