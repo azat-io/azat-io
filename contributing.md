@@ -32,9 +32,9 @@ pnpm start
 
 It is my great pleasure to welcome you if you have a desire to help translate my blog articles into your language.
 
-To start translating an article, you need to copy the file with the original article in English. All articles are located in the `content/blog/en/` directory. Create a folder in the `content/blog/` folder with the two-digit [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes) code of your language and place the article file with the same name there.
+To start translating an article, you need to copy the file with the original article in English. All articles are located in the `content/blog/{article name}/` directory. Create in a file next to the original article file. Specify the two-digit [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes) code of your language as the file name.
 
-For example, you want to translate the article `/content/blog/en/hello-world.md` into Chinese. Copy this file to the `/content/blog/zh/hello-world.md`.
+For example, you want to translate the article `/content/blog/hello-world/en.md` into Chinese. Copy this file to `/content/blog/hello-world/zh.md`.
 
 As a thank you, I will cite you as the author of the translation in the article.
 

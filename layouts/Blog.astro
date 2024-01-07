@@ -28,26 +28,41 @@ let { description, title, date, slug, body } = Astro.props
 
 let locale = getLocaleFromUrl(Astro.url, true)
 
-let id = slug.slice(3)
+let parseUrl = (url: string) => {
+  let [slugValue, localeValue] = url.replace(/\.mdx?$/, '').split('/')
+  return { locale: localeValue!, slug: slugValue! }
+}
+
+let id = parseUrl(slug).slug
 
 let posts = await getPosts()
 
 let translations = posts
   .filter(
     post =>
-      post.slug === slug.slice(3) && post.id.slice(0, 2) !== locale.slice(0, 2),
+      parseUrl(slug).slug === parseUrl(post.slug!).slug &&
+      locale !== parseUrl(post.id).locale,
   )
-  .map(post => ({
-    ...post,
-    locale: post.id.slice(0, 2),
-  }))
+  .map(({ slug: slugValue, ...post }) => {
+    let localeValue = post.id.replace(/\.mdx?$/, '').split('/')[1]!
+    return {
+      ...post,
+      locale: localeValue,
+      slug: slugValue!,
+    }
+  })
 
-let images = import.meta.glob('../assets/blog/hero/*')
+let images = import.meta.glob('../content/blog/**/**')
 images = Object.fromEntries(
-  Object.entries(images).map(([key, value]) => [
-    key.replace('../assets/blog/hero/', '').replace(/\.png$/, ''),
-    value,
-  ]),
+  Object.entries(images)
+    .filter(([key]) => key.includes('assets/hero'))
+    .map(([key, value]) => [
+      key
+        .replace('../content/blog/', '')
+        .replace('/assets/hero', '')
+        .replace(/\.png$/, ''),
+      value,
+    ]),
 )
 
 let imageSrc = (await images[id]?.()) as { default: ImageMetadata } | undefined

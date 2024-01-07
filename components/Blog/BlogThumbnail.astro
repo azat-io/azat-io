@@ -13,31 +13,17 @@ let { name, id } = Astro.props
 
 let locale = getLocaleFromUrl(Astro.url)
 let t = useTranslations(locale, 'blog')
-
-let images = import.meta.glob('../../assets/blog/thumbnail/*')
-images = Object.fromEntries(
-  Object.entries(images).map(([key, value]) => [
-    key.replace('../../assets/blog/thumbnail/', '').replace(/\.png$/, ''),
-    value,
-  ]),
-)
-
-let imageSrc = images[id]?.() as ImageMetadata | undefined
 ---
 
-{
-  imageSrc && (
-    <Picture
-      alt={`${t('post-cover-for')} ${name}`}
-      formats={['avif', 'webp']}
-      loading="eager"
-      src={imageSrc}
-      class="image"
-      height="160"
-      width="160"
-    />
-  )
-}
+<Picture
+  src={import(`../../content/blog/${id}/assets/thumbnail.png`)}
+  alt={`${t('post-cover-for')} ${name}`}
+  formats={['avif', 'webp']}
+  loading="eager"
+  class="image"
+  height="160"
+  width="160"
+/>
 
 <style>
   .image {
