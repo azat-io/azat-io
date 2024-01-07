@@ -254,7 +254,7 @@
     color: var(--color-content-primary);
     background: transparent;
     border: none;
-    padding: var(--space-xs);
+    padding: var(--space-xs) var(--space-s);
     outline: none;
     border-radius: var(--border-radius);
     transition: all 250ms;
@@ -389,6 +389,14 @@
       padding: 0;
       background: transparent;
       animation: fade-in 250ms ease-out forwards;
+    }
+
+    .link {
+      padding: var(--space-s);
+    }
+
+    .clean-button {
+      padding: var(--space-xs);
     }
 
     .mobile-menu-button {
