@@ -43,7 +43,7 @@ let nextPost = isLastPost ? null : posts.at(indexOfCurrentPost - 1)
             <Fragment set:html={ArrowLeftIcon} />
             <div>
               <Typography color="primary">{t('previous-post')}</Typography>
-              <Typography color="brand" size="s">
+              <Typography color="inherit" size="s">
                 {previousPost?.data.title}
               </Typography>
             </div>
@@ -57,7 +57,7 @@ let nextPost = isLastPost ? null : posts.at(indexOfCurrentPost - 1)
           <a href={`/${locale}/blog/${nextPost?.slug}`} class="link link-next">
             <div>
               <Typography color="primary">{t('next-post')}</Typography>
-              <Typography color="brand" size="s">
+              <Typography color="inherit" size="s">
                 {nextPost?.data.title}
               </Typography>
             </div>
@@ -81,7 +81,6 @@ let nextPost = isLastPost ? null : posts.at(indexOfCurrentPost - 1)
     display: inline-flex;
     gap: var(--space-s);
     align-items: center;
-    color: var(--color-content-link);
     border-block-end: none;
     border-radius: var(--border-radius);
   }

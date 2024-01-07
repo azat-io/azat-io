@@ -20,7 +20,7 @@ let t = useTranslations(locale, 'blog')
   rel="noopener noreferrer"
   class="edit-link"
   target="_blank"
-  color="brand"
+  color="inherit"
   tag="a"
 >
   <Fragment set:html={PencilIcon} />
@@ -33,7 +33,6 @@ let t = useTranslations(locale, 'blog')
     gap: var(--space-xs);
     align-items: center;
     margin-block: var(--space-m);
-    color: var(--color-content-link);
     border-block-end: none;
     border-radius: var(--border-radius);
   }
