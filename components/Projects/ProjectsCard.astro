@@ -48,6 +48,10 @@ let locale = getLocaleFromUrl(Astro.url)
     background: var(--color-background-primary-hover);
   }
 
+  .card:focus-visible {
+    transition-property: box-shadow;
+  }
+
   @media (width >= 768px) {
     .card {
       flex-direction: row;
