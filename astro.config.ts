@@ -6,6 +6,7 @@ import compress from 'astro-compress'
 import remarkMath from 'remark-math'
 import svelte from '@astrojs/svelte'
 import { loadTheme } from 'shiki'
+import mdx from '@astrojs/mdx'
 import path from 'node:path'
 
 import { remarkCopyCode } from './plugins/remark-copy-code'
@@ -38,8 +39,6 @@ export default defineConfig({
     remarkPlugins: [remarkCopyCode, remarkMath, remarkKatex],
   },
   integrations: [
-    svelte(),
-    sitemap(),
     compress({
       Image: {
         sharp: {
@@ -56,6 +55,9 @@ export default defineConfig({
       HTML: true,
       SVG: true,
     }),
+    sitemap(),
+    svelte(),
+    mdx(),
   ],
   prefetch: {
     defaultStrategy: 'viewport',

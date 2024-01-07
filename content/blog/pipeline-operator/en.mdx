@@ -275,7 +275,7 @@ With the pipeline operator, we managed to improve readability and simplify under
 
 Let's return to our original example with Ramda, the function for getting a list of administrators' names. Since all our functions (except for the `pipe` function) take only one argument, we can also use the new operator to enhance the previous code:
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```js
 import {
   identity,
@@ -305,7 +305,7 @@ The pipeline operator can be used when working with asynchronous code. The resul
 
 Let's look at a simple example where we need to execute `fetch` to get a list of users, decode the response in JSON format and filter out the blocked users of our system:
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```js
 const filterBlockedUsers = users =>
  users.filter(({ isBlocked }) => !isBlocked)
@@ -321,7 +321,7 @@ const getUsers = async () => {
 
 How would we rewrite this function using the pipeline operator:
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```js
 const getUsers = async () =>
   '/users'
@@ -334,7 +334,7 @@ const getUsers = async () =>
 
 You can also use the pipeline operator to make it easier to work with template strings. By placing all logic outside the string literal, we can make the code much cleaner.
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```js
 const greetUser = async id =>
   await getUserFirstName(id)

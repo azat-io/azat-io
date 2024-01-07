@@ -275,7 +275,7 @@ const totalExpenses =
 
 Вернёмся к нашему изначальному примеры на Ramda, функции с получением списка имён администраторов. Поскольку все наши функции (за исключением функции `pipe`) принимают только один аргумент, мы также можем воспользоваться новым оператором и улучшить предыдущий код:
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```js
 import {
   identity,
@@ -305,7 +305,7 @@ const admins =
 
 Рассмотрим простой пример, где нам нужно выполнить `fetch`, чтобы получить список пользователей, декодировать ответ в формате JSON и отфильтровать заблокированных пользователей нашей системы:
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```js
 const filterBlockedUsers = users =>
  users.filter(({ isBlocked }) => !isBlocked)
@@ -321,7 +321,7 @@ const getUsers = async () => {
 
 Как бы мы могли переписать эту функцию, используя пайплайн оператор:
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```js
 const getUsers = async () =>
   '/users'
@@ -334,7 +334,7 @@ const getUsers = async () =>
 
 Также с помощью пайплайн оператора можно облегчить работу с шаблонными строками. Поместив всю логику за пределы строкового литера, мы можем сделать код значительно чище.
 
-<!-- prettier-ignore -->
+{/* prettier-ignore */}
 ```js
 const greetUser = async id =>
   await getUserFirstName(id)
