@@ -15,24 +15,30 @@ let locale = getLocaleFromUrl(Astro.url)
 let t = useTranslations(locale, 'blog')
 ---
 
-<Typography
-  href={`https://github.com/${repository}/blob/main/content/blog/${slug}.md`}
-  rel="noopener noreferrer"
-  class="edit-link"
-  target="_blank"
-  color="inherit"
-  tag="a"
->
-  <Fragment set:html={PencilIcon} />
-  {t('edit-this-page')}
-</Typography>
+<div class="edit-link-wrapper">
+  <Typography
+    href={`https://github.com/${repository}/blob/main/content/blog/${slug}.md`}
+    rel="noopener noreferrer"
+    class="edit-link"
+    target="_blank"
+    color="inherit"
+    tag="a"
+  >
+    <Fragment set:html={PencilIcon} />
+    {t('edit-this-page')}
+  </Typography>
+</div>
 
 <style>
+  .edit-link-wrapper {
+    display: flex;
+    margin-block: var(--space-m);
+  }
+
   a.edit-link {
-    display: inline-flex;
+    display: flex;
     gap: var(--space-xs);
     align-items: center;
-    margin-block: var(--space-m);
     border-block-end: none;
     border-radius: var(--border-radius);
   }
