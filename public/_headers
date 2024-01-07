@@ -2,38 +2,10 @@
   content-security-policy: default-src 'self' cloudfront.net *.cloudfront.net; script-src 'self' 'unsafe-eval' 'unsafe-inline' analytics.azat.io; style-src 'self' 'unsafe-inline'; connect-src 'self' analytics.azat.io; img-src 'self' cloudfront.net *.cloudfront.net img.shields.io data:;
   strict-transport-security: max-age=63072000; includeSubDomains; preload
 
-/anime/*
-  cache-control: max-age=31536000
-  cache-control: immutable
-
-/assets/*
+/_astro/*
   cache-control: max-age=31536000
   cache-control: immutable
 
 /fonts/*
-  cache-control: max-age=31536000
-  cache-control: immutable
-
-/posts/*
-  cache-control: max-age=31536000
-  cache-control: immutable
-
-/hero.av1.mp4
-  cache-control: max-age=31536000
-  cache-control: immutable
-
-/hero.h264.mp4
-  cache-control: max-age=31536000
-  cache-control: immutable
-
-/hero.hevc.mp4
-  cache-control: max-age=31536000
-  cache-control: immutable
-
-/hero-poster.webp
-  cache-control: max-age=31536000
-  cache-control: immutable
-
-/hero.webp
   cache-control: max-age=31536000
   cache-control: immutable
