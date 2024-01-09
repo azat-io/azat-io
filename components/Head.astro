@@ -21,6 +21,8 @@ let t = useTranslations(locale, 'head')
 let { image = `/cover-${locale}.png`, description, title } = Astro.props
 
 let canonicalURL = new URL(Astro.url.pathname, Astro.site)
+  .toString()
+  .replace(/\.html$/, '')
 
 let pageTitle = `${title} | ${t('name')}`
 let xUsername = locale === 'ru' ? '@azat_io' : '@azat_io_en'
