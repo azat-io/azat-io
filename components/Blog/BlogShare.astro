@@ -27,13 +27,23 @@ let xShareUrl = `https://twitter.com/intent/tweet?text=${e(
 ---
 
 <div class="share">
-  <a href={linkedinShareUrl} target="_blank" rel="noopener" class="link">
+  <a
+    aria-label={t('share-on-linkedin') as string}
+    href={linkedinShareUrl}
+    target="_blank"
+    rel="noopener"
+    class="link"
+  >
     <Fragment set:html={LinkedinIcon} />
-    <span class="text">Share</span>
   </a>
-  <a href={xShareUrl} target="_blank" rel="noopener" class="link">
+  <a
+    aria-label={t('share-on-x') as string}
+    href={xShareUrl}
+    target="_blank"
+    rel="noopener"
+    class="link"
+  >
     <Fragment set:html={XIcon} />
-    <span class="text">Tweet</span>
   </a>
 </div>
 

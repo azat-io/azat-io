@@ -135,6 +135,7 @@ export default {
     description:
       'Блог Азата Ш. Фронтенд разработчика, автора технического контента, участника opensource сообщества',
     'edit-this-page': 'Отредактировать эту страницу',
+    'share-on-linkedin': 'Поделиться в ЛинкедИн',
     'also-translated': 'Также переведено на:',
     'post-cover-for': 'Обложка для поста',
     'previous-post': 'Предыдущая статья',
@@ -145,6 +146,7 @@ export default {
     'locale-it': 'итальянский язык',
     'locale-uk': 'украинский язык',
     'locale-fa': 'персидский язык',
+    'share-on-x': 'Поделиться в X',
     'locale-el': 'греческий язык',
     'locale-es': 'испанский язык',
     'locale-lv': 'латышский язык',
