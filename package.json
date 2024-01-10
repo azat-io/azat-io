@@ -12,7 +12,7 @@
     "build": "astro build",
     "test:format": "prettier --check \"**/*.{js,ts,astro,css,json,md,yml}\"",
     "test:js": "eslint **/*.{astro,js,ts}",
-    "test:css": "stylelint \"**/*.{astro,css}\"",
+    "test:css": "stylelint \"**/*.{astro,svelte,css}\"",
     "test:astro": "astro check",
     "test:svelte": "svelte-check",
     "test:types": "tsc --noEmit --pretty",

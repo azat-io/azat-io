@@ -96,8 +96,8 @@
   }
 
   .icon :global(svg) {
-    block-size: 28px;
     inline-size: 28px;
+    block-size: 28px;
     color: var(--color-content-secondary);
   }
 </style>

@@ -12,13 +12,13 @@
 <style>
   .cell {
     position: relative;
-    border-radius: 0.5px;
-    padding: 0;
-    aspect-ratio: 1 / 1;
     inline-size: 100%;
-    border: 1px solid var(--color-border-inverse);
-    background: var(--color-background-inverse-hover);
+    aspect-ratio: 1 / 1;
+    padding: 0;
     list-style: none;
+    background: var(--color-background-inverse-hover);
+    border: 1px solid var(--color-border-inverse);
+    border-radius: 0.5px;
   }
 
   .healthy {

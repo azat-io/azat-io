@@ -90,10 +90,10 @@
     grid-template-columns: repeat(52, 1fr);
     gap: 2px;
     inline-size: 100%;
-    margin-inline: auto;
-    list-style: none;
     padding-inline-start: 0;
     margin-block: 0;
+    margin-inline: auto;
+    list-style: none;
   }
 
   @media (width >= 768px) {

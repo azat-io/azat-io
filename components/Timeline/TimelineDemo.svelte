@@ -39,12 +39,12 @@
 
   .demo-value {
     display: flex;
-    align-items: center;
     gap: var(--space-xs);
+    align-items: center;
   }
 
   .demo :global(.timeline-demo-cell) {
-    block-size: 20px;
     inline-size: 20px;
+    block-size: 20px;
   }
 </style>

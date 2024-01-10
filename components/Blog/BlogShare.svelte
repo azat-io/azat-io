@@ -92,14 +92,14 @@
   }
 
   .share {
-    color: var(--color-content-link);
-    gap: var(--space-xs);
-    border-radius: var(--border-radius);
-    border-block-end: none;
-    align-items: center;
     display: flex;
+    gap: var(--space-xs);
+    align-items: center;
+    color: var(--color-content-link);
     background: transparent;
     border: none;
+    border-block-end: none;
+    border-radius: var(--border-radius);
     outline: none;
     transition: box-shadow 200ms;
   }
@@ -122,14 +122,14 @@
   .dialog {
     position: fixed;
     inset: 0;
-    inline-size: 100vw;
-    block-size: 100vh;
+    inline-size: 100vi;
+    max-inline-size: 100%;
+    block-size: 100vb;
+    max-block-size: 100%;
     padding: 0;
     margin: 0;
-    border: none;
     background: transparent;
-    max-inline-size: 100%;
-    max-block-size: 100%;
+    border: none;
   }
 
   .paranja {
@@ -145,37 +145,38 @@
 
   .popup {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    min-inline-size: 280px;
+    inset-block-start: 50%;
+    inset-inline-start: 50%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     gap: var(--space-m);
+    align-items: center;
+    justify-content: center;
+    min-inline-size: 280px;
     padding: var(--space-l) var(--space-xl);
+    margin-inline-end: -50%;
     background: var(--color-background-secondary);
     border: 1px solid var(--color-border-primary);
     border-radius: var(--border-radius);
-    animation: scale-up 300ms cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
     opacity: 0%;
     transform: scale(0.8) translate(-50%, 800px) translateZ(0);
     transform-origin: 0 0;
+    animation: scale-up 300ms cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
     will-change: opacity, transform;
   }
 
   .close {
-    display: flex;
     position: absolute;
-    inset-inline-end: var(--space-s);
     inset-block-start: var(--space-s);
+    inset-inline-end: var(--space-s);
+    display: flex;
     padding: var(--space-xs);
+    color: var(--color-content-primary);
     background: transparent;
     border: none;
+    border-radius: var(--border-radius);
     outline: none;
     transition: all 250ms;
-    border-radius: var(--border-radius);
   }
 
   .close:focus-visible {
@@ -191,31 +192,31 @@
 
   .title {
     margin-block: 0;
-    color: var(--color-content-primary);
     font: var(--font-l);
     font-weight: 700;
+    color: var(--color-content-primary);
   }
 
   .links {
     display: flex;
     gap: var(--space-2xs);
-    list-style: none;
-    margin-block: 0;
     padding-inline-start: 0;
+    margin-block: 0;
+    list-style: none;
   }
 
   .link {
     display: flex;
     padding: var(--space-xs);
-    border-bottom: none;
     color: var(--color-content-primary);
+    border-block-end: none;
     border-radius: var(--border-radius);
   }
 
   .close:hover,
   .link:hover {
-    background: var(--color-background-primary-hover);
     color: var(--color-content-brand);
+    background: var(--color-background-primary-hover);
   }
 
   .link :global(svg) {
@@ -235,26 +236,26 @@
 
   @keyframes fade-in {
     0% {
-      opacity: 0;
+      opacity: 0%;
     }
 
     100% {
-      opacity: 1;
+      opacity: 100%;
     }
   }
 
   @keyframes scale-up {
     0% {
-      opacity: 0;
+      opacity: 0%;
       transform: scale(0.8) translate(-50%, 800px) translateZ(0);
     }
 
     50% {
-      opacity: 0;
+      opacity: 0%;
     }
 
     100% {
-      opacity: 1;
+      opacity: 100%;
       transform: scale(1) translate(-50%, -75%) translateZ(0);
     }
   }
