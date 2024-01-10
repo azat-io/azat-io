@@ -66,34 +66,33 @@
     {@html ShareIcon}
     <span>{t('share')}</span>
   </button>
+  <Portal>
+    <dialog class="dialog" bind:this={dialog} tabindex="-1">
+      <button class="paranja" on:click={closeDialog} tabindex="-1" />
+      <div class="popup">
+        <button class="close" on:click={closeDialog}>
+          {@html CrossIcon}
+        </button>
+        <h3 class="title">{t('share')}</h3>
+        <ul class="links">
+          {#each links as { label, link, icon }}
+            <li>
+              <a
+                aria-label={t(label).toString()}
+                rel="noopener noreferrer"
+                target="_blank"
+                class="link"
+                href={link}
+              >
+                {@html icon}
+              </a>
+            </li>
+          {/each}
+        </ul>
+      </div>
+    </dialog>
+  </Portal>
 </div>
-
-<Portal>
-  <dialog class="dialog" bind:this={dialog} tabindex="-1">
-    <button class="paranja" on:click={closeDialog} tabindex="-1" />
-    <div class="popup">
-      <button class="close" on:click={closeDialog}>
-        {@html CrossIcon}
-      </button>
-      <h3 class="title">{t('share')}</h3>
-      <ul class="links">
-        {#each links as { label, link, icon }}
-          <li>
-            <a
-              aria-label={t(label).toString()}
-              rel="noopener noreferrer"
-              target="_blank"
-              class="link"
-              href={link}
-            >
-              {@html icon}
-            </a>
-          </li>
-        {/each}
-      </ul>
-    </div>
-  </dialog>
-</Portal>
 
 <style>
   .wrapper {
