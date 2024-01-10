@@ -12,14 +12,16 @@
   $: t = useTranslations(locale, 'timeline')
 
   let today = new Date()
-  let dateOfBirth = new Date('1992-02-16')
+  let dateOfBirth = new Date(1992, 1, 16)
   let healthyLifeExpectancy = 60.7
   let lifeExpectancyAtBirth = 68.2
   let weeksInYear = 52
 
   let totalWeeks = Math.floor(weeksInYear * lifeExpectancyAtBirth)
-  $: passedFullYears = Math.floor(
-    (Number(today) - Number(dateOfBirth)) / (1000 * 60 * 60 * 24 * 7 * 52),
+  $: passedFullYears = Math.ceil(
+    Math.abs(
+      new Date(today.getTime() - dateOfBirth.getTime()).getFullYear() - 1970,
+    ),
   )
   $: getDaysBetweenDates = (date1: Date, date2: Date) =>
     Math.floor((Number(date1) - Number(date2)) / (1000 * 60 * 60 * 24))
@@ -76,8 +78,7 @@
         ]
           .join(' ')
           .trim()}
-        passed={index + 1 <=
-          passedFullYears * weeksInYear + passedWeeksInLastYear}
+        passed={index <= passedFullYears * weeksInYear + passedWeeksInLastYear}
         healthy={index + 1 <= healthyLifeExpectancy * weeksInYear}
       />
     {/each}
