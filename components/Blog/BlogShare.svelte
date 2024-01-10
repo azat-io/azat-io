@@ -40,7 +40,18 @@
   ] as const
 
   let share = () => {
-    dialog.showModal()
+    if (
+      !/android|iphone|ipad|ipod/i.test(navigator.userAgent) ||
+      navigator.share === undefined
+    ) {
+      dialog.showModal()
+    } else {
+      navigator.share({
+        text: description,
+        url: cleanUrl!,
+        title,
+      })
+    }
   }
 
   let closeDialog = () => {
@@ -95,6 +106,7 @@
     display: flex;
     gap: var(--space-xs);
     align-items: center;
+    padding-inline: 0;
     color: var(--color-content-link);
     background: transparent;
     border: none;
