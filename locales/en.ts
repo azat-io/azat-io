@@ -164,6 +164,7 @@ export default {
     'locale-hi': 'Hindi',
     'quote-start': '“',
     'quote-end': '”',
+    share: 'Share',
     title: 'Blog',
     by: '— by',
   },

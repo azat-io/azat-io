@@ -134,7 +134,7 @@ export default {
     },
     description:
       'Блог Азата Ш. Фронтенд разработчика, автора технического контента, участника opensource сообщества',
-    'edit-this-page': 'Отредактировать эту страницу',
+    'edit-this-page': 'Отредактировать страницу',
     'share-on-linkedin': 'Поделиться в ЛинкедИн',
     'also-translated': 'Также переведено на:',
     'post-cover-for': 'Обложка для поста',
@@ -163,6 +163,7 @@ export default {
     'locale-cs': 'чешский язык',
     'locale-hi': 'хинди',
     'locale-he': 'иврит',
+    share: 'Поделиться',
     'quote-start': '«',
     'quote-end': '»',
     title: 'Блог',

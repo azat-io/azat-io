@@ -269,7 +269,7 @@
 
   .link:focus-visible,
   .clean-button:focus-visible {
-    background: var(--color-background-overlay);
+    background: var(--color-overlay-brand);
     box-shadow: 0 0 0 2px var(--color-border-brand);
     transition-property: box-shadow;
   }

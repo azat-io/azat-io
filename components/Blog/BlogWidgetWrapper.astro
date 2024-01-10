@@ -1,0 +1,22 @@
+---
+
+---
+
+<div class="widget-wrapper">
+  <slot />
+</div>
+
+<style>
+  .widget-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-m);
+    margin-block: var(--space-m);
+  }
+
+  @media (width >= 768px) {
+    .widget-wrapper {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>

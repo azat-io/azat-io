@@ -3,11 +3,12 @@ import type { CollectionEntry } from 'astro:content'
 
 import BlogAvailableLocales from '~/components/Blog/BlogAvailableLocales.astro'
 import BlogAdditionalPosts from '~/components/Blog/BlogAdditionalPosts.astro'
+import BlogWidgetWrapper from '~/components/Blog/BlogWidgetWrapper.astro'
 import BlogEditPageLink from '~/components/Blog/BlogEditPageLink.astro'
 import BlogTranslation from '~/components/Blog/BlogTranslation.svelte'
 import BlogReadingTime from '~/components/Blog/BlogReadingTime.astro'
 import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
-import BlogShare from '~/components/Blog/BlogShare.astro'
+import BlogShare from '~/components/Blog/BlogShare.svelte'
 import BlogHero from '~/components/Blog/BlogHero.astro'
 import BlogInfo from '~/components/Blog/BlogInfo.astro'
 import BlogDate from '~/components/Blog/BlogDate.astro'
@@ -79,11 +80,13 @@ let imageSrc = (await images[id]?.()) as { default: ImageMetadata } | undefined
         <BlogInfo>
           <BlogDate date={date} />
           <BlogReadingTime body={body} />
-          <BlogShare description={description} title={title} />
         </BlogInfo>
         <BlogAvailableLocales translations={translations} />
         <slot />
-        <BlogEditPageLink slug={slug} />
+        <BlogWidgetWrapper>
+          <BlogEditPageLink slug={slug} />
+          <BlogShare description={description} title={title} client:load />
+        </BlogWidgetWrapper>
         <BlogTranslation translations={translations} client:load />
         <BlogAdditionalPosts slug={slug} />
       </Container>

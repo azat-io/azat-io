@@ -1,4 +1,5 @@
 ---
+import BlogWidgetWrapper from '~/components/Blog/BlogWidgetWrapper.astro'
 import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
 import { useTranslations } from '~/utils/use-translations'
 import ArrowRightIcon from '~/icons/arrow-right.svg?raw'
@@ -33,7 +34,7 @@ let nextPost = isLastPost ? null : posts.at(indexOfCurrentPost - 1)
 
 {
   locale === parseUrl(slug).locale && (
-    <div class="additional-posts">
+    <BlogWidgetWrapper>
       {!isFirstPost ? (
         <div class="post-previous">
           <a
@@ -42,8 +43,10 @@ let nextPost = isLastPost ? null : posts.at(indexOfCurrentPost - 1)
           >
             <Fragment set:html={ArrowLeftIcon} />
             <div>
-              <Typography color="primary">{t('previous-post')}</Typography>
-              <Typography color="inherit" size="s">
+              <Typography color="primary" size="s">
+                {t('previous-post')}
+              </Typography>
+              <Typography color="inherit">
                 {previousPost?.data.title}
               </Typography>
             </div>
@@ -56,27 +59,20 @@ let nextPost = isLastPost ? null : posts.at(indexOfCurrentPost - 1)
         <div class="post-next">
           <a href={`/${locale}/blog/${nextPost?.slug}`} class="link link-next">
             <div>
-              <Typography color="primary">{t('next-post')}</Typography>
-              <Typography color="inherit" size="s">
-                {nextPost?.data.title}
+              <Typography color="primary" size="s">
+                {t('next-post')}
               </Typography>
+              <Typography color="inherit">{nextPost?.data.title}</Typography>
             </div>
             <Fragment set:html={ArrowRightIcon} />
           </a>
         </div>
       )}
-    </div>
+    </BlogWidgetWrapper>
   )
 }
 
 <style>
-  .additional-posts {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-m);
-    margin-block: var(--space-m);
-  }
-
   a.link {
     display: inline-flex;
     gap: var(--space-s);
@@ -108,10 +104,6 @@ let nextPost = isLastPost ? null : posts.at(indexOfCurrentPost - 1)
   }
 
   @media (width >= 768px) {
-    .additional-posts {
-      grid-template-columns: 1fr 1fr;
-    }
-
     .link-next {
       flex-direction: row;
     }
