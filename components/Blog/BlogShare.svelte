@@ -104,7 +104,7 @@
 
   .share {
     display: flex;
-    gap: var(--space-xs);
+    gap: var(--space-s);
     align-items: center;
     padding-inline: 0;
     color: var(--color-content-link);
