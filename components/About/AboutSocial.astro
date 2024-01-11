@@ -30,7 +30,7 @@ interface Props {
   type: Type
 }
 
-let { username, name, link, type } = Astro.props
+let { username, name, link, type, ...props } = Astro.props
 
 let Icon: {
   [key in Type]: string
@@ -48,7 +48,13 @@ let Icon: {
 }
 ---
 
-<a rel="noopener noreferrer" target="_blank" class="social" href={link}>
+<a
+  rel="noopener noreferrer"
+  target="_blank"
+  class="social"
+  href={link}
+  {...props}
+>
   <Fragment set:html={Icon[type]} />
   <div>
     <Typography color="brand" class="text" size="m">{name}</Typography>

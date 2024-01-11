@@ -208,6 +208,7 @@
   <a
     class="clean-button icon-wrapper"
     href={`/${locale}/rss.xml`}
+    data-umami-event="View RSS"
     aria-label={t('rss')}
     target="_blank"
   >

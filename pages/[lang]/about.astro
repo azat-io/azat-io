@@ -27,55 +27,73 @@ export let getStaticPaths = () =>
   </Typography>
   <AboutSocialLinks>
     <AboutSocial
+      data-umami-event="Visit social link"
+      data-umami-event-name="Email"
       link="mailto:to@azat.io"
       username="to@azat.io"
       name={t('email')}
       type="email"
     />
     <AboutSocial
+      data-umami-event="Visit social link"
       link="https://github.com/azat-io"
+      data-umami-event-name="GitHub"
       username="@azat-io"
       name={t('github')}
       type="github"
     />
     <AboutSocial
       link={`https://twitter.com/${xUsername}`}
+      data-umami-event="Visit social link"
       username={`@${xUsername}`}
+      data-umami-event-name="X"
       name={t('x')}
       type="x"
     />
     <AboutSocial
       link="https://mastodon.social/@azat_io"
+      data-umami-event="Visit social link"
       username="@azat_io@mastodon.social"
+      data-umami-event-name="Mastodon"
       name={t('mastodon')}
       type="mastodon"
     />
     <AboutSocial
       link="https://bsky.app/profile/azat-io.bsky.social"
+      data-umami-event="Visit social link"
+      data-umami-event-name="BlueSky"
       username="@azat-io.bsky.social"
       name={t('blue-sky')}
       type="bluesky"
     />
     <AboutSocial
       link="https://linkedin.com/in/azat-io"
+      data-umami-event="Visit social link"
+      data-umami-event-name="LinkedIn"
       name={t('linkedin')}
       username="@azat-io"
       type="linkedin"
     />
     <AboutSocial
       link="https://discordapp.com/users/azat_io"
+      data-umami-event="Visit social link"
+      data-umami-event-name="Discord"
       username="@azat_io"
       name={t('discord')}
       type="discord"
     />
     <AboutSocial
+      data-umami-event="Visit social link"
+      data-umami-event-name="Telegram"
       link="https://t.me/azat_io"
       name={t('telegram')}
       username="@azat_io"
       type="telegram"
     />
     <AboutSocial
+      data-umami-event="Visit social link"
       link="https://instagram.com/azat_io"
+      data-umami-event-name="Instagram"
       name={t('instagram')}
       username="@azat_io"
       type="instagram"
