@@ -7,7 +7,7 @@ h3 {
   position: absolute;
   inset-block-start: 50%;
   inset-inline-start: calc(0px - var(--space-s) * 2);
-  display: flex;
+  display: none;
   inline-size: 24px;
   block-size: 24px;
   padding-inline: 0;
@@ -23,6 +23,10 @@ h3 {
 }
 
 @media (width >= 768px) {
+  .heading-anchor {
+    display: flex;
+  }
+
   h2:hover .heading-anchor,
   h3:hover .heading-anchor {
     opacity: 100%;
