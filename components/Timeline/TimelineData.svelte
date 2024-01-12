@@ -102,18 +102,18 @@
       gap: 3px;
     }
 
-    .timeline :global(.timeline-cell:nth-child(52n)) {
+    .timeline :global(.timeline-cell):nth-child(52n) {
       counter-increment: year;
     }
 
-    .timeline :global(.timeline-cell::before) {
+    .timeline :global(.timeline-cell)::before {
       display: block;
       inline-size: 100%;
       padding-block-end: 100%;
       content: '';
     }
 
-    .timeline :global(.counter::after) {
+    .timeline :global(.counter)::after {
       position: absolute;
       inset-block-start: calc(50% + 2px);
       inset-inline-start: calc(100% + var(--space-xs));
