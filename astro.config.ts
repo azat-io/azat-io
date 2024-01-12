@@ -10,6 +10,7 @@ import mdx from '@astrojs/mdx'
 import path from 'node:path'
 
 import { remarkCopyCode } from './plugins/remark-copy-code'
+import { remarkHeadings } from './plugins/remark-headings'
 import { remarkKatex } from './plugins/remark-katex'
 
 let dirname = fileURLToPath(path.dirname(import.meta.url))
@@ -36,7 +37,7 @@ export default defineConfig({
         dark: gruvboxDark,
       },
     },
-    remarkPlugins: [remarkCopyCode, remarkMath, remarkKatex],
+    remarkPlugins: [remarkCopyCode, remarkHeadings, remarkMath, remarkKatex],
   },
   integrations: [
     compress({

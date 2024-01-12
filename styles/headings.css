@@ -1,0 +1,30 @@
+h2,
+h3 {
+  position: relative;
+}
+
+.heading-anchor {
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-start: calc(0px - var(--space-s) * 2);
+  display: flex;
+  inline-size: 24px;
+  block-size: 24px;
+  padding-inline: 0;
+  border-block-end: none;
+  opacity: 0%;
+  transition: opacity 250ms ease-in-out 100ms;
+  transform: translateY(calc(-50% - 2px));
+}
+
+.heading-anchor:focus-visible {
+  border-radius: 8px;
+  opacity: 100%;
+}
+
+@media (width >= 768px) {
+  h2:hover .heading-anchor,
+  h3:hover .heading-anchor {
+    opacity: 100%;
+  }
+}
