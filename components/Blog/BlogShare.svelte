@@ -25,7 +25,7 @@
   $: links = [
     {
       icon: XIcon,
-      link: `https://twitter.com/intent/tweet?text=${e(
+      link: `https://x.com/intent/tweet?text=${e(
         `${title}\n\n${t('quote-start')}${description}${t('quote-end')} ${t(
           'by',
         )} @${xUsername}\n\n`,
