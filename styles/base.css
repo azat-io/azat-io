@@ -47,6 +47,10 @@ ol {
   padding-inline-start: 16px;
 }
 
+li {
+  margin-block: var(--space-m);
+}
+
 a {
   padding-inline: 2px;
   color: var(--color-content-link);
