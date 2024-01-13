@@ -1,0 +1,187 @@
+---
+title: Records & Tuples
+description: What new data types will appear in JavaScript and how they will help us write reliable code and avoid bugs
+date: 2024-01-14
+---
+
+In the last post, I wrote about [pipeline-operator](/en/blog/pipeline-operator), which will be used to create compositions of functions.
+
+This article will talk about new data types: records and tuples that will appear in the future. They will allow you to write code in a functional style more efficiently.
+
+At the moment of writing this article, records and tuples are in Stage 2 and are not included in the ECMAScript language standard.
+
+## Background
+
+One of the hardest things to debug when building apps is tracking mutations, side effect issues, and maintaining the state of the app.
+
+Let's look at an example:
+
+```js
+const tokyo = { lat: 35.689, lon: 139.691 }
+
+const tehran = tokyo
+tehran.lon = 51.421
+
+console.log(tokyo === tehran) // true
+console.log(tokyo) // { lat: 35.689, lon: 51.421 }
+```
+
+In this example, we "accidentally" mutated our original `tokyo` object and got a bug.
+
+This is because in JavaScript, objects work like this: when you copy an object, it actually creates a reference to the original object, not a new copy. So when you modify the copy, the original is modified as well.
+
+Another example with arrays:
+
+```js
+const travelPlan = ['Paris', 'Brussels', 'Amsterdam', 'Berlin']
+const citiesToVisit = travelPlan.sort()
+
+console.log(travelPlan) // [ 'Amsterdam', 'Berlin', 'Brussels', 'Paris' ]
+```
+
+In this example, the `sort()` method mutated the array with our original itinerary, making the travel plan through Europe suboptimal.
+
+To make an object or array immutable, developers resort to using third-party libraries such as [Immutable](https://immutable-js.com).
+
+Immutable's `Map` is analogous to an object and `List` to an array, but both are immutable.
+
+```js
+import { List, Map } from 'immutable'
+
+const tokyo = Map({ lat: 35.689, lon: 139.691 })
+const tehran = tokyo.set('lon', 51.421)
+
+console.log(tokyo === tehran) // false
+console.log(tokyo.toJS()) // { lat: 35.689, lon: 139.691 }
+
+const travelPlan = List(['Paris', 'Brussels', 'Amsterdam', 'Berlin'])
+const citiesToVisit = travelPlan.sort()
+
+console.log(travelPlan.toJS()) // [ 'Paris', 'Brussels', 'Amsterdam', 'Berlin' ]
+```
+
+In the Immutable example, there is no problem because objects cannot be changed.
+
+What problems does immutability solve:
+
+1. Prevention of side effects. Sometimes when working with modifiable data, situations arise where changing data in one part of the application causes unpredictable problems in another part of the application.
+2. Since immutable data makes code behavior predictable, testing of such applications becomes easier.
+3. Using immutable data can improve performance. For example, if the application is written in React, it can save the application from unnecessary re-rendering.
+
+Immutability is one of the basic concepts of functional programming, where functions are clean, there are no side effects and functions return a predictable result.
+
+JavaScript has 8 types: Number, BigInt, String, Boolean type, Null, Undefined, Character and Object.
+
+In addition to them, two new primitive types are planned to be added: Record and Tuple. These types are intended to solve problems with immutability.
+
+## Presetting
+
+Records and tuples are not supported by any of the browsers. Therefore, you will need to configure Babel to start using them.
+
+First, let's install Babel itself:
+
+```bash
+npm install --save-dev @babel/cli @babel/core
+```
+
+And install a plugin to support records and tuples and polyfil:
+
+```bash
+npm install --save-dev @babel/plugin-proposal-record-and-tuple @bloomberg/record-tuple-polyfill
+```
+
+We will also add the plugin settings to `.babelrc`:
+
+```json
+{
+  "plugins": [
+    [
+      "@babel/plugin-proposal-record-and-tuple",
+      {
+        "importPolyfill": true
+      }
+    ]
+  ]
+}
+```
+
+And run the command `babel ./index.js -d dist && node ./dist/index.js`.
+
+## How Records and Tuples Work
+
+In syntax, records and tuples are similar to objects and arrays, but the `#` symbol is used at the beginning of the declaration.
+
+For example:
+
+```js
+const tokyo = #{ lat: 35.689, lon: 139.691 }
+
+const travelPlan = #['Paris', 'Brussels', 'Amsterdam', 'Berlin']
+```
+
+### Immutability
+
+Records and tuples cannot be expanded or modified. An error will occur if you attempt to modify a record or tuple.
+
+```js
+let colors = #['red', 'green', 'blue']
+
+colors[0] = 'yellow' // TypeError: Cannot assign to read only property '0' of object '[object Tuple]'
+colors.push('purple') // TypeError: colors.push is not a function
+```
+
+### Primitives
+
+Records and tuples are primitives. This means that when variables with these data types are compared, it is their contents that matter, not where they are stored in computer memory.
+
+```js
+{ name: 'John', age: 28 } === { name: 'John', age: 28 } // false
+
+#{ name: 'John', age: 28 } === #{ name: 'John', age: 28 } // true
+
+['John', 'Jane'] === ['John', 'Jane'] // false
+
+#['John', 'Jane'] === #['John', 'Jane'] // true
+```
+
+The order of keys is not important when comparing records:
+
+```js
+#{ type: 'cat', color: 'black' } === #{ color: 'black', type: 'cat' } // true
+```
+
+### Restrictions
+
+Because records and tuples are primitives, they can only store other primitives as values or keys.
+
+There will be an error here:
+
+```js
+// TypeError: cannot use an object as a value in a record
+
+const order = #{
+  id: 1,
+  price: 200,
+  items: ['apple', 'pear', 'orange'],
+}
+```
+
+However, records and tuples may contain other records and tuples:
+
+```js
+// OK
+
+const order = #{
+  id: 1,
+  price: 200,
+  items: #['apple', 'pear', 'orange'],
+}
+```
+
+## Conclusion
+
+As you can see from the examples, lack of immutability often leads to unwanted changes and confusing code behavior. Unexpected data changes create difficult-to-trace errors and unpredictable application behavior.
+
+Immutability provides a clear and controlled way to manage data, reducing the risk of such problems.
+
+Records and tuples will allow you to build reliable and predictable applications. They reduce the risk of such errors, improve the architecture, and prevent accidental re-rendering when using JS frameworks.
