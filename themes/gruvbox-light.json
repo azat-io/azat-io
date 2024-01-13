@@ -29,8 +29,7 @@
     {
       "scope": ["comment", "punctuation.definition.comment"],
       "settings": {
-        "foreground": "#928374",
-        "fontStyle": "italic"
+        "foreground": "#928374"
       }
     },
     {
@@ -1083,6 +1082,7 @@
     "variable": "#3c3836",
     "function": "#427b58",
     "function.builtin": "#af3a03",
-    "method": "#427b58"
+    "method": "#427b58",
+    "component": "#af3a03"
   }
 }
