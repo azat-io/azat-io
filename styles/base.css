@@ -75,6 +75,14 @@ a:focus-visible {
 
 p {
   margin-block: var(--space-m);
+  text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
 }
 
 h1 {
