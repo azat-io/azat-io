@@ -15,6 +15,7 @@
     inline-size: 100%;
     aspect-ratio: 1 / 1;
     padding: 0;
+    margin-block: 0;
     list-style: none;
     background: var(--color-background-inverse-hover);
     border: 1px solid var(--color-border-inverse);
