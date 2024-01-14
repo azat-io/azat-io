@@ -65,7 +65,7 @@
     transition: opacity 250ms ease-in-out 250ms;
   }
 
-  .copy-code-button:focus-visible ~ .copy-code-label {
+  .copy-code-button:focus-visible + .copy-code-label {
     opacity: 0%;
     transition: none;
   }

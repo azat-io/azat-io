@@ -51,6 +51,11 @@ export let remarkCopyCode: Plugin<[], Root> =
           class: 'copy-code-wrapper',
         },
         [
+          h('button', {
+            'aria-label': 'Copy code to clipboard',
+            class: 'copy-code-button',
+            'data-lang': lang,
+          }),
           typeof lang === 'string' &&
             h(
               'span',
@@ -64,11 +69,6 @@ export let remarkCopyCode: Plugin<[], Root> =
                 },
               ],
             ),
-          h('button', {
-            'aria-label': 'Copy code to clipboard',
-            class: 'copy-code-button',
-            'data-lang': lang,
-          }),
           node as unknown as Result,
         ],
       )
