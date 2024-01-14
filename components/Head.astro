@@ -27,6 +27,8 @@ let canonicalURL = new URL(Astro.url.pathname, Astro.site)
 
 let pageTitle = `${title} | ${t('name')}`
 let xUsername = locale === 'ru' ? '@azat_io' : '@azat_io_en'
+
+let isProd = import.meta.env.PROD
 ---
 
 <head>
@@ -96,10 +98,15 @@ let xUsername = locale === 'ru' ? '@azat_io' : '@azat_io_en'
     document.addEventListener('astro:after-swap', initialize)
   </script>
 
-  <script
-    data-website-id="effe2886-cd9d-46cd-9c95-e9dbad667822"
-    src="https://analytics.azat.io/script.js"
-    async></script>
+  {
+    isProd && (
+      <script
+        data-website-id="effe2886-cd9d-46cd-9c95-e9dbad667822"
+        src="https://analytics.azat.io/script.js"
+        async
+      />
+    )
+  }
 
   <ViewTransitions />
 </head>
