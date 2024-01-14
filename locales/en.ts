@@ -39,6 +39,7 @@ export default {
     'grave-of-the-fireflies': 'Grave of the Fireflies',
     'the-promised-neverland': 'The Promised Neverland',
     'cyberpunk-edgerunners': 'Cyberpunk: Edgerunners',
+    'dorohedoro-extra-evil': 'Dorohedoro: Extra Evil',
     'summer-time-rendering': 'Summer Time Rendering',
     'howl-s-moving-castle': "Howl's Moving Castle",
     'when-the-cicadas-cry': 'When the Cicadas Cry',
