@@ -139,7 +139,7 @@
     inset: 0;
     inline-size: 100vi;
     max-inline-size: 100%;
-    block-size: 100vb;
+    block-size: 100dvb;
     max-block-size: 100%;
     padding: 0;
     margin: 0;
