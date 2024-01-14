@@ -95,6 +95,7 @@ export default {
     'oshi-no-ko': 'Oshi no Ko',
     'mushi-shi': 'Mushi-Shi',
     'cover-for': 'Cover for',
+    dorohedoro: 'Dorohedoro',
     'episodes-of': 'ep. of',
     adventure: 'adventure',
     'odd-taxi': 'Odd Taxi',

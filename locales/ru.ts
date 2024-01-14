@@ -98,6 +98,7 @@ export default {
     'spy-family': 'Семья Шпиона',
     'mushi-shi': 'Мастер Муси',
     'cover-for': 'Обложка для',
+    dorohedoro: 'Дорохедоро',
     duration: 'Длительность',
     adventure: 'приключения',
     'episodes-of': 'эп. по',
