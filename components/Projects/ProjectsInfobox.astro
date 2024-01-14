@@ -31,7 +31,7 @@ let projectLinks = Object.entries(links).map(
   <ul class="links">
     {
       projectLinks.map(({ link, type }) => (
-        <li>
+        <li class="item">
           <ProjectsLink link={link} type={type} />
         </li>
       ))
@@ -62,6 +62,10 @@ let projectLinks = Object.entries(links).map(
     margin: 0;
     margin-block-start: var(--space-m);
     list-style: none;
+  }
+
+  .item {
+    margin-block: 0;
   }
 
   @media (width >= 768px) {
