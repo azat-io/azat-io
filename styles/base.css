@@ -145,12 +145,10 @@ picture {
 pre,
 code {
   overflow: auto;
-  font-family: 'Monaspace Neon', monospace;
-  font-size: var(--font-size-s);
+  font: var(--font-code);
   font-variation-settings:
     'wght' 560,
-    'wdth' 110;
-  line-height: 1.75;
+    'wdth' 111;
   background: var(--color-background-secondary) !important;
   border: 1px solid var(--color-border-primary);
 }

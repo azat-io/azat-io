@@ -31,6 +31,7 @@
 
 :root {
   --font-family-base: 'Co Text', 'Co Test Fallback', sans-serif;
+  --font-family-code: 'Monaspace Neon', monospace;
 
   --font-size-2xs: clamp(0.86rem, -0.52vi + 0.99rem, 0.58rem);
   --font-size-xs: clamp(0.91rem, -0.34vi + 0.99rem, 0.72rem);
@@ -40,6 +41,7 @@
   --font-size-xl: clamp(1.1rem, 1.19vi + 0.8rem, 1.76rem);
   --font-size-2xl: clamp(1.16rem, 1.89vi + 0.69rem, 2.2rem);
   --font-size-3xl: clamp(1.22rem, 2.78vi + 0.52rem, 2.75rem);
+  --font-size-code: clamp(0.86rem, 0.14vi + 0.82rem, 0.95rem);
 
   --font-2xs: 400 var(--font-size-2xs) / 1.75 var(--font-family-base);
   --font-xs: 400 var(--font-size-xs) / 1.75 var(--font-family-base);
@@ -49,4 +51,5 @@
   --font-xl: 600 var(--font-size-xl) / 1.5 var(--font-family-base);
   --font-2xl: 600 var(--font-size-2xl) / 1 var(--font-family-base);
   --font-3xl: 600 var(--font-size-3xl) / 1 var(--font-family-base);
+  --font-code: 400 var(--font-size-code) / 1.75 var(--font-family-code);
 }
