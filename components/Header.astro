@@ -5,7 +5,8 @@ import Navigation from '~/components/Navigation.svelte'
 import Typography from '~/components/Typography.astro'
 import Logo from '~/components/Logo.astro'
 
-let locale = getLocaleFromUrl(Astro.url)
+let { url } = Astro
+let locale = getLocaleFromUrl(url)
 let t = useTranslations(locale, 'header')
 ---
 
@@ -16,7 +17,7 @@ let t = useTranslations(locale, 'header')
       {t('name')}
     </Typography>
   </a>
-  <Navigation client:load />
+  <Navigation locale={locale} client:load url={url} />
 </header>
 
 <style>

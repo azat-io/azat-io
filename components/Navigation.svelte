@@ -1,7 +1,8 @@
 <script lang="ts">
   import { onMount } from 'svelte'
 
-  import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
+  import type { Locale } from '~/locales'
+
   import { useTranslations } from '~/utils/use-translations'
   import TranslateIcon from '~/icons/translate.svg?raw'
   import CrossIcon from '~/icons/cross.svg?raw'
@@ -15,6 +16,9 @@
   import { locales } from '~/locales'
 
   type Theme = 'dark' | 'light'
+
+  export let locale: Locale
+  export let url: URL
 
   let clickOutside = (
     node: HTMLElement,
@@ -42,9 +46,7 @@
 
   let menuOpen = false
   let languageSelectOpen = false
-  let url: undefined | URL
   let theme: Theme = 'dark'
-  $: locale = getLocaleFromUrl(url)
   $: t = useTranslations(locale, 'navigation')
 
   let closeNavigation = () => {
@@ -94,8 +96,6 @@
     languageSelectOpen = false
   }
 
-  onMount(() => (url = new URL(window.location.href)))
-
   onMount(() => {
     let savedTheme = localStorage.getItem('theme') as Theme | null
     if (savedTheme === 'light') {
@@ -120,47 +120,42 @@
   >
     {@html CrossIcon}
   </button>
-  {#if url}
-    <a
-      href={`/${locale}/blog`}
-      class="link item icon-wrapper icon-wrapper-mobile-only"
-    >
-      {@html GridIcon}
-      <span class="text-menu">
-        {t('blog')}
-      </span>
-    </a>
-    <a
-      href={`/${locale}/projects`}
-      class="link item icon-wrapper icon-wrapper-mobile-only"
-    >
-      {@html BulbIcon}
-      <span class="text-menu">
-        {t('projects')}
-      </span>
-    </a>
-    <a
-      href={`/${locale}/about`}
-      class="link item icon-wrapper icon-wrapper-mobile-only"
-    >
-      {@html UserIcon}
-      <span class="text-menu">
-        {t('about')}
-      </span>
-    </a>
-    <a
-      href={url.pathname.replace(
-        /^\/\w{2}/,
-        `/${locale === 'en' ? 'ru' : 'en'}`,
-      )}
-      class="link item icon-wrapper icon-wrapper-mobile-only mobile-only"
-    >
-      {@html TranslateIcon}
-      <span class="text-menu">
-        {t('change-language')}
-      </span>
-    </a>
-  {/if}
+  <a
+    href={`/${locale}/blog`}
+    class="link item icon-wrapper icon-wrapper-mobile-only"
+  >
+    {@html GridIcon}
+    <span class="text-menu">
+      {t('blog')}
+    </span>
+  </a>
+  <a
+    href={`/${locale}/projects`}
+    class="link item icon-wrapper icon-wrapper-mobile-only"
+  >
+    {@html BulbIcon}
+    <span class="text-menu">
+      {t('projects')}
+    </span>
+  </a>
+  <a
+    href={`/${locale}/about`}
+    class="link item icon-wrapper icon-wrapper-mobile-only"
+  >
+    {@html UserIcon}
+    <span class="text-menu">
+      {t('about')}
+    </span>
+  </a>
+  <a
+    href={url.pathname.replace(/^\/\w{2}/, `/${locale === 'en' ? 'ru' : 'en'}`)}
+    class="link item icon-wrapper icon-wrapper-mobile-only mobile-only"
+  >
+    {@html TranslateIcon}
+    <span class="text-menu">
+      {t('change-language')}
+    </span>
+  </a>
   <div class="relative-wrapper desktop-only">
     <button
       class="clean-button icon-wrapper"
