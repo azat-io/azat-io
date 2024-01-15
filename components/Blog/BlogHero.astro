@@ -17,7 +17,7 @@ let t = useTranslations(locale, 'blog')
 ---
 
 <div class="hero">
-  <Container class="container">
+  <Container class="hero-container">
     <Picture
       sizes={`(max-width: 480px) 480w, (max-width: 768px) 768w, 1200w`}
       src={import(`../../content/blog/${id}/assets/hero.png`)}
@@ -38,7 +38,7 @@ let t = useTranslations(locale, 'blog')
     background: oklch(96.88% 0.024 85.79);
   }
 
-  .container {
+  .hero.hero-container {
     padding-block: 0;
     overflow: hidden;
   }
