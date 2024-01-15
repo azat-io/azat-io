@@ -29,10 +29,12 @@ type Props = CollectionEntry<'blog'>['data'] & {
 
 let { description, title, date, slug, body } = Astro.props
 
-let locale = getLocaleFromUrl(Astro.url, true)
+let { url } = Astro
+let locale = getLocaleFromUrl(url)
+let realLocale = getLocaleFromUrl(url, true)
 
-let parseUrl = (url: string) => {
-  let [slugValue, localeValue] = url.replace(/\.mdx?$/, '').split('/')
+let parseUrl = (currentUrl: string) => {
+  let [slugValue, localeValue] = currentUrl.replace(/\.mdx?$/, '').split('/')
   return { locale: localeValue!, slug: slugValue! }
 }
 
@@ -44,7 +46,7 @@ let translations = posts
   .filter(
     post =>
       parseUrl(slug).slug === parseUrl(post.slug!).slug &&
-      locale !== parseUrl(post.id).locale,
+      realLocale !== parseUrl(post.id).locale,
   )
   .map(({ slug: slugValue, ...post }) => {
     let localeValue = post.id.replace(/\.mdx?$/, '').split('/')[1]!
@@ -90,7 +92,13 @@ let imageSrc = (await images[id]?.()) as { default: ImageMetadata } | undefined
         <slot />
         <BlogWidgetWrapper>
           <BlogEditPageLink slug={slug} />
-          <BlogShare description={description} title={title} client:load />
+          <BlogShare
+            description={description}
+            locale={locale}
+            title={title}
+            client:load
+            url={url}
+          />
         </BlogWidgetWrapper>
         <BlogTranslation translations={translations} client:load />
         <BlogAdditionalPosts slug={slug} />

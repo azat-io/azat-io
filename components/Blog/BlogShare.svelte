@@ -1,7 +1,6 @@
 <script lang="ts">
-  import { onMount } from 'svelte'
+  import type { Locale } from '~/locales'
 
-  import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
   import { useTranslations } from '~/utils/use-translations'
   import LinkedinIcon from '~/icons/linkedin.svg?raw'
   import Portal from '~/components/Portal.svelte'
@@ -10,10 +9,10 @@
   import XIcon from '~/icons/x.svg?raw'
 
   export let description: string
+  export let locale: Locale
   export let title: string
+  export let url: URL
 
-  let url: undefined | URL
-  $: locale = getLocaleFromUrl(url)
   $: t = useTranslations(locale, 'blog')
 
   let e = encodeURI
@@ -59,8 +58,6 @@
   let closeDialog = () => {
     dialog.close()
   }
-
-  onMount(() => (url = new URL(window.location.href)))
 </script>
 
 <div class="wrapper">
