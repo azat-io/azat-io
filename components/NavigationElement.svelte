@@ -14,13 +14,6 @@
     href,
   } as Record<string, unknown>
 
-  if (view === 'icon') {
-    props = {
-      ...props,
-      'aria-label': ariaLabel ?? label,
-    }
-  }
-
   if (typeof umamiEvent === 'string') {
     props = {
       ...props,
@@ -43,6 +36,7 @@
   class:text={view === 'text'}
   class:icon={view === 'icon'}
   class:mobile-only={mobileOnly}
+  aria-label={ariaLabel ?? label}
   on:click
   {...props}
 >
