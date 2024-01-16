@@ -3,6 +3,7 @@
 
   import type { Locale } from '~/locales'
 
+  import NavigationElement from '~/components/NavigationElement.svelte'
   import { useTranslations } from '~/utils/use-translations'
   import TranslateIcon from '~/icons/translate.svg?raw'
   import CrossIcon from '~/icons/cross.svg?raw'
@@ -20,29 +21,8 @@
   export let locale: Locale
   export let url: URL
 
-  let clickOutside = (
-    node: HTMLElement,
-    handler: () => void,
-  ): { destroy: () => void } => {
-    let onClick = (event: MouseEvent) => {
-      event.stopPropagation()
-      if (
-        node &&
-        !node.contains(event.target as HTMLElement) &&
-        !event.defaultPrevented
-      ) {
-        handler()
-      }
-    }
-
-    document.addEventListener('click', onClick, true)
-
-    return {
-      destroy() {
-        document.removeEventListener('click', onClick, true)
-      },
-    }
-  }
+  $: innerWidth = 0
+  $: isMobile = innerWidth < 1000
 
   let menuOpen = false
   let languageSelectOpen = false
@@ -67,12 +47,6 @@
     }
   }
 
-  let onKeyDown = (event: KeyboardEvent) => {
-    if (event.key === 'Escape' && menuOpen) {
-      closeNavigation()
-    }
-  }
-
   let setTheme = (theme: Theme) => {
     document.documentElement.setAttribute('data-theme', theme)
     localStorage.setItem('theme', theme)
@@ -92,10 +66,6 @@
     languageSelectOpen = true
   }
 
-  let closeLanguageSelect = () => {
-    languageSelectOpen = false
-  }
-
   onMount(() => {
     let savedTheme = localStorage.getItem('theme') as Theme | null
     if (savedTheme === 'light') {
@@ -105,73 +75,47 @@
   })
 </script>
 
-<button
-  class="clean-button icon-wrapper mobile-menu-button"
+<NavigationElement
   on:click={toggleNavigationOpen}
-  aria-label={t('open-menu')}
->
-  {@html MenuIcon}
-</button>
+  label={t('open-menu')}
+  icon={MenuIcon}
+  mobileOnly
+/>
 <nav class="nav" class:nav-open={menuOpen}>
-  <button
-    class="clean-button icon-wrapper mobile-menu-button mobile-menu-close"
+  <NavigationElement
     on:click={toggleNavigationOpen}
-    aria-label={t('close-menu')}
-  >
-    {@html CrossIcon}
-  </button>
-  <a
+    label={t('close-menu')}
+    icon={CrossIcon}
+    mobileOnly
+  />
+  <NavigationElement
     href={`/${locale}/blog`}
-    class="link item icon-wrapper icon-wrapper-mobile-only"
-  >
-    {@html GridIcon}
-    <span class="text-menu">
-      {t('blog')}
-    </span>
-  </a>
-  <a
+    label={t('blog')}
+    icon={GridIcon}
+  />
+  <NavigationElement
     href={`/${locale}/projects`}
-    class="link item icon-wrapper icon-wrapper-mobile-only"
-  >
-    {@html BulbIcon}
-    <span class="text-menu">
-      {t('projects')}
-    </span>
-  </a>
-  <a
+    label={t('projects')}
+    icon={BulbIcon}
+  />
+  <NavigationElement
     href={`/${locale}/about`}
-    class="link item icon-wrapper icon-wrapper-mobile-only"
+    label={t('about')}
+    icon={UserIcon}
+  />
+  <NavigationElement
+    href={isMobile
+      ? url.pathname.replace(/^\/\w{2}/, `/${locale === 'en' ? 'ru' : 'en'}`)
+      : undefined}
+    on:click={isMobile ? undefined : openLanguageSelect}
+    label={t('change-language')}
+    icon={TranslateIcon}
+    view="icon"
   >
-    {@html UserIcon}
-    <span class="text-menu">
-      {t('about')}
-    </span>
-  </a>
-  <a
-    href={url.pathname.replace(/^\/\w{2}/, `/${locale === 'en' ? 'ru' : 'en'}`)}
-    class="link item icon-wrapper icon-wrapper-mobile-only mobile-only"
-  >
-    {@html TranslateIcon}
-    <span class="text-menu">
-      {t('change-language')}
-    </span>
-  </a>
-  <div class="relative-wrapper desktop-only">
-    <button
-      class="clean-button icon-wrapper"
-      aria-label={t('change-language')}
-      on:click={openLanguageSelect}
-    >
-      {@html TranslateIcon}
-      <span class="text-menu mobile-only">{t('change-language')}</span>
-    </button>
     {#if languageSelectOpen}
-      <div class="locale-select" use:clickOutside={closeLanguageSelect}>
+      <div class="locale-select">
         {#each locales as { originName, code, icon }}
-          <a
-            href={window.location.pathname.replace(/^\/\w{2}/, `/${code}`)}
-            class="locale"
-          >
+          <a href={url.pathname.replace(/^\/\w{2}/, `/${code}`)} class="locale">
             <div class="flag">{@html icon}</div>
             <div class="name-container">
               <span class="name">{t(code)}</span>
@@ -181,38 +125,25 @@
         {/each}
       </div>
     {/if}
-  </div>
-  <button
-    class="clean-button icon-wrapper"
-    aria-label={t('change-theme')}
+  </NavigationElement>
+  <NavigationElement
+    label={theme === 'dark' ? t('light-theme') : t('dark-theme')}
+    icon={theme === 'dark' ? SunIcon : MoonIcon}
     on:click={handleThemeChange}
-  >
-    {#if theme === 'dark'}
-      {@html SunIcon}
-    {:else if theme === 'light'}
-      {@html MoonIcon}
-    {/if}
-    <span class="text-menu mobile-only">
-      {#if theme === 'dark'}
-        {t('light-theme')}
-      {:else if theme === 'light'}
-        {t('dark-theme')}
-      {/if}
-    </span>
-  </button>
-  <a
-    class="clean-button icon-wrapper"
+    ariaLabel={t('change-theme')}
+    view="icon"
+  />
+  <NavigationElement
     href={`/${locale}/rss.xml`}
-    data-umami-event="View RSS"
-    aria-label={t('rss')}
+    umamiEvent="View RSS"
+    label={t('rss')}
     target="_blank"
-  >
-    {@html RssIcon}
-    <span class="text-menu mobile-only">{t('rss')}</span>
-  </a>
+    icon={RssIcon}
+    view="icon"
+  />
 </nav>
 
-<svelte:window on:keydown={onKeyDown} />
+<svelte:window bind:innerWidth />
 
 <style>
   .nav {
@@ -228,72 +159,6 @@
     gap: var(--space-m);
     padding: var(--space-s) var(--space-m);
     background: var(--color-background-secondary);
-  }
-
-  .link {
-    padding: var(--space-xs) var(--space-s);
-    color: var(--color-content-primary);
-    border-block-end: none;
-    border-radius: var(--border-radius);
-    transition: all 250ms;
-    will-change: box-shadow, background, color;
-  }
-
-  .item {
-    line-height: 1.2;
-    color: inherit;
-  }
-
-  .clean-button {
-    display: flex;
-    padding: 0;
-    padding: var(--space-xs) var(--space-s);
-    color: var(--color-content-primary);
-    background: transparent;
-    border: none;
-    border-radius: var(--border-radius);
-    outline: none;
-    transition: all 250ms;
-    will-change: box-shadow, background, color;
-  }
-
-  .link:hover,
-  .clean-button:hover {
-    color: var(--color-content-brand);
-    background: var(--color-background-primary-hover);
-  }
-
-  .link:focus-visible,
-  .clean-button:focus-visible {
-    background: var(--color-overlay-brand);
-    box-shadow: 0 0 0 2px var(--color-border-brand);
-    transition-property: box-shadow;
-  }
-
-  .icon-wrapper {
-    display: flex;
-    gap: var(--space-s);
-    align-items: center;
-    inline-size: 100%;
-  }
-
-  .icon-wrapper :global(svg) {
-    inline-size: 24px;
-    block-size: 24px;
-  }
-
-  .mobile-menu-button {
-    display: flex;
-    inline-size: fit-content;
-  }
-
-  .mobile-menu-close {
-    align-self: end;
-    justify-content: end;
-  }
-
-  .relative-wrapper {
-    position: relative;
   }
 
   .locale-select {
@@ -339,11 +204,8 @@
   .name-container {
     display: flex;
     flex-direction: column;
+    align-items: start;
     justify-content: center;
-  }
-
-  .desktop-only {
-    display: none;
   }
 
   .name {
@@ -353,10 +215,7 @@
 
   .origin-name {
     font: var(--font-2xs);
-  }
-
-  .text-menu {
-    white-space: nowrap;
+    color: var(--color-content-primary);
   }
 
   @keyframes grow-down {
@@ -384,32 +243,6 @@
       padding: 0;
       background: transparent;
       animation: fade-in 250ms ease-out forwards;
-    }
-
-    .link {
-      padding: var(--space-s);
-    }
-
-    .clean-button {
-      padding: var(--space-xs);
-    }
-
-    .mobile-menu-button {
-      display: none;
-    }
-
-    .icon-wrapper :global(svg) {
-      inline-size: 28px;
-      block-size: 28px;
-    }
-
-    .mobile-only,
-    .icon-wrapper-mobile-only :global(svg) {
-      display: none;
-    }
-
-    .desktop-only {
-      display: flex;
     }
   }
 
