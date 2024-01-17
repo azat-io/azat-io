@@ -2,14 +2,14 @@
 import type { CollectionEntry } from 'astro:content'
 
 import ProjectsInfobox from '~/components/Projects/ProjectsInfobox.astro'
-import headingStyles from '~/styles/headings.css?raw'
 import Container from '~/components/Container.astro'
-import codeStyles from '~/styles/code.css?raw'
 import Header from '~/components/Header.astro'
 import Footer from '~/components/Footer.astro'
 import Title from '~/components/Title.astro'
 import Head from '~/components/Head.astro'
 import Html from '~/components/Html.astro'
+import '~/styles/headings.css'
+import '~/styles/code.css'
 
 type Props = CollectionEntry<'projects'>['data']
 
@@ -17,10 +17,7 @@ let { description, badges, links, title, id } = Astro.props
 ---
 
 <Html>
-  <Head description={description} title={title}>
-    <style set:html={headingStyles}></style>
-    <style set:html={codeStyles}></style>
-  </Head>
+  <Head description={description} title={title} />
   <body>
     <main class="main">
       <Header />

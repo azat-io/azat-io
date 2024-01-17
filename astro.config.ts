@@ -78,15 +78,16 @@ export default defineConfig({
     defaultStrategy: 'viewport',
     prefetchAll: true,
   },
+  build: {
+    inlineStylesheets: 'always',
+    format: 'file',
+  },
   image: {
     service: squooshImageService(),
   },
   server: {
     port: 8080,
     host: true,
-  },
-  build: {
-    format: 'file',
   },
   site: 'https://azat.io',
   compressHTML: true,

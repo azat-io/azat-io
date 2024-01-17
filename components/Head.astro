@@ -3,10 +3,10 @@ import { ViewTransitions } from 'astro:transitions'
 
 import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
 import { useTranslations } from '~/utils/use-translations'
-import spacesStyles from '~/styles/spaces.css?raw'
-import colorsStyles from '~/styles/colors.css?raw'
-import fontsStyles from '~/styles/fonts.css?raw'
-import baseStyles from '~/styles/base.css?raw'
+import '~/styles/base.css'
+import '~/styles/fonts.css'
+import '~/styles/colors.css'
+import '~/styles/spaces.css'
 
 interface Props {
   image?: undefined | string
@@ -84,11 +84,6 @@ let isProd = import.meta.env.PROD
   <meta property="twitter:title" content={pageTitle} />
   <meta property="twitter:description" content={description} />
   <meta property="twitter:image" content={image} />
-
-  <style set:html={baseStyles}></style>
-  <style set:html={fontsStyles}></style>
-  <style set:html={colorsStyles}></style>
-  <style set:html={spacesStyles}></style>
   <slot />
 
   <script is:inline>
