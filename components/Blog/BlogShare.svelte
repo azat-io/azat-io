@@ -60,48 +60,40 @@
   }
 </script>
 
-<div class="wrapper">
-  <button data-umami-event="Share" class="share" on:click={share}>
-    {@html ShareIcon}
-    <span>{t('share')}</span>
-  </button>
-  <Portal>
-    <dialog class="dialog" bind:this={dialog} tabindex="-1">
-      <button class="paranja" on:click={closeDialog} tabindex="-1" />
-      <div class="popup">
-        <button class="close" on:click={closeDialog}>
-          {@html CrossIcon}
-        </button>
-        <h3 class="title">{t('share')}</h3>
-        <ul class="links">
-          {#each links as { label, link, icon, name }}
-            <li>
-              <a
-                data-umami-event="Share on social media"
-                aria-label={t(label).toString()}
-                data-umami-event-name={name}
-                rel="noopener noreferrer"
-                target="_blank"
-                class="link"
-                href={link}
-              >
-                {@html icon}
-              </a>
-            </li>
-          {/each}
-        </ul>
-      </div>
-    </dialog>
-  </Portal>
-</div>
+<button data-umami-event="Share" class="share" on:click={share}>
+  {@html ShareIcon}
+  <span>{t('share')}</span>
+</button>
+<Portal>
+  <dialog class="dialog" bind:this={dialog} tabindex="-1">
+    <button class="paranja" on:click={closeDialog} tabindex="-1" />
+    <div class="popup">
+      <button class="close" on:click={closeDialog}>
+        {@html CrossIcon}
+      </button>
+      <h3 class="title">{t('share')}</h3>
+      <ul class="links">
+        {#each links as { label, link, icon, name }}
+          <li>
+            <a
+              data-umami-event="Share on social media"
+              aria-label={t(label).toString()}
+              data-umami-event-name={name}
+              rel="noopener noreferrer"
+              target="_blank"
+              class="link"
+              href={link}
+            >
+              {@html icon}
+            </a>
+          </li>
+        {/each}
+      </ul>
+    </div>
+  </dialog>
+</Portal>
 
 <style>
-  .wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: start;
-  }
-
   .share {
     display: flex;
     gap: var(--space-s);

@@ -59,9 +59,7 @@
 
 {#if shouldRender && $userLanguage}
   <div class="translation">
-    <span class="icon">
-      {@html HeartIcon}
-    </span>
+    {@html HeartIcon}
     <span>{desiredLocales[$userLanguage]}</span>
     <p>
       {`${t('translate-1')}`.replace(
@@ -97,13 +95,10 @@
     border-radius: var(--border-radius);
   }
 
-  .icon {
+  .translation :global(svg) {
     position: absolute;
     inset-block-start: var(--space-m);
     inset-inline-end: var(--space-m);
-  }
-
-  .icon :global(svg) {
     inline-size: 28px;
     block-size: 28px;
     color: var(--color-content-secondary);
