@@ -19,7 +19,7 @@ let t = useTranslations(locale, 'blog')
 <div class="hero">
   <Container class="hero-container">
     <Picture
-      sizes={`(max-width: 480px) 480w, (max-width: 768px) 768w, 1200w`}
+      sizes="(max-width: 560px) 480w, (max-width: 840px) 768w, 1200w"
       src={import(`../../content/blog/${id}/assets/hero.png`)}
       alt={`${t('post-cover-for')} ${name}`}
       formats={['avif', 'webp']}
