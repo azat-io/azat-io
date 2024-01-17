@@ -23,6 +23,9 @@ dependencies:
   astro-compress:
     specifier: ^2.2.8
     version: 2.2.8
+  browserslist:
+    specifier: ^4.22.2
+    version: 4.22.2
   hastscript:
     specifier: ^8.0.0
     version: 8.0.0

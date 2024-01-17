@@ -1,6 +1,8 @@
 import { squooshImageService, defineConfig } from 'astro/config'
 import rehypeExternalLinks from 'rehype-external-links'
+import { browserslistToTargets } from 'lightningcss'
 import { fileURLToPath } from 'node:url'
+import browserslist from 'browserslist'
 import sitemap from '@astrojs/sitemap'
 import compress from 'astro-compress'
 import remarkMath from 'remark-math'
@@ -60,14 +62,21 @@ export default defineConfig({
     svelte(),
     mdx(),
   ],
+  vite: {
+    css: {
+      lightningcss: {
+        targets: browserslistToTargets(
+          browserslist(null, {
+            config: path.join(dirname, './.browserslistrc'),
+          }),
+        ),
+      },
+      transformer: 'lightningcss',
+    },
+  },
   prefetch: {
     defaultStrategy: 'viewport',
     prefetchAll: true,
-  },
-  vite: {
-    css: {
-      transformer: 'lightningcss',
-    },
   },
   image: {
     service: squooshImageService(),
