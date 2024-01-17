@@ -100,7 +100,12 @@ let imageSrc = (await images[id]?.()) as { default: ImageMetadata } | undefined
             url={url}
           />
         </BlogWidgetWrapper>
-        <BlogTranslation translations={translations} client:load />
+        <BlogTranslation
+          translations={translations.map(({ locale: localeValue }) => ({
+            locale: localeValue,
+          }))}
+          client:load
+        />
         <BlogAdditionalPosts slug={slug} />
       </Container>
       <Footer />
