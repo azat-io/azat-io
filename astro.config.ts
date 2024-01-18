@@ -82,6 +82,9 @@ export default defineConfig({
   image: {
     service: squooshImageService(),
   },
+  experimental: {
+    clientPrerender: true,
+  },
   server: {
     port: 8080,
     host: true,
