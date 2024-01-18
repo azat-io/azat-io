@@ -28,7 +28,7 @@ let icons = [
 ---
 
 <script is:inline>
-  document.addEventListener('astro:after-swap', () => {
+  let initCopyCodePlugin = () => {
     let buttons = document.querySelectorAll('.copy-code-button')
 
     for (let button of buttons) {
@@ -42,7 +42,10 @@ let icons = [
         }, 2000)
       })
     }
-  })
+  }
+
+  document.addEventListener('astro:after-swap', initCopyCodePlugin)
+  initCopyCodePlugin()
 </script>
 <footer class="footer">
   <Typography size="m">CC BY-NC-SA 4.0</Typography>
