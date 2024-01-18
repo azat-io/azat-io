@@ -229,10 +229,6 @@
   }
 
   @media (width >= 768px) {
-    .wrapper {
-      justify-content: end;
-    }
-
     .share {
       flex-direction: row-reverse;
     }

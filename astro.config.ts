@@ -7,20 +7,17 @@ import sitemap from '@astrojs/sitemap'
 import compress from 'astro-compress'
 import remarkMath from 'remark-math'
 import svelte from '@astrojs/svelte'
-import { loadTheme } from 'shiki'
 import mdx from '@astrojs/mdx'
 import path from 'node:path'
+import JSON5 from 'json5'
 
 import { remarkCopyCode } from './plugins/remark-copy-code'
+import gruvboxLight from './themes/gruvbox-light.json?raw'
 import { remarkHeadings } from './plugins/remark-headings'
+import gruvboxDark from './themes/gruvbox-dark.json?raw'
 import { remarkKatex } from './plugins/remark-katex'
 
 let dirname = fileURLToPath(path.dirname(import.meta.url))
-
-let [gruvboxLight, gruvboxDark] = await Promise.all([
-  loadTheme(path.join(dirname, './themes/gruvbox-light.json')),
-  loadTheme(path.join(dirname, './themes/gruvbox-dark.json')),
-])
 
 export default defineConfig({
   markdown: {
@@ -35,8 +32,8 @@ export default defineConfig({
     ],
     shikiConfig: {
       experimentalThemes: {
-        light: gruvboxLight,
-        dark: gruvboxDark,
+        light: JSON5.parse(gruvboxLight),
+        dark: JSON5.parse(gruvboxDark),
       },
     },
     remarkPlugins: [remarkCopyCode, remarkHeadings, remarkMath, remarkKatex],
