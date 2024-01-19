@@ -14,6 +14,7 @@ import JSON5 from 'json5'
 import { remarkCopyCode } from './plugins/remark-copy-code'
 import gruvboxLight from './themes/gruvbox-light.json?raw'
 import { remarkHeadings } from './plugins/remark-headings'
+import { remarkTypograf } from './plugins/remark-typograf'
 import gruvboxDark from './themes/gruvbox-dark.json?raw'
 import { remarkKatex } from './plugins/remark-katex'
 
@@ -36,7 +37,13 @@ export default defineConfig({
         dark: JSON5.parse(gruvboxDark),
       },
     },
-    remarkPlugins: [remarkCopyCode, remarkHeadings, remarkMath, remarkKatex],
+    remarkPlugins: [
+      remarkCopyCode,
+      remarkHeadings,
+      remarkTypograf,
+      remarkKatex,
+      remarkMath,
+    ],
   },
   integrations: [
     compress({

@@ -56,6 +56,9 @@ dependencies:
   typescript:
     specifier: ^5.3.3
     version: 5.3.3
+  typograf:
+    specifier: ^7.3.0
+    version: 7.3.0
   unist-util-visit:
     specifier: ^5.0.0
     version: 5.0.0
@@ -7747,6 +7750,11 @@ packages:
     resolution: {integrity: sha512-pXWcraxM0uxAS+tN0AG/BF2TyqmHO014Z070UsJ+pFvYuRSq8KH8DmWpnbXe0pEPDHXZV3FcAbJkijJ5oNEnWw==}
     engines: {node: '>=14.17'}
     hasBin: true
+
+  /typograf@7.3.0:
+    resolution: {integrity: sha512-fR96fOEyVUrjPDWNuy3oq0s3AnY58XPd9i1jKDtzHcHySNfzvw6c47/GDyPDI1+x99ngzuwxyAZjVF1i8zNwCg==}
+    engines: {node: '>= 4'}
+    dev: false
 
   /unbox-primitive@1.0.2:
     resolution: {integrity: sha512-61pPlCD9h51VoreyJ0BReideM3MDKMKnh6+V9L08331ipq6Q8OFXZYiqP6n/tbHx4s5I9uRhcye6BrbkizkBDw==}
