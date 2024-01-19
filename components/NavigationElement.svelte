@@ -1,4 +1,5 @@
 <script lang="ts">
+  export let click: (() => void) | undefined = undefined
   export let umamiEvent: string | undefined = undefined
   export let ariaLabel: string | undefined = undefined
   export let target: string | undefined = undefined
@@ -8,11 +9,26 @@
   export let label: string
   export let icon: string
 
-  $: tag = typeof href === 'string' ? 'a' : 'button'
+  $: tag = 'span'
+
+  $: if (typeof href === 'string') {
+    tag = 'a'
+  } else if (typeof click === 'function') {
+    tag = 'button'
+  }
 
   $: props = {
     href,
   } as Record<string, unknown>
+
+  if (typeof click === 'function') {
+    props = {
+      ...props,
+      on: {
+        click,
+      },
+    }
+  }
 
   if (typeof umamiEvent === 'string') {
     props = {
@@ -37,7 +53,7 @@
   class:icon={view === 'icon'}
   class:mobile-only={mobileOnly}
   aria-label={ariaLabel ?? label}
-  on:click
+  on:click={click}
   {...props}
 >
   {@html icon}
@@ -71,12 +87,14 @@
     will-change: box-shadow, background, color;
   }
 
-  .item:hover {
+  button.item:hover,
+  a.item:hover {
     color: var(--color-content-brand);
     background: var(--color-background-primary-hover);
   }
 
-  .item:focus-visible {
+  button.item:focus-visible,
+  a.item:focus-visible {
     background: var(--color-overlay-brand);
     box-shadow: 0 0 0 2px var(--color-border-brand);
     transition-property: box-shadow;

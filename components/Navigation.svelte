@@ -21,11 +21,13 @@
   export let locale: Locale
   export let url: URL
 
+  let details: HTMLDetailsElement
+  let detailsClose = false
+
   $: innerWidth = 0
   $: isMobile = innerWidth < 1000
 
   let menuOpen = false
-  let languageSelectOpen = false
   let theme: Theme = 'dark'
   $: t = useTranslations(locale, 'navigation')
 
@@ -62,10 +64,6 @@
     closeNavigation()
   }
 
-  let openLanguageSelect = () => {
-    languageSelectOpen = true
-  }
-
   onMount(() => {
     let savedTheme = localStorage.getItem('theme') as Theme | null
     if (savedTheme === 'light') {
@@ -73,17 +71,46 @@
     }
     setTheme(savedTheme ?? theme)
   })
+
+  onMount(() => {
+    details.addEventListener('toggle', () => {
+      let handleClick = (event: MouseEvent) => {
+        if (event.target && !details.contains(event.target as Node)) {
+          document.removeEventListener('click', handleClick)
+          detailsClose = true
+        }
+      }
+      if (details.open) {
+        document.addEventListener('click', handleClick)
+      } else if (detailsClose) {
+        details.open = true
+      }
+    })
+
+    details.addEventListener('click', () => {
+      if (details.hasAttribute('open')) {
+        detailsClose = true
+      }
+    })
+
+    details.addEventListener('animationend', e => {
+      if (e.animationName.endsWith('close')) {
+        details.open = false
+        detailsClose = false
+      }
+    })
+  })
 </script>
 
 <NavigationElement
-  on:click={toggleNavigationOpen}
+  click={toggleNavigationOpen}
   label={t('open-menu')}
   icon={MenuIcon}
   mobileOnly
 />
 <nav class="nav" class:nav-open={menuOpen}>
   <NavigationElement
-    on:click={toggleNavigationOpen}
+    click={toggleNavigationOpen}
     label={t('close-menu')}
     icon={CrossIcon}
     mobileOnly
@@ -103,34 +130,45 @@
     label={t('about')}
     icon={UserIcon}
   />
-  <NavigationElement
-    href={isMobile
-      ? url.pathname.replace(/^\/\w{2}/, `/${locale === 'en' ? 'ru' : 'en'}`)
-      : undefined}
-    on:click={isMobile ? undefined : openLanguageSelect}
-    label={t('change-language')}
-    icon={TranslateIcon}
-    view="icon"
+  <details
+    class:details-close={detailsClose}
+    class="details"
+    bind:this={details}
   >
-    {#if languageSelectOpen}
-      <div class="locale-select">
-        {#each locales as { originName, code, icon }}
-          <a href={url.pathname.replace(/^\/\w{2}/, `/${code}`)} class="locale">
-            <div class="flag">{@html icon}</div>
-            <div class="name-container">
-              <span class="name">{t(code)}</span>
-              <span class="origin-name">{originName}</span>
-            </div>
-          </a>
-        {/each}
-      </div>
-    {/if}
-  </NavigationElement>
+    <summary class="summary">
+      <NavigationElement
+        href={isMobile
+          ? url.pathname.replace(
+              /^\/\w{2}/,
+              `/${locale === 'en' ? 'ru' : 'en'}`,
+            )
+          : undefined}
+        label={t('change-language')}
+        icon={TranslateIcon}
+        view="icon"
+      />
+    </summary>
+    <div class="locale-select">
+      {#each locales as { originName, code, icon }}
+        <a
+          href={url.pathname.replace(/^\/\w{2}/, `/${code}`)}
+          aria-label={t(code)}
+          class="locale"
+        >
+          <div class="flag">{@html icon}</div>
+          <div class="name-container">
+            <span class="name">{t(code)}</span>
+            <span class="origin-name">{originName}</span>
+          </div>
+        </a>
+      {/each}
+    </div>
+  </details>
   <NavigationElement
     label={theme === 'dark' ? t('light-theme') : t('dark-theme')}
     icon={theme === 'dark' ? SunIcon : MoonIcon}
-    on:click={handleThemeChange}
     ariaLabel={t('change-theme')}
+    click={handleThemeChange}
     view="icon"
   />
   <NavigationElement
@@ -161,6 +199,40 @@
     background: var(--color-background-secondary);
   }
 
+  .details {
+    position: relative;
+  }
+
+  .summary {
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    outline: none;
+    transition: all 250ms;
+    will-change: box-shadow, background, color;
+  }
+
+  .summary::marker {
+    content: '';
+  }
+
+  .summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .summary:hover {
+    color: var(--color-content-brand);
+  }
+
+  .summary:focus-visible {
+    background: var(--color-overlay-brand);
+    box-shadow: 0 0 0 2px var(--color-border-brand);
+    transition-property: box-shadow;
+  }
+
+  .summary:hover:not(:focus-visible) {
+    background: var(--color-background-primary-hover);
+  }
+
   .locale-select {
     position: absolute;
     inset-block-start: calc(100% + var(--space-xs));
@@ -171,8 +243,15 @@
     background: var(--color-background-primary);
     border: 1px solid var(--color-border-primary);
     border-radius: 0 0 var(--border-radius) var(--border-radius);
+  }
+
+  .details[open] .locale-select {
     transform-origin: top center;
     animation: grow-down 250ms ease-in-out forwards;
+  }
+
+  .details-close[open] .locale-select {
+    animation: close 250ms ease-in-out forwards;
   }
 
   .locale {
@@ -229,6 +308,20 @@
 
     100% {
       transform: scaleY(1);
+    }
+  }
+
+  @keyframes close {
+    0% {
+      transform: scaleY(1);
+    }
+
+    20% {
+      transform: scaleY(1.1);
+    }
+
+    100% {
+      transform: scaleY(0);
     }
   }
 
