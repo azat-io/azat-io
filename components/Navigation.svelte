@@ -151,7 +151,9 @@
     <div class="locale-select">
       {#each locales as { originName, code, icon }}
         <a
-          href={url.pathname.replace(/^\/\w{2}/, `/${code}`)}
+          href={url.pathname
+            .replace(/^\/\w{2}/, `/${code}`)
+            .replace(/\.html$/, '')}
           aria-label={t(code)}
           class="locale"
         >
