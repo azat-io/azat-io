@@ -3,6 +3,7 @@
   font-weight: 400;
   src: url('/fonts/co-text-regular.woff2');
   font-display: swap;
+  unicode-range: U+0000-00FF, U+0400-04FF, U+0500-052F, U+2000-206F;
 }
 
 @font-face {
@@ -10,6 +11,7 @@
   font-weight: 700;
   src: url('/fonts/co-text-bold.woff2');
   font-display: swap;
+  unicode-range: U+0000-00FF, U+0400-04FF, U+0500-052F, U+2000-206F;
 }
 
 @font-face {
@@ -27,6 +29,7 @@
   font-family: 'Monaspace Neon';
   src: url('/fonts/monaspace-neon.woff2');
   font-display: swap;
+  unicode-range: U+0000-00FF, U+2000-206F;
 }
 
 :root {
