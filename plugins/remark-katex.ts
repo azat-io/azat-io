@@ -45,5 +45,16 @@ export let remarkKatex: Plugin<[], Root> =
         ></script>`,
         type: 'html',
       })
+      ;(treeChildren as Literal[]).unshift({
+        value: `<style>
+          .katex {
+            max-width: 100%;
+            overflow-y: scroll;
+            display: block;
+            white-space: nowrap;
+          }
+        </style>`,
+        type: 'html',
+      })
     }
   }
