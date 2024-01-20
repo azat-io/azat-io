@@ -14,7 +14,12 @@ export let remarkKatex: Plugin<[], Root> =
         typeof index === 'number'
       ) {
         hasMath = true
-        let html = katex.renderToString((node as Literal).value as string)
+        let html = katex
+          .renderToString((node as Literal).value as string)
+          .replace(
+            /class="katex"/,
+            `class="katex ${node.type === 'inlineMath' ? 'katex-inline' : 'katex-block'}"`,
+          )
         let newNode = {
           type: 'html',
           value: html,
@@ -47,11 +52,16 @@ export let remarkKatex: Plugin<[], Root> =
       })
       ;(treeChildren as Literal[]).unshift({
         value: `<style>
-          .katex {
-            max-width: 100%;
-            overflow-y: scroll;
+          .katex-block {
             display: block;
+            max-inline-size: 100%;
+            overflow-y: hidden;
+            overflow-x: scroll;
             white-space: nowrap;
+          }
+
+          .katex-inline {
+            display: inline-block;
           }
         </style>`,
         type: 'html',
