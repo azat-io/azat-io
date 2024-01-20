@@ -55,7 +55,7 @@ export let remarkKatex: Plugin<[], Root> =
           .katex-block {
             display: block;
             max-inline-size: 100%;
-            overflow-y: hidden;
+            overflow-y: clip;
             overflow-x: scroll;
             white-space: nowrap;
           }

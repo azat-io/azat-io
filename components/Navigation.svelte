@@ -38,7 +38,7 @@
 
   let openNavigation = () => {
     menuOpen = true
-    document.body.style.overflow = 'hidden'
+    document.body.style.overflow = 'clip'
   }
 
   let toggleNavigationOpen = () => {

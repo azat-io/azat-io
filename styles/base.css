@@ -104,7 +104,7 @@ h4 {
 
 table {
   margin-block: var(--space-m);
-  overflow: hidden;
+  overflow: clip;
   border-collapse: collapse;
   border-style: hidden;
   border-radius: var(--border-radius);

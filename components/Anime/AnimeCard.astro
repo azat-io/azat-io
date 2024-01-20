@@ -61,10 +61,10 @@ let durationTime =
   <AnimePicture name={name} id={id} />
   <div class="data">
     <div class="info">
-      <Typography class="single-line" color="brand" size="s">
+      <Typography color="brand" size="s" noWrap>
         {name}
       </Typography>
-      <Typography class="single-line" color="secondary" size="xs" mbe="xs">
+      <Typography color="secondary" size="xs" mbe="xs" noWrap>
         {originName}
       </Typography>
       <Typography color="primary" size="xs">
@@ -99,11 +99,5 @@ let durationTime =
   .info {
     display: grid;
     gap: 0;
-  }
-
-  .single-line {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
   }
 </style>
