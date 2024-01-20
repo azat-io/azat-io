@@ -36,14 +36,14 @@
   --font-family-base: 'Co Text', 'Co Test Fallback', sans-serif;
   --font-family-code: 'Monaspace Neon', monospace;
 
-  --font-size-2xs: clamp(0.86rem, -0.52vi + 0.99rem, 0.58rem);
-  --font-size-xs: clamp(0.91rem, -0.34vi + 0.99rem, 0.72rem);
-  --font-size-s: clamp(0.95rem, -0.1vi + 0.98rem, 0.9rem);
+  --font-size-2xs: clamp(0.82rem, -0.55vi + 0.95rem, 0.51rem);
+  --font-size-xs: clamp(0.87rem, -0.38vi + 0.97rem, 0.67rem);
+  --font-size-s: clamp(0.93rem, -0.13vi + 0.97rem, 0.87rem);
   --font-size-m: clamp(1rem, 0.23vi + 0.94rem, 1.13rem);
-  --font-size-l: clamp(1.05rem, 0.65vi + 0.89rem, 1.41rem);
-  --font-size-xl: clamp(1.1rem, 1.19vi + 0.8rem, 1.76rem);
-  --font-size-2xl: clamp(1.16rem, 1.89vi + 0.69rem, 2.2rem);
-  --font-size-3xl: clamp(1.22rem, 2.78vi + 0.52rem, 2.75rem);
+  --font-size-l: clamp(1.07rem, 0.71vi + 0.89rem, 1.46rem);
+  --font-size-xl: clamp(1.14rem, 1.38vi + 0.8rem, 1.9rem);
+  --font-size-2xl: clamp(1.23rem, 2.27vi + 0.66rem, 2.47rem);
+  --font-size-3xl: clamp(1.31rem, 3.46vi + 0.45rem, 3.21rem);
   --font-size-code: clamp(0.86rem, 0.14vi + 0.82rem, 0.95rem);
 
   --font-2xs: 400 var(--font-size-2xs) / 1.75 var(--font-family-base);
