@@ -79,7 +79,7 @@ let imageSrc = (await images[id]?.()) as { default: ImageMetadata } | undefined
     <main class="main">
       <Header />
       <BlogHero name={title} id={id} />
-      <Container tag="article">
+      <Container class="content" tag="article">
         <Title align="start">{title}</Title>
         <BlogInfo>
           <BlogDate date={date} />
@@ -87,6 +87,8 @@ let imageSrc = (await images[id]?.()) as { default: ImageMetadata } | undefined
         </BlogInfo>
         <BlogAvailableLocales translations={translations} />
         <slot />
+      </Container>
+      <Container class="info">
         <BlogWidgetWrapper>
           <BlogEditPageLink slug={slug} />
           <BlogShare
@@ -115,5 +117,13 @@ let imageSrc = (await images[id]?.()) as { default: ImageMetadata } | undefined
     display: grid;
     grid-template-rows: auto auto 1fr auto;
     min-block-size: 100dvb;
+  }
+
+  .content {
+    padding-block-end: 0;
+  }
+
+  .info {
+    padding-block-start: 0;
   }
 </style>
