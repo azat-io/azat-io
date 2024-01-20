@@ -134,6 +134,11 @@ tr:nth-child(odd) {
   );
 }
 
+img,
+picture {
+  color: transparent;
+}
+
 picture {
   display: flex;
 }
