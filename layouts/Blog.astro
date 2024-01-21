@@ -115,7 +115,7 @@ let imageSrc = (await images[id]?.()) as { default: ImageMetadata } | undefined
 <style>
   .main {
     display: grid;
-    grid-template-rows: auto auto 1fr auto;
+    grid-template-rows: min-content min-content 1fr min-content;
     min-block-size: 100dvb;
   }
 
