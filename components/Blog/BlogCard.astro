@@ -52,18 +52,16 @@ let locale = getLocaleFromUrl(Astro.url)
     border-radius: var(--border-radius);
     transition: all 250ms;
     will-change: box-shadow, background;
-  }
 
-  .card:hover {
-    background: var(--color-background-primary-hover);
-  }
+    &:hover {
+      background: var(--color-background-primary-hover);
+    }
 
-  .card:focus-visible {
-    transition-property: box-shadow;
-  }
+    &:focus-visible {
+      transition-property: box-shadow;
+    }
 
-  @media (width >= 768px) {
-    .card {
+    @media (width >= 768px) {
       flex-direction: row;
     }
   }

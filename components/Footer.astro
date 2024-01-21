@@ -93,23 +93,23 @@ let icons = [
     border-radius: var(--border-radius);
     transition: all 300ms;
     will-change: box-shadow, background, color;
-  }
 
-  .link:hover {
-    background: var(--color-background-primary-hover);
-  }
+    :global(svg) {
+      inline-size: 28px;
+      block-size: 28px;
+    }
 
-  .link:hover,
-  .link:focus-visible {
-    color: var(--color-content-brand);
-  }
+    &:hover {
+      background: var(--color-background-primary-hover);
+    }
 
-  .link:focus-visible {
-    transition-property: box-shadow;
-  }
+    &:focus-visible {
+      transition-property: box-shadow;
+    }
 
-  .link :global(svg) {
-    inline-size: 28px;
-    block-size: 28px;
+    &:hover,
+    &:focus-visible {
+      color: var(--color-content-brand);
+    }
   }
 </style>

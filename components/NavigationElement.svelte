@@ -85,6 +85,16 @@
     border-radius: var(--border-radius);
     transition: all 250ms;
     will-change: box-shadow, background, color;
+
+    :global(svg) {
+      inline-size: 24px;
+      block-size: 24px;
+
+      @media (width >= 768px) {
+        inline-size: 28px;
+        block-size: 28px;
+      }
+    }
   }
 
   button.item:hover,
@@ -100,15 +110,14 @@
     transition-property: box-shadow;
   }
 
-  .item :global(svg) {
-    inline-size: 24px;
-    block-size: 24px;
-  }
-
   .mobile-only {
     display: flex;
     align-self: end;
     inline-size: fit-content;
+
+    @media (width >= 768px) {
+      display: none;
+    }
   }
 
   .mobile-only span {
@@ -126,15 +135,6 @@
 
     .icon {
       padding: var(--space-xs);
-    }
-
-    .item :global(svg) {
-      inline-size: 28px;
-      block-size: 28px;
-    }
-
-    .mobile-only {
-      display: none;
     }
   }
 </style>

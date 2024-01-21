@@ -35,16 +35,16 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-m);
+
+    :global(.timeline-demo-cell) {
+      inline-size: 20px;
+      block-size: 20px;
+    }
   }
 
   .demo-value {
     display: flex;
     gap: var(--space-xs);
     align-items: center;
-  }
-
-  .demo :global(.timeline-demo-cell) {
-    inline-size: 20px;
-    block-size: 20px;
   }
 </style>

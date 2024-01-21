@@ -50,6 +50,10 @@ let projectLinks = Object.entries(links).map(
     background: var(--color-background-secondary);
     border: 1px solid var(--color-border-primary);
     border-radius: var(--border-radius);
+
+    @media (width >= 768px) {
+      inline-size: 280px;
+    }
   }
 
   .links {
@@ -66,11 +70,5 @@ let projectLinks = Object.entries(links).map(
 
   .item {
     margin-block: 0;
-  }
-
-  @media (width >= 768px) {
-    .infobox {
-      inline-size: 280px;
-    }
   }
 </style>

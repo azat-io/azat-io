@@ -211,28 +211,28 @@
     outline: none;
     transition: all 250ms;
     will-change: box-shadow, background, color;
-  }
 
-  .summary::marker {
-    content: '';
-  }
+    &::marker {
+      content: '';
+    }
 
-  .summary::-webkit-details-marker {
-    display: none;
-  }
+    &::-webkit-details-marker {
+      display: none;
+    }
 
-  .summary:hover {
-    color: var(--color-content-brand);
-  }
+    &:hover {
+      color: var(--color-content-brand);
+    }
 
-  .summary:focus-visible {
-    background: var(--color-overlay-brand);
-    box-shadow: 0 0 0 2px var(--color-border-brand);
-    transition-property: box-shadow;
-  }
+    &:focus-visible {
+      background: var(--color-overlay-brand);
+      box-shadow: 0 0 0 2px var(--color-border-brand);
+      transition-property: box-shadow;
+    }
 
-  .summary:hover:not(:focus-visible) {
-    background: var(--color-background-primary-hover);
+    &:hover:not(:focus-visible) {
+      background: var(--color-background-primary-hover);
+    }
   }
 
   .locale-select {
@@ -266,20 +266,20 @@
     text-decoration: none;
     border-block-end: none;
     border-radius: var(--border-radius);
-  }
 
-  .locale:hover {
-    background: var(--color-background-primary-hover);
+    &:hover {
+      background: var(--color-background-primary-hover);
+    }
   }
 
   .flag {
     display: flex;
     justify-content: center;
-  }
 
-  .flag :global(svg) {
-    inline-size: 48px;
-    block-size: 48px;
+    :global(svg) {
+      inline-size: 48px;
+      block-size: 48px;
+    }
   }
 
   .name-container {

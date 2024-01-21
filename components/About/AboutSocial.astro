@@ -72,21 +72,21 @@ let Icon: {
     border-radius: var(--border-radius);
     transition: all 250ms;
     will-change: box-shadow, background, color;
-  }
 
-  .social:hover {
-    color: var(--color-content-brand);
-    background: var(--color-background-primary-hover);
-  }
+    :global(svg) {
+      inline-size: 42px;
+      block-size: 42px;
+      color: var(--color-content-brand);
+    }
 
-  .social:focus-visible {
-    transition-property: box-shadow;
-  }
+    &:hover {
+      color: var(--color-content-brand);
+      background: var(--color-background-primary-hover);
+    }
 
-  .social :global(svg) {
-    inline-size: 42px;
-    block-size: 42px;
-    color: var(--color-content-brand);
+    &:focus-visible {
+      transition-property: box-shadow;
+    }
   }
 
   .text {

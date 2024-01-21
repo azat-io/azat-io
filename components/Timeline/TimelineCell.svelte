@@ -20,6 +20,10 @@
     background: var(--color-background-inverse-hover);
     border: 1px solid var(--color-border-inverse);
     border-radius: 0.5px;
+
+    @media (width >= 768px) {
+      border-radius: 2px;
+    }
   }
 
   .healthy {
@@ -29,11 +33,5 @@
   .passed {
     background: var(--color-background-brand);
     border-color: var(--color-border-brand);
-  }
-
-  @media (width >= 768px) {
-    .cell {
-      border-radius: 2px;
-    }
   }
 </style>

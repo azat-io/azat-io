@@ -36,17 +36,17 @@ let t = useTranslations(locale, 'blog')
     display: flex;
   }
 
-  a.edit-link {
+  .edit-link {
     display: flex;
     gap: var(--space-s);
     align-items: center;
     padding-inline: 0;
     margin-block: 0;
     border-block-end: none;
-  }
 
-  .edit-link :global(svg) {
-    inline-size: 18px;
-    block-size: 18px;
+    :global(svg) {
+      inline-size: 18px;
+      block-size: 18px;
+    }
   }
 </style>

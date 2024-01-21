@@ -40,17 +40,15 @@ let t = useTranslations(locale, 'blog')
     background: var(--color-background-secondary);
     border: 1px solid var(--color-border-primary);
     border-radius: var(--border-radius);
+
+    @media (width >= 768px) {
+      flex-direction: row;
+    }
   }
 
   .list {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-s);
-  }
-
-  @media (width >= 768px) {
-    .available-languages {
-      flex-direction: row;
-    }
   }
 </style>

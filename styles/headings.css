@@ -1,6 +1,12 @@
 h2,
 h3 {
   position: relative;
+
+  @media (width >= 768px) {
+    &:hover .heading-anchor {
+      opacity: 100%;
+    }
+  }
 }
 
 .heading-anchor {
@@ -15,20 +21,13 @@ h3 {
   opacity: 0%;
   transition: opacity 250ms ease-in-out 100ms;
   transform: translateY(calc(-50% - 2px));
-}
 
-.heading-anchor:focus-visible {
-  border-radius: 8px;
-  opacity: 100%;
-}
-
-@media (width >= 768px) {
-  .heading-anchor {
-    display: flex;
+  &:focus-visible {
+    border-radius: 8px;
+    opacity: 100%;
   }
 
-  h2:hover .heading-anchor,
-  h3:hover .heading-anchor {
-    opacity: 100%;
+  @media (width >= 768px) {
+    display: flex;
   }
 }

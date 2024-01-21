@@ -106,21 +106,25 @@
     border-radius: var(--border-radius);
     outline: none;
     transition: box-shadow 200ms;
-  }
 
-  .share:hover {
-    color: var(--color-content-link-hover);
-  }
+    :global(svg) {
+      display: flex;
+      inline-size: 18px;
+      block-size: 18px;
+    }
 
-  .share:focus-visible {
-    background: var(--color-overlay-brand);
-    box-shadow: 0 0 0 2px var(--color-border-brand);
-  }
+    &:hover {
+      color: var(--color-content-link-hover);
+    }
 
-  .share :global(svg) {
-    display: flex;
-    inline-size: 18px;
-    block-size: 18px;
+    &:focus-visible {
+      background: var(--color-overlay-brand);
+      box-shadow: 0 0 0 2px var(--color-border-brand);
+    }
+
+    @media (width >= 768px) {
+      flex-direction: row-reverse;
+    }
   }
 
   .dialog {
@@ -181,17 +185,17 @@
     border-radius: var(--border-radius);
     outline: none;
     transition: all 250ms;
-  }
 
-  .close:focus-visible {
-    background: var(--color-overlay-brand);
-    box-shadow: 0 0 0 2px var(--color-border-brand);
-    transition-property: box-shadow;
-  }
+    :global(svg) {
+      inline-size: 24px;
+      block-size: 24px;
+    }
 
-  .close :global(svg) {
-    inline-size: 24px;
-    block-size: 24px;
+    &:focus-visible {
+      background: var(--color-overlay-brand);
+      box-shadow: 0 0 0 2px var(--color-border-brand);
+      transition-property: box-shadow;
+    }
   }
 
   .title {
@@ -215,23 +219,17 @@
     color: var(--color-content-primary);
     border-block-end: none;
     border-radius: var(--border-radius);
+
+    :global(svg) {
+      inline-size: 28px;
+      block-size: 28px;
+    }
   }
 
   .close:hover,
   .link:hover {
     color: var(--color-content-brand);
     background: var(--color-background-primary-hover);
-  }
-
-  .link :global(svg) {
-    inline-size: 28px;
-    block-size: 28px;
-  }
-
-  @media (width >= 768px) {
-    .share {
-      flex-direction: row-reverse;
-    }
   }
 
   @keyframes fade-in {

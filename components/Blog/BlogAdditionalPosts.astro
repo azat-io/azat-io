@@ -73,18 +73,22 @@ let nextPost = isLastPost ? null : posts.at(indexOfCurrentPost - 1)
 }
 
 <style>
-  a.link {
+  .link {
     display: inline-flex;
     gap: var(--space-s);
     align-items: center;
     padding-inline: 0;
     border-block-end: none;
     border-radius: var(--border-radius);
-  }
 
-  .link :global(svg) {
-    inline-size: 18px;
-    block-size: 18px;
+    :global(svg) {
+      inline-size: 18px;
+      block-size: 18px;
+    }
+
+    @media (width >= 768px) {
+      flex-direction: row;
+    }
   }
 
   .link-previous {
@@ -93,6 +97,11 @@ let nextPost = isLastPost ? null : posts.at(indexOfCurrentPost - 1)
 
   .link-next {
     flex-direction: row-reverse;
+
+    @media (width >= 768px) {
+      justify-content: end;
+      text-align: end;
+    }
   }
 
   .post-previous {
@@ -102,16 +111,5 @@ let nextPost = isLastPost ? null : posts.at(indexOfCurrentPost - 1)
 
   .post-next {
     display: flex;
-  }
-
-  @media (width >= 768px) {
-    .link-next {
-      flex-direction: row;
-    }
-
-    .post-next {
-      justify-content: end;
-      text-align: end;
-    }
   }
 </style>
