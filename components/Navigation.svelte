@@ -25,7 +25,7 @@
   let detailsClose = false
 
   $: innerWidth = 0
-  $: isMobile = innerWidth < 1000
+  $: isMobile = innerWidth < 768
 
   let menuOpen = false
   let theme: Theme = 'dark'

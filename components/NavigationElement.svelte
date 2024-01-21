@@ -15,6 +15,8 @@
     tag = 'a'
   } else if (typeof click === 'function') {
     tag = 'button'
+  } else {
+    tag = 'span'
   }
 
   $: props = {
