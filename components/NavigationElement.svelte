@@ -62,16 +62,6 @@
 </svelte:element>
 
 <style>
-  a.item {
-    border-block-end: none;
-  }
-
-  button.item {
-    background: transparent;
-    border: none;
-    outline: none;
-  }
-
   .item {
     position: relative;
     display: flex;
@@ -86,6 +76,29 @@
     transition: all 250ms;
     will-change: box-shadow, background, color;
 
+    &:is(a) {
+      border-block-end: none;
+    }
+
+    &:is(button) {
+      background: transparent;
+      border: none;
+      outline: none;
+    }
+
+    &:is(a, button) {
+      &:hover {
+        color: var(--color-content-brand);
+        background: var(--color-background-primary-hover);
+      }
+
+      &:focus-visible {
+        background: var(--color-overlay-brand);
+        box-shadow: 0 0 0 2px var(--color-border-brand);
+        transition-property: box-shadow;
+      }
+    }
+
     :global(svg) {
       inline-size: 24px;
       block-size: 24px;
@@ -97,31 +110,18 @@
     }
   }
 
-  button.item:hover,
-  a.item:hover {
-    color: var(--color-content-brand);
-    background: var(--color-background-primary-hover);
-  }
-
-  button.item:focus-visible,
-  a.item:focus-visible {
-    background: var(--color-overlay-brand);
-    box-shadow: 0 0 0 2px var(--color-border-brand);
-    transition-property: box-shadow;
-  }
-
   .mobile-only {
     display: flex;
     align-self: end;
     inline-size: fit-content;
 
+    span {
+      display: none;
+    }
+
     @media (width >= 768px) {
       display: none;
     }
-  }
-
-  .mobile-only span {
-    display: none;
   }
 
   @media (width >= 768px) {
@@ -129,12 +129,12 @@
       display: none;
     }
 
-    .icon span {
-      display: none;
-    }
-
     .icon {
       padding: var(--space-xs);
+
+      span {
+        display: none;
+      }
     }
   }
 </style>

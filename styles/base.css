@@ -159,18 +159,13 @@ pre {
   outline: none;
   transition: box-shadow 200ms;
 
-  &:focus-visible {
-    box-shadow: 0 0 0 2px var(--color-border-brand);
-  }
-}
-
-code {
-  padding: var(--space-2xs);
-  border-radius: var(--border-radius);
-
   code {
     padding: 0;
-    border: 0;
-    border-radius: 0;
+    border: none;
+    border-radius: none;
+  }
+
+  &:focus-visible {
+    box-shadow: 0 0 0 2px var(--color-border-brand);
   }
 }
