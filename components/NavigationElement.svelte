@@ -23,7 +23,7 @@
     href,
   } as Record<string, unknown>
 
-  if (typeof click === 'function') {
+  $: if (typeof click === 'function') {
     props = {
       ...props,
       on: {
@@ -32,14 +32,14 @@
     }
   }
 
-  if (typeof umamiEvent === 'string') {
+  $: if (typeof umamiEvent === 'string') {
     props = {
       ...props,
       'data-umami-event': umamiEvent,
     }
   }
 
-  if (typeof target === 'string') {
+  $: if (typeof href === 'string' && typeof target === 'string') {
     props = {
       ...props,
       target,
