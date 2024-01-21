@@ -82,8 +82,8 @@ let nextPost = isLastPost ? null : posts.at(indexOfCurrentPost - 1)
     border-radius: var(--border-radius);
 
     :global(svg) {
-      inline-size: 18px;
-      block-size: 18px;
+      inline-size: 2ch;
+      block-size: 2ch;
     }
 
     @media (width >= 768px) {
@@ -99,8 +99,7 @@ let nextPost = isLastPost ? null : posts.at(indexOfCurrentPost - 1)
     flex-direction: row-reverse;
 
     @media (width >= 768px) {
-      justify-content: end;
-      text-align: end;
+      flex-direction: row;
     }
   }
 
@@ -111,5 +110,10 @@ let nextPost = isLastPost ? null : posts.at(indexOfCurrentPost - 1)
 
   .post-next {
     display: flex;
+
+    @media (width >= 768px) {
+      justify-content: end;
+      text-align: end;
+    }
   }
 </style>

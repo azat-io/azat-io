@@ -60,10 +60,12 @@
   }
 </script>
 
-<button data-umami-event="Share" class="share" on:click={share}>
-  {@html ShareIcon}
-  <span>{t('share')}</span>
-</button>
+<div class="share-wrapper">
+  <button data-umami-event="Share" class="share" on:click={share}>
+    {@html ShareIcon}
+    <span>{t('share')}</span>
+  </button>
+</div>
 <Portal>
   <dialog class="dialog" bind:this={dialog} tabindex="-1">
     <button class="paranja" on:click={closeDialog} tabindex="-1" />
@@ -94,6 +96,14 @@
 </Portal>
 
 <style>
+  .share-wrapper {
+    display: flex;
+
+    @media (width >= 768px) {
+      justify-content: end;
+    }
+  }
+
   .share {
     display: flex;
     gap: var(--space-s);
@@ -109,8 +119,8 @@
 
     :global(svg) {
       display: flex;
-      inline-size: 18px;
-      block-size: 18px;
+      inline-size: 2ch;
+      block-size: 2ch;
     }
 
     &:hover {
