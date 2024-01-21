@@ -83,7 +83,7 @@
 
   pre {
     display: flex;
-    align-items: center;
+    place-items: center;
     min-block-size: calc(
       var(--copy-code-icon-size) + var(--space-l) + var(--space-xl)
     );

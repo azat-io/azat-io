@@ -76,7 +76,7 @@ let nextPost = isLastPost ? null : posts.at(indexOfCurrentPost - 1)
   .link {
     display: inline-flex;
     gap: var(--space-s);
-    align-items: center;
+    place-items: center;
     padding-inline: 0;
     border-block-end: none;
     border-radius: var(--border-radius);
@@ -105,14 +105,13 @@ let nextPost = isLastPost ? null : posts.at(indexOfCurrentPost - 1)
 
   .post-previous {
     display: flex;
-    justify-content: start;
   }
 
   .post-next {
     display: flex;
 
     @media (width >= 768px) {
-      justify-content: end;
+      place-content: end;
       text-align: end;
     }
   }

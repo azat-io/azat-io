@@ -45,6 +45,6 @@
   .demo-value {
     display: flex;
     gap: var(--space-xs);
-    align-items: center;
+    place-items: center;
   }
 </style>

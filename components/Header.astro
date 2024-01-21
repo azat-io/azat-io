@@ -23,8 +23,8 @@ let t = useTranslations(locale, 'header')
 <style>
   .header {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    place-content: space-between;
+    place-items: center;
     padding: var(--space-s) var(--space-m);
     background: var(--color-background-primary);
     box-shadow: 0 1px 1px var(--color-border-primary);
@@ -47,7 +47,7 @@ let t = useTranslations(locale, 'header')
   .title {
     display: flex;
     gap: var(--space-s);
-    align-items: center;
+    place-items: center;
     padding-block: var(--space-2xs);
     color: var(--color-content-primary);
     text-decoration: none;

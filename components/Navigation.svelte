@@ -259,7 +259,7 @@
   .locale {
     display: flex;
     gap: var(--space-s);
-    align-items: center;
+    place-items: center;
     min-inline-size: 160px;
     padding: 12px;
     color: inherit;
@@ -274,7 +274,7 @@
 
   .flag {
     display: flex;
-    justify-content: center;
+    place-items: center;
 
     :global(svg) {
       inline-size: 48px;
@@ -285,8 +285,6 @@
   .name-container {
     display: flex;
     flex-direction: column;
-    align-items: start;
-    justify-content: center;
   }
 
   .name {
@@ -334,7 +332,7 @@
       display: flex;
       flex-direction: row;
       gap: var(--space-2xs);
-      align-items: center;
+      place-items: center;
       padding: 0;
       background: transparent;
       animation: fade-in 250ms ease-out forwards;

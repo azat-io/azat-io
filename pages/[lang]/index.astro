@@ -36,7 +36,7 @@ export let getStaticPaths = () =>
   .main {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    place-content: center;
     block-size: 100%;
     min-block-size: 640px;
   }
@@ -45,12 +45,10 @@ export let getStaticPaths = () =>
     display: flex;
     flex-direction: column;
     gap: var(--space-xl);
-    align-items: center;
+    place-items: center;
     margin-block-end: var(--space-xl);
-  }
 
-  @media (width >= 768px) {
-    .content {
+    @media (width >= 768px) {
       flex-direction: row;
     }
   }

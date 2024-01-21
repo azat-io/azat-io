@@ -68,7 +68,7 @@
     position: relative;
     display: flex;
     gap: var(--space-s);
-    align-items: center;
+    place-items: center;
     inline-size: 100%;
     padding: var(--space-xs) var(--space-s);
     line-height: 1.2;

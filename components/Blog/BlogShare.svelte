@@ -100,14 +100,14 @@
     display: flex;
 
     @media (width >= 768px) {
-      justify-content: end;
+      place-content: end;
     }
   }
 
   .share {
     display: flex;
     gap: var(--space-s);
-    align-items: center;
+    place-items: center;
     padding-inline: 0;
     color: var(--color-content-link);
     background: transparent;
@@ -168,8 +168,7 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-m);
-    align-items: center;
-    justify-content: center;
+    place-items: center;
     min-inline-size: 280px;
     padding: var(--space-l) var(--space-xl);
     margin-inline-end: -50%;
