@@ -15,6 +15,7 @@ interface Props {
 }
 
 let locale = getLocaleFromUrl(Astro.url)
+let realLocale = getLocaleFromUrl(Astro.url, true)
 let t = useTranslations(locale, 'head')
 
 let { image = `/cover-${locale}.png`, description, title } = Astro.props
@@ -69,13 +70,18 @@ let isProd = import.meta.env.PROD
   <meta content={pageTitle} name="title" />
   <meta content={description} name="description" />
 
-  <meta content="Azat S." name="author" />
+  <meta property="og:locale" content={realLocale} />
+  <meta content={t('name')} name="author" />
 
   <meta property="og:type" content="website" />
   <meta content={Astro.url} property="og:url" />
   <meta property="og:title" content={pageTitle} />
   <meta property="og:description" content={description} />
   <meta property="og:image" content={image} />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta content={`${t('cover-for')} ${pageTitle}`} property="og:image:alt" />
 
   <meta content="summary_large_image" property="twitter:card" />
   <meta property="twitter:url" content={Astro.url} />

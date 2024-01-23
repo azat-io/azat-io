@@ -270,6 +270,11 @@ export default {
     github: 'GitHub',
     npm: 'npm',
   },
+  head: {
+    title: 'Manual for reinventing the wheel',
+    'cover-for': 'Cover for',
+    name: 'Azat S.',
+  },
   rss: {
     description: 'Manual for reinventing the wheel',
     title: 'Azat S.',
@@ -278,10 +283,6 @@ export default {
     'follow-me-on': 'Follow me on',
     github: 'GitHub',
     x: 'X',
-  },
-  head: {
-    title: 'Manual for reinventing the wheel',
-    name: 'Azat S.',
   },
   header: {
     name: 'Azat S.',
