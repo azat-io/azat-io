@@ -272,7 +272,9 @@ export default {
   },
   head: {
     title: 'Manual for reinventing the wheel',
+    'last-name': 'Shaimukhametov',
     'cover-for': 'Cover for',
+    'first-name': 'Azat',
     name: 'Azat S.',
   },
   rss: {

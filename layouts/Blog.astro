@@ -74,7 +74,13 @@ let imageSrc = (await images[id]?.()) as { default: ImageMetadata } | undefined
 ---
 
 <Html>
-  <Head image={imageSrc?.default.src} description={description} title={title} />
+  <Head
+    image={imageSrc?.default.src}
+    description={description}
+    type="article"
+    title={title}
+    date={date}
+  />
   <body>
     <main class="main">
       <Header />

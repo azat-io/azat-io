@@ -279,7 +279,9 @@ export default {
   },
   head: {
     title: 'Руководство по изобретению велосипедов',
+    'last-name': 'Шаймухаметов',
     'cover-for': 'Обложка для',
+    'first-name': 'Азат',
     name: 'Азат Ш.',
   },
   rss: {

@@ -6,16 +6,17 @@ import Head from '~/components/Head.astro'
 import Html from '~/components/Html.astro'
 
 interface Props {
+  type?: 'article' | 'website' | 'profile'
   description: string
   size?: 'm' | 'l'
   title: string
 }
 
-let { description, size = 'm', title } = Astro.props
+let { type = 'website', description, size = 'm', title } = Astro.props
 ---
 
 <Html>
-  <Head description={description} title={title} />
+  <Head description={description} title={title} type={type} />
   <body>
     <main class="main">
       <Header />
