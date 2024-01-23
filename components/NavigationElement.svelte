@@ -19,18 +19,7 @@
     tag = 'span'
   }
 
-  $: props = {
-    href,
-  } as Record<string, unknown>
-
-  $: if (typeof click === 'function') {
-    props = {
-      ...props,
-      on: {
-        click,
-      },
-    }
-  }
+  $: props = { href } as Record<string, unknown>
 
   $: if (typeof umamiEvent === 'string') {
     props = {
