@@ -56,26 +56,11 @@ let translations = posts
       slug: slugValue!,
     }
   })
-
-let images = import.meta.glob('../content/blog/**/**')
-images = Object.fromEntries(
-  Object.entries(images)
-    .filter(([key]) => key.includes('assets/hero'))
-    .map(([key, value]) => [
-      key
-        .replace('../content/blog/', '')
-        .replace('/assets/hero', '')
-        .replace(/\.png$/, ''),
-      value,
-    ]),
-)
-
-let imageSrc = (await images[id]?.()) as { default: ImageMetadata } | undefined
 ---
 
 <Html>
   <Head
-    image={imageSrc?.default.src}
+    image={`/${realLocale}/blog/${id}/open-graph.png`}
     description={description}
     type="article"
     title={title}
