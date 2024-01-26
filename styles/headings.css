@@ -17,7 +17,7 @@ h3 {
   inline-size: 24px;
   block-size: 24px;
   padding-inline: 0;
-  border-block-end: none;
+  text-decoration: none;
   opacity: 0%;
   transition: opacity 250ms ease-in-out 100ms;
   transform: translateY(calc(-50% - 2px));

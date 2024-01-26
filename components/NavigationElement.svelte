@@ -68,7 +68,7 @@
     will-change: box-shadow, background, color;
 
     &:is(a) {
-      border-block-end: none;
+      text-decoration: none;
     }
 
     &:is(button) {

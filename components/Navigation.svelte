@@ -264,7 +264,6 @@
     padding: 12px;
     color: inherit;
     text-decoration: none;
-    border-block-end: none;
     border-radius: var(--border-radius);
 
     &:hover {

@@ -110,9 +110,9 @@
     place-items: center;
     padding-inline: 0;
     color: var(--color-content-link);
+    text-decoration: none;
     background: transparent;
     border: none;
-    border-block-end: none;
     border-radius: var(--border-radius);
     outline: none;
     transition: box-shadow 200ms;
@@ -226,7 +226,7 @@
     display: flex;
     padding: var(--space-xs);
     color: var(--color-content-primary);
-    border-block-end: none;
+    text-decoration: none;
     border-radius: var(--border-radius);
 
     :global(svg) {

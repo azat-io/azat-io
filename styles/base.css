@@ -50,8 +50,8 @@ li {
 a {
   padding-inline: 2px;
   color: var(--color-content-link);
-  text-decoration: none;
-  border-block-end: 1px solid var(--color-border-brand);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
   outline: none;
   transition: box-shadow 200ms;
 
@@ -62,8 +62,8 @@ a {
   }
 
   &:focus-visible {
+    text-decoration: none;
     background: var(--color-overlay-brand);
-    border-block-end: none;
     border-radius: var(--border-radius);
     box-shadow: 0 0 0 2px var(--color-border-brand);
   }
