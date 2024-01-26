@@ -164,8 +164,4 @@ pre {
     border: none;
     border-radius: none;
   }
-
-  &:focus-visible {
-    box-shadow: 0 0 0 2px var(--color-border-brand);
-  }
 }

@@ -22,6 +22,20 @@ let dirname = fileURLToPath(path.dirname(import.meta.url))
 
 export default defineConfig({
   markdown: {
+    shikiConfig: {
+      transformers: [
+        {
+          pre: node => {
+            delete node.properties.tabindex
+            delete node.properties.style
+          },
+        },
+      ],
+      experimentalThemes: {
+        light: JSON5.parse(gruvboxLight),
+        dark: JSON5.parse(gruvboxDark),
+      },
+    },
     rehypePlugins: [
       [
         rehypeExternalLinks,
@@ -31,12 +45,6 @@ export default defineConfig({
         },
       ],
     ],
-    shikiConfig: {
-      experimentalThemes: {
-        light: JSON5.parse(gruvboxLight),
-        dark: JSON5.parse(gruvboxDark),
-      },
-    },
     remarkPlugins: [
       remarkCopyCode,
       remarkHeadings,
