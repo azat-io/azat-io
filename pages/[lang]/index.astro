@@ -39,6 +39,7 @@ export let getStaticPaths = () =>
     place-content: center;
     block-size: 100%;
     min-block-size: 640px;
+    container-type: inline-size;
   }
 
   .content {
@@ -48,7 +49,7 @@ export let getStaticPaths = () =>
     place-items: center;
     margin-block-end: var(--space-xl);
 
-    @media (width >= 768px) {
+    @container (inline-size >= 560px) {
       flex-direction: row;
     }
   }

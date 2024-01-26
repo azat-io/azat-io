@@ -47,7 +47,7 @@ export let getStaticPaths = () =>
     list-style: none;
   }
 
-  @media (width >= 768px) {
+  @container (inline-size >= 680px) {
     .list {
       grid-template-rows: repeat(7, 1fr);
       grid-template-columns: repeat(2, 1fr);
@@ -55,7 +55,7 @@ export let getStaticPaths = () =>
     }
   }
 
-  @media (width >= 1200px) {
+  @container (inline-size >= 1080px) {
     .list {
       grid-template-rows: repeat(5, 1fr);
       grid-template-columns: repeat(3, 1fr);

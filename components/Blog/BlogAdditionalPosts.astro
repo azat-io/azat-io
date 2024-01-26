@@ -86,7 +86,7 @@ let nextPost = isLastPost ? null : posts.at(indexOfCurrentPost - 1)
       block-size: 2ch;
     }
 
-    @media (width >= 768px) {
+    @container (inline-size >= 560px) {
       flex-direction: row;
     }
   }
@@ -98,7 +98,7 @@ let nextPost = isLastPost ? null : posts.at(indexOfCurrentPost - 1)
   .link-next {
     flex-direction: row-reverse;
 
-    @media (width >= 768px) {
+    @container (inline-size >= 560px) {
       flex-direction: row;
     }
   }
@@ -110,7 +110,7 @@ let nextPost = isLastPost ? null : posts.at(indexOfCurrentPost - 1)
   .post-next {
     display: flex;
 
-    @media (width >= 768px) {
+    @container (inline-size >= 560px) {
       place-content: end;
       text-align: end;
     }

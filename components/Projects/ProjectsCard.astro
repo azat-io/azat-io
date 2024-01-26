@@ -51,7 +51,7 @@ let locale = getLocaleFromUrl(Astro.url)
       transition-property: box-shadow;
     }
 
-    @media (width >= 768px) {
+    @container (inline-size >= 800px) {
       flex-direction: row;
       max-inline-size: 50%;
     }

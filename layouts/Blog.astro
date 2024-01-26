@@ -80,10 +80,11 @@ let translations = posts
         <slot />
       </Container>
       <Container class="info">
-        <BlogWidgetWrapper>
+        <BlogWidgetWrapper class="info-box">
           <BlogEditPageLink slug={slug} />
           <BlogShare
             description={description}
+            className="blog-share"
             locale={locale}
             title={title}
             client:load
@@ -116,5 +117,17 @@ let translations = posts
 
   .info {
     padding-block-start: 0;
+  }
+
+  .info-box {
+    @container (inline-size >= 560px) {
+      :global(.blog-share) {
+        place-content: end;
+
+        :global(.share) {
+          flex-direction: row-reverse;
+        }
+      }
+    }
   }
 </style>

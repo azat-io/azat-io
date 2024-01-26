@@ -13,15 +13,15 @@
     gap: var(--space-m);
     inline-size: 100%;
 
-    @media (width >= 768px) {
+    @container (inline-size >= 560px) {
       grid-template-columns: repeat(2, 1fr);
     }
 
-    @media (width >= 1200px) {
+    @container (inline-size >= 800px) {
       grid-template-columns: repeat(3, 1fr);
     }
 
-    @media (width >= 1600px) {
+    @container (inline-size >= 960px) {
       gap: var(--space-m) var(--space-xl);
     }
   }

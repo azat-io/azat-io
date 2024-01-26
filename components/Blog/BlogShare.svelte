@@ -9,6 +9,7 @@
   import XIcon from '~/icons/x.svg?raw'
 
   export let description: string
+  export let className: string
   export let locale: Locale
   export let title: string
   export let url: URL
@@ -60,7 +61,7 @@
   }
 </script>
 
-<div class="share-wrapper">
+<div class={`share-wrapper ${className}`.trim()}>
   <button data-umami-event="Share" class="share" on:click={share}>
     {@html ShareIcon}
     <span>{t('share')}</span>
@@ -98,10 +99,6 @@
 <style>
   .share-wrapper {
     display: flex;
-
-    @media (width >= 768px) {
-      place-content: end;
-    }
   }
 
   .share {
@@ -130,10 +127,6 @@
     &:focus-visible {
       background: var(--color-overlay-brand);
       box-shadow: 0 0 0 2px var(--color-border-brand);
-    }
-
-    @media (width >= 768px) {
-      flex-direction: row-reverse;
     }
   }
 

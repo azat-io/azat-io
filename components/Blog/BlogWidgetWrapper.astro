@@ -1,8 +1,12 @@
 ---
+interface Props {
+  class?: string
+}
 
+let { class: className, ...props } = Astro.props
 ---
 
-<div class="widget-wrapper">
+<div class:list={['widget-wrapper', className]} {...props}>
   <slot />
 </div>
 
@@ -12,8 +16,9 @@
     grid-template-columns: 1fr;
     gap: var(--space-m);
     margin-block: var(--space-m);
+    container-type: inline-size;
 
-    @media (width >= 768px) {
+    @container (inline-size >= 560px) {
       grid-template-columns: 1fr 1fr;
     }
   }
