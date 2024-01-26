@@ -1,11 +1,17 @@
 ---
+import { fade } from 'astro:transitions'
+
 import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
 
 let locale = getLocaleFromUrl(Astro.url, true)
 ---
 
 <!doctype html>
-<html data-theme="dark" lang={locale}>
+<html
+  transition:animate={fade({ duration: '200ms' })}
+  data-theme="dark"
+  lang={locale}
+>
   <slot />
 
 
