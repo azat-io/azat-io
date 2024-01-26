@@ -52,6 +52,7 @@ a {
   color: var(--color-content-link);
   text-decoration: underline;
   text-underline-offset: 0.25em;
+  border-radius: var(--border-radius);
   outline: none;
   transition: box-shadow 200ms;
 
@@ -64,7 +65,6 @@ a {
   &:focus-visible {
     text-decoration: none;
     background: var(--color-overlay-brand);
-    border-radius: var(--border-radius);
     box-shadow: 0 0 0 2px var(--color-border-brand);
   }
 }
