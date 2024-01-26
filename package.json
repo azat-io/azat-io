@@ -14,7 +14,6 @@
     "test:js": "eslint **/*.{astro,js,ts}",
     "test:css": "stylelint \"**/*.{astro,svelte,css}\"",
     "test:astro": "astro check",
-    "test:svelte": "svelte-check",
     "test:types": "tsc --noEmit --pretty",
     "test": "pnpm run /^test:/"
   },
@@ -74,7 +73,6 @@
     "stylelint-gamut": "^1.3.4",
     "stylelint-order": "^6.0.4",
     "stylelint-plugin-logical-css": "^1.0.0",
-    "svelte-check": "^3.6.3",
     "unified": "^11.0.4"
   }
 }
