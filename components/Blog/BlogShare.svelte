@@ -3,6 +3,7 @@
 
   import { useTranslations } from '~/utils/use-translations'
   import LinkedinIcon from '~/icons/linkedin.svg?raw'
+  import TelegramIcon from '~/icons/telegram.svg?raw'
   import Portal from '~/components/Portal.svelte'
   import CrossIcon from '~/icons/cross.svg?raw'
   import ShareIcon from '~/icons/share.svg?raw'
@@ -38,6 +39,12 @@
       link: `https://linkedin.com/sharing/share-offsite/?url=${cleanUrl}`,
       label: 'share-on-linkedin',
       name: 'LinkedIn',
+    },
+    {
+      icon: TelegramIcon,
+      link: `https://t.me/share/url?url=${cleanUrl}&text=${title}`,
+      label: 'share-on-telegram',
+      name: 'Telegram',
     },
   ] as const
 
