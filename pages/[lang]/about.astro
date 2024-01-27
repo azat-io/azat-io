@@ -2,9 +2,9 @@
 import AboutSocialLinks from '~/components/About/AboutSocialLinks.astro'
 import AboutSocial from '~/components/About/AboutSocial.astro'
 import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
+import { Content as EnAbout } from '~/content/about/en.mdx'
+import { Content as RuAbout } from '~/content/about/ru.mdx'
 import { useTranslations } from '~/utils/use-translations'
-import { Content as EnAbout } from '~/content/about/en.md'
-import { Content as RuAbout } from '~/content/about/ru.md'
 import Typography from '~/components/Typography.astro'
 import LayoutDefault from '~/layouts/Default.astro'
 import Title from '~/components/Title.astro'
@@ -100,3 +100,24 @@ export let getStaticPaths = () =>
     />
   </AboutSocialLinks>
 </LayoutDefault>
+
+<style>
+  :global(picture:has(.photo)) {
+    inline-size: clamp(17.5rem, 14.1667rem + 11.1111vw, 22.5rem);
+    aspect-ratio: 1;
+    margin-inline: auto;
+
+    @container (inline-size >= 560px) {
+      float: inline-end;
+    }
+  }
+
+  :global(.photo) {
+    display: block;
+    inline-size: 100%;
+    block-size: auto;
+    margin: 0 0 var(--space-xs) var(--space-xs);
+    filter: saturate(0.85);
+    border-radius: 50%;
+  }
+</style>

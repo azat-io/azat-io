@@ -135,11 +135,14 @@ tr:nth-child(odd) {
 }
 
 img {
+  max-inline-size: 100%;
+  block-size: auto;
   color: transparent;
 }
 
 picture {
   display: flex;
+  flex-shrink: 0;
 }
 
 pre,

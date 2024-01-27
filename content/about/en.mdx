@@ -1,3 +1,16 @@
+import { Picture } from 'astro:assets'
+
+import photo from './assets/photo.png'
+
+<Picture
+  formats={['avif', 'webp']}
+  alt="Photo of Azat S."
+  class="photo"
+  height={360}
+  width={360}
+  src={photo}
+/>
+
 Hello!
 
 My name is Azat, [I am 31 years old](./timeline). I am engaged in frontend development, for me it is an opportunity to constantly grow and develop professionally. I appreciate every opportunity to work on interesting projects, solve problems and create convenient and functional interfaces.
