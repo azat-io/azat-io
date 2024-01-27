@@ -140,6 +140,7 @@ export default {
     'share-on-linkedin': 'Поделиться в ЛинкедИн',
     'share-on-telegram': 'Поделиться в Телеграм',
     'also-translated': 'Также переведено на:',
+    'share-on-reddit': 'Поделиться в Реддит',
     'post-cover-for': 'Обложка для поста',
     'previous-post': 'Предыдущая статья',
     'locale-nl': 'нидерландский язык',

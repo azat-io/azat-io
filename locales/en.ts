@@ -138,6 +138,7 @@ export default {
     'also-translated': 'Also translated into:',
     'share-on-linkedin': 'Share on LinkedIn',
     'share-on-telegram': 'Share on Telegram',
+    'share-on-reddit': 'Share on Reddit',
     'edit-this-page': 'Edit this page',
     'post-cover-for': 'Post cover for',
     'previous-post': 'Previous post',

@@ -5,6 +5,7 @@
   import LinkedinIcon from '~/icons/linkedin.svg?raw'
   import TelegramIcon from '~/icons/telegram.svg?raw'
   import Portal from '~/components/Portal.svelte'
+  import RedditIcon from '~/icons/reddit.svg?raw'
   import CrossIcon from '~/icons/cross.svg?raw'
   import ShareIcon from '~/icons/share.svg?raw'
   import XIcon from '~/icons/x.svg?raw'
@@ -39,6 +40,12 @@
       link: `https://linkedin.com/sharing/share-offsite/?url=${cleanUrl}`,
       label: 'share-on-linkedin',
       name: 'LinkedIn',
+    },
+    {
+      icon: RedditIcon,
+      link: `https://www.reddit.com/submit?url=${cleanUrl}&title=${title}`,
+      label: 'share-on-reddit',
+      name: 'Reddit',
     },
     {
       icon: TelegramIcon,
