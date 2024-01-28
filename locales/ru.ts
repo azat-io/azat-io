@@ -24,6 +24,7 @@ export default {
     'the-melancholy-of-haruhi-suzumiya': 'Меланхолия Харухи Судзумии',
     'the-girl-who-leapt-through-time': 'Девочка, Покорившая Время',
     'to-your-eternity-season-2': 'Для тебя, Бессмертный, сезон 2',
+    'keep-your-hands-off-eizouken': 'Руки Прочь от Кинокружка!',
     'godzilla-singular-point': 'Годзилла: Точка Сингулярности',
     'dorohedoro-extra-evil': 'Дорохедоро: Дьвольские Истории',
     'la-maison-en-petits-cubes': 'Дом из Маленьких Кубиков',

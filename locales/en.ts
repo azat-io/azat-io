@@ -22,6 +22,7 @@ export default {
     'attack-on-titan-the-final-season': 'Attack on Titan: The Final Season',
     'zom-100-bucket-list-of-the-dead': 'Zom 100: Bucket List of the Dead',
     'the-girl-who-leapt-through-time': 'The Girl Who Leapt Through Time',
+    'keep-your-hands-off-eizouken': 'Keep Your Hands Off Eizouken!',
     'charcoal-feather-federation': 'Charcoal Feather Federation',
     'in-this-corner-of-the-world': 'In This Corner of the World',
     'onimai-i-m-now-your-sister': "Onimai: I'm Now Your Sister!",
