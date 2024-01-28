@@ -91,13 +91,8 @@
     }
 
     :global(svg) {
-      inline-size: 24px;
-      block-size: 24px;
-
-      @media (width >= 768px) {
-        inline-size: 28px;
-        block-size: 28px;
-      }
+      inline-size: var(--size-icon-m);
+      block-size: var(--size-icon-m);
     }
   }
 

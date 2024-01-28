@@ -91,7 +91,7 @@
       <h3 class="title">{t('share')}</h3>
       <ul class="links">
         {#each links as { label, link, icon, name }}
-          <li>
+          <li class="link-wrapper">
             <a
               data-umami-event="Share on social media"
               aria-label={t(label).toString()}
@@ -130,8 +130,8 @@
 
     :global(svg) {
       display: flex;
-      inline-size: 2ch;
-      block-size: 2ch;
+      inline-size: var(--size-icon-s);
+      block-size: var(--size-icon-s);
     }
 
     &:hover {
@@ -174,7 +174,7 @@
     inset-inline-start: 50%;
     display: flex;
     flex-direction: column;
-    gap: var(--space-m);
+    gap: var(--space-xs);
     place-items: center;
     min-inline-size: 280px;
     padding: var(--space-l) var(--space-xl);
@@ -203,8 +203,8 @@
     transition: all 250ms;
 
     :global(svg) {
-      inline-size: 24px;
-      block-size: 24px;
+      inline-size: var(--size-icon-m);
+      block-size: var(--size-icon-m);
     }
 
     &:focus-visible {
@@ -221,8 +221,12 @@
     color: var(--color-content-primary);
   }
 
+  .link-wrapper {
+    margin-block: 0;
+  }
+
   .links {
-    display: flex;
+    display: inline-flex;
     gap: var(--space-2xs);
     padding-inline-start: 0;
     margin-block: 0;
@@ -237,8 +241,8 @@
     border-radius: var(--border-radius);
 
     :global(svg) {
-      inline-size: 28px;
-      block-size: 28px;
+      inline-size: var(--size-icon-l);
+      block-size: var(--size-icon-l);
     }
   }
 

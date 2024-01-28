@@ -98,8 +98,8 @@
       position: absolute;
       inset-block-start: var(--space-m);
       inset-inline-end: var(--space-m);
-      inline-size: 28px;
-      block-size: 28px;
+      inline-size: var(--size-icon-m);
+      block-size: var(--size-icon-m);
       color: var(--color-content-secondary);
     }
   }

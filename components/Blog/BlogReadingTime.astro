@@ -19,41 +19,33 @@ let time = Math.ceil(readingTime(body).minutes)
 let coffeeCups = Math.ceil(time / 5)
 ---
 
-<div class="reading-time">
+<Typography class="text" size="xs">
   {
     Array.from({ length: coffeeCups }).map(() => (
       <Fragment set:html={CoffeeIcon} />
     ))
   }
-  <Typography class="text" size="xs">
-    {
-      `${time} ${
-        (
-          t('minutes-to-read') as {
-            [key in Intl.LDMLPluralRule]: string
-          }
-        )[new Intl.PluralRules(locale).select(time)]
-      }`
-    }
-  </Typography>
-</div>
+  {
+    `${time} ${
+      (
+        t('minutes-to-read') as {
+          [key in Intl.LDMLPluralRule]: string
+        }
+      )[new Intl.PluralRules(locale).select(time)]
+    }`
+  }
+</Typography>
 
 <style>
-  .reading-time {
+  .text {
     display: flex;
     gap: var(--space-2xs);
-    place-items: center;
+    place-items: end;
+    line-height: 1 !important;
 
     :global(svg) {
       display: flex;
-      inline-size: 1.75ch;
-      block-size: 1.75ch;
-      color: var(--color-content-primary);
+      block-size: 1.25lh;
     }
-  }
-
-  .text {
-    margin-inline-start: var(--space-2xs);
-    line-height: 1;
   }
 </style>
