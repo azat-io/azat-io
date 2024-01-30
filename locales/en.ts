@@ -136,6 +136,7 @@ export default {
       other: 'minutes to read',
       one: 'minute to read',
     },
+    'share-on-hacker-news': 'Share on Hacker News',
     'also-translated': 'Also translated into:',
     'share-on-linkedin': 'Share on LinkedIn',
     'share-on-telegram': 'Share on Telegram',

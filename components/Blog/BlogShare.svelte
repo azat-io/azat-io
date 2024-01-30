@@ -2,6 +2,7 @@
   import type { Locale } from '~/locales'
 
   import { useTranslations } from '~/utils/use-translations'
+  import YcombinatorIcon from '~/icons/ycombinator.svg?raw'
   import LinkedinIcon from '~/icons/linkedin.svg?raw'
   import TelegramIcon from '~/icons/telegram.svg?raw'
   import Portal from '~/components/Portal.svelte'
@@ -40,6 +41,12 @@
       link: `https://linkedin.com/sharing/share-offsite/?url=${cleanUrl}`,
       label: 'share-on-linkedin',
       name: 'LinkedIn',
+    },
+    {
+      icon: YcombinatorIcon,
+      link: `https://news.ycombinator.com/submitlink?u=${cleanUrl}&t=${title}`,
+      label: 'share-on-hacker-news',
+      name: 'Hacker News',
     },
     {
       icon: RedditIcon,
