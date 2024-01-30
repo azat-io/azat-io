@@ -53,6 +53,7 @@ export default {
     'to-your-eternity': 'Для тебя, Бессмертный',
     'fullmetal-alchemist': 'Стальной Алхимик',
     'mob-psycho-100-iii': 'Моб Психо 100 III',
+    'princess-mononoke': 'Принцесса Мононоке',
     'my-neighbor-totoro': 'Мой Сосед Тоторо',
     'black-butler-ii': 'Тёмный Дворецкий II',
     'skip-to-loafer': 'В Лоферах Вприпрыжку',

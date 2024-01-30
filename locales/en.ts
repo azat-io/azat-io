@@ -53,6 +53,7 @@ export default {
     'mob-psycho-100-iii': 'Mob Psycho 100 III',
     'spy-family-part-2': 'Spy × Family Part 2',
     description: "List of anime I've watched",
+    'princess-mononoke': 'Princess Mononoke',
     'spice-and-wolf-ii': 'Spice and Wolf II',
     'attack-on-titan-2': 'Attack on Titan 2',
     'attack-on-titan-3': 'Attack on Titan 3',
