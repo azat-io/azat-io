@@ -23,7 +23,7 @@ export let getStaticPaths = () =>
     {t('title')}
   </Title>
   <TravelWorldMap countries={collection.map(({ code }) => code)} />
-  <ul class="list">
+  <ul class="list" role="list">
     {
       collection.map(({ originName, code }) => (
         <TravelCard

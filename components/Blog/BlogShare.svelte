@@ -96,7 +96,7 @@
         {@html CrossIcon}
       </button>
       <h3 class="title">{t('share')}</h3>
-      <ul class="links">
+      <ul class="links" role="list">
         {#each links as { label, link, icon, name }}
           <li class="link-wrapper">
             <a
