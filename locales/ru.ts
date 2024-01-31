@@ -51,6 +51,7 @@ export default {
     'spy-family-part-2': 'Семья Шпиона, часть 2',
     'spice-and-wolf-ii': 'Волчица и Пряности II',
     'to-your-eternity': 'Для тебя, Бессмертный',
+    'the-boy-and-the-heron': 'Мальчик и Птица',
     'fullmetal-alchemist': 'Стальной Алхимик',
     'mob-psycho-100-iii': 'Моб Психо 100 III',
     'princess-mononoke': 'Принцесса Мононоке',
