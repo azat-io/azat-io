@@ -3,9 +3,10 @@ import Typography from '~/components/Typography.astro'
 
 interface Props {
   align?: 'center' | 'start' | 'end'
+  id?: string
 }
 
-let { align = 'center' } = Astro.props
+let { align = 'center', ...props } = Astro.props
 ---
 
 <Typography
@@ -17,6 +18,7 @@ let { align = 'center' } = Astro.props
   mbe="m"
   mbs="l"
   bold
+  {...props}
 >
   <slot />
 </Typography>
