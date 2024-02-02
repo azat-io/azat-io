@@ -73,8 +73,6 @@
         '{contributing}',
         `<a
           href="https://github.com/azat-io/azat-io/blob/main/contributing.md#content-translation"
-          data-umami-event-name="${$userLanguage.toUpperCase()}"
-          data-umami-event="View translation instructions"
           rel="noreferrer noopener"
           target="_blank"
         >

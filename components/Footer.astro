@@ -51,11 +51,9 @@ let icons = [
   <Typography size="m">CC BY-NC-SA 4.0</Typography>
   <div class="part">
     {
-      icons.map(({ icon, name, link, id }) => (
+      icons.map(({ icon, name, link }) => (
         <a
           aria-label={`${t('follow-me-on')} ${name}`}
-          data-umami-event="Visit footer social link"
-          data-umami-event-name={id}
           rel="noreferrer noopener"
           target="_blank"
           class="link"

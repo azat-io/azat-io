@@ -1,5 +1,5 @@
 /*
-  content-security-policy: default-src 'self' cloudfront.net *.cloudfront.net; script-src 'self' 'unsafe-eval' 'unsafe-inline' analytics.azat.io; style-src 'self' 'unsafe-inline'; connect-src 'self' analytics.azat.io; img-src 'self' cloudfront.net *.cloudfront.net img.shields.io data:;
+  content-security-policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self'; img-src 'self' data: img.shields.io;
   strict-transport-security: max-age=63072000; includeSubDomains; preload
 
 /_astro/*
