@@ -1,6 +1,7 @@
 import { squooshImageService, defineConfig } from 'astro/config'
 import rehypeExternalLinks from 'rehype-external-links'
 import { browserslistToTargets } from 'lightningcss'
+import partytown from '@astrojs/partytown'
 import { fileURLToPath } from 'node:url'
 import browserslist from 'browserslist'
 import sitemap from '@astrojs/sitemap'
@@ -69,6 +70,11 @@ export default defineConfig({
       JavaScript: true,
       HTML: true,
       SVG: true,
+    }),
+    partytown({
+      config: {
+        forward: ['dataLayer.push'],
+      },
     }),
     sitemap(),
     svelte(),

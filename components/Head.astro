@@ -3,6 +3,7 @@ import { ViewTransitions } from 'astro:transitions'
 
 import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
 import { useTranslations } from '~/utils/use-translations'
+import Analytics from '~/components/Analytics.astro'
 import '~/styles/base.css'
 import '~/styles/fonts.css'
 import '~/styles/sizes.css'
@@ -135,19 +136,6 @@ let xUsername = locale === 'ru' ? '@azat_io' : '@azat_io_en'
     document.addEventListener('astro:after-swap', initialize)
   </script>
 
-  <script
-    src="https://googletagmanager.com/gtag/js?id=G-PGJC95P9"
-    fetchpriority="low"
-    async></script>
-
-  <script is:inline>
-    window.dataLayer = window.dataLayer || []
-    function gtag() {
-      dataLayer.push(arguments)
-    }
-    gtag('js', new Date())
-    gtag('config', 'G-PGJC95P9')
-  </script>
-
+  <Analytics />
   <ViewTransitions />
 </head>
