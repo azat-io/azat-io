@@ -238,6 +238,7 @@
     position: absolute;
     inset-block-start: calc(100% + var(--space-xs));
     inset-inline-end: 0;
+    z-index: 1;
     display: flex;
     flex-direction: column;
     padding: 16px;
