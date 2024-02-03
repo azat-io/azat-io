@@ -40,6 +40,16 @@ let ElementTag = tag
     background: var(--color-background-brand);
   }
 
+  .active:focus-visible {
+    color: var(--color-content-link-hover);
+    background: var(--color-overlay-brand);
+    box-shadow: 0 0 0 2px var(--color-border-brand);
+  }
+
+  .active:hover {
+    color: var(--color-content-inverse);
+  }
+
   .inveractive {
     transition: all 300ms;
 
