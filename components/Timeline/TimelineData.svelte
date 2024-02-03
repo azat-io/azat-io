@@ -78,7 +78,8 @@
         ]
           .join(' ')
           .trim()}
-        passed={index <= passedFullYears * weeksInYear + passedWeeksInLastYear}
+        passed={index + 1 <=
+          passedFullYears * weeksInYear + passedWeeksInLastYear}
         healthy={index + 1 <= healthyLifeExpectancy * weeksInYear}
       />
     {/each}
