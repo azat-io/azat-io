@@ -156,6 +156,11 @@ code {
   border: 1px solid var(--color-border-primary);
 }
 
+code {
+  padding: var(--space-2xs);
+  border-radius: calc(var(--border-radius) / 2);
+}
+
 pre {
   padding: var(--space-m);
   border-radius: var(--border-radius);
