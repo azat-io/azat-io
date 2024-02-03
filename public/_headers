@@ -1,5 +1,5 @@
 /*
-  content-security-policy: default-src 'self'; script-src 'self' 'unsafe-inline' googletagmanager.com; style-src 'self' 'unsafe-inline'; connect-src 'self' *.google-analytics.com *.analytics.google.com googletagmanager.com; img-src 'self' data: img.shields.io *.google-analytics.com googletagmanager.com;
+  content-security-policy: default-src 'self'; script-src 'self' 'unsafe-inline' *.usefathom.com; style-src 'self' 'unsafe-inline'; connect-src 'self'; img-src 'self' data: img.shields.io *.usefathom.com;
   strict-transport-security: max-age=63072000; includeSubDomains; preload
 
 /_astro/*
