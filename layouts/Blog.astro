@@ -27,7 +27,7 @@ type Props = CollectionEntry<'blog'>['data'] & {
   slug: string
 }
 
-let { description, title, date, slug, body } = Astro.props
+let { description, keywords, title, date, slug, body } = Astro.props
 
 let { url } = Astro
 let locale = getLocaleFromUrl(url)
@@ -62,6 +62,7 @@ let translations = posts
   <Head
     image={`/${realLocale}/blog/${id}/open-graph.png`}
     description={description}
+    keywords={keywords}
     type="article"
     title={title}
     date={date}

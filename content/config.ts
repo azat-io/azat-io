@@ -6,6 +6,7 @@ let blog = defineCollection({
       .string()
       .or(z.date())
       .transform(val => new Date(val)),
+    keywords: z.optional(z.array(z.string())),
     description: z.string(),
     title: z.string(),
   }),
@@ -26,6 +27,7 @@ let projects = defineCollection({
         url: z.string(),
       }),
     ),
+    keywords: z.optional(z.array(z.string())),
     description: z.string(),
     title: z.string(),
     type: z.string(),
