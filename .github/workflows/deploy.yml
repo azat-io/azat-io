@@ -1,4 +1,4 @@
-name: deploy
+name: Deploy
 
 on:
   push:
@@ -11,48 +11,16 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Install Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8
-          run_install: false
-
-      - name: Get pnpm store directory
-        shell: bash
-        run: |
-          echo "PNPM_STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
-
-      - name: Setup pnpm cache
-        uses: actions/cache@v3
-        with:
-          path: ${{ env.PNPM_STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile --ignore-scripts
-
-      - name: Setup Astro cache
-        uses: actions/cache@v2
-        with:
-          path: ./node_modules/.astro
-          key: ${{ runner.os }}-astro-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-astro-
+      - name: Install Tools & Dependencies
+        uses: ./.github/actions/install
 
       - name: Build
-        run: pnpm run build
+        uses: ./.github/actions/build
 
       - name: Deploy to Netlify
-        uses: nwtgck/actions-netlify@v1.2
+        uses: nwtgck/actions-netlify@v2
         with:
           publish-dir: './dist'
           production-branch: main
