@@ -4,7 +4,7 @@
 
   import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
   import { useTranslations } from '~/utils/use-translations'
-  import HeartIcon from '~/icons/heart.svg?raw'
+  import PartyPopperIcon from '~/icons/party-popper.svg?raw'
 
   let url: undefined | URL
   $: locale = getLocaleFromUrl(url)
@@ -59,7 +59,7 @@
 
 {#if shouldRender && $userLanguage}
   <div class="translation">
-    {@html HeartIcon}
+    {@html PartyPopperIcon}
     <span>{desiredLocales[$userLanguage]}</span>
     <p>
       {`${t('translate-1')}`.replace(

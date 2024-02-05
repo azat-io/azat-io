@@ -129,9 +129,9 @@ export default {
   },
   blog: {
     'translate-1':
-      'I am very pleased that you found this post interesting and valuable. Your support helps the development of the blog and I would be grateful for any help. In particular, I am looking for contributors to translate the publication into {language}. Your contribution will help to expand our community.',
+      'Glad you enjoyed the post and found it useful. Your support helps the development of the blog and I am grateful for any help. I am looking for contributors to translate this post into {language}.',
     'translate-2':
-      "If you're ready to contribute, check out the {contributing} file, which contains all the information you need to work on translating the post.",
+      'Want to help? Check out the {contributing} file — it has all the information you need to get started.',
     description:
       'Personal blog of Azat S. Front-end developer, creator of technical content, opensource community member',
     'minutes-to-read': {

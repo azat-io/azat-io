@@ -1,5 +1,4 @@
 ---
-import BlogWidgetWrapper from '~/components/Blog/BlogWidgetWrapper.astro'
 import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
 import { useTranslations } from '~/utils/use-translations'
 import ArrowRightIcon from '~/icons/arrow-right.svg?raw'
@@ -34,7 +33,7 @@ let nextPost = isLastPost ? null : posts.at(indexOfCurrentPost - 1)
 
 {
   locale === parseUrl(slug).locale && (
-    <BlogWidgetWrapper>
+    <>
       <>
         {!isFirstPost ? (
           <div class="post-previous">
@@ -57,20 +56,25 @@ let nextPost = isLastPost ? null : posts.at(indexOfCurrentPost - 1)
           <div />
         )}
       </>
-      {!isLastPost && (
-        <div class="post-next">
-          <a href={`/${locale}/blog/${nextPost?.slug}`} class="link link-next">
-            <div>
-              <Typography color="primary" size="s">
-                {t('next-post')}
-              </Typography>
-              <Typography color="inherit">{nextPost?.data.title}</Typography>
-            </div>
-            <Fragment set:html={ArrowRightIcon} />
-          </a>
-        </div>
-      )}
-    </BlogWidgetWrapper>
+      <>
+        {!isLastPost && (
+          <div class="post-next">
+            <a
+              href={`/${locale}/blog/${nextPost?.slug}`}
+              class="link link-next"
+            >
+              <div>
+                <Typography color="primary" size="s">
+                  {t('next-post')}
+                </Typography>
+                <Typography color="inherit">{nextPost?.data.title}</Typography>
+              </div>
+              <Fragment set:html={ArrowRightIcon} />
+            </a>
+          </div>
+        )}
+      </>
+    </>
   )
 }
 

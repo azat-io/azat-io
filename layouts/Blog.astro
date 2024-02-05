@@ -81,6 +81,12 @@ let translations = posts
         <slot />
       </Container>
       <Container class="info" tag="aside">
+        <BlogTranslation
+          translations={translations.map(({ locale: localeValue }) => ({
+            locale: localeValue,
+          }))}
+          client:load
+        />
         <BlogWidgetWrapper class="info-box">
           <BlogEditPageLink slug={slug} />
           <BlogShare
@@ -91,14 +97,8 @@ let translations = posts
             client:load
             url={url}
           />
+          <BlogAdditionalPosts slug={slug} />
         </BlogWidgetWrapper>
-        <BlogTranslation
-          translations={translations.map(({ locale: localeValue }) => ({
-            locale: localeValue,
-          }))}
-          client:load
-        />
-        <BlogAdditionalPosts slug={slug} />
       </Container>
     </main>
     <Footer />
