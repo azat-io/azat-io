@@ -19,6 +19,7 @@ let t = useTranslations(locale, 'blog')
   src={import(`../../content/blog/${id}/assets/thumbnail.png`)}
   alt={`${t('post-cover-for')} ${name}`}
   formats={['avif', 'webp']}
+  aria-hidden="true"
   loading="eager"
   class="image"
   height="160"
