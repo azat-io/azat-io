@@ -171,6 +171,10 @@
     border: none;
     outline: none;
     animation: fade-in 500ms cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+    }
   }
 
   .popup {
@@ -192,6 +196,12 @@
     transform-origin: 0 0;
     animation: scale-up 300ms cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
     will-change: opacity, transform;
+
+    @media (prefers-reduced-motion: reduce) {
+      opacity: 100%;
+      transform: scale(1) translate(-50%, -75%) translateZ(0);
+      animation: none;
+    }
   }
 
   .close {

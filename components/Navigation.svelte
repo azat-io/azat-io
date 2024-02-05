@@ -250,10 +250,18 @@
   .details[open] .locale-select {
     transform-origin: top center;
     animation: grow-down 250ms ease-in-out forwards;
+
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+    }
   }
 
   .details-close[open] .locale-select {
     animation: close 250ms ease-in-out forwards;
+
+    @media (prefers-reduced-motion: reduce) {
+      animation-duration: 10ms;
+    }
   }
 
   .locale {
@@ -335,6 +343,10 @@
       padding: 0;
       background: transparent;
       animation: fade-in 250ms ease-out forwards;
+
+      @media (prefers-reduced-motion: reduce) {
+        animation: none;
+      }
     }
   }
 
