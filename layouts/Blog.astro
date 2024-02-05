@@ -68,8 +68,8 @@ let translations = posts
     date={date}
   />
   <body>
-    <main class="main">
-      <Header />
+    <Header />
+    <main>
       <BlogHero name={title} id={id} />
       <Container class="content" tag="article">
         <Title align="start">{title}</Title>
@@ -80,7 +80,7 @@ let translations = posts
         <BlogAvailableLocales translations={translations} />
         <slot />
       </Container>
-      <Container class="info">
+      <Container class="info" tag="aside">
         <BlogWidgetWrapper class="info-box">
           <BlogEditPageLink slug={slug} />
           <BlogShare
@@ -100,15 +100,15 @@ let translations = posts
         />
         <BlogAdditionalPosts slug={slug} />
       </Container>
-      <Footer />
     </main>
+    <Footer />
   </body>
 </Html>
 
 <style>
-  .main {
+  body {
     display: grid;
-    grid-template-rows: min-content min-content 1fr min-content;
+    grid-template-rows: min-content 1fr min-content;
     min-block-size: 100dvb;
   }
 

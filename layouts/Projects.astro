@@ -19,23 +19,21 @@ let { description, keywords, badges, links, title, id } = Astro.props
 <Html>
   <Head description={description} keywords={keywords} title={title} />
   <body>
-    <main class="main">
-      <Header />
-      <Container>
-        <Title>{title}</Title>
-        <div class="badges">
-          {badges.map(({ name, url }) => <img alt={name} src={url} />)}
-        </div>
-        <ProjectsInfobox links={links} class="info" id={id} />
-        <slot />
-      </Container>
-      <Footer />
-    </main>
+    <Header />
+    <Container tag="main">
+      <Title>{title}</Title>
+      <div class="badges">
+        {badges.map(({ name, url }) => <img alt={name} src={url} />)}
+      </div>
+      <ProjectsInfobox links={links} class="info" id={id} />
+      <slot />
+    </Container>
+    <Footer />
   </body>
 </Html>
 
 <style>
-  .main {
+  body {
     display: grid;
     grid-template-rows: min-content 1fr min-content;
     min-block-size: 100dvb;

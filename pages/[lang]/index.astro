@@ -14,39 +14,30 @@ export let getStaticPaths = () =>
 ---
 
 <LayoutDefault description={t('description')} title={t('title')}>
-  <main class="main">
-    <div class="content">
-      <Avatar alt={t('avatar')} />
-      <div>
-        <Typography color="brand" size="2xl" bold>
-          {t('website-title')}
-        </Typography>
-        <Typography color="brand" size="l">
-          {t('website-subtitle')}
-        </Typography>
-        <Typography tag="p" mbs="m" mbe="m">
-          {t('greeting')}
-        </Typography>
-      </div>
+  <div class="content">
+    <Avatar alt={t('avatar')} />
+    <div>
+      <Typography color="brand" size="2xl" bold>
+        {t('website-title')}
+      </Typography>
+      <Typography color="brand" size="l">
+        {t('website-subtitle')}
+      </Typography>
+      <Typography tag="p" mbs="m" mbe="m">
+        {t('greeting')}
+      </Typography>
     </div>
-  </main>
+  </div>
 </LayoutDefault>
 
 <style>
-  .main {
-    display: flex;
-    flex-direction: column;
-    place-content: center;
-    block-size: 100%;
-    min-block-size: 640px;
-    container-type: inline-size;
-  }
-
   .content {
     display: flex;
     flex-direction: column;
     gap: var(--space-xl);
     place-items: center;
+    justify-content: center;
+    block-size: 100%;
     margin-block-end: var(--space-xl);
 
     @container (inline-size >= 560px) {

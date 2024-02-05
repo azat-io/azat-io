@@ -18,18 +18,16 @@ let { type = 'website', description, size = 'm', title } = Astro.props
 <Html>
   <Head description={description} title={title} type={type} />
   <body>
-    <main class="main">
-      <Header />
-      <Container size={size}>
-        <slot />
-      </Container>
-      <Footer />
-    </main>
+    <Header />
+    <Container size={size} tag="main">
+      <slot />
+    </Container>
+    <Footer />
   </body>
 </Html>
 
 <style>
-  .main {
+  body {
     display: grid;
     grid-template-rows: min-content 1fr min-content;
     min-block-size: 100dvb;
