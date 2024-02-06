@@ -31,7 +31,7 @@ let Icon: {
 
 <a rel="noopener noreferrer" target="_blank" class="link" href={link}>
   <Fragment set:html={Icon[type]} />
-  <Typography size="m">
+  <Typography color="inherit" size="m">
     {t(type)}
   </Typography>
 </a>
@@ -50,6 +50,10 @@ let Icon: {
       display: flex;
       inline-size: var(--size-icon-m);
       block-size: var(--size-icon-m);
+    }
+
+    &:hover {
+      color: var(--color-content-link-hover);
     }
   }
 </style>
