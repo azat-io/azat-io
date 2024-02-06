@@ -259,7 +259,7 @@ export default {
     title: 'Обо мне',
     github: 'ГитХаб',
     links: 'Ссылки',
-    email: 'Email',
+    email: 'Емайл',
     x: 'X',
   },
   navigation: {
