@@ -18,6 +18,7 @@ export default {
       'Истребитель Демонов: Деревня Кузнецов',
     'zom-100-bucket-list-of-the-dead':
       'Зомби-апокалипсис и 100 предсмертных дел',
+    'butareba-the-story-of-a-man-turned-into-a-pig': 'Свинину Надо Было Жарить',
     'demon-slayer-mugen-train': 'Истребитель Демонов: Поезд «Бесконечный»',
     'attack-on-titan-the-final-season': 'Атака Титанов: Последний сезон',
     'mushoku-tensei-jobless-reincarnation': 'Перерождение безработного',
