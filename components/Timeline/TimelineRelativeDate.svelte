@@ -20,7 +20,7 @@
   $: minutes = date.getMinutes() - dateOfBirth.getMinutes()
   $: seconds = date.getSeconds() - dateOfBirth.getSeconds()
 
-  $: if (months < 0) {
+  $: if (months <= 0 && date.getDate() - dateOfBirth.getDate() < 0) {
     years--
     months += 12
   }
