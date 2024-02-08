@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content'
 
 import TravelWorldMap from '~/components/TravelMap/TravelMapWorldMap.astro'
-import TravelCard from '~/components/TravelMap/TravelMapCard.astro'
+import TravelMapCard from '~/components/TravelMap/TravelMapCard.astro'
 import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
 import { useTranslations } from '~/utils/use-translations'
 import LayoutDefault from '~/layouts/Default.astro'
@@ -23,10 +23,10 @@ export let getStaticPaths = () =>
     {t('title')}
   </Title>
   <TravelWorldMap countries={collection.map(({ code }) => code)} />
-  <ul class="list" role="list">
+  <ul class="list">
     {
       collection.map(({ originName, code }) => (
-        <TravelCard
+        <TravelMapCard
           name={t(code as keyof typeof t)}
           originName={originName}
           code={code}

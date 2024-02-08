@@ -1,4 +1,6 @@
 ---
+import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
+import { useTranslations } from '~/utils/use-translations'
 import flagAE from '~/assets/flags/flag-ae.svg?raw'
 import flagAM from '~/assets/flags/flag-am.svg?raw'
 import flagAZ from '~/assets/flags/flag-az.svg?raw'
@@ -17,9 +19,13 @@ import flagUS from '~/assets/flags/flag-us.svg?raw'
 
 interface Props {
   code: string
+  name: string
 }
 
-let { code } = Astro.props
+let { code, name } = Astro.props
+
+let locale = getLocaleFromUrl(Astro.url)
+let t = useTranslations(locale, 'travel-map')
 
 let flags: {
   [key: string]: undefined | string
@@ -46,7 +52,7 @@ let flag = flags[code]
 
 {
   flag && (
-    <div class="flag">
+    <div aria-label={`${t('flag-of')} ${name}`} class="flag">
       <Fragment set:html={flags[code]} />
     </div>
   )

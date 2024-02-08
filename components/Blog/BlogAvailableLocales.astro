@@ -19,14 +19,18 @@ let t = useTranslations(locale, 'blog')
 
 {
   translations.length ? (
-    <div class="available-languages">
-      <Typography size="xs">{t('also-translated')}</Typography>
-      <div class="list">
+    <section class="available-languages">
+      <Typography size="xs" tag="h2">
+        {t('also-translated')}
+      </Typography>
+      <ul class="list">
         {translations.map(post => (
-          <BlogLocaleLink {...post} />
+          <li class="item">
+            <BlogLocaleLink {...post} />
+          </li>
         ))}
-      </div>
-    </div>
+      </ul>
+    </section>
   ) : null
 }
 
@@ -50,5 +54,13 @@ let t = useTranslations(locale, 'blog')
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-s);
+    padding-inline-start: 0;
+    margin-block: 0;
+    list-style: none;
+  }
+
+  .item {
+    display: flex;
+    margin-block: 0;
   }
 </style>

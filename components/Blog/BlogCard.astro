@@ -22,7 +22,7 @@ let locale = getLocaleFromUrl(Astro.url)
 <li class="item">
   <a href={`/${locale}/blog/${slug}/`} class="card">
     <BlogThumbnail name={title} id={slug} />
-    <div>
+    <article>
       <Typography color="brand" size="l" tag="h2" bold>
         {title}
       </Typography>
@@ -33,7 +33,7 @@ let locale = getLocaleFromUrl(Astro.url)
       <Typography color="secondary" size="s" mbs="s">
         {description}
       </Typography>
-    </div>
+    </article>
   </a>
 </li>
 

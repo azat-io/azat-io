@@ -14,22 +14,28 @@ let { tag = 'div', originName, name, code } = Astro.props
 let Tag = tag
 ---
 
-<Tag class:list="card">
-  <TravelFlag code={code} />
-  <div>
-    <Typography color="brand" class="name" mbe="2xs" size="s">
-      {name}
-    </Typography>
-    <Typography class="name" size="2xs">{originName}</Typography>
-  </div>
+<Tag class:list="card-wrapper">
+  <figure class="card">
+    <TravelFlag code={code} name={name} />
+    <figcaption>
+      <Typography color="brand" class="name" mbe="2xs" size="s" tag="h2">
+        {name}
+      </Typography>
+      <Typography class="name" size="2xs">{originName}</Typography>
+    </figcaption>
+  </figure>
 </Tag>
 
 <style>
+  .card-wrapper {
+    margin-block: 0;
+  }
+
   .card {
     display: flex;
     gap: var(--space-m);
     place-items: center;
-    margin-block: 0;
+    margin: 0;
   }
 
   .name {

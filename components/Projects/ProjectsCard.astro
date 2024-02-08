@@ -15,15 +15,15 @@ let locale = getLocaleFromUrl(Astro.url)
 
 <li class="item">
   <a href={`/${locale}/projects/${slug}/`} class="card">
-    <ProjectsLogo id={slug} />
-    <div>
-      <Typography color="brand" size="m" tag="h2" bold>
+    <ProjectsLogo title={title} id={slug} />
+    <dl class="description">
+      <Typography color="brand" size="m" tag="dt" bold>
         {title}
       </Typography>
-      <Typography color="secondary" size="xs">
+      <Typography class="definition" color="secondary" size="xs" tag="dd">
         {description}
       </Typography>
-    </div>
+    </dl>
   </a>
 </li>
 
@@ -55,5 +55,13 @@ let locale = getLocaleFromUrl(Astro.url)
       flex-direction: row;
       max-inline-size: 50%;
     }
+  }
+
+  .description {
+    margin-block: 0;
+  }
+
+  .definition {
+    margin-inline-start: 0;
   }
 </style>

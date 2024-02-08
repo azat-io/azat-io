@@ -10,10 +10,11 @@ interface Props {
     npm?: undefined | string
   }
   class?: string
+  title: string
   id: string
 }
 
-let { class: className, links, id, ...props } = Astro.props
+let { class: className, links, title, id, ...props } = Astro.props
 
 let projectLinks = Object.entries(links).map(
   ([key, value]: [string, undefined | string]) => ({
@@ -26,18 +27,20 @@ let projectLinks = Object.entries(links).map(
 }[]
 ---
 
-<div class:list={['infobox', className]} {...props}>
-  <ProjectsLogo size="l" id={id} />
-  <ul class="links" role="list">
-    {
-      projectLinks.map(({ link, type }) => (
-        <li class="item">
-          <ProjectsLink link={link} type={type} />
-        </li>
-      ))
-    }
-  </ul>
-</div>
+<figure class:list={['infobox', className]} {...props}>
+  <ProjectsLogo title={title} size="l" id={id} />
+  <figcaption>
+    <ul class="links">
+      {
+        projectLinks.map(({ link, type }) => (
+          <li class="item">
+            <ProjectsLink link={link} type={type} />
+          </li>
+        ))
+      }
+    </ul>
+  </figcaption>
+</figure>
 
 <style>
   .infobox {

@@ -2,15 +2,16 @@
 import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
 
 interface Props {
+  class?: string
   date: Date
 }
 
-let { date } = Astro.props
+let { class: className, date, ...props } = Astro.props
 
 let locale = getLocaleFromUrl(Astro.url)
 ---
 
-<time datetime={date.toISOString()}>
+<time datetime={date.toISOString()} class:list={[className]} {...props}>
   {
     date.toLocaleDateString(locale, {
       year: 'numeric',

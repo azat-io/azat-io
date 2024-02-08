@@ -25,7 +25,7 @@ let { description, keywords, badges, links, title, id } = Astro.props
       <div class="badges">
         {badges.map(({ name, url }) => <img alt={name} src={url} />)}
       </div>
-      <ProjectsInfobox links={links} class="info" id={id} />
+      <ProjectsInfobox links={links} title={title} class="info" id={id} />
       <slot />
     </Container>
     <Footer />

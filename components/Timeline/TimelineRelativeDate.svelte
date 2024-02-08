@@ -58,7 +58,7 @@
   onMount(() => (url = new URL(window.location.href)))
 </script>
 
-<span>
+<span role="timer">
   {format(years, 'years')}
   {format(months, 'months')}
   {format(days, 'days')}

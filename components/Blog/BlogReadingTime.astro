@@ -19,7 +19,7 @@ let time = Math.ceil(readingTime(body).minutes)
 let coffeeCups = Math.ceil(time / 5)
 ---
 
-<Typography class="text" size="xs">
+<Typography class="text" tag="span" size="xs">
   {
     Array.from({ length: coffeeCups }).map(() => (
       <Fragment set:html={CoffeeIcon} />

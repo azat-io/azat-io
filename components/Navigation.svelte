@@ -186,6 +186,7 @@
 
 <style>
   .nav {
+    z-index: 1;
     display: none;
   }
 

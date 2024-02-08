@@ -107,6 +107,8 @@ let isProd = import.meta.env.PROD
         {keywords?.map(keyword => (
           <meta property="article:tag" content={keyword} />
         ))}
+        <meta property="article:section" content="Technology" />
+        <meta property="article:opinion" content="true" />
       </>
     )
   }

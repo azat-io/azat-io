@@ -1,5 +1,4 @@
 ---
-import Typography from '~/components/Typography.astro'
 import Date from '~/components/Date.astro'
 
 interface Props {
@@ -9,12 +8,12 @@ interface Props {
 let { date } = Astro.props
 ---
 
-<Typography class="text" size="xs">
-  <Date date={date} />
-</Typography>
+<Date class="text" date={date} />
 
 <style>
   .text {
+    font: var(--font-xs);
     line-height: 1 !important;
+    color: var(--color-content-primary);
   }
 </style>

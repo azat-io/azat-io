@@ -18,21 +18,21 @@
   export let url: URL
 
   $: t = useTranslations(locale, 'blog')
+  $: xUsername = locale === 'ru' ? 'azat_io' : 'azat_io_en'
 
-  let e = encodeURI
+  $: formattedTitle = encodeURIComponent(title)
+  $: formattedXDescription = encodeURIComponent(
+    `${t('quote-start')}${description}${t('quote-end')} ${t('by')} @${xUsername}`,
+  )
+
   let dialog: HTMLDialogElement
 
   $: cleanUrl = url?.toString().replace(/\.html$/, '')
-  $: xUsername = locale === 'ru' ? 'azat_io' : 'azat_io_en'
 
   $: links = [
     {
       icon: XIcon,
-      link: `https://x.com/intent/tweet?text=${e(
-        `${title}\n\n${t('quote-start')}${description}${t('quote-end')} ${t(
-          'by',
-        )} @${xUsername}\n\n`,
-      )}&url=${cleanUrl}`,
+      link: `https://x.com/intent/tweet?text=${formattedTitle}\n\n${formattedXDescription}\n\n&url=${cleanUrl}`,
       label: 'share-on-x',
       name: 'X',
     },
@@ -44,19 +44,19 @@
     },
     {
       icon: YcombinatorIcon,
-      link: `https://news.ycombinator.com/submitlink?u=${cleanUrl}&t=${title}`,
+      link: `https://news.ycombinator.com/submitlink?u=${cleanUrl}&t=${formattedTitle}`,
       label: 'share-on-hacker-news',
       name: 'Hacker News',
     },
     {
       icon: RedditIcon,
-      link: `https://www.reddit.com/submit?url=${cleanUrl}&title=${title}`,
+      link: `https://www.reddit.com/submit?url=${cleanUrl}&title=${formattedTitle}`,
       label: 'share-on-reddit',
       name: 'Reddit',
     },
     {
       icon: TelegramIcon,
-      link: `https://t.me/share/url?url=${cleanUrl}&text=${title}`,
+      link: `https://t.me/share/url?url=${cleanUrl}&text=${formattedTitle}`,
       label: 'share-on-telegram',
       name: 'Telegram',
     },
@@ -96,7 +96,7 @@
         {@html CrossIcon}
       </button>
       <h3 class="title">{t('share')}</h3>
-      <ul class="links" role="list">
+      <ul class="links">
         {#each links as { label, link, icon }}
           <li class="link-wrapper">
             <a

@@ -118,6 +118,7 @@ export default {
     genres: 'Genres',
     dororo: 'Dororo',
     erased: 'Erased',
+    rating: 'Rating',
     minutes: 'min.',
     drama: 'drama',
     mecha: 'mecha',
@@ -227,6 +228,7 @@ export default {
     description: "List of countries I've visited",
     ae: 'United Arab Emirates',
     ru: 'Russian Federation',
+    'flag-of': 'Flag of',
     title: 'Travel Map',
     az: 'Azerbaijan',
     ps: 'Palestine',
@@ -272,6 +274,7 @@ export default {
   },
   projects: {
     description: 'List of opensource projects created by Azat S.',
+    'logo-of': 'Logo of',
     website: 'Website',
     vscode: 'VS Code',
     title: 'Projects',
