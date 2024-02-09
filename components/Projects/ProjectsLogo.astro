@@ -16,7 +16,10 @@ let t = useTranslations(locale, 'projects')
 
 let logos = Object.fromEntries(
   Object.entries(
-    import.meta.glob('../../content/projects/**/**', { as: 'raw' }),
+    import.meta.glob('../../content/projects/**/**', {
+      import: 'default',
+      query: '?raw',
+    }),
   )
     .filter(([key]) => key.includes('assets/logo'))
     .map(([path, getLogo]) => [

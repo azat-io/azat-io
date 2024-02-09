@@ -55,27 +55,6 @@ export default defineConfig({
       remarkMath,
     ],
   },
-  integrations: [
-    compress({
-      Image: {
-        sharp: {
-          heif: false,
-          jpeg: false,
-          tiff: false,
-          webp: false,
-          avif: true,
-          gif: false,
-          png: false,
-        },
-      },
-      JavaScript: true,
-      HTML: true,
-      SVG: true,
-    }),
-    sitemap(),
-    svelte(),
-    mdx(),
-  ],
   vite: {
     css: {
       lightningcss: {
@@ -88,6 +67,18 @@ export default defineConfig({
       transformer: 'lightningcss',
     },
   },
+  integrations: [
+    compress({
+      Exclude: [file => file.endsWith('.png') && !file.includes('hero.')],
+      JavaScript: true,
+      Image: true,
+      HTML: true,
+      SVG: true,
+    }),
+    sitemap(),
+    svelte(),
+    mdx(),
+  ],
   prefetch: {
     defaultStrategy: 'viewport',
     prefetchAll: true,
