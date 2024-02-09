@@ -60,10 +60,12 @@ a {
   outline: none;
   transition: box-shadow 200ms;
 
-  &:hover {
-    color: var(--color-content-link-hover);
-    border-color: var(--color-border-link-hover);
-    transition: all 200ms;
+  @media (hover: hover) {
+    &:hover {
+      color: var(--color-content-link-hover);
+      border-color: var(--color-border-link-hover);
+      transition: all 200ms;
+    }
   }
 
   &:focus-visible {

@@ -139,8 +139,10 @@
       block-size: var(--size-icon-s);
     }
 
-    &:hover {
-      color: var(--color-content-link-hover);
+    @media (hover: hover) {
+      &:hover {
+        color: var(--color-content-link-hover);
+      }
     }
 
     &:focus-visible {
@@ -261,10 +263,12 @@
     }
   }
 
-  .close:hover,
-  .link:hover {
-    color: var(--color-content-brand);
-    background: var(--color-background-primary-hover);
+  @media (hover: hover) {
+    .close:hover,
+    .link:hover {
+      color: var(--color-content-brand);
+      background: var(--color-background-primary-hover);
+    }
   }
 
   @keyframes fade-in {

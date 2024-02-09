@@ -47,8 +47,10 @@
     opacity: 0%;
     transition: all 250ms ease-in-out 0ms;
 
-    &:hover {
-      background-color: var(--color-background-primary-hover);
+    @media (hover: hover) {
+      &:hover {
+        background-color: var(--color-background-primary-hover);
+      }
     }
 
     &:focus-visible {
@@ -65,15 +67,19 @@
   .copy-code-wrapper {
     position: relative;
 
-    &:hover .copy-code-button {
-      opacity: 100%;
-      transition: opacity 250ms ease-in-out 250ms;
-    }
+    @media (hover: hover) {
+      &:hover {
+        .copy-code-button {
+          opacity: 100%;
+          transition: opacity 250ms ease-in-out 250ms;
+        }
 
-    &:hover .copy-code-label {
-      visibility: hidden;
-      opacity: 0%;
-      transition: opacity 250ms ease-in-out 0ms;
+        .copy-code-label {
+          visibility: hidden;
+          opacity: 0%;
+          transition: opacity 250ms ease-in-out 0ms;
+        }
+      }
     }
   }
 

@@ -220,8 +220,10 @@
       display: none;
     }
 
-    &:hover {
-      color: var(--color-content-brand);
+    @media (hover: hover) {
+      &:hover {
+        color: var(--color-content-brand);
+      }
     }
 
     &:focus-visible {
@@ -230,8 +232,10 @@
       transition-property: box-shadow;
     }
 
-    &:hover:not(:focus-visible) {
-      background: var(--color-background-primary-hover);
+    @media (hover: hover) {
+      &:hover:not(:focus-visible) {
+        background: var(--color-background-primary-hover);
+      }
     }
   }
 
@@ -275,8 +279,10 @@
     text-decoration: none;
     border-radius: var(--border-radius);
 
-    &:hover {
-      background: var(--color-background-primary-hover);
+    @media (hover: hover) {
+      &:hover {
+        background: var(--color-background-primary-hover);
+      }
     }
   }
 

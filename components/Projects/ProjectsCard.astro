@@ -43,8 +43,10 @@ let locale = getLocaleFromUrl(Astro.url)
     transition: all 250ms;
     will-change: box-shadow, background;
 
-    &:hover {
-      background: var(--color-background-primary-hover);
+    @media (hover: hover) {
+      &:hover {
+        background: var(--color-background-primary-hover);
+      }
     }
 
     &:focus-visible {

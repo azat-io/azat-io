@@ -70,9 +70,11 @@
     }
 
     &:is(a, button) {
-      &:hover {
-        color: var(--color-content-brand);
-        background: var(--color-background-primary-hover);
+      @media (hover: hover) {
+        &:hover {
+          color: var(--color-content-brand);
+          background: var(--color-background-primary-hover);
+        }
       }
 
       &:focus-visible {
