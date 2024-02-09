@@ -19,8 +19,8 @@ let t = useTranslations(locale, 'blog')
 
 {
   translations.length ? (
-    <section class="available-languages">
-      <Typography size="xs" tag="h2">
+    <div class="available-languages">
+      <Typography tag="span" size="xs">
         {t('also-translated')}
       </Typography>
       <ul class="list">
@@ -35,7 +35,7 @@ let t = useTranslations(locale, 'blog')
           </li>
         ))}
       </ul>
-    </section>
+    </div>
   ) : null
 }
 

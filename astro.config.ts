@@ -1,6 +1,7 @@
 import { squooshImageService, defineConfig } from 'astro/config'
 import rehypeExternalLinks from 'rehype-external-links'
 import { browserslistToTargets } from 'lightningcss'
+import remarkSectionize from 'remark-sectionize'
 import { fileURLToPath } from 'node:url'
 import browserslist from 'browserslist'
 import sitemap from '@astrojs/sitemap'
@@ -46,6 +47,7 @@ export default defineConfig({
       ],
     ],
     remarkPlugins: [
+      remarkSectionize,
       remarkCopyCode,
       remarkHeadings,
       remarkTypograf,
