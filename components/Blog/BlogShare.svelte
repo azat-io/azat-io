@@ -32,7 +32,7 @@
   $: links = [
     {
       icon: XIcon,
-      link: `https://x.com/intent/tweet?text=${formattedTitle}\n\n${formattedXDescription}\n\n&url=${cleanUrl}`,
+      link: `https://x.com/intent/tweet?text=${formattedTitle}%0A%0A${formattedXDescription}%0A%0A&url=${cleanUrl}`,
       label: 'share-on-x',
       name: 'X',
     },
