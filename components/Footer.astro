@@ -48,7 +48,14 @@ let icons = [
   initCopyCodePlugin()
 </script>
 <footer class="footer">
-  <Typography size="m">CC BY-NC-SA 4.0</Typography>
+  <Typography
+    itemtype="https://schema.org/WPFooter"
+    itemprop="license"
+    itemscope
+    size="m"
+  >
+    CC BY-NC-SA 4.0
+  </Typography>
   <div class="part">
     {
       icons.map(({ icon, name, link }) => (

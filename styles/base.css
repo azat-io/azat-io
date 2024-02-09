@@ -80,6 +80,10 @@ p {
   text-wrap: pretty;
 }
 
+i {
+  font-style: normal;
+}
+
 h1,
 h2,
 h3,

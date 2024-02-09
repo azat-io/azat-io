@@ -6,11 +6,12 @@ import { useTranslations } from '~/utils/use-translations'
 import Container from '~/components/Container.astro'
 
 interface Props {
+  itemprop?: string
   name: string
   id: string
 }
 
-let { name, id } = Astro.props
+let { name, id, ...props } = Astro.props
 
 let locale = getLocaleFromUrl(Astro.url)
 let t = useTranslations(locale, 'blog')
@@ -30,6 +31,7 @@ let t = useTranslations(locale, 'blog')
       class="image"
       height="630"
       width="1200"
+      {...props}
     />
   </Container>
 </div>

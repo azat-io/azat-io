@@ -7,10 +7,11 @@ import Typography from '~/components/Typography.astro'
 import CoffeeIcon from '~/icons/coffee.svg?raw'
 
 interface Props {
+  itemprop?: string
   body: string
 }
 
-let { body } = Astro.props
+let { body, ...props } = Astro.props
 
 let locale = getLocaleFromUrl(Astro.url)
 let t = useTranslations(locale, 'blog')
@@ -19,7 +20,7 @@ let time = Math.ceil(readingTime(body).minutes)
 let coffeeCups = Math.ceil(time / 5)
 ---
 
-<Typography class="text" tag="span" size="xs">
+<Typography class="text" tag="span" size="xs" {...props}>
   {
     Array.from({ length: coffeeCups }).map(() => (
       <Fragment set:html={CoffeeIcon} />

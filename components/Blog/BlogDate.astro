@@ -2,13 +2,14 @@
 import Date from '~/components/Date.astro'
 
 interface Props {
+  itemprop?: string
   date: Date
 }
 
-let { date } = Astro.props
+let { date, ...props } = Astro.props
 ---
 
-<Date class="text" date={date} />
+<Date class="text" date={date} {...props} />
 
 <style>
   .text {

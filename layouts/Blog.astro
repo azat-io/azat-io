@@ -69,16 +69,18 @@ let translations = posts
   />
   <body>
     <Header />
-    <main>
-      <BlogHero name={title} id={id} />
+    <main itemtype="http://schema.org/Article" itemscope>
+      <BlogHero itemprop="thumbnail" name={title} id={id} />
       <Container class="content" tag="article">
-        <Title align="start">{title}</Title>
+        <Title itemprop="headline" align="start">{title}</Title>
         <BlogInfo>
-          <BlogDate date={date} />
-          <BlogReadingTime body={body} />
+          <BlogDate itemprop="datePublished" date={date} />
+          <BlogReadingTime itemprop="timeRequired" body={body} />
         </BlogInfo>
         <BlogAvailableLocales translations={translations} />
-        <slot />
+        <section itemprop="articleBody">
+          <slot />
+        </section>
       </Container>
       <Container class="info" tag="aside">
         <BlogTranslation

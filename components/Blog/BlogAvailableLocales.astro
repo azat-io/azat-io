@@ -25,7 +25,12 @@ let t = useTranslations(locale, 'blog')
       </Typography>
       <ul class="list">
         {translations.map(post => (
-          <li class="item">
+          <li
+            itemtype="https://schema.org/Language"
+            itemprop="availableLanguage"
+            class="item"
+            itemscope
+          >
             <BlogLocaleLink {...post} />
           </li>
         ))}
