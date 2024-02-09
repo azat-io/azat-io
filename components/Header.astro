@@ -1,5 +1,6 @@
 ---
 import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
+import SkipToContent from '~/components/SkipToContent.astro'
 import { useTranslations } from '~/utils/use-translations'
 import Navigation from '~/components/Navigation.svelte'
 import Typography from '~/components/Typography.astro'
@@ -11,7 +12,8 @@ let t = useTranslations(locale, 'header')
 ---
 
 <header class="header">
-  <a href={`/${locale}`} class="title">
+  <SkipToContent />
+  <a href={`/${locale}`} class="title" id="logo">
     <Logo class="logo" />
     <Typography class="name" size="l" bold>
       {t('name')}

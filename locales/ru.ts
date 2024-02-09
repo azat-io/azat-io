@@ -298,12 +298,13 @@ export default {
     description: 'Руководство по изобретению велосипедов',
     title: 'Азат Ш.',
   },
+  header: {
+    'skip-to-content': 'Перейти к основному контенту',
+    name: 'Азат Ш.',
+  },
   footer: {
     'follow-me-on': 'Подписаться в',
     github: 'ГитХаб',
     x: 'X',
-  },
-  header: {
-    name: 'Азат Ш.',
   },
 }

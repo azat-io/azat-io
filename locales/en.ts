@@ -298,6 +298,7 @@ export default {
     x: 'X',
   },
   header: {
+    'skip-to-content': 'Skip to main content',
     name: 'Azat S.',
   },
 }
