@@ -38,7 +38,8 @@ let t = useTranslations(locale, 'blog')
 
 <style>
   .hero {
-    background: oklch(96.88% 0.024 85.79);
+    background: var(--color-blog-hero-background);
+    transition: background 200ms;
 
     .hero-container {
       padding: 0;
@@ -50,6 +51,8 @@ let t = useTranslations(locale, 'blog')
     inline-size: 100%;
     block-size: auto;
     user-select: none;
+    filter: var(--color-blog-hero-filter);
+    transition: filter 200ms;
     -webkit-user-drag: none;
 
     @container (inline-size >= 560px) {

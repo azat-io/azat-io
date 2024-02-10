@@ -28,6 +28,9 @@
 
   --color-overlay-brand: oklch(83% 0.15 83 / 20%);
   --color-overlay-primary: oklch(22% 0 0 / 60%);
+
+  --color-blog-hero-background: oklch(97.65% 0.01 87.47);
+  --color-blog-hero-filter: grayscale(80%) sepia(5%);
 }
 
 :root[data-theme='dark'] {
@@ -60,6 +63,9 @@
 
   --color-overlay-brand: oklch(83% 0.15 83 / 20%);
   --color-overlay-primary: oklch(22% 0 0 / 60%);
+
+  --color-blog-hero-background: oklch(96.88% 0.024 85.79);
+  --color-blog-hero-filter: none;
 }
 
 [data-theme='dark'] code,
