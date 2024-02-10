@@ -20,11 +20,13 @@ let { description, keywords, badges, links, title, id } = Astro.props
   <Head description={description} keywords={keywords} title={title} />
   <body>
     <Header />
-    <Container tag="main">
-      <Title>{title}</Title>
-      <div class="badges">
-        {badges.map(({ name, url }) => <img alt={name} src={url} />)}
-      </div>
+    <Container itemtype="https://schema.org/Product" tag="main" itemscope>
+      <header>
+        <Title itemprop="name">{title}</Title>
+        <div class="badges">
+          {badges.map(({ name, url }) => <img alt={name} src={url} />)}
+        </div>
+      </header>
       <ProjectsInfobox links={links} title={title} class="info" id={id} />
       <slot />
     </Container>

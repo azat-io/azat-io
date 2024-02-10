@@ -3,13 +3,14 @@ import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
 import { useTranslations } from '~/utils/use-translations'
 
 interface Props {
+  itemprop?: string
   size?: 'm' | 'l'
   class?: string
   title: string
   id: string
 }
 
-let { class: className, size = 'm', title, id } = Astro.props
+let { class: className, size = 'm', title, id, ...props } = Astro.props
 
 let locale = getLocaleFromUrl(Astro.url)
 let t = useTranslations(locale, 'projects')
@@ -39,6 +40,7 @@ let logo = logos[id]?.()
     <div
       class:list={['logo', `size-${size}`, className]}
       aria-label={`${t('logo-of')} ${title}`}
+      {...props}
     >
       <Fragment set:html={logo} />
     </div>

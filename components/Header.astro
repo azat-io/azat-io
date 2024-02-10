@@ -13,9 +13,15 @@ let t = useTranslations(locale, 'header')
 
 <header class="header">
   <SkipToContent />
-  <a href={`/${locale}`} class="title" id="logo">
-    <Logo class="logo" />
-    <Typography class="name" size="l" bold>
+  <a
+    itemtype="https://schema.org/Brand"
+    href={`/${locale}`}
+    class="title"
+    itemscope
+    id="logo"
+  >
+    <Logo itemprop="logo" class="logo" />
+    <Typography itemprop="name" class="name" size="l" bold>
       {t('name')}
     </Typography>
   </a>

@@ -1,8 +1,8 @@
 ---
-
+let { props } = Astro
 ---
 
-<ul class="list">
+<ul class="list" {...props}>
   <slot />
 </ul>
 

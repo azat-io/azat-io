@@ -16,17 +16,24 @@ export let getStaticPaths = () =>
 <LayoutDefault description={t('description')} title={t('title')}>
   <div class="content">
     <Avatar alt={t('avatar')} />
-    <div>
-      <Typography color="brand" size="2xl" bold>
-        {t('website-title')}
-      </Typography>
-      <Typography color="brand" size="l">
-        {t('website-subtitle')}
-      </Typography>
+    <article>
+      <h1
+        itemtype="https://schema.org/Brand"
+        class="heading-wrapper"
+        itemprop="slogan"
+        itemscope
+      >
+        <Typography class="heading" color="brand" size="2xl" tag="span" bold>
+          {t('website-title')}
+        </Typography>
+        <Typography class="heading" color="brand" tag="span" size="l">
+          {t('website-subtitle')}
+        </Typography>
+      </h1>
       <Typography tag="p" mbs="m" mbe="m">
         {t('greeting')}
       </Typography>
-    </div>
+    </article>
   </div>
 </LayoutDefault>
 
@@ -43,5 +50,13 @@ export let getStaticPaths = () =>
     @container (inline-size >= 560px) {
       flex-direction: row;
     }
+  }
+
+  .heading-wrapper {
+    margin-block: 0;
+  }
+
+  .heading {
+    display: block;
   }
 </style>

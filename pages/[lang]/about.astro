@@ -28,22 +28,25 @@ export let getStaticPaths = () =>
     <Typography id="links" size="xl" tag="h2" mbs="xl" mbe="l" bold>
       {t('links')}
     </Typography>
-    <AboutSocialLinks>
+    <AboutSocialLinks itemtype="https://schema.org/Person" itemscope>
       <AboutSocial
         link="mailto:to@azat.io"
         username="to@azat.io"
         name={t('email')}
+        itemprop="email"
         type="email"
       />
       <AboutSocial
         link="https://github.com/azat-io"
         username="@azat-io"
         name={t('github')}
+        itemprop="url"
         type="github"
       />
       <AboutSocial
         link={`https://x.com/${xUsername}`}
         username={`@${xUsername}`}
+        itemprop="url"
         name={t('x')}
         type="x"
       />
@@ -52,11 +55,13 @@ export let getStaticPaths = () =>
         username="@azat_io@mastodon.social"
         name={t('mastodon')}
         type="mastodon"
+        itemprop="url"
       />
       <AboutSocial
         link="https://bsky.app/profile/azat-io.bsky.social"
         username="@azat-io.bsky.social"
         name={t('blue-sky')}
+        itemprop="url"
         type="bluesky"
       />
       <AboutSocial
@@ -64,11 +69,13 @@ export let getStaticPaths = () =>
         name={t('linkedin')}
         username="@azat-io"
         type="linkedin"
+        itemprop="url"
       />
       <AboutSocial
         link="https://discordapp.com/users/107017608368271360"
         username="@azat_io"
         name={t('discord')}
+        itemprop="url"
         type="discord"
       />
       <AboutSocial
@@ -76,12 +83,14 @@ export let getStaticPaths = () =>
         name={t('telegram')}
         username="@azat_io"
         type="telegram"
+        itemprop="url"
       />
       <AboutSocial
         link="https://instagram.com/azat_io"
         name={t('instagram')}
         username="@azat_io"
         type="instagram"
+        itemprop="url"
       />
     </AboutSocialLinks>
   </section>

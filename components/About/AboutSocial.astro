@@ -24,6 +24,7 @@ type Type =
   | 'x'
 
 interface Props {
+  itemprop?: string
   username: string
   link: string
   name: string
@@ -49,13 +50,10 @@ let Icon: {
 ---
 
 <a
-  itemtype="https://schema.org/Person"
   rel="noopener noreferrer"
   target="_blank"
-  itemprop="url"
   class="social"
   href={link}
-  itemscope
   {...props}
 >
   <Fragment set:html={Icon[type]} />
