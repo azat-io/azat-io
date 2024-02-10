@@ -57,10 +57,12 @@ let Icon: {
   {...props}
 >
   <Fragment set:html={Icon[type]} />
-  <div>
-    <Typography color="brand" class="text" size="m">{name}</Typography>
-    <Typography color="secondary" class="text" size="xs">{username}</Typography>
-  </div>
+  <section class="social-info">
+    <Typography color="brand" class="text" size="m" tag="h3">{name}</Typography>
+    <Typography color="secondary" class="text" size="2xs">
+      {username}
+    </Typography>
+  </section>
 </a>
 
 <style>
@@ -90,6 +92,12 @@ let Icon: {
     &:focus-visible {
       transition-property: box-shadow;
     }
+  }
+
+  .social-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
   }
 
   .text {
