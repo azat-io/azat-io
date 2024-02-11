@@ -9,12 +9,12 @@
 <style>
   .info {
     display: flex;
-    flex-wrap: wrap;
+    flex-flow: column wrap;
     gap: var(--space-s);
-    place-items: end;
     margin-block-start: var(--space-s);
 
     @container (inline-size >= 560px) {
+      flex-direction: row;
       margin-block-start: 0;
     }
   }

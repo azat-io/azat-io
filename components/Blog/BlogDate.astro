@@ -1,4 +1,6 @@
 ---
+import Typography from '~/components/Typography.astro'
+import CalendarIcon from '~/icons/calendar.svg?raw'
 import Date from '~/components/Date.astro'
 
 interface Props {
@@ -9,12 +11,26 @@ interface Props {
 let { date, ...props } = Astro.props
 ---
 
-<Date class="text" date={date} {...props} />
+<Typography class="text" tag="span" size="2xs">
+  <Fragment set:html={CalendarIcon} />
+  <Date date={date} {...props} />
+</Typography>
 
 <style>
   .text {
-    font: var(--font-2xs);
+    display: flex;
+    gap: var(--space-2xs);
+    place-items: end;
     line-height: 1 !important;
-    color: var(--color-content-primary);
+
+    :global(svg) {
+      display: flex;
+      flex-shrink: 0;
+      block-size: 1.25lh;
+
+      @container (inline-size >= 560px) {
+        display: none;
+      }
+    }
   }
 </style>

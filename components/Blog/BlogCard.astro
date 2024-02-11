@@ -30,7 +30,7 @@ let locale = getLocaleFromUrl(Astro.url)
         <BlogDate date={date} />
         <BlogReadingTime body={body} />
       </BlogInfo>
-      <Typography color="secondary" size="2xs" mbs="xs">
+      <Typography class="description" color="secondary" size="2xs">
         {description}
       </Typography>
     </article>
@@ -65,6 +65,14 @@ let locale = getLocaleFromUrl(Astro.url)
 
     @container (inline-size >= 560px) {
       flex-direction: row;
+    }
+  }
+
+  p.description {
+    margin-block-start: var(--space-m);
+
+    @container (inline-size >= 560px) {
+      margin-block-start: var(--space-xs);
     }
   }
 </style>
