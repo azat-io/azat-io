@@ -52,7 +52,7 @@
   --font-m: 400 var(--font-size-m) / 1.75 var(--font-family-base);
   --font-l: 400 var(--font-size-l) / 1.75 var(--font-family-base);
   --font-xl: 600 var(--font-size-xl) / 1.5 var(--font-family-base);
-  --font-2xl: 600 var(--font-size-2xl) / 1 var(--font-family-base);
-  --font-3xl: 600 var(--font-size-3xl) / 1 var(--font-family-base);
+  --font-2xl: 600 var(--font-size-2xl) / 1.5 var(--font-family-base);
+  --font-3xl: 600 var(--font-size-3xl) / 1.5 var(--font-family-base);
   --font-code: 400 var(--font-size-code) / 1.75 var(--font-family-code);
 }

@@ -10,7 +10,12 @@
   .info {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-xs) var(--space-m);
+    gap: var(--space-s);
     place-items: end;
+    margin-block-start: var(--space-s);
+
+    @container (inline-size >= 560px) {
+      margin-block-start: 0;
+    }
   }
 </style>
