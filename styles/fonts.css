@@ -15,14 +15,13 @@
 }
 
 @font-face {
-  font-family: 'Co Test Fallback';
+  font-family: 'Co Text Fallback';
   font-style: normal;
   font-weight: 400;
   src: local('Arial');
-  size-adjust: 112.01%;
-  ascent-override: 69.46%;
-  descent-override: 19.82%;
-  line-gap-override: 66.51%;
+  size-adjust: 108%;
+  ascent-override: 90%;
+  descent-override: 29%;
 }
 
 @font-face {
