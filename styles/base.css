@@ -101,7 +101,7 @@ h2 {
 }
 
 h3 {
-  margin-block: var(--space-m);
+  margin-block: var(--space-l) var(--space-m);
   font: var(--font-l);
   font-weight: 600;
 }

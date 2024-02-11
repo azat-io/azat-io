@@ -49,11 +49,12 @@ let { description, keywords, badges, links, title, id } = Astro.props
     margin-block-end: var(--space-l);
   }
 
-  @container (inline-size >= 560px) {
-    .info {
+  .info {
+    margin: 0 0 var(--space-l) 0;
+
+    @container (inline-size >= 560px) {
       float: inline-end;
-      margin-block-end: var(--space-l);
-      margin-inline-start: var(--space-l);
+      margin: 0 0 var(--space-l) var(--space-l);
     }
   }
 </style>
