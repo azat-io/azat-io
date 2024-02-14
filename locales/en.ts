@@ -120,6 +120,7 @@ export default {
     erased: 'Erased',
     rating: 'Rating',
     minutes: 'min.',
+    pluto: 'Pluto',
     drama: 'drama',
     mecha: 'mecha',
     music: 'music',

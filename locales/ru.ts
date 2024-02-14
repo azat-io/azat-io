@@ -115,6 +115,7 @@ export default {
     comedy: 'комедия',
     rating: 'Рейтинг',
     dororo: 'Дороро',
+    pluto: 'Плутон',
     action: 'экшен',
     horror: 'ужасы',
     music: 'музыка',

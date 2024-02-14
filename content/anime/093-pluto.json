@@ -1,0 +1,9 @@
+{
+  "id": "pluto",
+  "originName": "Pluto",
+  "genres": ["action", "mystery", "psychological", "sci-fi"],
+  "year": 2023,
+  "duration": 60,
+  "episodes": 8,
+  "score": 9
+}
