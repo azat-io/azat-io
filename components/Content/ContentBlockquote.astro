@@ -1,0 +1,81 @@
+---
+interface Props {
+  type?: 'success' | 'warning' | 'danger' | 'info'
+  title?: string
+}
+
+let { type = 'info', title } = Astro.props
+---
+
+<blockquote class="blockquote">
+  <hr class:list={['border', `border-${type}`]} />
+  <div class="content">
+    {title && <h4 class="title">{title}</h4>}
+    <slot />
+  </div>
+</blockquote>
+
+<style>
+  :root {
+    --color-blockquote-success: oklch(65.64% 0.135 109.12);
+    --color-blockquote-warning: oklch(72.51% 0.143 77.71);
+    --color-blockquote-danger: oklch(54.58% 0.203 28.66);
+    --color-blockquote-info: oklch(36% 0.05 97.5);
+  }
+
+  :root[data-theme='dark'] {
+    --color-blockquote-info: oklch(97.2% 0.05 97.5);
+  }
+
+  .blockquote {
+    display: flex;
+    inline-size: 100%;
+    margin: var(--space-m) 0 var(--space-l);
+    overflow: clip;
+    background: var(--color-background-secondary-hover);
+    border: 1px solid var(--color-border-primary);
+    border-radius: var(--border-radius);
+  }
+
+  .border {
+    flex-shrink: 0;
+    margin: 0;
+    border: none;
+    border-style: solid;
+    border-inline-start-width: calc(var(--space-2xs) * 1.25);
+  }
+
+  .content {
+    inline-size: 100%;
+    padding-block: var(--space-xs);
+    padding-inline: var(--space-m);
+
+    :global(p:first-child) {
+      margin-block-start: 0;
+    }
+
+    :global(p:last-child) {
+      margin-block-end: 0;
+    }
+  }
+
+  .title {
+    margin-block: 0 var(--space-m);
+  }
+
+  .border-success {
+    border-color: var(--color-blockquote-success);
+  }
+
+  .border-warning {
+    border-color: var(--color-blockquote-warning);
+  }
+
+  .border-danger {
+    border-color: var(--color-blockquote-danger);
+  }
+
+  .border-info {
+    border-color: var(--color-blockquote-info);
+  }
+</style>

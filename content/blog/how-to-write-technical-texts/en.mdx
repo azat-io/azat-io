@@ -1,0 +1,491 @@
+---
+title: How to Write Technical Texts
+description: 'Practical tips for technical writing: how to make complex topics understandable and accessible to readers'
+date: 2024-02-14
+keywords:
+  - technical writing
+  - improving writing skills
+  - text structuring
+  - text accessibility
+  - technical writing principles
+  - technical content creation
+  - technical writing tips
+---
+
+import ContentBlockquote from '~/components/Content/ContentBlockquote.astro'
+
+Writing a good technical text is difficult. It requires deep knowledge of the subject and the ability to present complex ideas.
+
+Sometimes, trying to figure out the meaning of what is written, the reader loses interest in the topic, even if it is important and interesting to him.
+
+In this post, we will consider principles and techniques that will help to make the text clear and interesting: how to choose words, how to build sentences and structure information, and how to write code examples in articles.
+
+Complex things can be accessible.
+
+## General Rules
+
+Let's look at some general rules when writing technical texts.
+
+### Narrative Style
+
+The narrative style should be relaxed, without flirtation, memes, or jokes.
+
+<ContentBlockquote title="Before" type="danger">
+
+Did you know that JavaScript has as many as 8 data types? Oh, yes, this language is full of surprises! Among them are not only familiar strings and numbers but also such exotic types as Symbol and BigInt.
+
+Don't panic! In this article, we will look at all data types.
+
+Each data type is the key to a new mystery that JavaScript is ready to offer you. Let's dive into this exciting journey through the world of data, and who knows what wonders await us along the way!
+
+</ContentBlockquote>
+
+This example is highly exaggerated, but similar sentences are found in programmers' texts.
+
+This style is not suitable for educational content. Jokes in the text distract from the content and are annoying. Let's fix it:
+
+<ContentBlockquote title="After" type="success">
+
+JavaScript has 8 data types, including strings, numbers, Symbol, and BigInt.
+
+</ContentBlockquote>
+
+### Verbal Nouns
+
+Verbal nouns are nouns that are formed from verbs and denote an action, process, or result. They are usually easy to replace with a verb.
+
+The problem with verbal nouns is that they overload the text, remove action from it, and make the text inanimate, dry, and boring.
+
+| Verbal Noun                                     | Verbs                            |
+| ----------------------------------------------- | -------------------------------- |
+| The developer is engaged in creating interfaces | The developer creates interfaces |
+| TrackJS provides error tracking                 | TrackJS tracks errors            |
+
+An example of a text with verbal nouns:
+
+<ContentBlockquote title="Before" type="danger">
+
+Integrating Nuxt.js into frontend development projects facilitates the creation of universal applications. Simplifying setup and configuration makes project startup quick.
+
+Using server-side rendering enhances performance and improves SEO.
+
+Integration with Vue.js aids in the development of interactive user interfaces.
+
+</ContentBlockquote>
+
+Let's replace verbal nouns with verbs and breathe life into this text:
+
+<ContentBlockquote title="After" type="success">
+
+Nuxt.js simplifies the creation of universal frontend applications. Quick project startup is achieved by a simple configuration setup.
+
+Server-side rendering speeds up page loading and improves SEO.
+
+Thanks to Vue.js compatibility, developers can easily create interactive user interfaces.
+
+</ContentBlockquote>
+
+Do not use verbal nouns.
+
+### Passive Voice
+
+The passive voice shows that the action is not done by the subject, but that the action is done over the subject. This style is similar to the language of officials.
+
+The Passive Voice makes reading difficult and is usually easily replaced by the Active Voice.
+
+| Passive Voice                                                      | Active Voice                                       |
+| ------------------------------------------------------------------ | -------------------------------------------------- |
+| The Node.js version has been updated                               | We've updated Node.js                              |
+| The interface was developed using Svelte                           | We developed the interface on Svelte               |
+| The user registration module has been refactored by the developers | Developers have refactored the registration module |
+
+The active voice makes sentences more direct and clear. Let's look at an example:
+
+<ContentBlockquote title="Before" type="danger">
+
+GraphQL was developed by Facebook to simplify the data exchange processes between client and server.
+
+It is based on the use of a typed query system that allows clients to define exactly what data they need. As a result, redundant data loading has been significantly reduced and client application performance has been improved.
+
+</ContentBlockquote>
+
+<ContentBlockquote title="After" type="success">
+
+Facebook developed GraphQL to simplify data exchange between client and server.
+
+GraphQL uses a typed query system that allows the client to specify exactly what data it needs. This eliminates redundant data loading and improves client application performance.
+
+</ContentBlockquote>
+
+To read a sentence with a passive voice, extra attention is paid to figure out who did what. Such sentences seem inanimate.
+
+It is desirable to get rid of it.
+
+### The Imperative Mood
+
+The imperative mood adds dynamics to the text, stimulates action, and is used to address the reader directly.
+
+This style of addressing the reader is suitable for writing instructions and manuals, where it is important to give clear and understandable instructions.
+
+<ContentBlockquote title="Before" type="danger">
+
+A Vue project can be initialized using the following command:
+
+```bash
+npm create vue@latest
+```
+
+</ContentBlockquote>
+
+<ContentBlockquote title="After" type="success">
+
+Run the command to create a project with Vue:
+
+```bash
+npm create vue@latest
+```
+
+</ContentBlockquote>
+
+Also, the imperative mood allows you to make your thoughts short.
+
+Use the imperative mood.
+
+## Structure
+
+### Paragraphs
+
+Divide the text into paragraphs. Paragraphs bring order to the text.
+
+One thought is one paragraph.
+
+A paragraph begins with the main idea. The first sentence of the paragraph is necessary for the reader to understand what the paragraph is about. If the beginning of the paragraph doesn't appeal to the reader, they move on to read the next paragraph. Delete anything that does not relate to the main idea of the paragraph.
+
+### Short Sentences
+
+Avoid long sentences. In life, we communicate in short sentences. When a text is close to spoken language, it is easier to read and understand.
+
+<ContentBlockquote title="Before" type="danger">
+
+Long sentences make us spend more time parsing complex structures, which can lead to fatigue and confusion, especially if the sentences contain many subordinate and additional parts, which makes the process of information perception much more complex and less effective compared to short and concise statements, where each thought is clearly separated and presented in the most concise form, which undoubtedly facilitates reading and understanding of the text.
+
+</ContentBlockquote>
+
+<ContentBlockquote title="After" type="success">
+
+Short sentences read easily. They are quick and clear. Each idea is separate. This helps with comprehension. Our brains are not overloaded. Information is absorbed faster.
+
+</ContentBlockquote>
+
+### Syntax
+
+Simplify syntax in your text.
+
+We pause at each punctuation mark when we read text.
+
+The more commas there are in a sentence, the harder it is to read. If you are short of breath when reading a sentence, it means it is a long sentence. Therefore, get rid of participial turns, introductory words, dashes or colons, and explanations in brackets.
+
+To get a good text, you need to read it aloud. If we stumble when we read a text, then the text needs to be simplified.
+
+### Headings and Lists
+
+Just like code, technical texts should be modular.
+
+Highlight subheadings and bulleted lists to make it easy to find what you need in the text.
+
+A well-structured text makes the learning process more efficient and enjoyable.
+
+### Writing the Introduction
+
+The reader needs to understand if it is worth their time to read the article. Therefore, the introduction can begin by explaining the usefulness of the article. Answer the reader’s questions:
+
+- What concept will I be introduced to in the article?
+- What will I be able to do after reading the article?
+- Why is it necessary?
+
+### Writing the Conclusion
+
+The task of the conclusion is to draw conclusions and give practical advice on how to use the material studied.
+
+In the conclusion, you can give references to additional materials for further study of the topic, and express your personal opinion about the material.
+
+### Editing
+
+### Accessibility
+
+Minimize the number of terms and abbreviations if possible. Unfamiliar terms are repulsive to newcomers, and their abundance reduces motivation to learn content.
+
+If complex terms are used in the text — explain them. If another term is used in the explanation of a term, explain it in a chain.
+
+Remember, readers are people with different levels of technical knowledge. Make texts accessible to everyone.
+
+Explain cause and effect. In technical texts, it is important not only to show how something is done but also why it is important.
+
+It is important not to slip into describing very simple things.
+
+<ContentBlockquote type="danger">
+
+An input field is a functional component that gives users the ability to enter values using the keyboard.
+
+</ContentBlockquote>
+
+Which things are worth explaining and which are not, you have to decide for yourself. There is such a thing as the [curse of knowledge](https://en.wikipedia.org/wiki/Curse_of_knowledge). This is when a person who knows a topic well cannot easily explain it to newcomers because he or she cannot imagine himself or herself in their shoes.
+
+### Concision
+
+We don’t have a lot of free time. We all want to get value from content as quickly as possible.
+
+Long introductions distract from the essence of the text and bore the reader. Keep them short in the first place. To keep your audience's attention, keep your thoughts short and get to the point as quickly as possible.
+
+The phrases "pay attention", "it is worth mentioning", "it is important to specify that" disrupt the natural flow of the text and interrupt the reader's attention. They should not be in the text.
+
+### Brevity
+
+If the text can be shortened, it should be shortened. Do not use introductory words, participles, de-particles, verbs in the passive voice, or synonyms when describing.
+
+<ContentBlockquote title="Before" type="danger">
+
+The use of version control systems such as Git represents an important and essential aspect of software development, as they allow developers to track and manage changes to code. As such, it is a vital tool for collaboration and effective project management.
+
+</ContentBlockquote>
+
+<ContentBlockquote title="After" type="success">
+
+Git is a tool for tracking code changes and collaborating on projects.
+
+</ContentBlockquote>
+
+Another example:
+
+<ContentBlockquote title="Было" type="danger">
+
+Functional programming is a programming paradigm that strives to write code where all functions have no side effects and data is not mutated.
+
+</ContentBlockquote>
+
+<ContentBlockquote title="Стало" type="success">
+
+Functional programming is a style of coding without side effects or data mutation.
+
+</ContentBlockquote>
+
+After writing a text, always take time to edit it, and read the text aloud. The text may be overloaded with unnecessary words.
+
+### Objectivity
+
+Never give biased assessments. Vague language should be removed or supported by facts.
+
+For example:
+
+<ContentBlockquote title="Before" type="danger">
+
+TinyJS is a fast and lightweight state management library for multiple frameworks.
+
+</ContentBlockquote>
+
+This sentence sounds unconvincing precisely because of the lack of evidence. Tell the truth, even if it is inconvenient:
+
+<ContentBlockquote title="After" type="success">
+
+TinyJS is a lightweight library (2 kB) for state management in React and Preact.
+
+Benchmarks:
+
+…
+
+</ContentBlockquote>
+
+### Unambiguity
+
+Ambiguity in text can create confusion in the minds of novice developers. Be unambiguous and straightforward.
+
+<ContentBlockquote title="Before" type="danger">
+
+TypeScript offers strict typing, which can be useful for increasing code stability and reliability.
+
+</ContentBlockquote>
+
+<ContentBlockquote title="After" type="success">
+
+TypeScript provides strict typing to improve code stability.
+
+</ContentBlockquote>
+
+### Evaluations
+
+Refuse from subjective evaluations, such things undermine the reader's trust. There should be no biased and unfounded judgments in the text. Any evaluative judgments should be accompanied by evidence.
+
+<ContentBlockquote type="danger">
+
+React is by far the best framework out there.
+
+</ContentBlockquote>
+
+<ContentBlockquote type="danger">
+
+Everyone knows what OOP is.
+
+</ContentBlockquote>
+
+### Visualization
+
+Diagrams, schemes, screenshots, and code samples improve understanding of technical details. They are easier to read than text.
+
+<ContentBlockquote title="Было" type="danger">
+
+To create a gradient background, you need to use the linear gradient function in CSS, specifying the starting and ending colors and the direction of the gradient.
+
+</ContentBlockquote>
+
+If we used code, the text would become clear:
+
+<ContentBlockquote title="Стало" type="success">
+
+Create a gradient background in CSS:
+
+```css
+.section {
+  background: linear-gradient(direction, start-color, end-color);
+}
+```
+
+- **`direction`**: gradient direction,
+- **`start-color`**: start color,
+- **`end-color`**: end color.
+
+</ContentBlockquote>
+
+## Code Examples in Text
+
+Code examples should not be detached from reality. Avoid using `foo` and `bar`.
+
+### Variables
+
+Expressive variable names allow you to write code without comments. Choose variable names responsibly.
+
+You should not name variables with one letter unless it is a local variable in a loop.
+
+If the variable's value is an object or primitive, variables should be denoted by a noun:
+
+- `user`
+- `age`
+
+If an array, plural noun:
+
+- `users`.
+
+Function names must begin with a verb:
+
+- `getUserInfo()`
+- `downloadCSV()`.
+
+For event handlers, the on or handle prefix is usually used:
+
+- `onSubmit`.
+- `handleNameChange`.
+
+Logical values usually begin with the words is or has:
+
+- `isAdmin`.
+- `hasValue`.
+
+Never use magic numbers. They are called magic because you can't tell where they came from or what they mean.
+
+<ContentBlockquote title="Before" type="danger">
+
+```jsx
+let blockSize = 20 * 8
+```
+
+</ContentBlockquote>
+
+To get rid of magic numbers, you just need to put them into variables and the code will become clear:
+
+<ContentBlockquote title="After" type="success">
+
+```jsx
+let elementWidth = 20
+let numberOfElements = 8
+let blockSize = elementWidth * numberOfElements
+```
+
+</ContentBlockquote>
+
+### Imports
+
+When using code from a module for the first time, show its import. Otherwise, the reader will copy your code and be surprised to find that it doesn't work.
+
+<ContentBlockquote title="Before" type="danger">
+
+```jsx
+export let getDirname = () => {
+  let filename = url.fileURLToPath(import.meta.url)
+  return path.dirname(filename)
+}
+```
+
+</ContentBlockquote>
+
+<ContentBlockquote title="After" type="success">
+
+```jsx
+import path from 'node:path'
+import url from 'node:url'
+
+export let getDirname = () => {
+  let filename = url.fileURLToPath(import.meta.url)
+  return path.dirname(filename)
+}
+```
+
+</ContentBlockquote>
+
+### Simplicity
+
+Code examples are important, they make the text practical and useful.
+
+If the text explains a complex concept, start with simple code examples and gradually go deeper by adding details or functionality.
+
+Strive to keep the code clear and simple. Complex designs intimidate readers.
+
+If the sample code is still large and complex, add comments to the code. And be sure to explain additionally how it works. Comments to the code do not replace the text.
+
+### Commands
+
+After executing commands in the terminal, the expected result should always be shown.
+
+<ContentBlockquote type="success">
+
+To install NodeJS, run the command:
+
+```bash
+brew install node
+```
+
+Make sure that NodeJS has been successfully installed:
+
+```bash
+node -v
+```
+
+</ContentBlockquote>
+
+### Antipatterns
+
+If there are examples of how to write code you don't need to write, it's worth highlighting. For example, conditions that lead program execution to an infinite loop.
+
+### Relevance
+
+Regularly update texts that have already been published. Technology changes quickly, so it's important to keep your content current.
+
+Always make sure that code samples work.
+
+Nothing is more frustrating than non-working or irrelevant code samples or outdated information.
+
+## Conclusion
+
+Technical writing is a skill that requires constant improvement. Develop the ability to make complex things simple, and to convey your thoughts concisely and clearly.
+
+A good text does not just convey information, it makes it accessible to readers of different levels. A good text is interesting to read.
+
+Do not forget the importance of editing and feedback, do not hesitate to ask colleagues or friends to evaluate your work And carefully check texts before publishing.
