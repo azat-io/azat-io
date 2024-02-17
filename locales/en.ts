@@ -134,10 +134,10 @@ export default {
   blog: {
     'translate-1':
       'Glad you enjoyed the post and found it useful. Your support helps the development of the blog and I am grateful for any help. I am looking for contributors to translate this post into {language}.',
+    description:
+      'Personal blog of Azat S. Front-end developer, creator of technical content, open source community member',
     'translate-2':
       'Want to help? Check out the {contributing} file — it has all the information you need to get started.',
-    description:
-      'Personal blog of Azat S. Front-end developer, creator of technical content, opensource community member',
     'minutes-to-read': {
       other: 'minutes to read',
       one: 'minute to read',
@@ -219,7 +219,7 @@ export default {
     greeting:
       'Hi there! My name is Azat. I am a frontend developer. On this site I share my thoughts and ideas about development and modern technologies.',
     description:
-      'Personal website of Azat S. Front-end developer, creator of technical content, opensource community member',
+      'Personal website of Azat S. Front-end developer, creator of technical content, open source community member',
     'website-subtitle': 'for reinventing the wheel',
     title: 'Manual for reinventing the wheel',
     'website-title': 'Manual',
@@ -246,7 +246,7 @@ export default {
   },
   about: {
     description:
-      'Azat S. Front-end developer, creator of technical content, opensource community member',
+      'Azat S. Front-end developer, creator of technical content, open source community member',
     instagram: 'Instagram',
     'blue-sky': 'BlueSky',
     mastodon: 'Mastodon',
@@ -274,7 +274,7 @@ export default {
     rss: 'RSS',
   },
   projects: {
-    description: 'List of opensource projects created by Azat S.',
+    description: 'List of open source projects created by Azat S.',
     'logo-of': 'Logo of',
     website: 'Website',
     vscode: 'VS Code',

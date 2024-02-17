@@ -1,7 +1,7 @@
 {
   "name": "Manual for reinventing the wheel | Azat S.",
   "short_name": "Azat S.",
-  "description": "Personal website of Azat S. Front-end developer, creator of technical content, opensource community member",
+  "description": "Personal website of Azat S. Front-end developer, creator of technical content, open source community member",
   "display": "standalone",
   "start_url": "/en/",
   "theme_color": "#1b1b1b",
