@@ -15,7 +15,7 @@
 }
 
 @font-face {
-  font-family: 'Co Text Fallback';
+  font-family: fallback;
   font-style: normal;
   font-weight: 400;
   src: local('Arial');
@@ -32,7 +32,7 @@
 }
 
 :root {
-  --font-family-base: 'Co Text', 'Co Test Fallback', sans-serif;
+  --font-family-base: 'Co Text', fallback, sans-serif;
   --font-family-code: 'Monaspace Neon', monospace;
 
   --font-size-2xs: clamp(0.87rem, -0.6vi + 1.02rem, 0.54rem);
