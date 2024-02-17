@@ -16,8 +16,8 @@
   --color-content-brand: oklch(37.39% 0.029 56.18);
   --color-content-primary: oklch(36% 0.05 97.5);
   --color-content-secondary: oklch(46% 0.05 97.5);
-  --color-content-link: oklch(70% 0.143 77.71);
-  --color-content-link-hover: oklch(65% 0.143 77.71);
+  --color-content-link: oklch(60% 0.128 70.67);
+  --color-content-link-hover: oklch(52% 0.128 70.67);
   --color-content-inverse: oklch(36% 0.05 97.5);
 
   --color-border-brand: oklch(83% 0.15 83);
