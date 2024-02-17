@@ -10,7 +10,13 @@ interface Props {
 let { alt } = Astro.props
 ---
 
-<Picture formats={['avif', 'webp']} class="avatar" src={avatar} alt={alt} />
+<Picture
+  formats={['avif', 'webp']}
+  loading="eager"
+  class="avatar"
+  src={avatar}
+  alt={alt}
+/>
 
 <style>
   .avatar {
