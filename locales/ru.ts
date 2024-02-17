@@ -152,12 +152,12 @@ export default {
     'previous-post': 'Предыдущая статья',
     'locale-nl': 'нидерландский язык',
     'locale-pt': 'португальский язык',
+    'share-on-x': 'Поделиться в Икс',
     'next-post': 'Следующая статья',
     'locale-fr': 'французский язык',
     'locale-it': 'итальянский язык',
     'locale-uk': 'украинский язык',
     'locale-fa': 'персидский язык',
-    'share-on-x': 'Поделиться в X',
     'locale-el': 'греческий язык',
     'locale-es': 'испанский язык',
     'locale-lv': 'латышский язык',
@@ -263,7 +263,7 @@ export default {
     github: 'ГитХаб',
     links: 'Ссылки',
     email: 'Емайл',
-    x: 'X',
+    x: 'Икс',
   },
   navigation: {
     'change-language': 'Сменить язык',
@@ -306,6 +306,6 @@ export default {
   footer: {
     'follow-me-on': 'Подписаться в',
     github: 'ГитХаб',
-    x: 'X',
+    x: 'Икс',
   },
 }
