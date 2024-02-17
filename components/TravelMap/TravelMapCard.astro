@@ -17,11 +17,11 @@ let Tag = tag
 <Tag class:list="card-wrapper">
   <figure class="card">
     <TravelFlag code={code} name={name} />
-    <figcaption>
+    <figcaption class="caption">
       <Typography color="brand" class="name" mbe="2xs" size="s" tag="h2">
         {name}
       </Typography>
-      <Typography class="name" size="2xs">{originName}</Typography>
+      <Typography class="name" size="2xs" tag="span">{originName}</Typography>
     </figcaption>
   </figure>
 </Tag>
@@ -38,7 +38,13 @@ let Tag = tag
     margin: 0;
   }
 
-  .name {
+  .caption {
+    display: flex;
+    flex-direction: column;
+  }
+
+  h2.name,
+  span.name {
     line-height: 1.1;
   }
 </style>
