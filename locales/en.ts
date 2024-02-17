@@ -217,7 +217,7 @@ export default {
   },
   index: {
     greeting:
-      'Hello, world! My name is Azat. I am a frontend developer. On this website, I share some of my thoughts and ideas about software development with the community and discuss modern technologies',
+      'Hi there! My name is Azat. I am a frontend developer. On this site I share my thoughts and ideas about development and modern technologies.',
     description:
       'Personal website of Azat S. Front-end developer, creator of technical content, opensource community member',
     'website-subtitle': 'for reinventing the wheel',
