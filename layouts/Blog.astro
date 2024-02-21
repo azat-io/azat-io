@@ -78,9 +78,7 @@ let translations = posts
           <BlogReadingTime itemprop="timeRequired" body={body} />
         </BlogInfo>
         <BlogAvailableLocales translations={translations} />
-        <section itemprop="articleBody">
-          <slot />
-        </section>
+        <slot />
       </Container>
       <Container class="info" tag="aside">
         <BlogTranslation
