@@ -11,6 +11,7 @@
   $: translationLocale = getLocaleFromUrl(url, true)
   $: t = useTranslations(locale, 'blog')
 
+  /* spell-checker: disable */
   let desiredLocales: {
     [key: string]: string
   } = {
@@ -37,6 +38,7 @@
     zh: '嗨！很高兴见到你！',
     ja: '会えて嬉しいよ！',
   }
+  /* spell-checker: enable */
 
   export let translations: {
     locale: string

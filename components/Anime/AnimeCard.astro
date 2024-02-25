@@ -43,12 +43,12 @@ let t = useTranslations(locale, 'anime')
 let formattedGenres = genres.map(genre => t(genre)).join(', ')
 let timeConvert = (totalMinutes: number): string => {
   let hours = totalMinutes / 60
-  let rhours = Math.floor(hours)
-  let minutes = (hours - rhours) * 60
-  let rminutes = Math.round(minutes)
+  let roundedHours = Math.floor(hours)
+  let minutes = (hours - roundedHours) * 60
+  let roundedMinutes = Math.round(minutes)
   return (
-    (rhours > 0 ? `${rhours} ${t('hours')} ` : '') +
-    (rminutes > 0 ? `${rminutes} ${t('minutes')}` : '')
+    (roundedHours > 0 ? `${roundedHours} ${t('hours')} ` : '') +
+    (roundedMinutes > 0 ? `${roundedMinutes} ${t('minutes')}` : '')
   )
 }
 let durationTime =

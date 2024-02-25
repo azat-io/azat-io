@@ -27,7 +27,7 @@ export default {
     'to-your-eternity-season-2': 'Для тебя, Бессмертный, сезон 2',
     'keep-your-hands-off-eizouken': 'Руки Прочь от Кинокружка!',
     'godzilla-singular-point': 'Годзилла: Точка Сингулярности',
-    'dorohedoro-extra-evil': 'Дорохедоро: Дьвольские Истории',
+    'dorohedoro-extra-evil': 'Дорохедоро: Дьявольские Истории',
     'la-maison-en-petits-cubes': 'Дом из Маленьких Кубиков',
     'attack-on-titan-3-part-2': 'Атака Титанов 3, часть 2',
     '5-centimeters-per-second': '5 сантиметров в секунду',

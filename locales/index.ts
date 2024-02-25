@@ -21,6 +21,7 @@ export let locales: {
     code: 'en',
   },
   {
+    /* spell-checker:disable-next-line */
     originName: 'Русский',
     icon: ruFlag,
     code: 'ru',
