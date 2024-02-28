@@ -175,6 +175,7 @@
   />
   <NavigationElement
     href={`/${locale}/rss.xml`}
+    umamiEvent="View RSS"
     label={t('rss')}
     target="_blank"
     icon={RssIcon}

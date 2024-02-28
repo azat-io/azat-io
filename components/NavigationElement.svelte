@@ -1,5 +1,6 @@
 <script lang="ts">
   export let click: (() => void) | undefined = undefined
+  export let umamiEvent: string | undefined = undefined
   export let ariaLabel: string | undefined = undefined
   export let target: string | undefined = undefined
   export let href: string | undefined = undefined
@@ -19,6 +20,13 @@
   }
 
   $: props = { href } as Record<string, unknown>
+
+  $: if (typeof umamiEvent === 'string') {
+    props = {
+      ...props,
+      'data-umami-event': umamiEvent,
+    }
+  }
 
   $: if (typeof href === 'string' && typeof target === 'string') {
     props = {

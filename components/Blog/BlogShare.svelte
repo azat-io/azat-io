@@ -83,7 +83,7 @@
 </script>
 
 <div class={`share-wrapper ${className}`.trim()}>
-  <button class="share" on:click={share}>
+  <button data-umami-event="Share" class="share" on:click={share}>
     {@html ShareIcon}
     <span>{t('share')}</span>
   </button>
@@ -97,10 +97,12 @@
       </button>
       <h3 class="title">{t('share')}</h3>
       <ul class="links">
-        {#each links as { label, link, icon }}
+        {#each links as { label, link, icon, name }}
           <li class="link-wrapper">
             <a
+              data-umami-event="Share on social media"
               aria-label={t(label).toString()}
+              data-umami-event-name={name}
               rel="noopener noreferrer"
               target="_blank"
               class="link"

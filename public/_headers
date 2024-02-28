@@ -1,6 +1,6 @@
 /*
-  content-security-policy: default-src 'self'; script-src 'self' 'unsafe-inline' *.usefathom.com; style-src 'self' 'unsafe-inline'; connect-src 'self'; img-src 'self' data: img.shields.io *.usefathom.com;
-  strict-transport-security: max-age=63072000; includeSubDomains; preload
+  content-security-policy: default-src 'self'; script-src 'self' analytics.azat.io 'unsafe-inline'; style-src 'self' analytics.azat.io 'unsafe-inline'; connect-src 'self' analytics.azat.io; img-src 'self' data: img.shields.io;
+  strict-transport-security: max-age=63072000; includeSubDomains; preload;
 
 /_astro/*
   cache-control: max-age=31536000
