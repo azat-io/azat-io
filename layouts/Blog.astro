@@ -72,7 +72,9 @@ let translations = posts
     <main itemtype="http://schema.org/BlogPosting" itemscope>
       <BlogHero itemprop="thumbnail" name={title} id={id} />
       <Container class="content" tag="article">
-        <Title itemprop="headline" align="start" mbe="2xs">{title}</Title>
+        <Title itemprop="headline" align="start" mbe="xs">
+          {title}
+        </Title>
         <BlogInfo>
           <BlogDate itemprop="datePublished" date={date} />
           <BlogReadingTime itemprop="timeRequired" body={body} />
