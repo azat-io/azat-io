@@ -89,31 +89,33 @@
   </button>
 </div>
 <Portal>
-  <dialog class="dialog" bind:this={dialog} tabindex="-1">
-    <button class="paranja" on:click={closeDialog} tabindex="-1" />
-    <div class="popup">
-      <button class="close" on:click={closeDialog}>
-        {@html CrossIcon}
-      </button>
-      <h3 class="title">{t('share')}</h3>
-      <ul class="links">
-        {#each links as { label, link, icon, name }}
-          <li class="link-wrapper">
-            <a
-              data-umami-event="Share on social media"
-              aria-label={t(label).toString()}
-              data-umami-event-name={name}
-              rel="noopener noreferrer"
-              target="_blank"
-              class="link"
-              href={link}
-            >
-              {@html icon}
-            </a>
-          </li>
-        {/each}
-      </ul>
-    </div>
+  <dialog
+    on:mousedown={event => event.target == dialog && dialog.close()}
+    bind:this={dialog}
+    class="dialog"
+    tabindex="-1"
+  >
+    <button class="close" on:click={closeDialog}>
+      {@html CrossIcon}
+    </button>
+    <h3 class="title">{t('share')}</h3>
+    <ul class="links">
+      {#each links as { label, link, icon, name }}
+        <li class="link-wrapper">
+          <a
+            data-umami-event="Share on social media"
+            aria-label={t(label).toString()}
+            data-umami-event-name={name}
+            rel="noopener noreferrer"
+            target="_blank"
+            class="link"
+            href={link}
+          >
+            {@html icon}
+          </a>
+        </li>
+      {/each}
+    </ul>
   </dialog>
 </Portal>
 
@@ -154,52 +156,19 @@
   }
 
   .dialog {
-    position: fixed;
-    inset: 0;
-    inline-size: 100vi;
-    max-inline-size: 100%;
-    block-size: 100dvb;
-    max-block-size: 100%;
-    padding: 0;
-    margin: 0;
-    background: transparent;
-    border: none;
-  }
-
-  .paranja {
-    position: absolute;
-    inset: 0;
-    inline-size: 100%;
-    block-size: 100%;
-    background: var(--color-overlay-primary);
-    border: none;
-    outline: none;
-    animation: fade-in 500ms cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-
-    @media (prefers-reduced-motion: reduce) {
-      animation: none;
-    }
-  }
-
-  .popup {
-    position: absolute;
-    inset-block-start: 50%;
-    inset-inline-start: 50%;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-xs);
-    place-items: center;
     min-inline-size: 280px;
     padding: var(--space-l) var(--space-xl);
-    margin-inline-end: -50%;
     background: var(--color-background-secondary);
     border: 1px solid var(--color-border-primary);
     border-radius: var(--border-radius);
     opacity: 0%;
-    transform: scale(0.8) translate(-50%, 800px) translateZ(0);
-    transform-origin: 0 0;
     animation: scale-up 300ms cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
     will-change: opacity, transform;
+
+    &::backdrop {
+      background: var(--color-overlay-primary);
+      backdrop-filter: blur(4px);
+    }
 
     @media (prefers-reduced-motion: reduce) {
       opacity: 100%;
@@ -234,10 +203,11 @@
   }
 
   .title {
-    margin-block: 0;
-    font: var(--font-l);
+    margin-block: 0 var(--space-m);
+    font: var(--font-zl);
     font-weight: 700;
     color: var(--color-content-primary);
+    text-align: center;
   }
 
   .link-wrapper {
@@ -286,7 +256,7 @@
   @keyframes scale-up {
     0% {
       opacity: 0%;
-      transform: scale(0.8) translate(-50%, 800px) translateZ(0);
+      transform: scale(0.8) translate(0, 800px);
     }
 
     50% {
@@ -295,7 +265,7 @@
 
     100% {
       opacity: 100%;
-      transform: scale(1) translate(-50%, -75%) translateZ(0);
+      transform: scale(1) translate(0, 0);
     }
   }
 </style>
