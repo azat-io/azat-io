@@ -62,12 +62,19 @@
     },
   ] as const
 
+  let clickOutside = (event: MouseEvent) => {
+    if (event.target === dialog) {
+      closeDialog()
+    }
+  }
+
   let share = () => {
     if (
       !/android|iphone|ipad|ipod/i.test(navigator.userAgent) ||
       navigator.share === undefined
     ) {
       dialog.showModal()
+      document.addEventListener('click', clickOutside)
     } else {
       navigator.share({
         text: description,
@@ -79,6 +86,7 @@
 
   let closeDialog = () => {
     dialog.close()
+    document.removeEventListener('click', clickOutside)
   }
 </script>
 
@@ -89,12 +97,7 @@
   </button>
 </div>
 <Portal>
-  <dialog
-    on:mousedown={event => event.target == dialog && dialog.close()}
-    bind:this={dialog}
-    class="dialog"
-    tabindex="-1"
-  >
+  <dialog bind:this={dialog} class="dialog">
     <button class="close" on:click={closeDialog}>
       {@html CrossIcon}
     </button>
