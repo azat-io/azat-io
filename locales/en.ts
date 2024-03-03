@@ -133,7 +133,7 @@ export default {
   },
   blog: {
     'translate-1':
-      'Glad you enjoyed the post and found it useful. Your support helps the development of the blog and I am grateful for any help. I am looking for contributors to translate this post into {language}.',
+      'Glad you enjoyed the post and found it useful. Your support helps the development of the blog and I am grateful for any help. I am looking for contributors to translate this post into {language}.',
     description:
       'Personal blog of Azat S. Front-end developer, creator of technical content, open source community member',
     'translate-2':
@@ -182,8 +182,8 @@ export default {
   },
   timeline: {
     description:
-      'My lifetime visualization. Each cell represents one week. There are 52 weeks in each row, which equals 1 year.',
-    'time-since-i-was-born': "It's been a long time since I was born:",
+      'My lifetime visualization. Each cell represents one week. There are 52 weeks in each row, which equals 1 year.',
+    'time-since-i-was-born': "It's been a long time since I was born:",
     minutes: {
       other: 'minutes',
       one: 'minute',
@@ -205,7 +205,7 @@ export default {
       other: 'hours',
       one: 'hour',
     },
-    'life-expectancy-at-birth': 'Life expectancy at birth',
+    'life-expectancy-at-birth': 'Life expectancy at birth',
     'healthy-life-expectancy': 'Healthy life expectancy',
     days: {
       other: 'days',
@@ -217,7 +217,7 @@ export default {
   },
   index: {
     greeting:
-      'Hi there! My name is Azat. I am a frontend developer. On this site I share my thoughts and ideas about development and modern technologies.',
+      'Hi there! My name is Azat. I am a frontend developer. On this site I share my thoughts and ideas about development and modern technologies.',
     description:
       'Personal website of Azat S. Front-end developer, creator of technical content, open source community member',
     'website-subtitle': 'for reinventing the wheel',
