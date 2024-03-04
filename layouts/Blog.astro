@@ -96,9 +96,10 @@ let translations = posts
             className="blog-share"
             locale={locale}
             title={title}
-            client:load
+            client:only
             url={url}
           />
+          <div id="share-fallback"></div>
           <BlogAdditionalPosts slug={slug} />
         </BlogWidgetWrapper>
       </Container>

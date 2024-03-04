@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { onMount } from 'svelte'
+
   import type { Locale } from '~/locales'
 
   import { useTranslations } from '~/utils/use-translations'
@@ -112,6 +114,10 @@
     dialog.close()
     document.removeEventListener('click', clickOutside)
   }
+
+  onMount(() => {
+    document.getElementById('share-fallback')?.remove()
+  })
 </script>
 
 <div class={`share-wrapper ${className}`.trim()}>
