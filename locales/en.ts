@@ -148,6 +148,7 @@ export default {
     'share-on-telegram': 'Share on Telegram',
     'share-on-mastodon': 'Share on Mastodon',
     'share-on-whatsapp': 'Share on WhatsApp',
+    'share-on-facebook': 'Share on Facebook',
     'share-on-reddit': 'Share on Reddit',
     'edit-this-page': 'Edit this page',
     'post-cover-for': 'Post cover for',

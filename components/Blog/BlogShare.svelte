@@ -3,6 +3,7 @@
 
   import { useTranslations } from '~/utils/use-translations'
   import YcombinatorIcon from '~/icons/ycombinator.svg?raw'
+  import FacebookIcon from '~/icons/facebook.svg?raw'
   import LinkedinIcon from '~/icons/linkedin.svg?raw'
   import TelegramIcon from '~/icons/telegram.svg?raw'
   import MastodonIcon from '~/icons/mastodon.svg?raw'
@@ -61,9 +62,15 @@
     },
     {
       icon: RedditIcon,
-      link: `https://www.reddit.com/submit?url=${cleanUrl}&title=${formattedTitle}`,
+      link: `https://reddit.com/submit?url=${cleanUrl}&title=${formattedTitle}`,
       label: 'share-on-reddit',
       name: 'Reddit',
+    },
+    {
+      icon: FacebookIcon,
+      link: `https://facebook.com/sharer/sharer.php?u=${cleanUrl}`,
+      label: 'share-on-facebook',
+      name: 'Facebook',
     },
     {
       icon: WhatsappIcon,
