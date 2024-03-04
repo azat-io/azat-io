@@ -146,6 +146,7 @@ export default {
     'edit-this-page': 'Отредактировать страницу',
     'share-on-linkedin': 'Поделиться в ЛинкедИн',
     'share-on-telegram': 'Поделиться в Телеграм',
+    'share-on-mastodon': 'Поделиться в Мастодон',
     'also-translated': 'Также переведено на:',
     'share-on-reddit': 'Поделиться в Реддит',
     'post-cover-for': 'Обложка для поста',

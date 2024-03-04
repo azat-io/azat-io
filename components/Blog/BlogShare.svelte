@@ -5,6 +5,7 @@
   import YcombinatorIcon from '~/icons/ycombinator.svg?raw'
   import LinkedinIcon from '~/icons/linkedin.svg?raw'
   import TelegramIcon from '~/icons/telegram.svg?raw'
+  import MastodonIcon from '~/icons/mastodon.svg?raw'
   import Portal from '~/components/Portal.svelte'
   import RedditIcon from '~/icons/reddit.svg?raw'
   import CrossIcon from '~/icons/cross.svg?raw'
@@ -24,6 +25,9 @@
   $: formattedXDescription = encodeURIComponent(
     `${t('quote-start')}${description}${t('quote-end')} ${t('by')} @${xUsername}`,
   )
+  $: formattedMastodonDescription = encodeURIComponent(
+    `${t('quote-start')}${description}${t('quote-end')} ${t('by')} @azat_io@mastodon.social`,
+  )
 
   let dialog: HTMLDialogElement
 
@@ -35,6 +39,12 @@
       link: `https://x.com/intent/tweet?text=${formattedTitle}%0A%0A${formattedXDescription}%0A%0A&url=${cleanUrl}`,
       label: 'share-on-x',
       name: 'X',
+    },
+    {
+      icon: MastodonIcon,
+      link: `https://s2f.kytta.dev/?text=${formattedTitle}%0A%0A${formattedMastodonDescription}%0A%0A${cleanUrl}`,
+      label: 'share-on-mastodon',
+      name: 'Mastodon',
     },
     {
       icon: LinkedinIcon,
@@ -218,7 +228,8 @@
   }
 
   .links {
-    display: inline-flex;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: var(--space-2xs);
     padding-inline-start: 0;
     margin-block: 0;
