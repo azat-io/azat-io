@@ -6,6 +6,7 @@
   import LinkedinIcon from '~/icons/linkedin.svg?raw'
   import TelegramIcon from '~/icons/telegram.svg?raw'
   import MastodonIcon from '~/icons/mastodon.svg?raw'
+  import WhatsappIcon from '~/icons/whatsapp.svg?raw'
   import Portal from '~/components/Portal.svelte'
   import RedditIcon from '~/icons/reddit.svg?raw'
   import CrossIcon from '~/icons/cross.svg?raw'
@@ -63,6 +64,12 @@
       link: `https://www.reddit.com/submit?url=${cleanUrl}&title=${formattedTitle}`,
       label: 'share-on-reddit',
       name: 'Reddit',
+    },
+    {
+      icon: WhatsappIcon,
+      link: `https://wa.me/?text=${formattedTitle}%0A%0A${cleanUrl}`,
+      label: 'share-on-whatsapp',
+      name: 'WhatsApp',
     },
     {
       icon: TelegramIcon,
