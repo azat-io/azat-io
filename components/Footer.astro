@@ -98,7 +98,7 @@ let icons = [
     color: var(--color-content-primary);
     text-decoration: none;
     border-radius: var(--border-radius);
-    transition: all 300ms;
+    transition: all 250ms;
     will-change: box-shadow, background, color;
 
     :global(svg) {
@@ -114,7 +114,7 @@ let icons = [
     }
 
     &:focus-visible {
-      color: var(--color-content-brand);
+      background: var(--color-overlay-brand);
       transition-property: box-shadow;
     }
   }

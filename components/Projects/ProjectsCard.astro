@@ -57,7 +57,7 @@ let locale = getLocaleFromUrl(Astro.url)
     will-change: box-shadow, background;
 
     @media (hover: hover) {
-      &:hover {
+      &:hover:not(:focus-visible) {
         background: var(--color-background-primary-hover);
       }
     }
