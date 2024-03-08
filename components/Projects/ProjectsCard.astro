@@ -50,6 +50,7 @@ let locale = getLocaleFromUrl(Astro.url)
     display: flex;
     flex-direction: column;
     gap: var(--space-m);
+    inline-size: 100%;
     padding: var(--space-s) var(--space-xs);
     text-decoration: none;
     border-radius: var(--border-radius);
@@ -68,7 +69,6 @@ let locale = getLocaleFromUrl(Astro.url)
 
     @container (inline-size >= 800px) {
       flex-direction: row;
-      max-inline-size: 50%;
     }
   }
 
