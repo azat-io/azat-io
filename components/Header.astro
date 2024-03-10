@@ -40,6 +40,10 @@ let t = useTranslations(locale, 'header')
     @media (width >= 768px) {
       padding: var(--space-xs) var(--space-m);
     }
+
+    @media print {
+      display: none;
+    }
   }
 
   .name {

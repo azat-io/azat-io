@@ -54,6 +54,10 @@ let logo = logos[id]?.()
 
     :global(svg) {
       color: var(--color-content-primary);
+
+      @media print {
+        color: var(--color-content-print);
+      }
     }
   }
 

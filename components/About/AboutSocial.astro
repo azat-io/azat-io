@@ -80,6 +80,10 @@ let Icon: {
       inline-size: 42px;
       block-size: 42px;
       color: var(--color-content-brand);
+
+      @media print {
+        color: var(--color-content-print);
+      }
     }
 
     @media (hover: hover) {

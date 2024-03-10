@@ -46,6 +46,10 @@ let t = useTranslations(locale, 'blog')
       padding: 0;
       overflow: clip;
     }
+
+    @media print {
+      display: none;
+    }
   }
 
   .image {

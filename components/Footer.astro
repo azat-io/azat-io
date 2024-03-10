@@ -84,6 +84,10 @@ let icons = [
     place-items: center;
     padding: var(--space-m) var(--space-m) var(--space-xl);
     border-block-start: solid var(--color-border-primary);
+
+    @media print {
+      display: none;
+    }
   }
 
   .part {

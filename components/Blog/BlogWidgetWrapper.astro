@@ -21,5 +21,9 @@ let { class: className, ...props } = Astro.props
     @container (inline-size >= 560px) {
       grid-template-columns: 1fr 1fr;
     }
+
+    @media print {
+      display: none;
+    }
   }
 </style>

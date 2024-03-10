@@ -50,6 +50,10 @@ let Icon: {
       display: flex;
       inline-size: var(--size-icon-m);
       block-size: var(--size-icon-m);
+
+      @media print {
+        color: var(--color-content-print);
+      }
     }
 
     @media (hover: hover) {

@@ -53,6 +53,10 @@ let t = useTranslations(locale, 'blog')
     @container (inline-size >= 560px) {
       flex-direction: row;
     }
+
+    @media print {
+      display: none;
+    }
   }
 
   .list {

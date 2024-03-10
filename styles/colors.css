@@ -12,6 +12,7 @@
   --color-background-secondary-hover: oklch(95% 0.0095 83);
   --color-background-inverse: oklch(60% 0.0095 97.5);
   --color-background-inverse-hover: oklch(68% 0.0095 97.5);
+  --color-background-print: oklch(100% 0 0);
 
   --color-content-brand: oklch(37.39% 0.029 56.18);
   --color-content-primary: oklch(36% 0.05 97.5);
@@ -19,6 +20,7 @@
   --color-content-link: oklch(60% 0.128 70.67);
   --color-content-link-hover: oklch(52% 0.128 70.67);
   --color-content-inverse: oklch(36% 0.05 97.5);
+  --color-content-print: oklch(0% 0 0);
 
   --color-border-brand: oklch(83% 0.15 83);
   --color-border-link: oklch(70% 0.143 77.71);
@@ -71,4 +73,11 @@
 [data-theme='dark'] code,
 [data-theme='dark'] code span {
   color: var(--shiki-dark) !important;
+}
+
+@media print {
+  code,
+  code span {
+    color: var(--shiki-light) !important;
+  }
 }
