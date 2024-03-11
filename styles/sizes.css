@@ -1,5 +1,5 @@
 :root {
-  --size-icon-s: clamp(1.25rem, 1.1667rem + 0.2778vw, 1.375rem);
-  --size-icon-m: clamp(1.5rem, 1.3333rem + 0.5556vw, 1.75rem);
-  --size-icon-l: clamp(2rem, 1.6667rem + 1.1111vw, 2.5rem);
+  --size-icon-s: clamp(1.25rem, 1.1667rem + 0.2778vi, 1.375rem);
+  --size-icon-m: clamp(1.5rem, 1.3333rem + 0.5556vi, 1.75rem);
+  --size-icon-l: clamp(2rem, 1.6667rem + 1.1111vi, 2.5rem);
 }

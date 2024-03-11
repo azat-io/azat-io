@@ -32,7 +32,7 @@ export default defineConfig({
           },
         },
       ],
-      experimentalThemes: {
+      themes: {
         light: JSON5.parse(gruvboxLight),
         dark: JSON5.parse(gruvboxDark),
       },
