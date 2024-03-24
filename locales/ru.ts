@@ -20,6 +20,7 @@ export default {
       'Зомби-апокалипсис и 100 предсмертных дел',
     'butareba-the-story-of-a-man-turned-into-a-pig': 'Свинину Надо Было Жарить',
     'demon-slayer-mugen-train': 'Истребитель Демонов: Поезд «Бесконечный»',
+    'frieren-beyond-journey-s-end': 'Фрирен, провожающая в последний путь',
     'attack-on-titan-the-final-season': 'Атака Титанов: Последний сезон',
     'mushoku-tensei-jobless-reincarnation': 'Перерождение безработного',
     'the-melancholy-of-haruhi-suzumiya': 'Меланхолия Харухи Судзумии',
