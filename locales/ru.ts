@@ -50,6 +50,7 @@ export default {
     'howl-s-moving-castle': 'Ходячий Замок Хаула',
     'when-the-cicadas-cry': 'Когда Плачут Цикады',
     'heavenly-delusion': 'Великая Небесная Стена',
+    'the-apothecary-diaries': 'Записки Аптекаря',
     'spy-family-part-2': 'Семья Шпиона, часть 2',
     'spice-and-wolf-ii': 'Волчица и Пряности II',
     'to-your-eternity': 'Для тебя, Бессмертный',

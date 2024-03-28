@@ -42,6 +42,7 @@ export default {
     'insomniacs-after-school': 'Insomniacs After School',
     'grave-of-the-fireflies': 'Grave of the Fireflies',
     'the-promised-neverland': 'The Promised Neverland',
+    'the-apothecary-diaries': 'The Apothecary Diaries',
     'cyberpunk-edgerunners': 'Cyberpunk: Edgerunners',
     'dorohedoro-extra-evil': 'Dorohedoro: Extra Evil',
     'summer-time-rendering': 'Summer Time Rendering',
