@@ -2,10 +2,10 @@ import { squooshImageService, defineConfig } from 'astro/config'
 import rehypeExternalLinks from 'rehype-external-links'
 import { browserslistToTargets } from 'lightningcss'
 import remarkSectionize from 'remark-sectionize'
+import compress from '@playform/compress'
 import { fileURLToPath } from 'node:url'
 import browserslist from 'browserslist'
 import sitemap from '@astrojs/sitemap'
-import compress from 'astro-compress'
 import remarkMath from 'remark-math'
 import svelte from '@astrojs/svelte'
 import mdx from '@astrojs/mdx'
@@ -55,6 +55,20 @@ export default defineConfig({
       remarkMath,
     ],
   },
+  integrations: [
+    compress({
+      Exclude: [
+        (file: string) => file.endsWith('.png') && !file.includes('hero.'),
+      ],
+      JavaScript: true,
+      Image: true,
+      HTML: true,
+      SVG: true,
+    }),
+    sitemap(),
+    svelte(),
+    mdx(),
+  ],
   vite: {
     css: {
       lightningcss: {
@@ -67,18 +81,6 @@ export default defineConfig({
       transformer: 'lightningcss',
     },
   },
-  integrations: [
-    compress({
-      Exclude: [file => file.endsWith('.png') && !file.includes('hero.')],
-      JavaScript: true,
-      Image: true,
-      HTML: true,
-      SVG: true,
-    }),
-    sitemap(),
-    svelte(),
-    mdx(),
-  ],
   prefetch: {
     defaultStrategy: 'viewport',
     prefetchAll: true,

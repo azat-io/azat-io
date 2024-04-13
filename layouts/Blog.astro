@@ -22,10 +22,10 @@ import Html from '~/components/Html.astro'
 import '~/styles/headings.css'
 import '~/styles/code.css'
 
-type Props = CollectionEntry<'blog'>['data'] & {
+type Props = {
   body: string
   slug: string
-}
+} & CollectionEntry<'blog'>['data']
 
 let { description, keywords, title, date, slug, body } = Astro.props
 
