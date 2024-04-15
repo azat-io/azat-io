@@ -66,7 +66,12 @@ export default defineConfig({
       SVG: true,
     }),
     sitemap(),
-    svelte(),
+    svelte({
+      compilerOptions: {
+        cssHash: ({ hash, css }) => `s-${hash(css)}`,
+        discloseVersion: false,
+      },
+    }),
     mdx(),
   ],
   vite: {
