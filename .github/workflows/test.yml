@@ -63,6 +63,20 @@ jobs:
       - name: Test
         run: pnpm test:js
 
+  markdown:
+    name: Markdown
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Tools & Dependencies
+        uses: ./.github/actions/install
+
+      - name: Test
+        run: pnpm test:markdown
+
   spelling:
     name: Spelling
     runs-on: ubuntu-latest

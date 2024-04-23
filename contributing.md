@@ -12,21 +12,21 @@ How to set up a project locally:
 
 1. Clone repo:
 
-```sh
-git clone git@github.com:azat-io/azat-io.git
-```
+   ```sh
+   git clone git@github.com:azat-io/azat-io.git
+   ```
 
 2. Install dependencies:
 
-```sh
-pnpm install
-```
+   ```sh
+   pnpm install
+   ```
 
 3. Run local server:
 
-```sh
-pnpm start
-```
+   ```sh
+   pnpm start
+   ```
 
 ## Content Translation
 
