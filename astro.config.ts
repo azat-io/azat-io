@@ -106,5 +106,5 @@ export default defineConfig({
   },
   site: 'https://azat.io',
   compressHTML: true,
-  srcDir: '.',
+  srcDir: dirname,
 })
