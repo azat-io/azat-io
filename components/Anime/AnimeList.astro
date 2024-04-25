@@ -9,13 +9,14 @@
 <style>
   .list {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(var(--columns), 1fr);
     gap: var(--space-l);
     padding-inline-start: 0;
     margin-block-start: var(--space-xl);
+    --columns: 1;
 
     @container (inline-size >= 800px) {
-      grid-template-columns: repeat(2, 1fr);
+      --columns: 2;
     }
   }
 </style>

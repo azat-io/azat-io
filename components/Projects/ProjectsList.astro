@@ -9,13 +9,15 @@ let { props } = Astro
 <style>
   .list {
     display: grid;
+    grid-template-columns: repeat(var(--columns), 1fr);
     gap: var(--space-l);
     padding: 0;
     margin: 0;
     list-style: none;
+    --columns: 1;
 
     @container (inline-size >= 560px) {
-      grid-template-columns: repeat(2, 1fr);
+      --columns: 2;
     }
   }
 </style>

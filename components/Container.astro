@@ -18,16 +18,17 @@ let Tag = tag
 
 <style>
   .container {
+    inline-size: min(var(--min-size), 100vi);
     padding: var(--space-l) var(--space-m);
     margin-inline: auto;
     container-type: inline-size;
   }
 
   .size-m {
-    inline-size: min(clamp(38.75rem, 13.75rem + 40vi, 53.75rem), 100vi);
+    --min-size: clamp(38.75rem, 13.75rem + 40vi, 53.75rem);
   }
 
   .size-l {
-    inline-size: min(clamp(57.5rem, 26rem + 45vi, 80rem), 100vi);
+    --min-size: clamp(57.5rem, 26rem + 45vi, 80rem);
   }
 </style>
