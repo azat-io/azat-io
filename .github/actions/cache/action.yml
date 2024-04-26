@@ -1,0 +1,12 @@
+name: Cache
+
+runs:
+  using: composite
+  steps:
+    - name: Setup Astro cache
+      uses: actions/cache@v4
+      with:
+        path: ./node_modules/.astro
+        key: ${{ runner.os }}-astro-${{ hashFiles('**/pnpm-lock.yaml') }}
+        restore-keys: |
+          ${{ runner.os }}-astro-

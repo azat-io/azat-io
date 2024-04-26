@@ -88,6 +88,9 @@ jobs:
       - name: Install Tools & Dependencies
         uses: ./.github/actions/install
 
+      - name: Setup Astro cache
+        uses: ./.github/actions/cache
+
       - name: Test
         run: pnpm test:size
 
