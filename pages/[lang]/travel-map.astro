@@ -13,6 +13,7 @@ let locale = getLocaleFromUrl(Astro.url)
 let t = useTranslations(locale, 'travel-map')
 
 let collection = (await getCollection('travel-map')).map(({ data }) => data)
+let total = collection.length
 
 export let getStaticPaths = () =>
   locales.map(({ code }) => ({ params: { lang: code } }))
@@ -23,7 +24,7 @@ export let getStaticPaths = () =>
     {t('title')}
   </Title>
   <TravelWorldMap countries={collection.map(({ code }) => code)} />
-  <ul style={`--total: ${collection.length}`} class="list">
+  <ul class="list">
     {
       collection.map(({ originName, code }) => (
         <TravelMapCard
@@ -37,7 +38,7 @@ export let getStaticPaths = () =>
   </ul>
 </LayoutDefault>
 
-<style>
+<style define:vars={{ total }}>
   .list {
     display: grid;
     gap: var(--space-m) var(--space-xs);
