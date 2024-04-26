@@ -15,6 +15,7 @@
     "test:format": "prettier --check \"**/*.{js,ts,astro,css,json,md,yml}\"",
     "test:js": "eslint **/*.{astro,js,ts}",
     "test:markdown": "remark \"**/*.{md,mdx}\" --frail",
+    "test:size": "COMPRESS_IMAGES=false astro build && size-limit",
     "test:spelling": "cspell \"**/*\"",
     "test:types": "tsc --noEmit --pretty",
     "test": "pnpm run /^test:/"
@@ -49,6 +50,7 @@
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
     "@cspell/dict-ru_ru": "^2.2.1",
+    "@size-limit/file": "^11.1.2",
     "@types/katex": "^0.16.7",
     "@types/mdast": "^4.0.3",
     "@types/unist": "^3.0.2",
@@ -79,6 +81,7 @@
     "remark-lint-heading-increment": "^4.0.0",
     "remark-lint-match-punctuation": "^0.2.1",
     "remark-lint-no-dead-urls": "^1.1.0",
+    "size-limit": "^11.1.2",
     "stylelint": "^16.4.0",
     "stylelint-config-recess-order": "^5.0.1",
     "stylelint-gamut": "^1.3.4",

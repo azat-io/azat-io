@@ -60,8 +60,8 @@ export default defineConfig({
       Exclude: [
         (file: string) => file.endsWith('.png') && !file.includes('hero.'),
       ],
+      Image: process.env.COMPRESS_IMAGES !== 'false',
       JavaScript: true,
-      Image: true,
       HTML: true,
       SVG: true,
     }),

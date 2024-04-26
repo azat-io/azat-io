@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Home Page",
+    "path": [
+      "dist/en.html",
+      "dist/_astro/*.js",
+      "!dist/_astro/BlogShare.*.js",
+      "!dist/_astro/TimelineData.*.js",
+      "!dist/_astro/BlogShare.*.js"
+    ],
+    "limit": "35 kB",
+    "brotli": true
+  },
+  {
+    "name": "All Scripts",
+    "path": ["dist/**/*.js"],
+    "limit": "35 kB",
+    "brotli": true
+  }
+]
