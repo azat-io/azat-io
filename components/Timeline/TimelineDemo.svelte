@@ -35,11 +35,11 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-m);
+  }
 
-    :global(.timeline-demo-cell) {
-      inline-size: 20px;
-      block-size: 20px;
-    }
+  :global(.demo .timeline-demo-cell) {
+    inline-size: 20px;
+    block-size: 20px;
   }
 
   .demo-value {

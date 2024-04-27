@@ -94,9 +94,9 @@ let translations = posts
           <BlogShare
             description={description}
             className="blog-share"
+            client:only="svelte"
             locale={locale}
             title={title}
-            client:only
             url={url}
           />
           <div id="share-fallback"></div>

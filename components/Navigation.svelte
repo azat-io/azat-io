@@ -290,11 +290,11 @@
   .flag {
     display: flex;
     place-items: center;
+  }
 
-    :global(svg) {
-      inline-size: 48px;
-      block-size: 48px;
-    }
+  :global(.flag svg) {
+    inline-size: 48px;
+    block-size: 48px;
   }
 
   .name-container {

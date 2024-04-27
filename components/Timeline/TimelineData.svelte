@@ -99,26 +99,28 @@
 
     @media (width >= 768px) {
       gap: 3px;
+    }
+  }
 
-      :global(.timeline-cell):nth-child(52n) {
-        counter-increment: year;
-      }
+  :global(.timeline .timeline-cell:nth-child(52n)) {
+    counter-increment: year;
+  }
 
-      :global(.timeline-cell)::before {
-        display: block;
-        inline-size: 100%;
-        padding-block-end: 100%;
-        content: '';
-      }
+  :global(.timeline-cell::before) {
+    display: block;
+    inline-size: 100%;
+    padding-block-end: 100%;
+    content: '';
+  }
 
-      :global(.counter)::after {
-        position: absolute;
-        inset-block-start: calc(50% + 2px);
-        inset-inline-start: calc(100% + var(--space-xs));
-        font: var(--font-xs);
-        content: counter(year);
-        transform: translateY(-50%);
-      }
+  @media (width >= 768px) {
+    :global(.counter::after) {
+      position: absolute;
+      inset-block-start: calc(50% + 2px);
+      inset-inline-start: calc(100% + var(--space-xs));
+      font: var(--font-xs);
+      content: counter(year);
+      transform: translateY(-50%);
     }
   }
 </style>

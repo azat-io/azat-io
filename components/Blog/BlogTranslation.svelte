@@ -95,14 +95,14 @@
     background: var(--color-background-secondary);
     border: 1px solid var(--color-border-primary);
     border-radius: var(--border-radius);
+  }
 
-    :global(svg) {
-      position: absolute;
-      inset-block-start: var(--space-m);
-      inset-inline-end: var(--space-m);
-      inline-size: var(--size-icon-m);
-      block-size: var(--size-icon-m);
-      color: var(--color-content-secondary);
-    }
+  :global(.translation svg) {
+    position: absolute;
+    inset-block-start: var(--space-m);
+    inset-inline-end: var(--space-m);
+    inline-size: var(--size-icon-m);
+    block-size: var(--size-icon-m);
+    color: var(--color-content-secondary);
   }
 </style>

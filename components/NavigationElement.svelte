@@ -91,11 +91,11 @@
         transition-property: box-shadow;
       }
     }
+  }
 
-    :global(svg) {
-      inline-size: var(--size-icon-m);
-      block-size: var(--size-icon-m);
-    }
+  :global(.item svg) {
+    inline-size: var(--size-icon-m);
+    block-size: var(--size-icon-m);
   }
 
   .mobile-only {
@@ -103,13 +103,13 @@
     align-self: end;
     inline-size: fit-content;
 
-    span {
-      display: none;
-    }
-
     @media (width >= 768px) {
       display: none;
     }
+  }
+
+  .mobile-only span {
+    display: none;
   }
 
   @media (width >= 768px) {
@@ -119,10 +119,10 @@
 
     .icon {
       padding: var(--space-xs);
+    }
 
-      span {
-        display: none;
-      }
+    .icon span {
+      display: none;
     }
   }
 </style>

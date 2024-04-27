@@ -170,12 +170,6 @@
     outline: none;
     transition: box-shadow 200ms;
 
-    :global(svg) {
-      display: flex;
-      inline-size: var(--size-icon-s);
-      block-size: var(--size-icon-s);
-    }
-
     @media (hover: hover) {
       &:hover {
         color: var(--color-content-link-hover);
@@ -186,6 +180,12 @@
       background: var(--color-overlay-brand);
       box-shadow: 0 0 0 2px var(--color-border-brand);
     }
+  }
+
+  :global(.share svg) {
+    display: flex;
+    inline-size: var(--size-icon-s);
+    block-size: var(--size-icon-s);
   }
 
   .dialog {
@@ -223,16 +223,16 @@
     outline: none;
     transition: all 250ms;
 
-    :global(svg) {
-      inline-size: var(--size-icon-m);
-      block-size: var(--size-icon-m);
-    }
-
     &:focus-visible {
       background: var(--color-overlay-brand);
       box-shadow: 0 0 0 2px var(--color-border-brand);
       transition-property: box-shadow;
     }
+  }
+
+  :global(.close svg) {
+    inline-size: var(--size-icon-m);
+    block-size: var(--size-icon-m);
   }
 
   .title {
@@ -262,11 +262,11 @@
     color: var(--color-content-primary);
     text-decoration: none;
     border-radius: var(--border-radius);
+  }
 
-    :global(svg) {
-      inline-size: var(--size-icon-l);
-      block-size: var(--size-icon-l);
-    }
+  :global(.link svg) {
+    inline-size: var(--size-icon-l);
+    block-size: var(--size-icon-l);
   }
 
   @media (hover: hover) {
