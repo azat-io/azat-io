@@ -113,24 +113,3 @@ export let getStaticPaths = () =>
     </AboutSocialLinks>
   </section>
 </LayoutDefault>
-
-<style>
-  :global(picture:has(.photo)) {
-    inline-size: clamp(17.5rem, 14.1667rem + 11.1111vi, 22.5rem);
-    aspect-ratio: 1;
-    margin-inline: auto;
-
-    @container (inline-size >= 560px) {
-      float: inline-end;
-    }
-  }
-
-  :global(.photo) {
-    display: block;
-    inline-size: 100%;
-    block-size: auto;
-    margin: 0 0 var(--space-xs) var(--space-xs);
-    filter: saturate(0.85);
-    border-radius: 50%;
-  }
-</style>
