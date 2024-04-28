@@ -6,7 +6,7 @@ let blog = defineCollection({
       .string()
       .or(z.date())
       .transform(val => new Date(val)),
-    keywords: z.optional(z.array(z.string())),
+    keywords: z.string().array().optional(),
     description: z.string(),
     title: z.string(),
   }),
@@ -16,18 +16,18 @@ let blog = defineCollection({
 let projects = defineCollection({
   schema: z.object({
     links: z.object({
-      website: z.optional(z.string()),
-      github: z.optional(z.string()),
-      vscode: z.optional(z.string()),
-      npm: z.optional(z.string()),
+      website: z.ostring(),
+      github: z.ostring(),
+      vscode: z.ostring(),
+      npm: z.string(),
     }),
-    badges: z.array(
-      z.object({
+    badges: z
+      .object({
         name: z.string(),
         url: z.string(),
-      }),
-    ),
-    keywords: z.optional(z.array(z.string())),
+      })
+      .array(),
+    keywords: z.string().array().optional(),
     description: z.string(),
     title: z.string(),
     type: z.string(),
@@ -46,8 +46,8 @@ let travelMap = defineCollection({
 
 let anime = defineCollection({
   schema: z.object({
-    genres: z.array(
-      z.union([
+    genres: z
+      .union([
         z.literal('psychological'),
         z.literal('slice-of-life'),
         z.literal('supernatural'),
@@ -64,8 +64,8 @@ let anime = defineCollection({
         z.literal('mecha'),
         z.literal('music'),
         z.literal('ecchi'),
-      ]),
-    ),
+      ])
+      .array(),
     originName: z.string(),
     duration: z.number(),
     episodes: z.number(),
