@@ -83,6 +83,10 @@ a {
 p {
   margin-block: var(--space-m);
   text-wrap: pretty;
+
+  @media print {
+    widows: 2;
+  }
 }
 
 i {
@@ -177,6 +181,7 @@ code {
   @media print {
     white-space: pre-wrap;
     background: var(--color-background-print) !important;
+    widows: 2;
   }
 }
 
