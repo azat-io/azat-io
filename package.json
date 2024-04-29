@@ -72,6 +72,7 @@
     "eslint-plugin-sonarjs": "^0.25.1",
     "eslint-plugin-unicorn": "^52.0.0",
     "eslint-plugin-vitest": "0.5.4",
+    "nano-staged": "^0.8.0",
     "postcss-html": "^1.6.0",
     "prettier": "^3.2.5",
     "prettier-plugin-astro": "^0.13.0",
