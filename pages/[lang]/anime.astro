@@ -22,8 +22,12 @@ export let getStaticPaths = () =>
   <Title>{t('title')}</Title>
   <AnimeList>
     {
-      collection.map(anime => (
-        <AnimeCard name={t(anime.id as keyof typeof t)} {...anime} />
+      collection.map((anime, index) => (
+        <AnimeCard
+          name={t(anime.id as keyof typeof t)}
+          lazy={index > 8}
+          {...anime}
+        />
       ))
     }
   </AnimeList>

@@ -28,13 +28,14 @@ interface Props {
   duration: number
   episodes: number
   genres: Genre[]
+  lazy?: boolean
   score: number
   name: string
   year: number
   id: string
 }
 
-let { originName, duration, episodes, genres, score, name, year, id } =
+let { originName, duration, episodes, genres, score, name, year, lazy, id } =
   Astro.props
 
 let locale = getLocaleFromUrl(Astro.url)
@@ -58,7 +59,7 @@ let durationTime =
 ---
 
 <li class="card">
-  <AnimePicture name={name} id={id} />
+  <AnimePicture name={name} lazy={lazy} id={id} />
   <div class="data">
     <div class="info">
       <Typography color="brand" size="s" noWrap>

@@ -5,11 +5,12 @@ import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
 import { useTranslations } from '~/utils/use-translations'
 
 interface Props {
+  lazy?: undefined | boolean
   name: string
   id: string
 }
 
-let { name, id } = Astro.props
+let { lazy = true, name, id } = Astro.props
 
 let locale = getLocaleFromUrl(Astro.url)
 let t = useTranslations(locale, 'anime')
@@ -27,9 +28,9 @@ images = Object.fromEntries(
   <Picture
     src={images[id]!() as unknown as ImageMetadata}
     alt={`${t('cover-for')} ${name}`}
+    loading={lazy ? 'lazy' : 'eager'}
     formats={['avif', 'webp']}
     decoding="async"
-    loading="lazy"
     class="image"
     height="630"
     width="460"
