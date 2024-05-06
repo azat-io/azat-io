@@ -1,9 +1,9 @@
 ---
 import readingTime from 'reading-time'
 
+import BlogInfoElement from '~/components/Blog/BlogInfoElement.astro'
 import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
 import { useTranslations } from '~/utils/use-translations'
-import Typography from '~/components/Typography.astro'
 import CoffeeIcon from '~/icons/coffee.svg?raw'
 
 interface Props {
@@ -20,7 +20,7 @@ let time = Math.ceil(readingTime(body).minutes)
 let coffeeCups = Math.ceil(time / 5)
 ---
 
-<Typography class="text" tag="span" size="2xs" {...props}>
+<BlogInfoElement {...props}>
   {
     Array.from({ length: coffeeCups }).map(() => (
       <Fragment set:html={CoffeeIcon} />
@@ -35,19 +35,4 @@ let coffeeCups = Math.ceil(time / 5)
       )[new Intl.PluralRules(locale).select(time)]
     }`
   }
-</Typography>
-
-<style>
-  .text {
-    display: flex;
-    gap: var(--space-2xs);
-    place-items: end;
-    line-height: 1 !important;
-
-    :global(svg) {
-      display: flex;
-      flex-shrink: 0;
-      block-size: 1.25lh;
-    }
-  }
-</style>
+</BlogInfoElement>
