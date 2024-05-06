@@ -59,7 +59,7 @@ let durationTime =
 ---
 
 <li class="card">
-  <AnimePicture name={name} lazy={lazy} id={id} />
+  <AnimePicture {name} {lazy} {id} />
   <div class="data">
     <div class="info">
       <Typography color="brand" size="s" noWrap>
@@ -78,7 +78,7 @@ let durationTime =
         {`${t('year')}: ${year}`}
       </Typography>
     </div>
-    <AnimeRating score={score} />
+    <AnimeRating {score} />
   </div>
 </li>
 

@@ -27,8 +27,8 @@ let locale = getLocaleFromUrl(Astro.url)
         {title}
       </Typography>
       <BlogInfo>
-        <BlogDate date={date} />
-        <BlogReadingTime body={body} />
+        <BlogDate {date} />
+        <BlogReadingTime {body} />
       </BlogInfo>
       <Typography class="description" color="secondary" size="2xs">
         {description}

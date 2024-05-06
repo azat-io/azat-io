@@ -61,25 +61,25 @@ let translations = posts
 <Html>
   <Head
     image={`/${realLocale}/blog/${id}/open-graph.png`}
-    description={description}
-    keywords={keywords}
     type="article"
-    title={title}
-    date={date}
+    {description}
+    {keywords}
+    {title}
+    {date}
   />
   <body>
     <Header />
     <main itemtype="http://schema.org/BlogPosting" itemscope>
-      <BlogHero itemprop="thumbnail" name={title} id={id} />
+      <BlogHero itemprop="thumbnail" name={title} {id} />
       <Container class="content" tag="article">
         <Title itemprop="headline" align="start" mbe="s">
           {title}
         </Title>
         <BlogInfo>
-          <BlogDate itemprop="datePublished" date={date} />
-          <BlogReadingTime itemprop="timeRequired" body={body} />
+          <BlogDate itemprop="datePublished" {date} />
+          <BlogReadingTime itemprop="timeRequired" {body} />
         </BlogInfo>
-        <BlogAvailableLocales translations={translations} />
+        <BlogAvailableLocales {translations} />
         <slot />
       </Container>
       <Container class="info" tag="aside">
@@ -90,17 +90,17 @@ let translations = posts
           client:load
         />
         <BlogWidgetWrapper class="info-box">
-          <BlogEditPageLink slug={slug} />
+          <BlogEditPageLink {slug} />
           <BlogShare
-            description={description}
             className="blog-share"
             client:only="svelte"
-            locale={locale}
-            title={title}
-            url={url}
+            {description}
+            {locale}
+            {title}
+            {url}
           />
           <div id="share-fallback"></div>
-          <BlogAdditionalPosts slug={slug} />
+          <BlogAdditionalPosts {slug} />
         </BlogWidgetWrapper>
       </Container>
     </main>

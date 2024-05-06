@@ -25,7 +25,7 @@ let t = useTranslations(locale, 'header')
       {t('name')}
     </Typography>
   </a>
-  <Navigation locale={locale} client:load url={url} />
+  <Navigation client:load {locale} {url} />
 </header>
 
 <style>

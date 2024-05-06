@@ -13,7 +13,7 @@ let { date, ...props } = Astro.props
 
 <BlogInfoElement class="date">
   <Fragment set:html={CalendarIcon} />
-  <Date date={date} {...props} />
+  <Date {date} {...props} />
 </BlogInfoElement>
 
 <style>
