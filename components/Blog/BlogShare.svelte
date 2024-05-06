@@ -155,6 +155,7 @@
 <style>
   .share-wrapper {
     display: flex;
+    place-items: start;
   }
 
   .share {

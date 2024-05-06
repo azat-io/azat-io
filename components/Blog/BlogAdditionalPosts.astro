@@ -36,7 +36,7 @@ let nextPost = isLastPost ? null : posts.at(indexOfCurrentPost - 1)
     <>
       <>
         {!isFirstPost ? (
-          <div class="post-previous">
+          <div class:list={['post', 'post-previous']}>
             <a
               href={`/${locale}/blog/${previousPost?.slug}`}
               class="link link-previous"
@@ -58,7 +58,7 @@ let nextPost = isLastPost ? null : posts.at(indexOfCurrentPost - 1)
       </>
       <>
         {!isLastPost && (
-          <div class="post-next">
+          <div class:list={['post', 'post-next']}>
             <a
               href={`/${locale}/blog/${nextPost?.slug}`}
               class="link link-next"
@@ -82,17 +82,18 @@ let nextPost = isLastPost ? null : posts.at(indexOfCurrentPost - 1)
   .link {
     display: inline-flex;
     gap: var(--space-s);
-    place-items: center;
+    block-size: 100%;
     padding-inline: 0;
     text-decoration: none;
     border-radius: var(--border-radius);
 
     :global(svg) {
+      place-self: center;
       inline-size: var(--size-icon-s);
       block-size: var(--size-icon-s);
     }
 
-    @container (inline-size >= 560px) {
+    @container (inline-size >= 640px) {
       flex-direction: row;
     }
   }
@@ -104,19 +105,17 @@ let nextPost = isLastPost ? null : posts.at(indexOfCurrentPost - 1)
   .link-next {
     flex-direction: row-reverse;
 
-    @container (inline-size >= 560px) {
+    @container (inline-size >= 640px) {
       flex-direction: row;
     }
   }
 
-  .post-previous {
+  .post {
     display: flex;
   }
 
   .post-next {
-    display: flex;
-
-    @container (inline-size >= 560px) {
+    @container (inline-size >= 640px) {
       place-content: end;
       text-align: end;
     }
