@@ -93,7 +93,7 @@
     }
   }
 
-  :global(.item svg) {
+  .item :global(svg) {
     inline-size: var(--size-icon-m);
     block-size: var(--size-icon-m);
   }

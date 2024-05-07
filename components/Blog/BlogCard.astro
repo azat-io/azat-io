@@ -68,7 +68,7 @@ let locale = getLocaleFromUrl(Astro.url)
     }
   }
 
-  p.description {
+  .description:is(p) {
     margin-block-start: var(--space-m);
 
     @container (inline-size >= 560px) {

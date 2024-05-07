@@ -97,7 +97,7 @@
     border-radius: var(--border-radius);
   }
 
-  :global(.translation svg) {
+  .translation :global(svg) {
     position: absolute;
     inset-block-start: var(--space-m);
     inset-inline-end: var(--space-m);

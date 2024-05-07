@@ -53,6 +53,8 @@ let logo = logos[id]?.()
     place-items: center;
 
     :global(svg) {
+      inline-size: var(--size);
+      block-size: var(--size);
       color: var(--color-content-primary);
 
       @media print {
@@ -61,13 +63,11 @@ let logo = logos[id]?.()
     }
   }
 
-  .size-m :global(svg) {
-    inline-size: 80px;
-    block-size: 80px;
+  .size-m {
+    --size: 80px;
   }
 
-  .size-l :global(svg) {
-    inline-size: 112px;
-    block-size: 112px;
+  .size-l {
+    --size: 112px;
   }
 </style>

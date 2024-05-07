@@ -102,7 +102,7 @@
     }
   }
 
-  :global(.timeline .timeline-cell:nth-child(52n)) {
+  .timeline :global(.timeline-cell:nth-child(52n)) {
     counter-increment: year;
   }
 

@@ -183,7 +183,7 @@
     }
   }
 
-  :global(.share svg) {
+  .share :global(svg) {
     display: flex;
     inline-size: var(--size-icon-s);
     block-size: var(--size-icon-s);
@@ -269,14 +269,13 @@
     border-radius: var(--border-radius);
   }
 
-  :global(.link svg) {
+  .link :global(svg) {
     inline-size: var(--size-icon-l);
     block-size: var(--size-icon-l);
   }
 
   @media (hover: hover) {
-    .close:hover,
-    .link:hover {
+    :is(.close, .link):hover {
       color: var(--color-content-brand);
       background: var(--color-background-primary-hover);
     }

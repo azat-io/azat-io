@@ -292,7 +292,7 @@
     place-items: center;
   }
 
-  :global(.flag svg) {
+  .flag :global(svg) {
     inline-size: 48px;
     block-size: 48px;
   }
