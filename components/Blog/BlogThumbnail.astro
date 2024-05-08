@@ -20,7 +20,7 @@ let t = useTranslations(locale, 'blog')
   alt={`${t('post-cover-for')} ${name}`}
   formats={['avif', 'webp']}
   aria-hidden="true"
-  loading="eager"
+  draggable="false"
   class="image"
   height="160"
   width="160"
@@ -34,6 +34,5 @@ let t = useTranslations(locale, 'blog')
     user-select: none;
     filter: var(--color-blog-hero-filter);
     border-radius: 50%;
-    -webkit-user-drag: none;
   }
 </style>

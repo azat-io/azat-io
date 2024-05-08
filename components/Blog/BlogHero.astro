@@ -27,7 +27,7 @@ let t = useTranslations(locale, 'blog')
       widths={[480, 768, 1200]}
       fetchpriority="high"
       aria-hidden="true"
-      loading="eager"
+      draggable="false"
       class="image"
       height="630"
       width="1200"
@@ -58,7 +58,6 @@ let t = useTranslations(locale, 'blog')
     user-select: none;
     filter: var(--color-blog-hero-filter);
     transition: filter 200ms;
-    -webkit-user-drag: none;
 
     @container (inline-size >= 560px) {
       margin-block: calc(0px - var(--space-m));

@@ -1,7 +1,7 @@
 ---
 import { Picture } from 'astro:assets'
 
-import avatar from '~/assets/avatar.png'
+import src from '~/assets/avatar.png'
 
 interface Props {
   alt?: string
@@ -12,9 +12,9 @@ let { alt } = Astro.props
 
 <Picture
   formats={['avif', 'webp']}
-  loading="eager"
+  draggable="false"
   class="avatar"
-  src={avatar}
+  {src}
   {alt}
 />
 
@@ -24,6 +24,5 @@ let { alt } = Astro.props
     block-size: 220px;
     user-select: none;
     border-radius: 50%;
-    -webkit-user-drag: none;
   }
 </style>
