@@ -90,15 +90,16 @@ export default defineConfig({
     defaultStrategy: 'viewport',
     prefetchAll: true,
   },
+  experimental: {
+    clientPrerender: true,
+    rewriting: false,
+  },
   build: {
     inlineStylesheets: 'always',
     format: 'file',
   },
   image: {
     service: squooshImageService(),
-  },
-  experimental: {
-    clientPrerender: true,
   },
   server: {
     port: 8080,
