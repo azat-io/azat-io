@@ -1,27 +1,35 @@
 ---
+import type { IconName } from '~/components/Icon/Icon.d.ts'
+
 import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
 import { useTranslations } from '~/utils/use-translations'
 import Typography from '~/components/Typography.astro'
-import GithubIcon from '~/icons/github.svg?raw'
+import Icon from '~/components/Icon/Icon.astro'
 import Hidden from '~/components/Hidden.astro'
-import XIcon from '~/icons/x.svg?raw'
 
 let locale = getLocaleFromUrl(Astro.url)
 let t = useTranslations(locale, 'footer')
 
 let xUsername = locale === 'ru' ? 'azat_io' : 'azat_io_en'
 
-let icons = [
+interface FooterIcon {
+  icon: IconName
+  name: string
+  link: string
+  id: string
+}
+
+let icons: FooterIcon[] = [
   {
     link: `https://x.com/${xUsername}`,
     name: t('x'),
-    icon: XIcon,
+    icon: 'x',
     id: 'X',
   },
   {
     link: 'https://github.com/azat-io',
     name: t('github'),
-    icon: GithubIcon,
+    icon: 'github',
     id: 'GitHub',
   },
 ]
@@ -68,7 +76,7 @@ let icons = [
           class="link"
           href={link}
         >
-          <Fragment set:html={icon} />
+          <Icon name={icon} size="m" />
           <Hidden>{name}</Hidden>
         </a>
       ))
@@ -104,11 +112,6 @@ let icons = [
     border-radius: var(--border-radius);
     transition: all 250ms;
     will-change: box-shadow, background, color;
-
-    :global(svg) {
-      inline-size: var(--size-icon-m);
-      block-size: var(--size-icon-m);
-    }
 
     @media (hover: hover) {
       &:hover {

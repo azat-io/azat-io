@@ -1,6 +1,6 @@
 ---
 import BlogInfoElement from '~/components/Blog/BlogInfoElement.astro'
-import CalendarIcon from '~/icons/calendar.svg?raw'
+import Icon from '~/components/Icon/Icon.astro'
 import Date from '~/components/Date.astro'
 
 interface Props {
@@ -11,17 +11,15 @@ interface Props {
 let { date, ...props } = Astro.props
 ---
 
-<BlogInfoElement class="date">
-  <Fragment set:html={CalendarIcon} />
+<BlogInfoElement>
+  <Icon class="calendar-icon" name="calendar" size="xs" />
   <Date {date} {...props} />
 </BlogInfoElement>
 
 <style>
-  .date {
-    :global(svg) {
-      @container (inline-size >= 560px) {
-        display: none;
-      }
+  .calendar-icon {
+    @container (inline-size >= 560px) {
+      display: none;
     }
   }
 </style>

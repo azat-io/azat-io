@@ -1,11 +1,10 @@
 ---
+import type { IconName } from '~/components/Icon/Icon.d.ts'
+
 import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
 import { useTranslations } from '~/utils/use-translations'
 import Typography from '~/components/Typography.astro'
-import GithubIcon from '~/icons/github.svg?raw'
-import VscodeIcon from '~/icons/vscode.svg?raw'
-import GlobeIcon from '~/icons/globe.svg?raw'
-import NpmIcon from '~/icons/npm.svg?raw'
+import Icon from '~/components/Icon/Icon.astro'
 
 type Type = 'website' | 'github' | 'vscode' | 'npm'
 
@@ -19,18 +18,18 @@ let { link, type } = Astro.props
 let locale = getLocaleFromUrl(Astro.url)
 let t = useTranslations(locale, 'projects')
 
-let Icon: {
-  [key in Type]: string
+let icons: {
+  [key in Type]: IconName
 } = {
-  website: GlobeIcon,
-  github: GithubIcon,
-  vscode: VscodeIcon,
-  npm: NpmIcon,
+  website: 'globe',
+  github: 'github',
+  vscode: 'vscode',
+  npm: 'npm',
 }
 ---
 
 <a rel="noopener noreferrer" target="_blank" class="link" href={link}>
-  <Fragment set:html={Icon[type]} />
+  <Icon name={icons[type]} size="m" />
   <Typography color="inherit" size="m">
     {t(type)}
   </Typography>
@@ -45,16 +44,6 @@ let Icon: {
     color: var(--color-content-primary);
     text-decoration: none;
     border-radius: var(--border-radius);
-
-    :global(svg) {
-      display: flex;
-      inline-size: var(--size-icon-m);
-      block-size: var(--size-icon-m);
-
-      @media print {
-        color: var(--color-content-print);
-      }
-    }
 
     @media (hover: hover) {
       &:hover {

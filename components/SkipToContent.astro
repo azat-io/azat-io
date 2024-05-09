@@ -1,7 +1,7 @@
 ---
-import ArrowTurnRightDownIcon from '~/icons/arrow-turn-right-down.svg?raw'
 import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
 import { useTranslations } from '~/utils/use-translations'
+import Icon from '~/components/Icon/Icon.astro'
 
 let locale = getLocaleFromUrl(Astro.url)
 let t = useTranslations(locale, 'header')
@@ -24,7 +24,7 @@ let t = useTranslations(locale, 'header')
 
 <a class="skip-link" id="skip-link" href="#main">
   {t('skip-to-content')}
-  <Fragment set:html={ArrowTurnRightDownIcon} />
+  <Icon name="arrow-turn-right-down" size="m" />
 </a>
 
 <style>
@@ -69,11 +69,6 @@ let t = useTranslations(locale, 'header')
       padding: 0;
       overflow: hidden;
       transition: none;
-    }
-
-    :global(svg) {
-      inline-size: var(--size-icon-m);
-      block-size: var(--size-icon-m);
     }
   }
 </style>

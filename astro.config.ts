@@ -55,6 +55,31 @@ export default defineConfig({
       remarkMath,
     ],
   },
+  vite: {
+    build: {
+      rollupOptions: {
+        onwarn: (warning, warn) => {
+          if (
+            warning.plugin === 'vite:reporter' &&
+            warning.message.includes('Icon.astro')
+          ) {
+            return
+          }
+          warn(warning)
+        },
+      },
+    },
+    css: {
+      lightningcss: {
+        targets: browserslistToTargets(
+          browserslist(null, {
+            config: path.join(dirname, './.browserslistrc'),
+          }),
+        ),
+      },
+      transformer: 'lightningcss',
+    },
+  },
   integrations: [
     compress({
       Exclude: [
@@ -74,18 +99,6 @@ export default defineConfig({
     }),
     mdx(),
   ],
-  vite: {
-    css: {
-      lightningcss: {
-        targets: browserslistToTargets(
-          browserslist(null, {
-            config: path.join(dirname, './.browserslistrc'),
-          }),
-        ),
-      },
-      transformer: 'lightningcss',
-    },
-  },
   prefetch: {
     defaultStrategy: 'viewport',
     prefetchAll: true,

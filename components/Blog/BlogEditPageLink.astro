@@ -2,7 +2,7 @@
 import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
 import { useTranslations } from '~/utils/use-translations'
 import Typography from '~/components/Typography.astro'
-import PencilIcon from '~/icons/pencil.svg?raw'
+import Icon from '~/components/Icon/Icon.astro'
 import { repository } from '~/package.json'
 
 interface Props {
@@ -26,7 +26,7 @@ let t = useTranslations(locale, 'blog')
     color="inherit"
     tag="a"
   >
-    <Fragment set:html={PencilIcon} />
+    <Icon name="pencil" size="s" />
     {t('edit-this-page')}
   </Typography>
 </div>
@@ -43,10 +43,5 @@ let t = useTranslations(locale, 'blog')
     padding-inline: 0;
     margin-block: 0;
     text-decoration: none;
-
-    :global(svg) {
-      inline-size: var(--size-icon-s);
-      block-size: var(--size-icon-s);
-    }
   }
 </style>

@@ -1,15 +1,8 @@
 ---
+import type { IconName } from '~/components/Icon/Icon.d.ts'
+
 import Typography from '~/components/Typography.astro'
-import InstagramIcon from '~/icons/instagram.svg?raw'
-import LinkedinIcon from '~/icons/linkedin.svg?raw'
-import TelegramIcon from '~/icons/telegram.svg?raw'
-import MastodonIcon from '~/icons/mastodon.svg?raw'
-import EnvelopeIcon from '~/icons/envelope.svg?raw'
-import DiscordIcon from '~/icons/discord.svg?raw'
-import SpotifyIcon from '~/icons/spotify.svg?raw'
-import BlueSkyIcon from '~/icons/bluesky.svg?raw'
-import GithubIcon from '~/icons/github.svg?raw'
-import XIcon from '~/icons/x.svg?raw'
+import Icon from '~/components/Icon/Icon.astro'
 
 type Type =
   | 'instagram'
@@ -33,19 +26,19 @@ interface Props {
 
 let { username, name, link, type, ...props } = Astro.props
 
-let Icon: {
-  [key in Type]: string
+let icons: {
+  [key in Type]: IconName
 } = {
-  instagram: InstagramIcon,
-  linkedin: LinkedinIcon,
-  telegram: TelegramIcon,
-  mastodon: MastodonIcon,
-  spotify: SpotifyIcon,
-  discord: DiscordIcon,
-  bluesky: BlueSkyIcon,
-  email: EnvelopeIcon,
-  github: GithubIcon,
-  x: XIcon,
+  instagram: 'instagram',
+  linkedin: 'linkedin',
+  telegram: 'telegram',
+  mastodon: 'mastodon',
+  spotify: 'spotify',
+  discord: 'discord',
+  bluesky: 'bluesky',
+  email: 'envelope',
+  github: 'github',
+  x: 'x',
 }
 ---
 
@@ -56,7 +49,7 @@ let Icon: {
   href={link}
   {...props}
 >
-  <Fragment set:html={Icon[type]} />
+  <Icon name={icons[type]} size="l" />
   <section class="social-info">
     <Typography color="brand" class="text" size="m" tag="h3">{name}</Typography>
     <Typography color="secondary" class="text" size="2xs">
@@ -75,16 +68,6 @@ let Icon: {
     border-radius: var(--border-radius);
     transition: all 250ms;
     will-change: box-shadow, background, color;
-
-    :global(svg) {
-      inline-size: 42px;
-      block-size: 42px;
-      color: var(--color-content-brand);
-
-      @media print {
-        color: var(--color-content-print);
-      }
-    }
 
     @media (hover: hover) {
       &:hover {

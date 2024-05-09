@@ -1,9 +1,8 @@
 ---
 import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
 import { useTranslations } from '~/utils/use-translations'
-import ArrowRightIcon from '~/icons/arrow-right.svg?raw'
-import ArrowLeftIcon from '~/icons/arrow-left.svg?raw'
 import Typography from '~/components/Typography.astro'
+import Icon from '~/components/Icon/Icon.astro'
 import { getPosts } from '~/utils/get-posts'
 
 interface Props {
@@ -41,7 +40,7 @@ let nextPost = isLastPost ? null : posts.at(indexOfCurrentPost - 1)
               href={`/${locale}/blog/${previousPost?.slug}`}
               class="link link-previous"
             >
-              <Fragment set:html={ArrowLeftIcon} />
+              <Icon name="arrow-left" class="icon" size="s" />
               <div>
                 <Typography color="primary" size="s">
                   {t('previous-post')}
@@ -69,7 +68,7 @@ let nextPost = isLastPost ? null : posts.at(indexOfCurrentPost - 1)
                 </Typography>
                 <Typography color="inherit">{nextPost?.data.title}</Typography>
               </div>
-              <Fragment set:html={ArrowRightIcon} />
+              <Icon name="arrow-right" class="icon" size="s" />
             </a>
           </div>
         )}
@@ -87,15 +86,13 @@ let nextPost = isLastPost ? null : posts.at(indexOfCurrentPost - 1)
     text-decoration: none;
     border-radius: var(--border-radius);
 
-    :global(svg) {
-      place-self: center;
-      inline-size: var(--size-icon-s);
-      block-size: var(--size-icon-s);
-    }
-
     @container (inline-size >= 640px) {
       flex-direction: row;
     }
+  }
+
+  .icon {
+    place-self: center;
   }
 
   .link-previous {
