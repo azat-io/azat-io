@@ -68,7 +68,7 @@ let durationTime =
       <Typography color="secondary" size="xs" mbe="xs" noWrap>
         {originName}
       </Typography>
-      <Typography color="primary" size="xs">
+      <Typography color="primary" class="genres" size="xs">
         {`${t('genres')}: ${formattedGenres}`}
       </Typography>
       <Typography color="primary" size="xs">
@@ -100,5 +100,12 @@ let durationTime =
   .info {
     display: grid;
     gap: 0;
+  }
+
+  .genres {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: block-axis;
   }
 </style>
