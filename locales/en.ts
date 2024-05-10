@@ -253,10 +253,10 @@ export default {
     description:
       'Azat S. Front-end developer, creator of technical content, open source community member',
     instagram: 'Instagram',
-    'blue-sky': 'BlueSky',
     mastodon: 'Mastodon',
     linkedin: 'LinkedIn',
     telegram: 'Telegram',
+    bluesky: 'BlueSky',
     discord: 'Discord',
     title: 'About me',
     github: 'GitHub',

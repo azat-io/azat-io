@@ -15,6 +15,63 @@ let t = useTranslations(locale, 'about')
 
 let xUsername = locale === 'ru' ? 'azat_io' : 'azat_io_en'
 
+let socialMedia = [
+  {
+    link: 'mailto:to@azat.io',
+    username: 'to@azat.io',
+    name: 'Email',
+    type: 'email',
+  },
+  {
+    link: 'https://github.com/azat-io',
+    username: '@azat-io',
+    name: 'GitHub',
+    type: 'github',
+  },
+  {
+    link: `https://x.com/${xUsername}`,
+    username: `@${xUsername}`,
+    name: 'X',
+    type: 'x',
+  },
+  {
+    link: 'https://mastodon.social/@azat_io',
+    username: '@azat_io@mastodon.social',
+    name: 'Mastodon',
+    type: 'mastodon',
+  },
+  {
+    link: 'https://bsky.app/profile/azat-io.bsky.social',
+    username: '@azat-io.bsky.social',
+    name: 'BlueSky',
+    type: 'bluesky',
+  },
+  {
+    link: 'https://linkedin.com/in/azat-io',
+    username: '@azat-io',
+    name: 'LinkedIn',
+    type: 'linkedin',
+  },
+  {
+    link: 'https://discordapp.com/users/107017608368271360',
+    username: '@azat_io',
+    name: 'Discord',
+    type: 'discord',
+  },
+  {
+    link: 'https://t.me/azat_io',
+    username: '@azat_io',
+    name: 'Telegram',
+    type: 'telegram',
+  },
+  {
+    link: 'https://instagram.com/azat_io',
+    username: '@azat_io',
+    name: 'Instagram',
+    type: 'instagram',
+  },
+] as const
+
 export let getStaticPaths = () =>
   locales.map(({ code }) => ({ params: { lang: code } }))
 ---
@@ -29,87 +86,19 @@ export let getStaticPaths = () =>
       {t('links')}
     </Typography>
     <AboutSocialLinks itemtype="https://schema.org/Person" itemscope>
-      <AboutSocial
-        data-umami-event="Visit social link"
-        data-umami-event-name="Email"
-        link="mailto:to@azat.io"
-        username="to@azat.io"
-        name={t('email')}
-        itemprop="email"
-        type="email"
-      />
-      <AboutSocial
-        data-umami-event="Visit social link"
-        link="https://github.com/azat-io"
-        data-umami-event-name="GitHub"
-        username="@azat-io"
-        name={t('github')}
-        itemprop="url"
-        type="github"
-      />
-      <AboutSocial
-        data-umami-event="Visit social link"
-        link={`https://x.com/${xUsername}`}
-        username={`@${xUsername}`}
-        data-umami-event-name="X"
-        itemprop="url"
-        name={t('x')}
-        type="x"
-      />
-      <AboutSocial
-        link="https://mastodon.social/@azat_io"
-        data-umami-event="Visit social link"
-        username="@azat_io@mastodon.social"
-        data-umami-event-name="Mastodon"
-        name={t('mastodon')}
-        type="mastodon"
-        itemprop="url"
-      />
-      <AboutSocial
-        link="https://bsky.app/profile/azat-io.bsky.social"
-        data-umami-event="Visit social link"
-        data-umami-event-name="BlueSky"
-        username="@azat-io.bsky.social"
-        name={t('blue-sky')}
-        itemprop="url"
-        type="bluesky"
-      />
-      <AboutSocial
-        link="https://linkedin.com/in/azat-io"
-        data-umami-event="Visit social link"
-        data-umami-event-name="LinkedIn"
-        name={t('linkedin')}
-        username="@azat-io"
-        type="linkedin"
-        itemprop="url"
-      />
-      <AboutSocial
-        link="https://discordapp.com/users/107017608368271360"
-        data-umami-event="Visit social link"
-        data-umami-event-name="Discord"
-        username="@azat_io"
-        name={t('discord')}
-        itemprop="url"
-        type="discord"
-      />
-      <AboutSocial
-        data-umami-event="Visit social link"
-        data-umami-event-name="Telegram"
-        link="https://t.me/azat_io"
-        name={t('telegram')}
-        username="@azat_io"
-        type="telegram"
-        itemprop="url"
-      />
-      <AboutSocial
-        data-umami-event="Visit social link"
-        link="https://instagram.com/azat_io"
-        data-umami-event-name="Instagram"
-        name={t('instagram')}
-        username="@azat_io"
-        type="instagram"
-        itemprop="url"
-      />
+      {
+        socialMedia.map(({ username, link, name, type }) => (
+          <AboutSocial
+            data-umami-event="Visit social link"
+            data-umami-event-name={name}
+            name={t(type)}
+            itemprop="url"
+            {username}
+            {link}
+            {type}
+          />
+        ))
+      }
     </AboutSocialLinks>
   </section>
 </LayoutDefault>
