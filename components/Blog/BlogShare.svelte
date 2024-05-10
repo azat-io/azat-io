@@ -3,18 +3,18 @@
 
   import type { Locale } from '~/locales'
 
+  import YcombinatorIcon from '~/icons/ycombinator.svg?component'
   import { useTranslations } from '~/utils/use-translations'
-  import YcombinatorIcon from '~/icons/ycombinator.svg?raw'
-  import FacebookIcon from '~/icons/facebook.svg?raw'
-  import LinkedinIcon from '~/icons/linkedin.svg?raw'
-  import TelegramIcon from '~/icons/telegram.svg?raw'
-  import MastodonIcon from '~/icons/mastodon.svg?raw'
-  import WhatsappIcon from '~/icons/whatsapp.svg?raw'
+  import FacebookIcon from '~/icons/facebook.svg?component'
+  import LinkedinIcon from '~/icons/linkedin.svg?component'
+  import TelegramIcon from '~/icons/telegram.svg?component'
+  import MastodonIcon from '~/icons/mastodon.svg?component'
+  import WhatsappIcon from '~/icons/whatsapp.svg?component'
+  import RedditIcon from '~/icons/reddit.svg?component'
+  import CrossIcon from '~/icons/cross.svg?component'
+  import ShareIcon from '~/icons/share.svg?component'
   import Portal from '~/components/Portal.svelte'
-  import RedditIcon from '~/icons/reddit.svg?raw'
-  import CrossIcon from '~/icons/cross.svg?raw'
-  import ShareIcon from '~/icons/share.svg?raw'
-  import XIcon from '~/icons/x.svg?raw'
+  import XIcon from '~/icons/x.svg?component'
 
   export let description: string
   export let className: string
@@ -122,14 +122,14 @@
 
 <div class={`share-wrapper ${className}`.trim()}>
   <button data-umami-event="Share" class="share" on:click={share}>
-    {@html ShareIcon}
+    <svelte:component this={ShareIcon} />
     <span>{t('share')}</span>
   </button>
 </div>
 <Portal>
   <dialog bind:this={dialog} class="dialog">
     <button class="close" on:click={closeDialog}>
-      {@html CrossIcon}
+      <svelte:component this={CrossIcon} />
     </button>
     <h3 class="title">{t('share')}</h3>
     <ul class="links">
@@ -144,7 +144,7 @@
             class="link"
             href={link}
           >
-            {@html icon}
+            <svelte:component this={icon} />
           </a>
         </li>
       {/each}

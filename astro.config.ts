@@ -1,6 +1,7 @@
 import { squooshImageService, defineConfig } from 'astro/config'
 import rehypeExternalLinks from 'rehype-external-links'
 import { browserslistToTargets } from 'lightningcss'
+import svelteSvg from '@poppanator/sveltekit-svg'
 import remarkSectionize from 'remark-sectionize'
 import compress from '@playform/compress'
 import { fileURLToPath } from 'node:url'
@@ -79,6 +80,7 @@ export default defineConfig({
       },
       transformer: 'lightningcss',
     },
+    plugins: [svelteSvg()],
   },
   integrations: [
     compress({

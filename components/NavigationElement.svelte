@@ -1,13 +1,15 @@
 <script lang="ts">
+  import type { SvelteComponent, ComponentType } from 'svelte'
+
   export let click: (() => void) | undefined = undefined
   export let umamiEvent: string | undefined = undefined
   export let ariaLabel: string | undefined = undefined
   export let target: string | undefined = undefined
   export let href: string | undefined = undefined
+  export let icon: ComponentType<SvelteComponent>
   export let view: 'text' | 'icon' = 'text'
   export let mobileOnly: boolean = false
   export let label: string
-  export let icon: string
 
   $: tag = 'span'
 
@@ -47,7 +49,7 @@
   on:click={click}
   {...props}
 >
-  {@html icon}
+  <svelte:component this={icon} />
   <span>{label}</span>
   <slot />
 </svelte:element>

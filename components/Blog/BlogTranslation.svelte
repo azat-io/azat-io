@@ -2,9 +2,9 @@
   import { writable } from 'svelte/store'
   import { onMount } from 'svelte'
 
+  import PartyPopperIcon from '~/icons/party-popper.svg?component'
   import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
   import { useTranslations } from '~/utils/use-translations'
-  import PartyPopperIcon from '~/icons/party-popper.svg?raw'
 
   let url: undefined | URL
   $: locale = getLocaleFromUrl(url)
@@ -61,7 +61,7 @@
 
 {#if shouldRender && $userLanguage}
   <div class="translation">
-    {@html PartyPopperIcon}
+    <svelte:component this={PartyPopperIcon} />
     <span>{desiredLocales[$userLanguage]}</span>
     <p>
       {`${t('translate-1')}`.replace(

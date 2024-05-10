@@ -1,5 +1,6 @@
 /// <reference path=".astro/types.d.ts" />
 /// <reference types="astro/client" />
+/// <reference types="@poppanator/sveltekit-svg/dist/svg" />
 
 declare module '*?raw' {
   let content: string

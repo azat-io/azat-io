@@ -4,16 +4,16 @@
   import type { Locale } from '~/locales'
 
   import NavigationElement from '~/components/NavigationElement.svelte'
+  import TranslateIcon from '~/icons/translate.svg?component'
   import { useTranslations } from '~/utils/use-translations'
-  import TranslateIcon from '~/icons/translate.svg?raw'
-  import CrossIcon from '~/icons/cross.svg?raw'
-  import MoonIcon from '~/icons/moon.svg?raw'
-  import MenuIcon from '~/icons/menu.svg?raw'
-  import GridIcon from '~/icons/grid.svg?raw'
-  import BulbIcon from '~/icons/bulb.svg?raw'
-  import UserIcon from '~/icons/user.svg?raw'
-  import SunIcon from '~/icons/sun.svg?raw'
-  import RssIcon from '~/icons/rss.svg?raw'
+  import CrossIcon from '~/icons/cross.svg?component'
+  import MoonIcon from '~/icons/moon.svg?component'
+  import MenuIcon from '~/icons/menu.svg?component'
+  import GridIcon from '~/icons/grid.svg?component'
+  import BulbIcon from '~/icons/bulb.svg?component'
+  import UserIcon from '~/icons/user.svg?component'
+  import SunIcon from '~/icons/sun.svg?component'
+  import RssIcon from '~/icons/rss.svg?component'
   import { locales } from '~/locales'
 
   type Theme = 'dark' | 'light'
@@ -157,7 +157,9 @@
           aria-label={t(code)}
           class="locale"
         >
-          <div class="flag">{@html icon}</div>
+          <div class="flag">
+            <svelte:component this={icon} />
+          </div>
           <div class="name-container">
             <span class="name">{t(code)}</span>
             <span class="origin-name">{originName}</span>
