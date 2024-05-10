@@ -91,12 +91,7 @@ export default defineConfig({
       SVG: true,
     }),
     sitemap(),
-    svelte({
-      compilerOptions: {
-        cssHash: ({ hash, css }) => `s-${hash(css)}`,
-        discloseVersion: false,
-      },
-    }),
+    svelte(),
     mdx(),
   ],
   prefetch: {
