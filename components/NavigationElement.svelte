@@ -12,6 +12,9 @@
   export let label: string
 
   $: tag = 'span'
+  $: props = {
+    href,
+  } as Record<string, unknown>
 
   $: if (typeof href === 'string') {
     tag = 'a'
@@ -19,9 +22,12 @@
     tag = 'button'
   } else {
     tag = 'span'
+    props = {
+      ...props,
+      role: 'button',
+      tabIndex: -1,
+    }
   }
-
-  $: props = { href } as Record<string, unknown>
 
   $: if (typeof umamiEvent === 'string') {
     props = {
