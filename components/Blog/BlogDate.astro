@@ -12,14 +12,6 @@ let { date, ...props } = Astro.props
 ---
 
 <BlogInfoElement>
-  <Icon class="calendar-icon" name="calendar" size="xs" />
+  <Icon name="calendar" size="xs" />
   <Date {date} {...props} />
 </BlogInfoElement>
-
-<style>
-  .calendar-icon {
-    @container (inline-size >= 560px) {
-      display: none;
-    }
-  }
-</style>

@@ -4,7 +4,7 @@ import Typography from '~/components/Typography.astro'
 let { props } = Astro
 ---
 
-<Typography class:list="text" tag="span" size="2xs" {...props}>
+<Typography class:list="text" tag="span" size="2xs" mbs="2xs" {...props}>
   <slot />
 </Typography>
 
@@ -12,13 +12,12 @@ let { props } = Astro
   .text {
     display: flex;
     gap: var(--space-2xs);
-    place-items: end;
+    place-items: center;
     line-height: 1.25 !important;
 
     :global(svg) {
       inline-size: 1lh;
       block-size: 1lh;
-      margin-block-end: calc(var(--space-2xs) / 3);
     }
   }
 </style>
