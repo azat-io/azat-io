@@ -5,7 +5,7 @@
   "language": "en",
   "ignorePaths": [
     ".github",
-    "license",
+    "license.md",
     "pnpm-lock.yaml",
     "styles",
     "themes",
