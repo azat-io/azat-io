@@ -1,10 +1,8 @@
 ---
-import type { IconName } from '~/components/Icon/Icon.d.ts'
-
 import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
 import { useTranslations } from '~/utils/use-translations'
 import Typography from '~/components/Typography.astro'
-import Icon from '~/components/Icon/Icon.astro'
+import Icon from '~/components/Icon.astro'
 
 type Type = 'website' | 'github' | 'vscode' | 'npm'
 
@@ -19,7 +17,7 @@ let locale = getLocaleFromUrl(Astro.url)
 let t = useTranslations(locale, 'projects')
 
 let icons: {
-  [key in Type]: IconName
+  [key in Type]: string
 } = {
   website: 'globe',
   github: 'github',

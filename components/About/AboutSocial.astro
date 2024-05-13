@@ -1,8 +1,6 @@
 ---
-import type { IconName } from '~/components/Icon/Icon.d.ts'
-
 import Typography from '~/components/Typography.astro'
-import Icon from '~/components/Icon/Icon.astro'
+import Icon from '~/components/Icon.astro'
 
 type Type =
   | 'instagram'
@@ -27,7 +25,7 @@ interface Props {
 let { username, name, link, type, ...props } = Astro.props
 
 let icons: {
-  [key in Type]: IconName
+  [key in Type]: string
 } = {
   instagram: 'instagram',
   linkedin: 'linkedin',

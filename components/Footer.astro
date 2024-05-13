@@ -1,11 +1,9 @@
 ---
-import type { IconName } from '~/components/Icon/Icon.d.ts'
-
 import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
 import { useTranslations } from '~/utils/use-translations'
 import Typography from '~/components/Typography.astro'
-import Icon from '~/components/Icon/Icon.astro'
 import Hidden from '~/components/Hidden.astro'
+import Icon from '~/components/Icon.astro'
 
 let locale = getLocaleFromUrl(Astro.url)
 let t = useTranslations(locale, 'footer')
@@ -13,7 +11,7 @@ let t = useTranslations(locale, 'footer')
 let xUsername = locale === 'ru' ? 'azat_io' : 'azat_io_en'
 
 interface FooterIcon {
-  icon: IconName
+  icon: string
   name: string
   link: string
   id: string

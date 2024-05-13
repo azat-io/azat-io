@@ -1,7 +1,7 @@
 ---
 import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
 import { useTranslations } from '~/utils/use-translations'
-import Icon from '~/components/Icon/Icon.astro'
+import Icon from '~/components/Icon.astro'
 
 let locale = getLocaleFromUrl(Astro.url)
 let t = useTranslations(locale, 'header')

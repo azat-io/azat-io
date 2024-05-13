@@ -1,12 +1,10 @@
 ---
 import { optimize } from 'svgo'
 
-import type { IconName } from '~/components/Icon/Icon.d.ts'
-
 interface Props {
   size?: 'xs' | 's' | 'm' | 'l'
   class?: string
-  name: IconName
+  name: string
 }
 
 interface SvgAttributes {
@@ -15,7 +13,7 @@ interface SvgAttributes {
 
 let { class: className, size = 'm', name, ...props } = Astro.props
 
-let iconRaw = (await import(`../../icons/${name}.svg?raw`)).default
+let iconRaw = (await import(`../icons/${name}.svg?raw`)).default
 let icon = optimize(iconRaw, { plugins: ['preset-default'] }).data
 
 let extractSvgAttributes = (svgString: string): SvgAttributes => {
