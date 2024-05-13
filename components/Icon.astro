@@ -7,9 +7,7 @@ interface Props {
   name: string
 }
 
-interface SvgAttributes {
-  [key: string]: string
-}
+type SvgAttributes = Record<string, string>
 
 let { class: className, size = 'm', name, ...props } = Astro.props
 

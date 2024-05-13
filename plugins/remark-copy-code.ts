@@ -20,9 +20,7 @@ let h = (
 }
 
 let getLanguageName = (lang: string): string => {
-  let languages: {
-    [key: string]: undefined | string
-  } = {
+  let languages: Record<string, string> = {
     tsx: 'TypeScript',
     jsx: 'JavaScript',
     js: 'JavaScript',

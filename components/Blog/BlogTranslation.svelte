@@ -12,9 +12,7 @@
   $: t = useTranslations(locale, 'blog')
 
   /* spell-checker: disable */
-  let desiredLocales: {
-    [key: string]: string
-  } = {
+  let desiredLocales: Record<string, string> = {
     fr: 'Bonjour, je suis heureux de vous voir !',
     tr: 'Merhaba! Seni gördüğüme sevindim!',
     de: 'Hallo! Schön, dich zu sehen!',

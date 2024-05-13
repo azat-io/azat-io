@@ -27,9 +27,7 @@ let { code, name } = Astro.props
 let locale = getLocaleFromUrl(Astro.url)
 let t = useTranslations(locale, 'travel-map')
 
-let flags: {
-  [key: string]: undefined | string
-} = {
+let flags: Record<string, string> = {
   ae: flagAE,
   am: flagAM,
   az: flagAZ,
