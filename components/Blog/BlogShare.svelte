@@ -121,14 +121,14 @@
 </script>
 
 <div class={`share-wrapper ${className}`.trim()}>
-  <button data-umami-event="Share" class="share" on:click={share}>
+  <button data-umami-event="Share" class="share" on:click={share} type="button">
     <svelte:component this={ShareIcon} />
     <span>{t('share')}</span>
   </button>
 </div>
 <Portal>
   <dialog bind:this={dialog} class="dialog">
-    <button class="close" on:click={closeDialog}>
+    <button class="close" on:click={closeDialog} type="button">
       <svelte:component this={CrossIcon} />
     </button>
     <h3 class="title">{t('share')}</h3>
