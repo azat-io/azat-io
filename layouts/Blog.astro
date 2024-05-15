@@ -1,6 +1,8 @@
 ---
 import type { CollectionEntry } from 'astro:content'
 
+import { fade } from 'astro:transitions'
+
 import BlogAvailableLocales from '~/components/Blog/BlogAvailableLocales.astro'
 import BlogAdditionalPosts from '~/components/Blog/BlogAdditionalPosts.astro'
 import BlogWidgetWrapper from '~/components/Blog/BlogWidgetWrapper.astro'
@@ -69,7 +71,11 @@ let translations = posts
   />
   <body>
     <Header />
-    <main itemtype="http://schema.org/BlogPosting" itemscope>
+    <main
+      transition:animate={fade({ duration: '200ms' })}
+      itemtype="http://schema.org/BlogPosting"
+      itemscope
+    >
       <BlogHero itemprop="thumbnail" name={title} {id} />
       <Container class="content" tag="article">
         <Title itemprop="headline" align="start" mbe="s">

@@ -53,7 +53,7 @@ let icons: FooterIcon[] = [
   document.addEventListener('astro:after-swap', initCopyCodePlugin)
   initCopyCodePlugin()
 </script>
-<footer class="footer">
+<footer transition:persist class="footer">
   <Typography
     itemtype="https://schema.org/WPFooter"
     itemprop="license"

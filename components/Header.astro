@@ -11,7 +11,7 @@ let locale = getLocaleFromUrl(url)
 let t = useTranslations(locale, 'header')
 ---
 
-<header class="header">
+<header transition:persist class="header">
   <SkipToContent />
   <a
     itemtype="https://schema.org/Brand"

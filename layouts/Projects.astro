@@ -1,6 +1,8 @@
 ---
 import type { CollectionEntry } from 'astro:content'
 
+import { fade } from 'astro:transitions'
+
 import ProjectsInfobox from '~/components/Projects/ProjectsInfobox.astro'
 import Container from '~/components/Container.astro'
 import Header from '~/components/Header.astro'
@@ -20,7 +22,12 @@ let { description, keywords, badges, links, title, id } = Astro.props
   <Head {description} {keywords} {title} />
   <body>
     <Header />
-    <Container itemtype="https://schema.org/Product" tag="main" itemscope>
+    <Container
+      transition:animate={fade({ duration: '200ms' })}
+      itemtype="https://schema.org/Product"
+      tag="main"
+      itemscope
+    >
       <header>
         <Title itemprop="name">{title}</Title>
         <div class="badges">
