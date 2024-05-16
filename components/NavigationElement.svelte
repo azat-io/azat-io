@@ -3,7 +3,6 @@
 
   export let click: (() => void) | undefined = undefined
   export let umamiEvent: string | undefined = undefined
-  export let ariaLabel: string | undefined = undefined
   export let target: string | undefined = undefined
   export let href: string | undefined = undefined
   export let icon: ComponentType<SvelteComponent>
@@ -25,11 +24,6 @@
     }
   } else {
     tag = 'span'
-    props = {
-      ...props,
-      role: 'button',
-      tabIndex: -1,
-    }
   }
 
   $: if (typeof umamiEvent === 'string') {
@@ -54,7 +48,6 @@
   class:text={view === 'text'}
   class:icon={view === 'icon'}
   class:mobile-only={mobileOnly}
-  aria-label={ariaLabel ?? label}
   on:click={click}
   {...props}
 >

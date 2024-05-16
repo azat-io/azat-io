@@ -171,7 +171,6 @@
   <NavigationElement
     label={theme === 'dark' ? t('light-theme') : t('dark-theme')}
     icon={theme === 'dark' ? SunIcon : MoonIcon}
-    ariaLabel={t('change-theme')}
     click={handleThemeChange}
     view="icon"
   />
