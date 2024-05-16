@@ -1,4 +1,6 @@
 ---
+import { fade } from 'astro:transitions'
+
 import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
 import SkipToContent from '~/components/SkipToContent.astro'
 import { useTranslations } from '~/utils/use-translations'
@@ -11,7 +13,7 @@ let locale = getLocaleFromUrl(url)
 let t = useTranslations(locale, 'header')
 ---
 
-<header transition:persist class="header">
+<header transition:animate={fade({ duration: '200ms' })} class="header">
   <SkipToContent />
   <a
     itemtype="https://schema.org/Brand"
@@ -30,6 +32,7 @@ let t = useTranslations(locale, 'header')
 
 <style>
   .header {
+    z-index: 1;
     display: flex;
     place-content: space-between;
     place-items: center;
