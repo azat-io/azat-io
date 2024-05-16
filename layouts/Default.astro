@@ -5,6 +5,7 @@ import Container from '~/components/Container.astro'
 import Header from '~/components/Header.astro'
 import Footer from '~/components/Footer.astro'
 import Head from '~/components/Head.astro'
+import Body from '~/components/Body.astro'
 import Html from '~/components/Html.astro'
 
 interface Props {
@@ -19,7 +20,7 @@ let { type = 'website', description, size = 'm', title } = Astro.props
 
 <Html>
   <Head {description} {title} {type} />
-  <body>
+  <Body class="app">
     <Header />
     <Container
       transition:animate={fade({ duration: '200ms' })}
@@ -29,11 +30,11 @@ let { type = 'website', description, size = 'm', title } = Astro.props
       <slot />
     </Container>
     <Footer />
-  </body>
+  </Body>
 </Html>
 
 <style>
-  body {
+  .app {
     display: grid;
     grid-template-rows: min-content 1fr min-content;
     min-block-size: 100dvb;

@@ -20,6 +20,7 @@ import Footer from '~/components/Footer.astro'
 import Title from '~/components/Title.astro'
 import { getPosts } from '~/utils/get-posts'
 import Head from '~/components/Head.astro'
+import Body from '~/components/Body.astro'
 import Html from '~/components/Html.astro'
 import '~/styles/headings.css'
 import '~/styles/code.css'
@@ -69,7 +70,7 @@ let translations = posts
     {title}
     {date}
   />
-  <body>
+  <Body class="app">
     <Header />
     <main
       transition:animate={fade({ duration: '200ms' })}
@@ -111,11 +112,11 @@ let translations = posts
       </Container>
     </main>
     <Footer />
-  </body>
+  </Body>
 </Html>
 
 <style>
-  body {
+  .app {
     display: grid;
     grid-template-rows: min-content 1fr min-content;
     min-block-size: 100dvb;
