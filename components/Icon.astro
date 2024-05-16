@@ -13,6 +13,11 @@ let { class: className, size = 'm', name, ...props } = Astro.props
 
 let iconRaw = (await import(`../icons/${name}.svg?raw`)).default
 let icon = optimize(iconRaw, { plugins: ['preset-default'] }).data
+let classList: Record<string, true> = {}
+
+if (className) {
+  classList[className] = true
+}
 
 let extractSvgAttributes = (svgString: string): SvgAttributes => {
   let attributes: SvgAttributes = {}
@@ -40,7 +45,11 @@ let stripSvgWrapper = (svgString: string): string => {
 ---
 
 <svg
-  class:list={['icon', `size-${size}`, className]}
+  class:list={{
+    [`size-${size}`]: true,
+    icon: true,
+    ...classList,
+  }}
   {...extractSvgAttributes(icon)}
   {...props}
 >
