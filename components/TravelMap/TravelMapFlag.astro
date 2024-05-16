@@ -16,6 +16,7 @@ import flagTR from '~/assets/flags/flag-tr.svg?raw'
 import flagUA from '~/assets/flags/flag-ua.svg?raw'
 import flagUG from '~/assets/flags/flag-ug.svg?raw'
 import flagUS from '~/assets/flags/flag-us.svg?raw'
+import Hidden from '~/components/Hidden.astro'
 
 interface Props {
   code: string
@@ -50,8 +51,9 @@ let flag = flags[code]
 
 {
   flag && (
-    <div aria-label={`${t('flag-of')} ${name}`} class="flag">
+    <div class="flag">
       <Fragment set:html={flags[code]} />
+      <Hidden>{`${t('flag-of')} ${name}`}</Hidden>
     </div>
   )
 }
