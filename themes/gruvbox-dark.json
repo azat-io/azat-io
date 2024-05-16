@@ -1,6 +1,5 @@
 {
   "$schema": "vscode://schemas/color-theme",
-  "name": "Gruvbox Dark Hard",
   "type": "dark",
   "semanticHighlighting": true,
   "tokenColors": [
@@ -866,6 +865,7 @@
     "widget.shadow": "#1d202130",
     "selection.background": "#689d6a80",
     "errorForeground": "#fb4934",
+    "icon.foreground": "#ebdbb2",
     // BUTTON
     "button.background": "#45858880",
     "button.foreground": "#ebdbb2",
@@ -880,7 +880,7 @@
     "input.foreground": "#ebdbb2",
     "input.placeholderForeground": "#ebdbb260",
     "inputValidation.errorBorder": "#fb4934",
-    "inputValidation.errorBackground": "#cc241d80",
+    "inputValidation.errorBackground": "#cc241d",
     "inputValidation.infoBorder": "#83a598",
     "inputValidation.infoBackground": "#45858880",
     "inputValidation.warningBorder": "#fabd2f",
@@ -923,7 +923,7 @@
     // EDITOR GROUPS
     "editorGroup.border": "#3c3836",
     "editorGroup.dropBackground": "#3c383660",
-    "editorGroupHeader.noTabsBackground": "#3c3836",
+    "editorGroupHeader.noTabsBackground": "#1d2021",
     "editorGroupHeader.tabsBackground": "#1d2021",
     "editorGroupHeader.tabsBorder": "#3c3836",
     // TABS
