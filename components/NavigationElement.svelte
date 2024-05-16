@@ -20,6 +20,9 @@
     tag = 'a'
   } else if (typeof click === 'function') {
     tag = 'button'
+    props = {
+      type: 'button',
+    }
   } else {
     tag = 'span'
     props = {
