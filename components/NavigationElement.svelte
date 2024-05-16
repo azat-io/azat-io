@@ -113,7 +113,8 @@
   }
 
   .mobile-only span {
-    display: none;
+    position: absolute;
+    inset-inline-start: -100vi;
   }
 
   @media (width >= 768px) {
@@ -126,7 +127,8 @@
     }
 
     .icon span {
-      display: none;
+      position: absolute;
+      inset-inline-start: -100vi;
     }
   }
 </style>
