@@ -351,21 +351,6 @@
       place-items: center;
       padding: 0;
       background: transparent;
-      animation: fade-in 250ms ease-out forwards;
-
-      @media (prefers-reduced-motion: reduce) {
-        animation: none;
-      }
-    }
-  }
-
-  @keyframes fade-in {
-    0% {
-      opacity: 0%;
-    }
-
-    100% {
-      opacity: 100%;
     }
   }
 </style>
