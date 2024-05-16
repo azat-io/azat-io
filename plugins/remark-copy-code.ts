@@ -53,6 +53,7 @@ export let remarkCopyCode: Plugin<[], Root> =
             'aria-label': 'Copy code to clipboard',
             class: 'copy-code-button',
             'data-lang': lang,
+            type: 'button',
           }),
           typeof lang === 'string' &&
             h(
