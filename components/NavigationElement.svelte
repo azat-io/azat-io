@@ -115,6 +115,7 @@
   .mobile-only span {
     position: absolute;
     inset-inline-start: -100vi;
+    transform: translateX(-100%);
   }
 
   @media (width >= 768px) {
@@ -129,6 +130,7 @@
     .icon span {
       position: absolute;
       inset-inline-start: -100vi;
+      transform: translateX(-100%);
     }
   }
 </style>
