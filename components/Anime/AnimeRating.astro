@@ -2,6 +2,7 @@
 import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
 import { useTranslations } from '~/utils/use-translations'
 import AnimeStar from '~/components/Anime/AnimeStar.astro'
+import Hidden from '~/components/Hidden.astro'
 
 interface Props {
   score: number
@@ -13,8 +14,9 @@ let t = useTranslations(locale, 'anime')
 let { score } = Astro.props
 ---
 
-<div aria-label={`${t('rating')}: ${score}`} class="rating">
+<div class="rating">
   {[...Array(10)].map((_, i) => <AnimeStar filled={score >= i + 1} />)}
+  <Hidden>{`${t('rating')}: ${score}`}</Hidden>
 </div>
 
 <style>
