@@ -196,6 +196,7 @@ main {
 
 pre {
   padding: var(--space-m);
+  overflow: auto;
   border-radius: var(--border-radius);
   outline: none;
   transition: box-shadow 200ms;
