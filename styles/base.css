@@ -170,7 +170,6 @@ picture {
 
 pre,
 code {
-  overflow: auto;
   font: var(--font-code);
   font-variation-settings:
     'wght' 560,
