@@ -186,6 +186,7 @@ code {
 
 code {
   padding: var(--space-2xs);
+  white-space: nowrap;
   border-radius: calc(var(--border-radius) / 2);
 }
 
@@ -201,6 +202,7 @@ pre {
 
   code {
     padding: 0;
+    white-space: pre;
     border: none;
   }
 
