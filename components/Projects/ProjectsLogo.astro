@@ -1,6 +1,7 @@
 ---
 import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
 import { useTranslations } from '~/utils/use-translations'
+import Hidden from '~/components/Hidden.astro'
 
 interface Props {
   itemprop?: string
@@ -37,12 +38,9 @@ let logo = logos[id]?.()
 
 {
   logo && (
-    <div
-      class:list={['logo', `size-${size}`, className]}
-      aria-label={`${t('logo-of')} ${title}`}
-      {...props}
-    >
+    <div class:list={['logo', `size-${size}`, className]} {...props}>
       <Fragment set:html={logo} />
+      <Hidden>{`${t('logo-of')} ${title}`}</Hidden>
     </div>
   )
 }
