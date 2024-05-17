@@ -25,7 +25,7 @@
   let detailsClose = false
 
   $: innerWidth = 0
-  $: isMobile = innerWidth < 768
+  $: isMobile = innerWidth === 0 ? false : innerWidth < 768
 
   let menuOpen = false
   let theme: Theme = 'dark'
@@ -130,44 +130,49 @@
     label={t('about')}
     icon={UserIcon}
   />
-  <details
-    class:details-close={detailsClose}
-    class="details"
-    bind:this={details}
-  >
-    <summary class="summary">
-      <NavigationElement
-        href={isMobile
-          ? url.pathname.replace(
-              /^\/\w{2}/,
-              `/${locale === 'en' ? 'ru' : 'en'}`,
-            )
-          : undefined}
-        label={t('change-language')}
-        icon={TranslateIcon}
-        view="icon"
-      />
-    </summary>
-    <div class="locale-select">
-      {#each locales as { originName, code, icon }}
-        <a
-          href={url.pathname
-            .replace(/^\/\w{2}/, `/${code}`)
-            .replace(/\.html$/, '')}
-          aria-label={t(code)}
-          class="locale"
-        >
-          <div class="flag">
-            <svelte:component this={icon} />
-          </div>
-          <div class="name-container">
-            <span class="name">{t(code)}</span>
-            <span class="origin-name">{originName}</span>
-          </div>
-        </a>
-      {/each}
-    </div>
-  </details>
+  {#if isMobile}
+    <NavigationElement
+      href={url.pathname.replace(
+        /^\/\w{2}/,
+        `/${locale === 'en' ? 'ru' : 'en'}`,
+      )}
+      label={t('change-language')}
+      icon={TranslateIcon}
+    />
+  {:else}
+    <details
+      class:details-close={detailsClose}
+      class="details"
+      bind:this={details}
+    >
+      <summary class="summary">
+        <NavigationElement
+          label={t('change-language')}
+          icon={TranslateIcon}
+          view="icon"
+        />
+      </summary>
+      <div class="locale-select">
+        {#each locales as { originName, code, icon }}
+          <a
+            href={url.pathname
+              .replace(/^\/\w{2}/, `/${code}`)
+              .replace(/\.html$/, '')}
+            aria-label={t(code)}
+            class="locale"
+          >
+            <div class="flag">
+              <svelte:component this={icon} />
+            </div>
+            <div class="name-container">
+              <span class="name">{t(code)}</span>
+              <span class="origin-name">{originName}</span>
+            </div>
+          </a>
+        {/each}
+      </div>
+    </details>
+  {/if}
   <NavigationElement
     label={theme === 'dark' ? t('light-theme') : t('dark-theme')}
     icon={theme === 'dark' ? SunIcon : MoonIcon}
