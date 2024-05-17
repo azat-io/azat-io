@@ -13,7 +13,11 @@ export let remarkHeadings: Plugin<[], Root> =
         typeof index === 'number'
       ) {
         let text = ((node as Heading).children[0] as Literal).value as string
-        let id = text.replaceAll(' ', '-').toLowerCase()
+        let id = text
+          .replaceAll(/\p{P}/gu, '')
+          .replaceAll(/\s{2,}/g, ' ')
+          .replaceAll(' ', '-')
+          .toLowerCase()
         let { depth } = node as Heading
         let newNode = {
           value: `<h${depth} id="${id}">
