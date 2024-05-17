@@ -23,39 +23,6 @@ import { remarkKatex } from './plugins/remark-katex'
 let dirname = fileURLToPath(path.dirname(import.meta.url))
 
 export default defineConfig({
-  markdown: {
-    shikiConfig: {
-      transformers: [
-        {
-          pre: node => {
-            delete node.properties.tabindex
-            delete node.properties.style
-          },
-        },
-      ],
-      themes: {
-        light: JSON5.parse(gruvboxLight),
-        dark: JSON5.parse(gruvboxDark),
-      },
-    },
-    rehypePlugins: [
-      [
-        rehypeExternalLinks,
-        {
-          rel: ['noopener', 'noreferrer'],
-          target: '_blank',
-        },
-      ],
-    ],
-    remarkPlugins: [
-      remarkSectionize,
-      remarkCopyCode,
-      remarkHeadings,
-      remarkTypograf,
-      remarkKatex,
-      remarkMath,
-    ],
-  },
   vite: {
     build: {
       rollupOptions: {
@@ -81,6 +48,31 @@ export default defineConfig({
       transformer: 'lightningcss',
     },
     plugins: [svelteSvg()],
+  },
+  markdown: {
+    rehypePlugins: [
+      [
+        rehypeExternalLinks,
+        {
+          rel: ['noopener', 'noreferrer'],
+          target: '_blank',
+        },
+      ],
+    ],
+    remarkPlugins: [
+      remarkSectionize,
+      remarkCopyCode,
+      remarkHeadings,
+      remarkTypograf,
+      remarkKatex,
+      remarkMath,
+    ],
+    shikiConfig: {
+      themes: {
+        light: JSON5.parse(gruvboxLight),
+        dark: JSON5.parse(gruvboxDark),
+      },
+    },
   },
   integrations: [
     compress({
