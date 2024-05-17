@@ -1,9 +1,11 @@
 <script lang="ts">
   export let passed: boolean = false
   export let healthy: boolean = false
+  export let tag: string = 'li'
 </script>
 
-<li
+<svelte:element
+  this={tag}
   class={`cell ${$$restProps.class || ''}`.trim()}
   class:passed
   class:healthy

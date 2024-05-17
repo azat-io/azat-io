@@ -14,17 +14,17 @@
 
 <div class="demo">
   <div class="demo-value">
-    <TimelineCell class="timeline-demo-cell" passed={true} />
+    <TimelineCell class="timeline-demo-cell" passed={true} tag="div" />
     <span>—</span>
     <span>{t('past-week')}</span>
   </div>
   <div class="demo-value">
-    <TimelineCell class="timeline-demo-cell" healthy={true} />
+    <TimelineCell class="timeline-demo-cell" healthy={true} tag="div" />
     <span>—</span>
     <span>{t('healthy-life-expectancy')}</span>
   </div>
   <div class="demo-value">
-    <TimelineCell class="timeline-demo-cell" />
+    <TimelineCell class="timeline-demo-cell" tag="div" />
     <span>—</span>
     <span>{t('life-expectancy-at-birth')}</span>
   </div>
