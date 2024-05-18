@@ -1,4 +1,6 @@
 ---
+import { optimize } from 'svgo'
+
 import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
 import { useTranslations } from '~/utils/use-translations'
 import flagAE from '~/assets/flags/flag-ae.svg?raw'
@@ -52,7 +54,9 @@ let flag = flags[code]
 {
   flag && (
     <div class="flag">
-      <Fragment set:html={flags[code]} />
+      <Fragment
+        set:html={optimize(flag, { plugins: ['preset-default'] }).data}
+      />
       <Hidden>{`${t('flag-of')} ${name}`}</Hidden>
     </div>
   )
