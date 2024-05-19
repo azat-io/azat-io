@@ -17,7 +17,6 @@
   import XIcon from '~/icons/x.svg?component'
 
   export let description: string
-  export let className: string
   export let locale: Locale
   export let title: string
   export let url: URL
@@ -120,7 +119,7 @@
   })
 </script>
 
-<div class={`share-wrapper ${className}`.trim()}>
+<div class={`share-wrapper ${$$props.class}`.trim()}>
   <button data-umami-event="Share" class="share" on:click={share} type="button">
     <svelte:component this={ShareIcon} />
     <span>{t('share')}</span>
