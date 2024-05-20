@@ -14,7 +14,7 @@ let locale = getLocaleFromUrl(Astro.url)
 ---
 
 <li class="item">
-  <a href={`/${locale}/projects/${slug}/`} itemprop="url" class="card">
+  <a href={`/${locale}/projects/${slug}`} itemprop="url" class="card">
     <ProjectsLogo itemprop="image" id={slug} {title} />
     <dl class="description">
       <Typography

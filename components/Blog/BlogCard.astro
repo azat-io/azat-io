@@ -20,7 +20,7 @@ let locale = getLocaleFromUrl(Astro.url)
 ---
 
 <li class="item">
-  <a href={`/${locale}/blog/${slug}/`} class="card">
+  <a href={`/${locale}/blog/${slug}`} class="card">
     <BlogThumbnail name={title} id={slug} />
     <article>
       <Typography color="brand" size="l" tag="h2" bold>
