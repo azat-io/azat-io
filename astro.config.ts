@@ -19,6 +19,7 @@ import { remarkHeadings } from './plugins/remark-headings'
 import { remarkTypograf } from './plugins/remark-typograf'
 import gruvboxDark from './themes/gruvbox-dark.json?raw'
 import { remarkKatex } from './plugins/remark-katex'
+import { homepage } from './package.json'
 
 let dirname = fileURLToPath(path.dirname(import.meta.url))
 
@@ -91,7 +92,9 @@ export default defineConfig({
       HTML: true,
       SVG: true,
     }),
-    sitemap(),
+    sitemap({
+      filter: page => !new RegExp(`^${homepage}/?$`).test(page),
+    }),
     svelte(),
     mdx(),
   ],
@@ -114,7 +117,7 @@ export default defineConfig({
     port: 8080,
     host: true,
   },
-  site: 'https://azat.io',
   compressHTML: true,
   srcDir: dirname,
+  site: homepage,
 })
