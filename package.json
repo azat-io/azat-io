@@ -22,14 +22,14 @@
     "test": "pnpm run /^test:/"
   },
   "dependencies": {
-    "@astrojs/mdx": "^3.0.0",
+    "@astrojs/mdx": "^3.0.1",
     "@astrojs/rss": "^4.0.6",
-    "@astrojs/sitemap": "^3.1.4",
+    "@astrojs/sitemap": "^3.1.5",
     "@astrojs/svelte": "^5.4.0",
     "@playform/compress": "^0.0.3",
     "@poppanator/sveltekit-svg": "^4.2.1",
     "@vercel/og": "^0.6.2",
-    "astro": "^4.8.6",
+    "astro": "^4.9.1",
     "browserslist": "^4.23.0",
     "hastscript": "^9.0.0",
     "iso-639-1": "^3.1.2",
@@ -43,7 +43,7 @@
     "svelte": "^4.2.17",
     "svgo": "^3.3.2",
     "typescript": "^5.4.5",
-    "typograf": "^7.4.0",
+    "typograf": "^7.4.1",
     "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
@@ -57,10 +57,10 @@
     "@types/katex": "^0.16.7",
     "@types/mdast": "^4.0.4",
     "@types/unist": "^3.0.2",
-    "@typescript-eslint/eslint-plugin": "^7.9.0",
-    "@typescript-eslint/parser": "^7.9.0",
+    "@typescript-eslint/eslint-plugin": "^7.10.0",
+    "@typescript-eslint/parser": "^7.10.0",
     "astro-eslint-parser": "^1.0.2",
-    "cspell": "^8.8.1",
+    "cspell": "^8.8.3",
     "eslint": "^9.3.0",
     "eslint-plugin-astro": "^1.2.0",
     "eslint-plugin-import": "^2.29.1",
@@ -90,7 +90,7 @@
     "stylelint-config-recess-order": "^5.0.1",
     "stylelint-gamut": "^1.3.4",
     "stylelint-order": "^6.0.4",
-    "stylelint-plugin-logical-css": "^1.2.0",
+    "stylelint-plugin-logical-css": "^1.2.1",
     "svelte-check": "^3.7.1",
     "unified": "^11.0.4"
   }
