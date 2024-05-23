@@ -5,6 +5,7 @@ interface Props {
   size?: 'm' | 'l'
   class?: string
   tag?: string
+  id?: string
 }
 
 let { class: className, tag = 'div', size = 'm', ...props } = Astro.props
