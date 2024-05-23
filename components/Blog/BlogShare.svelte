@@ -127,7 +127,12 @@
 </div>
 <Portal>
   <dialog bind:this={dialog} class="dialog">
-    <button class="close" on:click={closeDialog} type="button">
+    <button
+      aria-label={t('close-dialog').toString()}
+      on:click={closeDialog}
+      class="close"
+      type="button"
+    >
       <svelte:component this={CrossIcon} />
     </button>
     <h3 class="title">{t('share')}</h3>

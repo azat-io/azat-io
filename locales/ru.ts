@@ -151,6 +151,7 @@ export default {
     'share-on-telegram': 'Поделиться в Телеграм',
     'share-on-mastodon': 'Поделиться в Мастодон',
     'share-on-whatsapp': 'Поделиться в Ватсап',
+    'close-dialog': 'Закрыть всплывающее окно',
     'also-translated': 'Также переведено на:',
     'share-on-reddit': 'Поделиться в Реддит',
     'post-cover-for': 'Обложка для поста',

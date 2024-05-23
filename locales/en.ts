@@ -155,6 +155,7 @@ export default {
     'edit-this-page': 'Edit this page',
     'post-cover-for': 'Post cover for',
     'previous-post': 'Previous post',
+    'close-dialog': 'Close dialog',
     'share-on-x': 'Share on X',
     'locale-lt': 'Lithuanian',
     'locale-pt': 'Portuguese',
