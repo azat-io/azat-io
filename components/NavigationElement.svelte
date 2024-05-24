@@ -98,6 +98,7 @@
   }
 
   .item :global(svg) {
+    flex-shrink: 0;
     inline-size: var(--size-icon-m);
     block-size: var(--size-icon-m);
   }
