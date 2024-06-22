@@ -6,7 +6,7 @@ Before submitting your contribution, please take a moment to read the following 
 
 ## Local Development
 
-This project uses the [pnpm](https://pnpm.io) package manager. Therefore, to work with the project, you need to install it.
+This project uses the pnpm package manager. Therefore, to work with the project, you need to install it.
 
 How to set up a project locally:
 
