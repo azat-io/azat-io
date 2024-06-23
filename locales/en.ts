@@ -47,6 +47,7 @@ export default {
     'dorohedoro-extra-evil': 'Dorohedoro: Extra Evil',
     'summer-time-rendering': 'Summer Time Rendering',
     'the-boy-and-the-heron': 'The Boy and the Heron',
+    'delicious-in-dungeon': 'Delicious in Dungeon',
     'howl-s-moving-castle': "Howl's Moving Castle",
     'when-the-cicadas-cry': 'When the Cicadas Cry',
     'spy-family-season-2': 'Spy × Family Season 2',

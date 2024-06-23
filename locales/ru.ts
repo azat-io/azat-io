@@ -43,6 +43,7 @@ export default {
     description: 'Список аниме, которые я посмотрел',
     'charcoal-feather-federation': 'Союз Серокрылых',
     'undead-girl-murder-farce': 'Фарс Убитой Нежити',
+    'delicious-in-dungeon': 'Подземелье Вкусностей',
     'onimai-i-m-now-your-sister': 'Я стал сестрой!',
     'parasyte-the-maxim': 'Паразит: Учение о Жизни',
     'spy-family-season-2': 'Семья Шпиона, сезон 2',
