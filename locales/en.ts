@@ -99,6 +99,7 @@ export default {
     supernatural: 'supernatural',
     'psycho-pass': 'Psycho-Pass',
     'spy-family': 'Spy × Family',
+    'kaiju-no-8': 'Kaiju No. 8',
     'elfen-lied': 'Elfen Lied',
     'death-note': 'Death Note',
     'oshi-no-ko': 'Oshi no Ko',

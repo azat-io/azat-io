@@ -104,6 +104,7 @@ export default {
     'oshi-no-ko': 'Звёздное дитя',
     'odd-taxi': 'Необычное такси',
     'spy-family': 'Семья Шпиона',
+    'kaiju-no-8': 'Кайдзю № 8',
     'mushi-shi': 'Мастер Муси',
     'cover-for': 'Обложка для',
     dorohedoro: 'Дорохедоро',
