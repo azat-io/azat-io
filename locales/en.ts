@@ -241,6 +241,7 @@ export default {
     title: 'Travel Map',
     az: 'Azerbaijan',
     ps: 'Palestine',
+    th: 'Thailand',
     ge: 'Georgia',
     ua: 'Ukraine',
     by: 'Belarus',
