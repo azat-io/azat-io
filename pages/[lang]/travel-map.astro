@@ -50,7 +50,10 @@ export let getStaticPaths = () =>
 
   @container (inline-size >= 680px) {
     .list {
-      grid-template-rows: repeat(calc(var(--total) / var(--columns)), 1fr);
+      grid-template-rows: repeat(
+        calc((var(--total) + var(--columns) - 1) / var(--columns)),
+        1fr
+      );
       grid-template-columns: repeat(var(--columns), 1fr);
       grid-auto-flow: column;
       --columns: 2;

@@ -242,6 +242,7 @@ export default {
     az: 'Azerbaijan',
     ps: 'Palestine',
     th: 'Thailand',
+    kh: 'Cambodia',
     ge: 'Georgia',
     ua: 'Ukraine',
     by: 'Belarus',
