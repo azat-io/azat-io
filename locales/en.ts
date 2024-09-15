@@ -223,16 +223,6 @@ export default {
     'past-week': 'Past week',
     title: 'Timeline',
   },
-  index: {
-    greeting:
-      'Hi there! My name is Azat. I am a frontend developer. On this site I share my thoughts and ideas about development and modern technologies.',
-    description:
-      'Personal website of Azat S. Front-end developer, creator of technical content, open source community member',
-    'website-subtitle': 'for reinventing the wheel',
-    title: 'Manual for reinventing the wheel',
-    'website-title': 'Manual',
-    avatar: "Azat's avatar.",
-  },
   'travel-map': {
     description: "List of countries I've visited",
     ae: 'United Arab Emirates',
@@ -248,12 +238,23 @@ export default {
     ua: 'Ukraine',
     by: 'Belarus',
     am: 'Armenia',
+    vn: 'Vietnam',
     il: 'Israel',
     ug: 'Uganda',
     fr: 'France',
     tr: 'Turkey',
     ke: 'Kenya',
     in: 'India',
+  },
+  index: {
+    greeting:
+      'Hi there! My name is Azat. I am a frontend developer. On this site I share my thoughts and ideas about development and modern technologies.',
+    description:
+      'Personal website of Azat S. Front-end developer, creator of technical content, open source community member',
+    'website-subtitle': 'for reinventing the wheel',
+    title: 'Manual for reinventing the wheel',
+    'website-title': 'Manual',
+    avatar: "Azat's avatar.",
   },
   about: {
     description:
