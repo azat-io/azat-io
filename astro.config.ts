@@ -1,4 +1,4 @@
-import { squooshImageService, defineConfig } from 'astro/config'
+import { sharpImageService, defineConfig } from 'astro/config'
 import rehypeExternalLinks from 'rehype-external-links'
 import { browserslistToTargets } from 'lightningcss'
 import svelteSvg from '@poppanator/sveltekit-svg'
@@ -81,12 +81,10 @@ export default defineConfig({
   },
   integrations: [
     compress({
-      Exclude: [
-        (file: string) => file.endsWith('.png') && !file.includes('hero.'),
-      ],
-      Image: process.env.COMPRESS_IMAGES !== 'false',
       JavaScript: true,
+      Image: false,
       HTML: true,
+      CSS: false,
       SVG: true,
     }),
     sitemap({
@@ -104,7 +102,7 @@ export default defineConfig({
     format: 'file',
   },
   image: {
-    service: squooshImageService(),
+    service: sharpImageService(),
   },
   experimental: {
     clientPrerender: true,
