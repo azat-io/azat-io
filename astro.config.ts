@@ -4,7 +4,6 @@ import { browserslistToTargets } from 'lightningcss'
 import svelteSvg from '@poppanator/sveltekit-svg'
 import remarkSectionize from 'remark-sectionize'
 import compress from '@playform/compress'
-import { fileURLToPath } from 'node:url'
 import browserslist from 'browserslist'
 import sitemap from '@astrojs/sitemap'
 import remarkMath from 'remark-math'
@@ -20,8 +19,6 @@ import { remarkTypograf } from './plugins/remark-typograf'
 import gruvboxDark from './themes/gruvbox-dark.json?raw'
 import { remarkKatex } from './plugins/remark-katex'
 import { homepage } from './package.json'
-
-let dirname = fileURLToPath(path.dirname(import.meta.url))
 
 export default defineConfig({
   markdown: {
@@ -74,7 +71,7 @@ export default defineConfig({
       lightningcss: {
         targets: browserslistToTargets(
           browserslist(null, {
-            config: path.join(dirname, './.browserslistrc'),
+            config: path.join(import.meta.dirname, './.browserslistrc'),
           }),
         ),
       },
@@ -116,7 +113,7 @@ export default defineConfig({
     port: 8080,
     host: true,
   },
+  srcDir: import.meta.dirname,
   compressHTML: true,
-  srcDir: dirname,
   site: homepage,
 })
