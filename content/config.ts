@@ -39,6 +39,7 @@ let projects = defineCollection({
 let travelMap = defineCollection({
   schema: z.object({
     originName: z.string(),
+    originLang: z.string(),
     code: z.string(),
   }),
   type: 'data',

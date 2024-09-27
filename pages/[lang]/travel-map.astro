@@ -26,10 +26,11 @@ export let getStaticPaths = () =>
   <TravelWorldMap countries={collection.map(({ code }) => code)} />
   <ul class="list">
     {
-      collection.map(({ originName, code }) => (
+      collection.map(({ originName, originLang, code }) => (
         <TravelMapCard
           name={t(code as keyof typeof t)}
           originName={originName}
+          originLang={originLang}
           code={code}
           tag="li"
         />

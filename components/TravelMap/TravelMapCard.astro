@@ -4,12 +4,13 @@ import Typography from '~/components/Typography.astro'
 
 interface Props {
   originName: string
+  originLang: string
   name: string
   code: string
   tag?: string
 }
 
-let { tag = 'div', originName, name, code } = Astro.props
+let { tag = 'div', originName, originLang, name, code } = Astro.props
 
 let Tag = tag
 ---
@@ -21,7 +22,9 @@ let Tag = tag
       <Typography color="brand" class="name" mbe="2xs" size="s" tag="h2">
         {name}
       </Typography>
-      <Typography class="name" size="2xs" tag="span">{originName}</Typography>
+      <Typography lang={originLang} class="name" size="2xs" tag="span"
+        >{originName}</Typography
+      >
     </figcaption>
   </figure>
 </Tag>
