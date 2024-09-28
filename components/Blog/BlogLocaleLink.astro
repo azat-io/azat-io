@@ -14,6 +14,6 @@ let localeName = ISO6391.getNativeName(locale)
 localeName = localeName.at(0)!.toUpperCase() + localeName.slice(1)
 ---
 
-<Tag href={`/${locale}/blog/${slug}`} tag="a">
+<Tag href={`/${locale}/blog/${slug}`} lang={locale} tag="a">
   {localeName}
 </Tag>
