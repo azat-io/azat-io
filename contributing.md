@@ -44,6 +44,6 @@ If you have any questions, feel free to create [issue](https://github.com/azat-i
 
 Before create pull request fork this repo and create a new branch.
 
-Commit messages must follow the [commit message convention](https://conventionalcommits.org) so that changelogs can be automatically generated.
+Commit messages must follow the [commit message convention](https://www.conventionalcommits.org/en/v1.0.0/) so that changelogs can be automatically generated.
 
 Make sure tests pass.
