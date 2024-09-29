@@ -6,6 +6,8 @@ export default {
       'Атака Титанов: Последний сезон, специальный выпуск 2',
     'made-in-abyss-the-golden-city-of-the-scorching-sun':
       'Созданный в Бездне: Солнце, Вспыхнувшее в Золотом Городе',
+    'alya-sometimes-hides-her-feelings-in-russian':
+      'Аля Иногда Кокетничает со Мной по-Русски',
     'demon-slayer-entertainment-district-arc':
       'Истребитель Демонов: Квартал Красных Фонарей',
     'attack-on-titan-the-final-season-part-2':

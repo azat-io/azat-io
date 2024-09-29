@@ -8,6 +8,8 @@ export default {
       'Made in Abyss: The Golden City of the Scorching Sun',
     'butareba-the-story-of-a-man-turned-into-a-pig':
       'Butareba — The Story of a Man Turned into a Pig',
+    'alya-sometimes-hides-her-feelings-in-russian':
+      'Alya Sometimes Hides Her Feelings in Russian',
     'mushoku-tensei-jobless-reincarnation-part-2':
       'Mushoku Tensei: Jobless Reincarnation Part 2',
     'attack-on-titan-the-final-season-part-2':
