@@ -94,6 +94,7 @@ export default {
     'bocchi-the-rock': 'Рок-тихоня!',
     'a-silent-voice': 'Форма Голоса',
     'elfen-lied': 'Эльфийская песнь',
+    'tokyo-ghoul': 'Токийский Гуль',
     'hell-s-paradise': 'Адский Рай',
     'prison-school': 'Школа-тюрьма',
     'cowboy-bebop': 'Ковбой Бибоп',
