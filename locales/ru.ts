@@ -79,6 +79,7 @@ export default {
     'weathering-with-you': 'Дитя Погоды',
     'terror-in-resonance': 'Эхо Террора',
     'jujutsu-kaisen': 'Магическая Битва',
+    'tokyo-ghoul-a': 'Токийский Гуль √А',
     'buddy-daddies': 'Напарники-папаши',
     'chainsaw-man': 'Человек-бензопила',
     erased: 'Город, в котором меня нет',

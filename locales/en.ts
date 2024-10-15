@@ -85,6 +85,7 @@ export default {
     'hunter-hunter': 'Hunter × Hunter',
     'jujutsu-kaisen': 'Jujutsu Kaisen',
     'skip-to-loafer': 'Skip to Loafer',
+    'tokyo-ghoul-a': 'Tokyo Ghoul √A',
     'spirited-away': 'Spirited Away',
     'made-in-abyss': 'Made in Abyss',
     'prison-school': 'Prison School',
