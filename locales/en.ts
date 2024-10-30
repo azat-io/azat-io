@@ -115,6 +115,7 @@ export default {
     'odd-taxi': 'Odd Taxi',
     thriller: 'thriller',
     duration: 'Duration',
+    uzumaki: 'Uzumaki',
     fantasy: 'fantasy',
     mystery: 'mystery',
     romance: 'romance',

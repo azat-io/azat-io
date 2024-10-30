@@ -118,6 +118,7 @@ export default {
     romance: 'романтика',
     thriller: 'триллер',
     mystery: 'детектив',
+    uzumaki: 'Спираль',
     fantasy: 'фэнтези',
     paprika: 'Паприка',
     comedy: 'комедия',
