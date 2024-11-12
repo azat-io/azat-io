@@ -26,6 +26,7 @@ export default {
     'attack-on-titan-the-final-season': 'Атака Титанов: Последний сезон',
     'mushoku-tensei-jobless-reincarnation': 'Перерождение безработного',
     'the-melancholy-of-haruhi-suzumiya': 'Меланхолия Харухи Судзумии',
+    'dead-dead-demon-s-dededededestruction': 'Мёртвые-Мёртвые Демоны',
     'the-girl-who-leapt-through-time': 'Девочка, Покорившая Время',
     'to-your-eternity-season-2': 'Для тебя, Бессмертный, сезон 2',
     'keep-your-hands-off-eizouken': 'Руки Прочь от Кинокружка!',

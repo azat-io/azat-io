@@ -16,6 +16,8 @@ export default {
       'Attack on Titan: The Final Season Part 2',
     'demon-slayer-entertainment-district-arc':
       'Demon Slayer: Entertainment District Arc',
+    'dead-dead-demon-s-dededededestruction':
+      'Dead Dead Demon’s Dededededestruction',
     'mushoku-tensei-jobless-reincarnation':
       'Mushoku Tensei: Jobless Reincarnation',
     'made-in-abyss-dawn-of-the-deep-soul':
