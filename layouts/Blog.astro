@@ -36,8 +36,13 @@ let { url } = Astro
 let locale = getLocaleFromUrl(url)
 let realLocale = getLocaleFromUrl(url, true)
 
-let parseUrl = (currentUrl: string) => {
-  let [slugValue, localeValue] = currentUrl.replace(/\.mdx?$/, '').split('/')
+let parseUrl = (
+  currentUrl: string,
+): {
+  locale: string
+  slug: string
+} => {
+  let [slugValue, localeValue] = currentUrl.replace(/\.mdx?$/u, '').split('/')
   return { locale: localeValue!, slug: slugValue! }
 }
 
@@ -48,15 +53,15 @@ let posts = await getPosts()
 let translations = posts
   .filter(
     post =>
-      parseUrl(slug).slug === parseUrl(post.slug!).slug &&
+      parseUrl(slug).slug === parseUrl(post.slug).slug &&
       realLocale !== parseUrl(post.id).locale,
   )
   .map(({ slug: slugValue, ...post }) => {
-    let localeValue = post.id.replace(/\.mdx?$/, '').split('/')[1]!
+    let localeValue = post.id.replace(/\.mdx?$/u, '').split('/')[1]!
     return {
       ...post,
       locale: localeValue,
-      slug: slugValue!,
+      slug: slugValue,
     }
   })
 ---

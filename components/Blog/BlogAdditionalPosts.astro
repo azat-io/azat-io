@@ -14,8 +14,13 @@ let { slug } = Astro.props
 let locale = getLocaleFromUrl(Astro.url)
 let t = useTranslations(locale, 'blog')
 
-let parseUrl = (url: string) => {
-  let [slugValue, localeValue] = url.replace(/\.mdx?$/, '').split('/')
+let parseUrl = (
+  url: string,
+): {
+  locale: string
+  slug: string
+} => {
+  let [slugValue, localeValue] = url.replace(/\.mdx?$/u, '').split('/')
   return { locale: localeValue!, slug: slugValue! }
 }
 
@@ -34,7 +39,9 @@ let nextPost = isLastPost ? null : posts.at(indexOfCurrentPost - 1)
   locale === parseUrl(slug).locale && (
     <>
       <>
-        {!isFirstPost ? (
+        {isFirstPost ? (
+          <div />
+        ) : (
           <div class:list={['post', 'post-previous']}>
             <a
               href={`/${locale}/blog/${previousPost?.slug}`}
@@ -51,8 +58,6 @@ let nextPost = isLastPost ? null : posts.at(indexOfCurrentPost - 1)
               </div>
             </a>
           </div>
-        ) : (
-          <div />
         )}
       </>
       <>

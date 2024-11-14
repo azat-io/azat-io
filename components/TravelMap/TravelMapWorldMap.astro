@@ -4,7 +4,7 @@ interface Props {
 }
 
 let { countries } = Astro.props
-let colorize = (code: string) =>
+let colorize = (code: string): string =>
   countries.includes(code)
     ? 'var(--color-background-brand)'
     : 'var(--color-background-inverse)'

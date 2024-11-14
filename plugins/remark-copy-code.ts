@@ -6,12 +6,12 @@ import type { Parent, Node } from 'unist'
 import { visit } from 'unist-util-visit'
 import { h as _h } from 'hastscript'
 
-let h = (
-  el: string,
+let hast = (
+  element: string,
   attrs: Properties = {},
   children: unknown[] = [],
 ): Paragraph => {
-  let { properties, tagName } = _h(el, attrs)
+  let { properties, tagName } = _h(element, attrs)
   return {
     data: { hProperties: properties, hName: tagName },
     children: children as PhrasingContent[],
@@ -43,20 +43,20 @@ export let remarkCopyCode: Plugin<[], Root> =
     visit(tree, 'code', (node: Code, index: number, parent: Parent) => {
       let { lang } = node
 
-      let html = h(
+      let html = hast(
         'div',
         {
           class: 'copy-code-wrapper',
         },
         [
-          h('button', {
+          hast('button', {
             'aria-label': 'Copy code to clipboard',
             class: 'copy-code-button',
             'data-lang': lang,
             type: 'button',
           }),
           typeof lang === 'string' &&
-            h(
+            hast(
               'span',
               {
                 class: 'copy-code-label',

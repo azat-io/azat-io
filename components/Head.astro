@@ -34,12 +34,12 @@ let {
 
 let canonicalURL = new URL(Astro.url.pathname, Astro.site)
   .toString()
-  .replace(/\.html$/, '')
+  .replace(/\.html$/u, '')
 
 let pageTitle = `${title} | ${t('name')}`
 let xUsername = locale === 'ru' ? '@azat_io' : '@azat_io_en'
 
-let isProd = import.meta.env.PROD
+let isProduction = import.meta.env.PROD
 ---
 
 <head>
@@ -88,7 +88,7 @@ let isProd = import.meta.env.PROD
 
   <meta property="og:type" content={type} />
   <meta
-    content={Astro.url.toString().replace(/\.html/, '')}
+    content={Astro.url.toString().replace(/\.html/u, '')}
     property="og:url"
   />
   <meta property="og:title" content={pageTitle} />
@@ -146,6 +146,6 @@ let isProd = import.meta.env.PROD
     document.addEventListener('astro:after-swap', initialize)
   </script>
 
-  {isProd && <Analytics />}
+  {isProduction && <Analytics />}
   <ViewTransitions />
 </head>

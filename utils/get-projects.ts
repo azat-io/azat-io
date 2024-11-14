@@ -1,6 +1,14 @@
+import type { CollectionEntry } from 'astro:content'
+
 import { getCollection } from 'astro:content'
 
-export let getProjects = async (locale?: string) => {
+export let getProjects = async (
+  locale?: string,
+): Promise<
+  (Omit<CollectionEntry<'projects'>, 'slug'> & {
+    slug: string
+  })[]
+> => {
   let collection = await getCollection('projects')
 
   return collection
@@ -15,7 +23,7 @@ export let getProjects = async (locale?: string) => {
       let [slug] = page.slug.split('/')
       return {
         ...page,
-        slug,
+        slug: slug!,
       }
     })
 }

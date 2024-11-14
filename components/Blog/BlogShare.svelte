@@ -21,7 +21,7 @@
   export let title: string
   export let url: URL
 
-  $: t = useTranslations(locale, 'blog')
+  $: t = useTranslations(locale, 'blog') as (key: string) => string
   $: xUsername = locale === 'ru' ? 'azat_io' : 'azat_io_en'
 
   $: formattedTitle = encodeURIComponent(title)
@@ -34,88 +34,89 @@
 
   let dialog: HTMLDialogElement
 
-  $: cleanUrl = url?.toString().replace(/\.html$/, '')
+  $: cleanUrl = url.toString().replace(/\.html$/u, '')
 
   $: links = [
     {
-      icon: XIcon,
       link: `https://x.com/intent/tweet?text=${formattedTitle}%0A%0A${formattedXDescription}%0A%0A&url=${cleanUrl}`,
       label: 'share-on-x',
+      icon: XIcon,
       name: 'X',
     },
     {
-      icon: MastodonIcon,
       link: `https://s2f.kytta.dev/?text=${formattedTitle}%0A%0A${formattedMastodonDescription}%0A%0A${cleanUrl}`,
       label: 'share-on-mastodon',
+      icon: MastodonIcon,
       name: 'Mastodon',
     },
     {
-      icon: LinkedinIcon,
       link: `https://linkedin.com/sharing/share-offsite/?url=${cleanUrl}`,
       label: 'share-on-linkedin',
+      icon: LinkedinIcon,
       name: 'LinkedIn',
     },
     {
-      icon: YcombinatorIcon,
       link: `https://news.ycombinator.com/submitlink?u=${cleanUrl}&t=${formattedTitle}`,
       label: 'share-on-hacker-news',
+      icon: YcombinatorIcon,
       name: 'Hacker News',
     },
     {
-      icon: RedditIcon,
       link: `https://reddit.com/submit?url=${cleanUrl}&title=${formattedTitle}`,
       label: 'share-on-reddit',
+      icon: RedditIcon,
       name: 'Reddit',
     },
     {
-      icon: FacebookIcon,
       link: `https://facebook.com/sharer/sharer.php?u=${cleanUrl}`,
       label: 'share-on-facebook',
+      icon: FacebookIcon,
       name: 'Facebook',
     },
     {
-      icon: WhatsappIcon,
       link: `https://wa.me/?text=${formattedTitle}%0A%0A${cleanUrl}`,
       label: 'share-on-whatsapp',
+      icon: WhatsappIcon,
       name: 'WhatsApp',
     },
     {
-      icon: TelegramIcon,
       link: `https://t.me/share/url?url=${cleanUrl}&text=${formattedTitle}`,
       label: 'share-on-telegram',
+      icon: TelegramIcon,
       name: 'Telegram',
     },
   ] as const
 
-  let clickOutside = (event: MouseEvent) => {
+  let clickOutside = (event: MouseEvent): void => {
     if (event.target === dialog) {
       closeDialog()
     }
   }
 
-  let share = () => {
+  let share = async (): Promise<void> => {
     if (
-      !/android|iphone|ipad|ipod/i.test(navigator.userAgent) ||
-      navigator.share === undefined
+      !/android|ipad|iphone|ipod/iu.test(navigator.userAgent) ||
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+      !navigator.share
     ) {
       dialog.showModal()
       document.addEventListener('click', clickOutside)
     } else {
-      navigator.share({
+      await navigator.share({
         text: description,
-        url: cleanUrl!,
+        url: cleanUrl,
         title,
       })
     }
   }
 
-  let closeDialog = () => {
+  let closeDialog = (): void => {
     dialog.close()
     document.removeEventListener('click', clickOutside)
   }
 
   onMount(() => {
-    document.getElementById('share-fallback')?.remove()
+    document.querySelector('#share-fallback')?.remove()
   })
 </script>
 
@@ -137,7 +138,7 @@
     </button>
     <h3 class="title">{t('share')}</h3>
     <ul class="links">
-      {#each links as { label, link, icon, name }}
+      {#each links as { label, link, icon, name } (name)}
         <li class="link-wrapper">
           <a
             data-umami-event="Share on social media"

@@ -15,7 +15,11 @@ let { score } = Astro.props
 ---
 
 <div class="rating">
-  {[...Array(10)].map((_, i) => <AnimeStar filled={score >= i + 1} />)}
+  {
+    Array.from({ length: 10 }).map((_, i) => (
+      <AnimeStar filled={score >= i + 1} />
+    ))
+  }
   <Hidden>{`${t('rating')}: ${score}`}</Hidden>
 </div>
 

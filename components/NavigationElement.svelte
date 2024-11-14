@@ -1,16 +1,29 @@
 <script lang="ts">
-  import type { SvelteComponent, ComponentType } from 'svelte'
+  import type { ComponentType } from 'svelte'
 
-  export let click: (() => void) | undefined = undefined
-  export let umamiEvent: string | undefined = undefined
-  export let target: string | undefined = undefined
-  export let href: string | undefined = undefined
-  export let icon: ComponentType<SvelteComponent>
-  export let view: 'text' | 'icon' = 'text'
-  export let mobileOnly: boolean = false
-  export let label: string
+  interface Props {
+    click?: (() => void) | null
+    icon?: ComponentType | null
+    umamiEvent?: string | null
+    target?: string | null
+    view?: 'text' | 'icon'
+    href?: string | null
+    label: string | null
+    mobileOnly?: boolean
+    rel?: string | null
+  }
 
-  $: tag = 'span'
+  export let mobileOnly: Props['mobileOnly'] = false
+  export let umamiEvent: Props['umamiEvent'] = null
+  export let view: Props['view'] = 'text'
+  export let target: Props['target'] = null
+  export let click: Props['click'] = null
+  export let label: Props['label'] = null
+  export let href: Props['href'] = null
+  export let icon: Props['icon'] = null
+  export let rel: Props['rel'] = null
+
+  let tag = 'span'
   $: props = {
     href,
   } as Record<string, unknown>
@@ -37,6 +50,7 @@
     props = {
       ...props,
       target,
+      rel,
     }
   }
 </script>

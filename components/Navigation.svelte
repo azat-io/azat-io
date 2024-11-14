@@ -16,7 +16,7 @@
   import RssIcon from '~/icons/rss.svg?component'
   import { locales } from '~/locales'
 
-  type Theme = 'dark' | 'light'
+  type Theme = 'light' | 'dark'
 
   export let locale: Locale
   export let url: URL
@@ -24,24 +24,24 @@
   let details: HTMLDetailsElement
   let detailsClose = false
 
-  $: innerWidth = 0
+  let innerWidth = 0
   $: isMobile = innerWidth === 0 ? false : innerWidth < 768
 
   let menuOpen = false
   let theme: Theme = 'dark'
   $: t = useTranslations(locale, 'navigation')
 
-  let closeNavigation = () => {
+  let closeNavigation = (): void => {
     menuOpen = false
     document.body.style.overflow = 'auto'
   }
 
-  let openNavigation = () => {
+  let openNavigation = (): void => {
     menuOpen = true
     document.body.style.overflow = 'clip'
   }
 
-  let toggleNavigationOpen = () => {
+  let toggleNavigationOpen = (): void => {
     if (menuOpen) {
       closeNavigation()
     } else {
@@ -49,12 +49,12 @@
     }
   }
 
-  let setTheme = (theme: Theme) => {
-    document.documentElement.setAttribute('data-theme', theme)
-    localStorage.setItem('theme', theme)
+  let setTheme = (themeValue: Theme): void => {
+    document.documentElement.dataset.theme = themeValue
+    localStorage.setItem('theme', themeValue)
   }
 
-  let handleThemeChange = () => {
+  let handleThemeChange = (): void => {
     if (theme === 'dark') {
       theme = 'light'
     } else {
@@ -74,7 +74,7 @@
 
   onMount(() => {
     details.addEventListener('toggle', () => {
-      let handleClick = (event: MouseEvent) => {
+      let handleClick = (event: MouseEvent): void => {
         if (event.target && !details.contains(event.target as Node)) {
           document.removeEventListener('click', handleClick)
           detailsClose = true
@@ -93,8 +93,8 @@
       }
     })
 
-    details.addEventListener('animationend', e => {
-      if (e.animationName.endsWith('close')) {
+    details.addEventListener('animationend', event => {
+      if (event.animationName.endsWith('close')) {
         details.open = false
         detailsClose = false
       }
@@ -133,7 +133,7 @@
   {#if isMobile}
     <NavigationElement
       href={url.pathname.replace(
-        /^\/\w{2}/,
+        /^\/\w{2}/u,
         `/${locale === 'en' ? 'ru' : 'en'}`,
       )}
       label={t('change-language')}
@@ -153,11 +153,11 @@
         />
       </summary>
       <div class="locale-select">
-        {#each locales as { originName, code, icon }}
+        {#each locales as { originName, code, icon } (originName)}
           <a
             href={url.pathname
-              .replace(/^\/\w{2}/, `/${code}`)
-              .replace(/\.html$/, '')}
+              .replace(/^\/\w{2}/u, `/${code}`)
+              .replace(/\.html$/u, '')}
             aria-label={t(code)}
             class="locale"
           >
@@ -181,6 +181,7 @@
   />
   <NavigationElement
     href={`/${locale}/rss.xml`}
+    rel="noopener noreferrer"
     umamiEvent="View RSS"
     label={t('rss')}
     target="_blank"

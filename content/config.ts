@@ -5,7 +5,7 @@ let blog = defineCollection({
     date: z
       .string()
       .or(z.date())
-      .transform(val => new Date(val)),
+      .transform(value => new Date(value)),
     keywords: z.string().array().optional(),
     description: z.string(),
     title: z.string(),

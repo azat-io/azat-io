@@ -11,7 +11,7 @@
   $: locale = getLocaleFromUrl(url)
   $: t = useTranslations(locale, 'timeline')
 
-  type Unit = 'years' | 'months' | 'days' | 'hours' | 'minutes' | 'seconds'
+  type Unit = 'minutes' | 'seconds' | 'months' | 'years' | 'hours' | 'days'
 
   $: years = date.getFullYear() - dateOfBirth.getFullYear()
   $: months = date.getMonth() - dateOfBirth.getMonth()
@@ -27,7 +27,7 @@
 
   $: if (days < 0) {
     months--
-    const previousMonth = new Date(date.getFullYear(), date.getMonth(), 0)
+    let previousMonth = new Date(date.getFullYear(), date.getMonth(), 0)
     days += previousMonth.getDate()
   }
 
@@ -46,23 +46,28 @@
     hours += 24
   }
 
-  $: format = (value: number, unit: Unit) =>
+  let format = (value: number, unit: Unit): string =>
     `${value} ${
-      (
-        t(unit) as {
-          [key in Intl.LDMLPluralRule]: string
-        }
-      )[new Intl.PluralRules(locale).select(value)]
+      (t(unit) as Record<Intl.LDMLPluralRule, string>)[
+        new Intl.PluralRules(locale).select(value)
+      ]
     }`
 
-  onMount(() => (url = new URL(window.location.href)))
+  $: formattedYears = format(years, 'years')
+  $: formattedMonths = format(months, 'months')
+  $: formattedDays = format(days, 'days')
+  $: formattedHours = format(hours, 'hours')
+  $: formattedMinutes = format(minutes, 'minutes')
+  $: formattedSeconds = format(seconds, 'seconds')
+
+  onMount(() => (url = new URL(globalThis.location.href)))
 </script>
 
 <span role="timer">
-  {format(years, 'years')}
-  {format(months, 'months')}
-  {format(days, 'days')}
-  {format(hours, 'hours')}
-  {format(minutes, 'minutes')}
-  {format(seconds, 'seconds')}
+  {formattedYears}
+  {formattedMonths}
+  {formattedDays}
+  {formattedHours}
+  {formattedMinutes}
+  {formattedSeconds}
 </span>

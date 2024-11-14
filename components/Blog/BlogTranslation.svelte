@@ -9,28 +9,28 @@
   let url: undefined | URL
   $: locale = getLocaleFromUrl(url)
   $: translationLocale = getLocaleFromUrl(url, true)
-  $: t = useTranslations(locale, 'blog')
+  $: t = useTranslations(locale, 'blog') as (key: string) => string
 
   /* spell-checker: disable */
   let desiredLocales: Record<string, string> = {
     fr: 'Bonjour, je suis heureux de vous voir !',
+    hi: 'नमस्ते! मैं तुम्हें देख कर खुश हूँ!',
     tr: 'Merhaba! Seni gördüğüme sevindim!',
-    de: 'Hallo! Schön, dich zu sehen!',
     el: 'Γεια σας! Χαίρομαι που σας βλέπω!',
+    de: 'Hallo! Schön, dich zu sehen!',
     es: '¡Hola! ¡Me alegro de verte!',
     it: 'Ciao, è un piacere vederti!',
     uk: 'Привіт! Радий тебе бачити!',
     lv: 'Sveiki! Prieks jūs redzēt!',
     lt: 'Sveiki! Malonu jus matyti!',
+    fa: 'سلام! از دیدن شما خوشحالم!',
+    he: 'שלום! אני שמח לראות אותך!',
     pl: 'Cześć! Miło cię widzieć!',
+    ar: 'مرحبًا! أنا سعيد لرؤيتك!',
     nl: 'Hallo! Blij je te zien!',
     pt: 'Olá! Que bom ver você!',
     et: 'Tere! Tore sind näha!',
-    fa: 'سلام! از دیدن شما خوشحالم!',
-    he: 'שלום! אני שמח לראות אותך!',
     da: 'Hej! Godt at se dig!',
-    hi: 'नमस्ते! मैं तुम्हें देख कर खुश हूँ!',
-    ar: 'مرحبًا! أنا سعيد لرؤيتك!',
     cs: 'Ahoj! Rád tě vidím!',
     ko: '안녕하세요! 반갑습니다!',
     zh: '嗨！很高兴见到你！',
@@ -42,7 +42,7 @@
     locale: string
   }[]
 
-  let userLanguage = writable<string | undefined>(undefined)
+  let userLanguage = writable<string>('')
 
   $: shouldRender =
     $userLanguage &&
@@ -50,10 +50,12 @@
     !translations.some(({ locale: tLocale }) => tLocale === $userLanguage) &&
     !!desiredLocales[$userLanguage]
 
-  onMount(() => (url = new URL(window.location.href)))
+  let eventName = $userLanguage.toUpperCase()
+
+  onMount(() => (url = new URL(globalThis.location.href)))
 
   onMount(() => {
-    userLanguage.set(window.navigator.language.substring(0, 2))
+    userLanguage.set(globalThis.navigator.language.slice(0, 2))
   })
 </script>
 
@@ -62,25 +64,23 @@
     <svelte:component this={PartyPopperIcon} />
     <span>{desiredLocales[$userLanguage]}</span>
     <p>
-      {`${t('translate-1')}`.replace(
+      {t('translate-1').replace(
         '{language}',
         // @ts-ignore
         t(`locale-${$userLanguage}`),
       )}
     </p>
     <p>
-      {@html `${t('translate-2')}`.replace(
-        '{contributing}',
-        `<a
-          href="https://github.com/azat-io/azat-io/blob/main/contributing.md#content-translation"
-          data-umami-event-name="${$userLanguage.toUpperCase()}"
-          data-umami-event="View translation instructions"
-          rel="noreferrer noopener"
-          target="_blank"
-        >
-          contributing.md
-        </a>`,
-      )}
+      {t('translate-2').replace('{contributing}', '')}
+      <a
+        href="https://github.com/azat-io/azat-io/blob/main/contributing.md#content-translation"
+        data-umami-event="View translation instructions"
+        data-umami-event-name={eventName}
+        rel="noreferrer noopener"
+        target="_blank"
+      >
+        contributing.md
+      </a>
     </p>
   </div>
 {/if}

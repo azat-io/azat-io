@@ -1,4 +1,4 @@
-import type { SvelteComponent, ComponentType } from 'svelte'
+import type { ComponentType } from 'svelte'
 
 import enFlag from '~/assets/flags/flag-us.svg?component'
 import ruFlag from '~/assets/flags/flag-ru.svg?component'
@@ -13,7 +13,7 @@ export let translations = {
 }
 
 export let locales: {
-  icon: ComponentType<SvelteComponent>
+  icon: ComponentType
   originName: string
   code: Locale
 }[] = [

@@ -17,7 +17,7 @@ export let remarkKatex: Plugin<[], Root> =
         let html = katex
           .renderToString((node as Literal).value as string)
           .replace(
-            /class="katex"/,
+            /class="katex"/u,
             `class="katex ${node.type === 'inlineMath' ? 'katex-inline' : 'katex-block'}"`,
           )
         let newNode = {

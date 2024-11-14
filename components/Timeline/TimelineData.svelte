@@ -18,13 +18,14 @@
   let weeksInYear = 52
 
   let totalWeeks = Math.floor(weeksInYear * lifeExpectancyAtBirth)
+  let getDaysBetweenDates = (date1: Date, date2: Date): number =>
+    Math.floor((Number(date1) - Number(date2)) / (1000 * 60 * 60 * 24))
+
   $: passedFullYears = Math.ceil(
     Math.abs(
       new Date(today.getTime() - dateOfBirth.getTime()).getFullYear() - 1970,
     ),
   )
-  $: getDaysBetweenDates = (date1: Date, date2: Date) =>
-    Math.floor((Number(date1) - Number(date2)) / (1000 * 60 * 60 * 24))
 
   $: lastBirthday = new Date(
     new Date(
@@ -52,7 +53,7 @@
     (getDaysBetweenDates(today, lastBirthday) / daysInLastYear) * weeksInYear,
   )
 
-  onMount(() => (url = new URL(window.location.href)))
+  onMount(() => (url = new URL(globalThis.location.href)))
 
   onMount(() => {
     let interval = setInterval(() => {
@@ -70,7 +71,7 @@
   <p>{t('time-since-i-was-born')}</p>
   <p><TimelineRelativeDate date={today} {dateOfBirth} /></p>
   <ul class="timeline">
-    {#each Array(totalWeeks) as _, index}
+    {#each Array.from({ length: totalWeeks }) as _, index (index)}
       <TimelineCell
         class={[
           'timeline-cell',

@@ -10,7 +10,7 @@ export let remarkTypograf: Plugin<[], Root> =
     visit(tree, (node: Node, index: undefined | number, parent: Parent) => {
       let [fileName] = file.history
       let locale = fileName
-        ?.replace(/\.mdx?$/, '')
+        ?.replace(/\.mdx?$/u, '')
         .split('/')
         .pop()
       if (

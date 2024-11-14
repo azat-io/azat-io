@@ -2,8 +2,8 @@ import type { CollectionEntry } from 'astro:content'
 
 import { getCollection } from 'astro:content'
 import { ImageResponse } from '@vercel/og'
+import fs from 'node:fs/promises'
 import path from 'node:path'
-import fs from 'node:fs'
 
 import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
 import { homepage } from '~/package.json'
@@ -13,19 +13,26 @@ interface Props {
   params: { slug: string }
 }
 
-export let GET = async ({ props }: Props) => {
+export let GET = async ({ props }: Props): Promise<ImageResponse> => {
   let { post } = props
 
-  let CoText = fs.readFileSync(path.resolve('./public/fonts/co-text-bold.ttf'))
+  let CoText = await fs.readFile(
+    path.resolve('./public/fonts/co-text-bold.ttf'),
+  )
 
-  let parseUrl = (currentUrl: string) => {
-    let [slugValue, localeValue] = currentUrl.replace(/\.mdx?$/, '').split('/')
+  let parseUrl = (
+    currentUrl: string,
+  ): {
+    locale: string
+    slug: string
+  } => {
+    let [slugValue, localeValue] = currentUrl.replace(/\.mdx?$/u, '').split('/')
     return { locale: localeValue!, slug: slugValue! }
   }
 
   let id = parseUrl(post.slug).slug
 
-  let postCover = fs.readFileSync(
+  let postCover = await fs.readFile(
     path.resolve(`./content/blog/${id}/assets/hero.png`),
   )
 

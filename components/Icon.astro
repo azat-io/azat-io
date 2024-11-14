@@ -11,7 +11,10 @@ type SvgAttributes = Record<string, string>
 
 let { class: className, size = 'm', name, ...props } = Astro.props
 
-let iconRaw = (await import(`../icons/${name}.svg?raw`)).default
+let iconModule = (await import(`../icons/${name}.svg?raw`)) as {
+  default: string
+}
+let iconRaw = iconModule.default
 let icon = optimize(iconRaw, { plugins: ['preset-default'] }).data
 let classList: Record<string, true> = {}
 
@@ -21,16 +24,15 @@ if (className) {
 
 let extractSvgAttributes = (svgString: string): SvgAttributes => {
   let attributes: SvgAttributes = {}
-  let regex = /<svg\s([^>]*)>/
+  let regex = /<svg\s(?<attributes>[^>]*)>/u
   let match = svgString.match(regex)
 
   if (match?.[1]) {
-    let attributeRegex = /(\w+)=["']([^"']+)["']/g
+    let attributeRegex = /(?<name>\w+)=["'](?<value>[^"']+)["']/gu
     let attributeMatch
 
     while ((attributeMatch = attributeRegex.exec(match[1]))) {
-      attributes[attributeMatch[1] as keyof SvgAttributes] =
-        attributeMatch[2] ?? ''
+      attributes[attributeMatch[1]!] = attributeMatch[2] ?? ''
     }
   }
 
@@ -38,7 +40,7 @@ let extractSvgAttributes = (svgString: string): SvgAttributes => {
 }
 
 let stripSvgWrapper = (svgString: string): string => {
-  let regex = /<svg[^>]*>([\S\s]*?)<\/svg>/
+  let regex = /<svg[^>]*>(?<content>[\s\S]*?)<\/svg>/u
   let match = svgString.match(regex)
   return match ? (match[1] ?? '').trim() : svgString
 }

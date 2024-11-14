@@ -18,7 +18,7 @@ let t = useTranslations(locale, 'anime')
 let images = import.meta.glob('../../assets/anime/*')
 images = Object.fromEntries(
   Object.entries(images).map(([key, value]) => [
-    key.replace('../../assets/anime/', '').replace(/\.png$/, ''),
+    key.replace('../../assets/anime/', '').replace(/\.png$/u, ''),
     value,
   ]),
 )

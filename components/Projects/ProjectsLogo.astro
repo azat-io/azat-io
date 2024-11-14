@@ -28,7 +28,7 @@ let logos = Object.fromEntries(
       path
         .replace('../../content/projects/', '')
         .replace('/assets/logo', '')
-        .replace(/\.svg$/, ''),
+        .replace(/\.svg$/u, ''),
       getLogo,
     ]),
 )

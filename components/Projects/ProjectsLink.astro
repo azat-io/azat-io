@@ -16,9 +16,7 @@ let { link, type } = Astro.props
 let locale = getLocaleFromUrl(Astro.url)
 let t = useTranslations(locale, 'projects')
 
-let icons: {
-  [key in Type]: string
-} = {
+let icons: Record<Type, string> = {
   website: 'globe',
   github: 'github',
   vscode: 'vscode',

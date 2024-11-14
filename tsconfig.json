@@ -1,7 +1,12 @@
 {
-  "include": ["**/*.svelte", "**/*.astro", "**/*.ts"],
+  "include": ["**/*.svelte", "**/*.astro", "**/*.ts", "env.d.ts"],
   "extends": "astro/tsconfigs/strictest",
   "compilerOptions": {
+    "types": [
+      "@poppanator/sveltekit-svg/dist/svg",
+      "astro/astro-jsx",
+      "astro/client"
+    ],
     "verbatimModuleSyntax": true,
     "strictNullChecks": true,
     "baseUrl": ".",

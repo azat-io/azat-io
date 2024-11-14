@@ -1,8 +1,8 @@
 <script lang="ts">
-  let ref: HTMLElement
-  $: ref && document.body.appendChild(ref)
+  let reference: HTMLElement | null
+  $: reference && document.body.append(reference)
 </script>
 
-<div bind:this={ref}>
+<div bind:this={reference}>
   <slot />
 </div>

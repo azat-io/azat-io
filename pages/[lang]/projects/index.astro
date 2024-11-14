@@ -22,7 +22,7 @@ export let getStaticPaths = () =>
   <ProjectsList itemtype="https://schema.org/ItemList" itemscope>
     {
       projects.map(({ data: { description, title }, slug }) => (
-        <ProjectsCard description={description} title={title} slug={slug!} />
+        <ProjectsCard description={description} title={title} slug={slug} />
       ))
     }
   </ProjectsList>

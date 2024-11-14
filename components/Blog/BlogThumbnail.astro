@@ -12,7 +12,7 @@ interface Props {
 let { name, id } = Astro.props
 
 let locale = getLocaleFromUrl(Astro.url)
-let t = useTranslations(locale, 'blog')
+let t = useTranslations(locale, 'blog') as (key: string) => string
 ---
 
 <Picture

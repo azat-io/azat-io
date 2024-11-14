@@ -1,11 +1,13 @@
+import type { Locale } from '~/locales'
+
 import { defaultLocale, translations } from '~/locales'
 
-export let getLocaleFromUrl = (url?: URL, anyLang = false) => {
+export let getLocaleFromUrl = (url?: URL, anyLang = false): Locale => {
   if (!url) {
     return defaultLocale
   }
 
-  let [, lang] = url.pathname.replace(/\.html$/, '').split('/')
+  let [, lang] = url.pathname.replace(/\.html$/u, '').split('/')
 
   if (anyLang) {
     return lang as keyof typeof translations

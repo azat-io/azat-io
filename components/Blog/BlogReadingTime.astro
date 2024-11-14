@@ -28,11 +28,9 @@ let coffeeCups = Math.ceil(time / 5)
   }
   {
     `${time} ${
-      (
-        t('minutes-to-read') as {
-          [key in Intl.LDMLPluralRule]: string
-        }
-      )[new Intl.PluralRules(locale).select(time)]
+      (t('minutes-to-read') as Record<Intl.LDMLPluralRule, string>)[
+        new Intl.PluralRules(locale).select(time)
+      ]
     }`
   }
 </BlogInfoElement>

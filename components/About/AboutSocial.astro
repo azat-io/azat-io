@@ -24,9 +24,7 @@ interface Props {
 
 let { username, name, link, type, ...props } = Astro.props
 
-let icons: {
-  [key in Type]: string
-} = {
+let icons: Record<Type, string> = {
   instagram: 'instagram',
   linkedin: 'linkedin',
   telegram: 'telegram',
