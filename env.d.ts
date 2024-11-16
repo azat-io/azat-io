@@ -1,9 +1,10 @@
 /// <reference path=".astro/types.d.ts" />
 
-declare module 'remark-sectionize' {
-  import type { Plugin } from 'unified'
-  import type { Root } from 'mdast'
+import 'astro/astro-jsx'
 
-  let plugin: Plugin<object, Root>
-  export default plugin
+declare global {
+  namespace JSX {
+    type Element = HTMLElement
+    type IntrinsicElements = astroHTML.JSX.IntrinsicElements
+  }
 }
