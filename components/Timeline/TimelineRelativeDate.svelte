@@ -46,19 +46,23 @@
     hours += 24
   }
 
-  let format = (value: number, unit: Unit): string =>
+  let format = (
+    translateFunction: typeof t,
+    value: number,
+    unit: Unit,
+  ): string =>
     `${value} ${
-      (t(unit) as Record<Intl.LDMLPluralRule, string>)[
+      (translateFunction(unit) as Record<Intl.LDMLPluralRule, string>)[
         new Intl.PluralRules(locale).select(value)
       ]
     }`
 
-  $: formattedYears = format(years, 'years')
-  $: formattedMonths = format(months, 'months')
-  $: formattedDays = format(days, 'days')
-  $: formattedHours = format(hours, 'hours')
-  $: formattedMinutes = format(minutes, 'minutes')
-  $: formattedSeconds = format(seconds, 'seconds')
+  $: formattedYears = format(t, years, 'years')
+  $: formattedMonths = format(t, months, 'months')
+  $: formattedDays = format(t, days, 'days')
+  $: formattedHours = format(t, hours, 'hours')
+  $: formattedMinutes = format(t, minutes, 'minutes')
+  $: formattedSeconds = format(t, seconds, 'seconds')
 
   onMount(() => (url = new URL(globalThis.location.href)))
 </script>
