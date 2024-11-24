@@ -1,7 +1,3 @@
-import type { ComponentType } from 'svelte'
-
-import enFlag from '~/assets/flags/flag-us.svg?component'
-import ruFlag from '~/assets/flags/flag-ru.svg?component'
 import en from '~/locales/en'
 import ru from '~/locales/ru'
 
@@ -13,19 +9,19 @@ export let translations = {
 }
 
 export let locales: {
-  icon: ComponentType
   originName: string
+  flag: string
   code: Locale
 }[] = [
   {
     originName: 'English',
-    icon: enFlag,
+    flag: 'us',
     code: 'en',
   },
   {
     /* spell-checker:disable-next-line */
     originName: 'Русский',
-    icon: ruFlag,
+    flag: 'ru',
     code: 'ru',
   },
 ]

@@ -4,7 +4,7 @@ import { fade } from 'astro:transitions'
 import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
 import SkipToContent from '~/components/SkipToContent.astro'
 import { useTranslations } from '~/utils/use-translations'
-import Navigation from '~/components/Navigation.svelte'
+import Navigation from '~/components/Navigation.astro'
 import Typography from '~/components/Typography.astro'
 import Logo from '~/components/Logo.astro'
 
@@ -27,7 +27,7 @@ let t = useTranslations(locale, 'header')
       {t('name')}
     </Typography>
   </a>
-  <Navigation client:load {locale} {url} />
+  <Navigation />
 </header>
 
 <style>

@@ -1,6 +1,6 @@
 ---
-import TravelFlag from '~/components/TravelMap/TravelMapFlag.astro'
 import Typography from '~/components/Typography.astro'
+import Flag from '~/components/Flag.astro'
 
 interface Props {
   originName: string
@@ -17,7 +17,7 @@ let Tag = tag
 
 <Tag class:list="card-wrapper">
   <figure class="card">
-    <TravelFlag {code} {name} />
+    <Flag {code} {name} />
     <figcaption class="caption">
       <Typography color="brand" class="name" mbe="2xs" size="s" tag="h2">
         {name}

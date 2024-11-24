@@ -1,0 +1,373 @@
+---
+import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
+import { useTranslations } from '~/utils/use-translations'
+import Typography from '~/components/Typography.astro'
+import Icon from '~/components/Icon.astro'
+import Flag from '~/components/Flag.astro'
+import { locales } from '~/locales'
+
+let { url } = Astro
+let locale = getLocaleFromUrl(url)
+let t = useTranslations(locale, 'navigation')
+
+let changeLanguageUrl = url.pathname.replace(
+  /^\/\w{2}/u,
+  `/${locale === 'en' ? 'ru' : 'en'}`,
+)
+---
+
+<button
+  class:list={['element', 'mobile-menu']}
+  id="navigation-mobile-menu"
+  aria-label={t('open-menu')}
+>
+  <Icon name="menu" />
+</button>
+<nav id="navigation-main" class="navigation">
+  <button
+    class:list={['element', 'mobile-menu', 'mobile-menu-close']}
+    id="navigation-mobile-menu-close"
+    aria-label={t('close-menu')}
+  >
+    <Icon name="cross" />
+  </button>
+  <a class:list={['element', 'text']} href={`/${locale}/blog`}>
+    <Icon name="grid" />
+    <Typography color="inherit" tag="span" size="m">
+      {t('blog')}
+    </Typography>
+  </a>
+  <a class:list={['element', 'text']} href={`/${locale}/projects`}>
+    <Icon name="bulb" />
+    <Typography color="inherit" tag="span" size="m">
+      {t('projects')}
+    </Typography>
+  </a>
+  <a class:list={['element', 'text']} href={`/${locale}/about`}>
+    <Icon name="user" />
+    <Typography color="inherit" tag="span" size="m">
+      {t('about')}
+    </Typography>
+  </a>
+  <a class:list={['element', 'only-mobile']} href={changeLanguageUrl}>
+    <Icon name="translate" />
+    <Typography color="inherit" tag="span" size="m">
+      {t('change-language')}
+    </Typography>
+  </a>
+  <details id="navigation-change-language" class="details">
+    <summary
+      class:list={['element', 'icon', 'only-desktop']}
+      aria-label={t('change-language')}
+    >
+      <Icon name="translate" />
+      <Typography color="inherit" tag="span" size="m">
+        {t('change-language')}
+      </Typography>
+    </summary>
+    <div class="locale-select">
+      {
+        locales.map(({ originName, flag, code }) => {
+          let path = url.pathname
+            .replace(/^\/\w{2}/u, `/${code}`)
+            .replace(/\.html$/u, '')
+          return (
+            <a aria-label={t(code)} class="locale" href={path}>
+              <Flag name={t(code)} code={flag} />
+              <div class="name-container">
+                <Typography color="brand" size="s">
+                  {t(code)}
+                </Typography>
+                <Typography size="xs">{originName}</Typography>
+              </div>
+            </a>
+          )
+        })
+      }
+    </div>
+  </details>
+  <button
+    id="navigation-change-color-theme"
+    class:list={['element', 'icon']}
+    aria-label={t('change-theme')}
+  >
+    <Icon class="theme-light" name="moon" />
+    <Icon class="theme-dark" name="sun" />
+    <Typography color="inherit" tag="span" size="m">
+      {t('change-theme')}
+    </Typography>
+  </button>
+  <a
+    class:list={['element', 'icon']}
+    href={`/${locale}/rss.xml`}
+    aria-label={t('rss')}
+    target="_blank"
+  >
+    <Icon name="rss" />
+    <Typography color="inherit" tag="span" size="m">
+      {t('rss')}
+    </Typography>
+  </a>
+</nav>
+
+<script is:inline>
+  let initChangeColorTheme = () => {
+    let changeColorThemeButton = document.querySelector(
+      '#navigation-change-color-theme',
+    )
+    changeColorThemeButton.addEventListener('click', event => {
+      event.preventDefault()
+      let savedTheme = localStorage.getItem('theme') ?? 'dark'
+      let newTheme = savedTheme === 'light' ? 'dark' : 'light'
+      document.documentElement.dataset.theme = newTheme
+      localStorage.setItem('theme', newTheme)
+      let navigationMain = document.querySelector('#navigation-main')
+      navigationMain.dataset.open = 'false'
+    })
+  }
+
+  let initChangeLanguage = () => {
+    let changeLanguageButton = document.querySelector(
+      '#navigation-change-language',
+    )
+    document.addEventListener('click', event => {
+      if (!changeLanguageButton.contains(event.target)) {
+        changeLanguageButton.removeAttribute('open')
+      }
+    })
+  }
+
+  let initMobileMenu = () => {
+    let mobileMenuButton = document.querySelector('#navigation-mobile-menu')
+    let closeMobileMenuButton = document.querySelector(
+      '#navigation-mobile-menu-close',
+    )
+    let navigationMain = document.querySelector('#navigation-main')
+    mobileMenuButton.addEventListener('click', () => {
+      let isOpen = navigationMain.dataset.open === 'true' ?? 'false'
+      if (isOpen) {
+        navigationMain.dataset.open = 'false'
+      } else {
+        navigationMain.dataset.open = 'true'
+      }
+    })
+    closeMobileMenuButton.addEventListener('click', () => {
+      navigationMain.dataset.open = 'false'
+    })
+  }
+
+  let init = () => {
+    initChangeColorTheme()
+    initChangeLanguage()
+    initMobileMenu()
+  }
+
+  document.addEventListener('astro:after-swap', init)
+  document.addEventListener('DOMContentLoaded', init)
+</script>
+
+<style>
+  .mobile-menu {
+    display: flex;
+  }
+
+  .mobile-menu-close {
+    align-self: end;
+  }
+
+  .navigation {
+    position: fixed;
+    inset: 0;
+    display: none;
+    flex-direction: column;
+    gap: var(--space-2xs);
+    padding: var(--space-m);
+    background: var(--color-background-primary);
+  }
+
+  .navigation[data-open='true'] {
+    display: flex;
+  }
+
+  .element {
+    position: relative;
+    display: flex;
+    gap: var(--space-s);
+    place-items: center;
+    padding: var(--space-xs) var(--space-s);
+    color: var(--color-content-primary);
+    white-space: nowrap;
+
+    &:is(a) {
+      text-decoration: none;
+    }
+
+    &:is(button) {
+      background: transparent;
+      border: none;
+      outline: none;
+    }
+
+    &:is(summary) {
+      &::marker {
+        content: '';
+      }
+
+      &::-webkit-details-marker {
+        display: none;
+      }
+    }
+  }
+
+  .details {
+    position: relative;
+  }
+
+  .element:is(a, button, summary) {
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    outline: none;
+    transition: box-shadow 200ms;
+
+    @media (hover: hover) {
+      &:hover {
+        color: var(--color-content-brand);
+        background: var(--color-background-primary-hover);
+      }
+    }
+
+    &:focus-visible {
+      background: var(--color-overlay-brand);
+      box-shadow: 0 0 0 2px var(--color-border-brand);
+      transition-property: box-shadow;
+    }
+  }
+
+  .theme-dark {
+    display: none;
+  }
+
+  :root[data-theme='dark'] {
+    .theme-light {
+      display: none;
+    }
+
+    .theme-dark {
+      display: flex;
+    }
+  }
+
+  .locale-select {
+    position: absolute;
+    inset-block-start: calc(100% + var(--space-xs));
+    inset-inline-end: 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    background: var(--color-background-primary);
+    border: 1px solid var(--color-border-primary);
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+  }
+
+  .details[open] .locale-select {
+    transform-origin: top center;
+    animation: grow-down 250ms ease-in-out forwards;
+
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+    }
+  }
+
+  .details-close[open] .locale-select {
+    animation: close 250ms ease-in-out forwards;
+
+    @media (prefers-reduced-motion: reduce) {
+      animation-duration: 10ms;
+    }
+  }
+
+  .locale {
+    display: flex;
+    gap: var(--space-s);
+    place-items: center;
+    min-inline-size: 160px;
+    padding: 12px;
+    color: inherit;
+    text-decoration: none;
+    border-radius: var(--border-radius);
+
+    @media (hover: hover) {
+      &:hover {
+        background: var(--color-background-primary-hover);
+      }
+    }
+  }
+
+  .only-mobile {
+    display: flex;
+  }
+
+  .only-desktop {
+    display: none;
+  }
+
+  @media (width >= 768px) {
+    .mobile-menu {
+      display: none;
+    }
+
+    .navigation {
+      position: static;
+      display: flex;
+      flex-direction: row;
+      place-items: center;
+      padding: 0;
+      background: none;
+    }
+
+    .text svg {
+      display: none;
+    }
+
+    .icon span {
+      display: none;
+    }
+
+    .only-mobile {
+      display: none;
+    }
+
+    .only-desktop {
+      display: flex;
+    }
+  }
+
+  @keyframes grow-down {
+    0% {
+      transform: scaleY(0);
+    }
+
+    80% {
+      transform: scaleY(1.1);
+    }
+
+    100% {
+      transform: scaleY(1);
+    }
+  }
+
+  @keyframes close {
+    0% {
+      transform: scaleY(1);
+    }
+
+    20% {
+      transform: scaleY(1.1);
+    }
+
+    100% {
+      transform: scaleY(0);
+    }
+  }
+</style>
