@@ -19,6 +19,7 @@ export let GET = async ({ props }: Props): Promise<ImageResponse> => {
   let CoText = await fs.readFile(
     path.resolve('./public/fonts/co-text-bold.ttf'),
   )
+  let CoTextFont = Buffer.from(new Uint8Array(CoText.buffer))
 
   let parseUrl = (
     currentUrl: string,
@@ -112,7 +113,7 @@ export let GET = async ({ props }: Props): Promise<ImageResponse> => {
   return new ImageResponse(html, {
     fonts: [
       {
-        data: CoText.buffer,
+        data: CoTextFont,
         name: 'Co Text',
         style: 'normal',
       },

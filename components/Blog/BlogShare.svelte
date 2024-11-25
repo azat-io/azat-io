@@ -194,10 +194,6 @@
     block-size: var(--size-icon-s);
   }
 
-  :global(html):has(.dialog:modal[open]) {
-    overflow: hidden;
-  }
-
   .dialog {
     min-inline-size: 280px;
     padding: var(--space-l) var(--space-xl);

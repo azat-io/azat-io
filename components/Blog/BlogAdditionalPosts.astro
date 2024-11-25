@@ -38,46 +38,39 @@ let nextPost = isLastPost ? null : posts.at(indexOfCurrentPost - 1)
 {
   locale === parseUrl(slug).locale && (
     <>
-      <>
-        {isFirstPost ? (
-          <div />
-        ) : (
-          <div class:list={['post', 'post-previous']}>
-            <a
-              href={`/${locale}/blog/${previousPost?.slug}`}
-              class="link link-previous"
-            >
-              <Icon name="arrow-left" class="icon" size="s" />
-              <div>
-                <Typography color="primary" size="s">
-                  {t('previous-post')}
-                </Typography>
-                <Typography color="inherit">
-                  {previousPost?.data.title}
-                </Typography>
-              </div>
-            </a>
-          </div>
-        )}
-      </>
-      <>
-        {!isLastPost && (
-          <div class:list={['post', 'post-next']}>
-            <a
-              href={`/${locale}/blog/${nextPost?.slug}`}
-              class="link link-next"
-            >
-              <div>
-                <Typography color="primary" size="s">
-                  {t('next-post')}
-                </Typography>
-                <Typography color="inherit">{nextPost?.data.title}</Typography>
-              </div>
-              <Icon name="arrow-right" class="icon" size="s" />
-            </a>
-          </div>
-        )}
-      </>
+      {isFirstPost ? (
+        <div />
+      ) : (
+        <div class:list={['post', 'post-previous']}>
+          <a
+            href={`/${locale}/blog/${previousPost?.slug}`}
+            class="link link-previous"
+          >
+            <Icon name="arrow-left" class="icon" size="s" />
+            <div>
+              <Typography color="primary" size="s">
+                {t('previous-post')}
+              </Typography>
+              <Typography color="inherit">
+                {previousPost?.data.title}
+              </Typography>
+            </div>
+          </a>
+        </div>
+      )}
+      {!isLastPost && (
+        <div class:list={['post', 'post-next']}>
+          <a href={`/${locale}/blog/${nextPost?.slug}`} class="link link-next">
+            <div>
+              <Typography color="primary" size="s">
+                {t('next-post')}
+              </Typography>
+              <Typography color="inherit">{nextPost?.data.title}</Typography>
+            </div>
+            <Icon name="arrow-right" class="icon" size="s" />
+          </a>
+        </div>
+      )}
     </>
   )
 }
