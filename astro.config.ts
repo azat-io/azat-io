@@ -93,6 +93,13 @@ export default defineConfig({
     svelte(),
     mdx(),
   ],
+  experimental: {
+    svg: {
+      mode: 'inline',
+    },
+    responsiveImages: true,
+    clientPrerender: true,
+  },
   prefetch: {
     defaultStrategy: 'viewport',
     prefetchAll: true,
@@ -103,9 +110,6 @@ export default defineConfig({
   },
   image: {
     service: sharpImageService(),
-  },
-  experimental: {
-    clientPrerender: true,
   },
   server: {
     port: 8080,

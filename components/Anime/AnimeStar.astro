@@ -1,5 +1,5 @@
 ---
-import Icon from '~/components/Icon.astro'
+import IconStar from '~/icons/star.svg'
 
 interface Props {
   filled?: boolean
@@ -8,9 +8,14 @@ interface Props {
 let { filled } = Astro.props
 ---
 
-<Icon class:list={[filled && 'filled']} name="star" size="xs" />
+<IconStar class:list={['icon', filled && 'filled']} />
 
 <style>
+  .icon {
+    inline-size: var(--size-icon-xs);
+    block-size: var(--size-icon-xs);
+  }
+
   .filled {
     fill: var(--color-content-primary);
 

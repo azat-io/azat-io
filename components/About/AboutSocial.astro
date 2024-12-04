@@ -1,6 +1,15 @@
 ---
 import Typography from '~/components/Typography.astro'
-import Icon from '~/components/Icon.astro'
+import IconInstagram from '~/icons/instagram.svg'
+import IconLinkedin from '~/icons/linkedin.svg'
+import IconTelegram from '~/icons/telegram.svg'
+import IconMastodon from '~/icons/mastodon.svg'
+import IconEnvelope from '~/icons/envelope.svg'
+import IconSpotify from '~/icons/spotify.svg'
+import IconDiscord from '~/icons/discord.svg'
+import IconBluesky from '~/icons/bluesky.svg'
+import IconGithub from '~/icons/github.svg'
+import IconX from '~/icons/x.svg'
 
 type Type =
   | 'instagram'
@@ -24,18 +33,20 @@ interface Props {
 
 let { username, name, link, type, ...props } = Astro.props
 
-let icons: Record<Type, string> = {
-  instagram: 'instagram',
-  linkedin: 'linkedin',
-  telegram: 'telegram',
-  mastodon: 'mastodon',
-  spotify: 'spotify',
-  discord: 'discord',
-  bluesky: 'bluesky',
-  email: 'envelope',
-  github: 'github',
-  x: 'x',
+let icons = {
+  instagram: IconInstagram,
+  linkedin: IconLinkedin,
+  telegram: IconTelegram,
+  mastodon: IconMastodon,
+  spotify: IconSpotify,
+  discord: IconDiscord,
+  bluesky: IconBluesky,
+  email: IconEnvelope,
+  github: IconGithub,
+  x: IconX,
 }
+
+let Icon = icons[type]
 ---
 
 <a
@@ -45,7 +56,7 @@ let icons: Record<Type, string> = {
   href={link}
   {...props}
 >
-  <Icon name={icons[type]} size="l" />
+  <Icon class="icon" />
   <section class="social-info">
     <Typography color="brand" class="text" size="m" tag="h3">{name}</Typography>
     <Typography color="secondary" class="text" size="2xs">
@@ -81,6 +92,11 @@ let icons: Record<Type, string> = {
     display: flex;
     flex-direction: column;
     gap: 2px;
+  }
+
+  .icon {
+    inline-size: var(--size-icon-l);
+    block-size: var(--size-icon-l);
   }
 
   .text {

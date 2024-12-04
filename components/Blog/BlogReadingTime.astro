@@ -4,7 +4,7 @@ import readingTime from 'reading-time'
 import BlogInfoElement from '~/components/Blog/BlogInfoElement.astro'
 import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
 import { useTranslations } from '~/utils/use-translations'
-import Icon from '~/components/Icon.astro'
+import IconCoffee from '~/icons/coffee.svg'
 
 interface Props {
   itemprop?: string
@@ -21,11 +21,7 @@ let coffeeCups = Math.ceil(time / 5)
 ---
 
 <BlogInfoElement {...props}>
-  {
-    Array.from({ length: coffeeCups }).map(() => (
-      <Icon name="coffee" size="xs" />
-    ))
-  }
+  {Array.from({ length: coffeeCups }).map(() => <IconCoffee class="icon" />)}
   {
     `${time} ${
       (t('minutes-to-read') as Record<Intl.LDMLPluralRule, string>)[
@@ -34,3 +30,10 @@ let coffeeCups = Math.ceil(time / 5)
     }`
   }
 </BlogInfoElement>
+
+<style>
+  .icon {
+    inline-size: var(--size-icon-xs);
+    block-size: var(--size-icon-xs);
+  }
+</style>

@@ -3,31 +3,25 @@ import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
 import { useTranslations } from '~/utils/use-translations'
 import Typography from '~/components/Typography.astro'
 import Hidden from '~/components/Hidden.astro'
-import Icon from '~/components/Icon.astro'
+import IconGithub from '~/icons/github.svg'
+import IconX from '~/icons/x.svg'
 
 let locale = getLocaleFromUrl(Astro.url)
 let t = useTranslations(locale, 'footer')
 
 let xUsername = locale === 'ru' ? 'azat_io' : 'azat_io_en'
 
-interface FooterIcon {
-  icon: string
-  name: string
-  link: string
-  id: string
-}
-
-let icons: FooterIcon[] = [
+let icons = [
   {
     link: `https://x.com/${xUsername}`,
     name: t('x'),
-    icon: 'x',
+    icon: IconX,
     id: 'X',
   },
   {
     link: 'https://github.com/azat-io',
     name: t('github'),
-    icon: 'github',
+    icon: IconGithub,
     id: 'GitHub',
   },
 ]
@@ -64,7 +58,7 @@ let icons: FooterIcon[] = [
   </Typography>
   <div class="part">
     {
-      icons.map(({ icon, name, link, id }) => (
+      icons.map(({ icon: Icon, name, link, id }) => (
         <a
           aria-label={`${t('follow-me-on')} ${name}`}
           data-umami-event="Visit footer social link"
@@ -74,7 +68,7 @@ let icons: FooterIcon[] = [
           class="link"
           href={link}
         >
-          <Icon name={icon} size="m" />
+          <Icon class="icon" />
           <Hidden>{name}</Hidden>
         </a>
       ))
@@ -122,5 +116,12 @@ let icons: FooterIcon[] = [
       background: var(--color-overlay-brand);
       transition-property: box-shadow;
     }
+  }
+
+  .icon {
+    display: flex;
+    flex-shrink: 0;
+    inline-size: var(--size-icon-m);
+    block-size: var(--size-icon-m);
   }
 </style>

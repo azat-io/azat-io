@@ -1,7 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content'
 
-import { getCollection } from 'astro:content'
+import { getCollection, render } from 'astro:content'
 
 import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
 import ProjectsLayout from '~/layouts/Projects.astro'
@@ -10,12 +10,12 @@ import { homepage } from '~/package.json'
 type Props = CollectionEntry<'projects'>
 
 let project = Astro.props
-let { Content } = await project.render()
+let { Content } = await render(project)
 
 export let getStaticPaths = async () => {
   let projects = await getCollection('projects')
   return projects.map(currentProject => {
-    let [slug, locale] = currentProject.slug.split('/')
+    let [slug, locale] = currentProject.id.split('/')
     return {
       params: {
         lang: getLocaleFromUrl(new URL(locale!, homepage), true),

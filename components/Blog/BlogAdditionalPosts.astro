@@ -2,8 +2,9 @@
 import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
 import { useTranslations } from '~/utils/use-translations'
 import Typography from '~/components/Typography.astro'
+import IconArrowRight from '~/icons/arrow-right.svg'
+import IconArrowLeft from '~/icons/arrow-left.svg'
 import { getPosts } from '~/utils/get-posts'
-import Icon from '~/components/Icon.astro'
 
 interface Props {
   slug: string
@@ -46,7 +47,7 @@ let nextPost = isLastPost ? null : posts.at(indexOfCurrentPost - 1)
             href={`/${locale}/blog/${previousPost?.slug}`}
             class="link link-previous"
           >
-            <Icon name="arrow-left" class="icon" size="s" />
+            <IconArrowLeft class="icon" />
             <div>
               <Typography color="primary" size="s">
                 {t('previous-post')}
@@ -67,7 +68,7 @@ let nextPost = isLastPost ? null : posts.at(indexOfCurrentPost - 1)
               </Typography>
               <Typography color="inherit">{nextPost?.data.title}</Typography>
             </div>
-            <Icon name="arrow-right" class="icon" size="s" />
+            <IconArrowRight class="icon" />
           </a>
         </div>
       )}
@@ -90,7 +91,10 @@ let nextPost = isLastPost ? null : posts.at(indexOfCurrentPost - 1)
   }
 
   .icon {
+    flex-shrink: 0;
     place-self: center;
+    inline-size: var(--size-icon-s);
+    block-size: var(--size-icon-s);
   }
 
   .link-previous {

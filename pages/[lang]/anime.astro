@@ -12,7 +12,12 @@ import { locales } from '~/locales'
 let locale = getLocaleFromUrl(Astro.url)
 let t = useTranslations(locale, 'anime')
 
-let collection = (await getCollection('anime')).map(({ data }) => data)
+let collection = (await getCollection('anime'))
+  .map(({ data, id }) => ({
+    ...data,
+    order: Number.parseInt(id.split('-').at(0) ?? '0'),
+  }))
+  .toSorted((a, b) => a.order - b.order)
 
 export let getStaticPaths = () =>
   locales.map(({ code }) => ({ params: { lang: code } }))

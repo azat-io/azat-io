@@ -1,27 +1,25 @@
 ---
-import { optimize } from 'svgo/lib/svgo'
-
 import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
 import { useTranslations } from '~/utils/use-translations'
-import flagAE from '~/assets/flags/flag-ae.svg?raw'
-import flagAM from '~/assets/flags/flag-am.svg?raw'
-import flagAZ from '~/assets/flags/flag-az.svg?raw'
-import flagBY from '~/assets/flags/flag-by.svg?raw'
-import flagFR from '~/assets/flags/flag-fr.svg?raw'
-import flagGE from '~/assets/flags/flag-ge.svg?raw'
-import flagIL from '~/assets/flags/flag-il.svg?raw'
-import flagIN from '~/assets/flags/flag-in.svg?raw'
-import flagKE from '~/assets/flags/flag-ke.svg?raw'
-import flagKH from '~/assets/flags/flag-kh.svg?raw'
-import flagPS from '~/assets/flags/flag-ps.svg?raw'
-import flagRU from '~/assets/flags/flag-ru.svg?raw'
-import flagSG from '~/assets/flags/flag-sg.svg?raw'
-import flatTH from '~/assets/flags/flag-th.svg?raw'
-import flagTR from '~/assets/flags/flag-tr.svg?raw'
-import flagUA from '~/assets/flags/flag-ua.svg?raw'
-import flagUG from '~/assets/flags/flag-ug.svg?raw'
-import flagUS from '~/assets/flags/flag-us.svg?raw'
-import flagVN from '~/assets/flags/flag-vn.svg?raw'
+import FlagAE from '~/assets/flags/flag-ae.svg'
+import FlagAM from '~/assets/flags/flag-am.svg'
+import FlagAZ from '~/assets/flags/flag-az.svg'
+import FlagBY from '~/assets/flags/flag-by.svg'
+import FlagFR from '~/assets/flags/flag-fr.svg'
+import FlagGE from '~/assets/flags/flag-ge.svg'
+import FlagIL from '~/assets/flags/flag-il.svg'
+import FlagIN from '~/assets/flags/flag-in.svg'
+import FlagKE from '~/assets/flags/flag-ke.svg'
+import FlagKH from '~/assets/flags/flag-kh.svg'
+import FlagPS from '~/assets/flags/flag-ps.svg'
+import FlagRU from '~/assets/flags/flag-ru.svg'
+import FlagSG from '~/assets/flags/flag-sg.svg'
+import FlagTH from '~/assets/flags/flag-th.svg'
+import FlagTR from '~/assets/flags/flag-tr.svg'
+import FlagUA from '~/assets/flags/flag-ua.svg'
+import FlagUG from '~/assets/flags/flag-ug.svg'
+import FlagUS from '~/assets/flags/flag-us.svg'
+import FlagVN from '~/assets/flags/flag-vn.svg'
 import Hidden from '~/components/Hidden.astro'
 
 interface Props {
@@ -34,41 +32,35 @@ let { code, name } = Astro.props
 let locale = getLocaleFromUrl(Astro.url)
 let t = useTranslations(locale, 'travel-map')
 
-let flags: Record<string, string> = {
-  ae: flagAE,
-  am: flagAM,
-  az: flagAZ,
-  by: flagBY,
-  fr: flagFR,
-  ge: flagGE,
-  il: flagIL,
-  in: flagIN,
-  ke: flagKE,
-  kh: flagKH,
-  ps: flagPS,
-  ru: flagRU,
-  sg: flagSG,
-  th: flatTH,
-  tr: flagTR,
-  ua: flagUA,
-  ug: flagUG,
-  us: flagUS,
-  vn: flagVN,
+let flags = {
+  ae: FlagAE,
+  am: FlagAM,
+  az: FlagAZ,
+  by: FlagBY,
+  fr: FlagFR,
+  ge: FlagGE,
+  il: FlagIL,
+  in: FlagIN,
+  ke: FlagKE,
+  kh: FlagKH,
+  ps: FlagPS,
+  ru: FlagRU,
+  sg: FlagSG,
+  th: FlagTH,
+  tr: FlagTR,
+  ua: FlagUA,
+  ug: FlagUG,
+  us: FlagUS,
+  vn: FlagVN,
 }
 
-let flag = flags[code]
+let Icon = flags[code as keyof typeof flags]
 ---
 
-{
-  flag && (
-    <div class="flag">
-      <Fragment
-        set:html={optimize(flag, { plugins: ['preset-default'] }).data}
-      />
-      <Hidden>{`${t('flag-of')} ${name}`}</Hidden>
-    </div>
-  )
-}
+<div class="flag">
+  <Icon />
+  <Hidden>{`${t('flag-of')} ${name}`}</Hidden>
+</div>
 
 <style>
   .flag {

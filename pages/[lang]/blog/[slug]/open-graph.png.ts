@@ -31,7 +31,7 @@ export let GET = async ({ props }: Props): Promise<ImageResponse> => {
     return { locale: localeValue!, slug: slugValue! }
   }
 
-  let id = parseUrl(post.slug).slug
+  let id = parseUrl(post.id).slug
 
   let postCover = await fs.readFile(
     path.resolve(`./content/blog/${id}/assets/hero.png`),
@@ -126,7 +126,7 @@ export let GET = async ({ props }: Props): Promise<ImageResponse> => {
 export let getStaticPaths = async () => {
   let posts = await getCollection('blog')
   return posts.map(post => {
-    let [slug, locale] = post.slug.split('/')
+    let [slug, locale] = post.id.split('/')
     return {
       params: {
         lang: getLocaleFromUrl(new URL(locale!, homepage), true),

@@ -1,4 +1,6 @@
 import { defineCollection, z } from 'astro:content'
+import { glob } from 'astro/loaders'
+import path from 'node:path'
 
 let blog = defineCollection({
   schema: z.object({
@@ -10,7 +12,10 @@ let blog = defineCollection({
     description: z.string(),
     title: z.string(),
   }),
-  type: 'content',
+  loader: glob({
+    base: path.join(import.meta.dirname, 'blog'),
+    pattern: '**/*.mdx',
+  }),
 })
 
 let projects = defineCollection({
@@ -33,7 +38,10 @@ let projects = defineCollection({
     type: z.string(),
     id: z.string(),
   }),
-  type: 'content',
+  loader: glob({
+    base: path.join(import.meta.dirname, 'projects'),
+    pattern: '**/*.mdx',
+  }),
 })
 
 let travelMap = defineCollection({
@@ -42,7 +50,10 @@ let travelMap = defineCollection({
     originLang: z.string(),
     code: z.string(),
   }),
-  type: 'data',
+  loader: glob({
+    base: path.join(import.meta.dirname, 'travel-map'),
+    pattern: '**/*.json',
+  }),
 })
 
 let anime = defineCollection({
@@ -74,7 +85,10 @@ let anime = defineCollection({
     year: z.number(),
     id: z.string(),
   }),
-  type: 'data',
+  loader: glob({
+    base: path.join(import.meta.dirname, 'anime'),
+    pattern: '**/*.json',
+  }),
 })
 
 export let collections = {

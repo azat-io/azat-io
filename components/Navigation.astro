@@ -2,8 +2,16 @@
 import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
 import { useTranslations } from '~/utils/use-translations'
 import Typography from '~/components/Typography.astro'
-import Icon from '~/components/Icon.astro'
+import IconTranslate from '~/icons/translate.svg'
 import Flag from '~/components/Flag.astro'
+import IconCross from '~/icons/cross.svg'
+import IconMenu from '~/icons/menu.svg'
+import IconGrid from '~/icons/grid.svg'
+import IconBulb from '~/icons/bulb.svg'
+import IconUser from '~/icons/user.svg'
+import IconMoon from '~/icons/moon.svg'
+import IconRss from '~/icons/rss.svg'
+import IconSun from '~/icons/sun.svg'
 import { locales } from '~/locales'
 
 let { url } = Astro
@@ -21,7 +29,7 @@ let changeLanguageUrl = url.pathname.replace(
   id="navigation-mobile-menu"
   aria-label={t('open-menu')}
 >
-  <Icon name="menu" />
+  <IconMenu class="icon" />
 </button>
 <nav id="navigation-main" class="navigation">
   <button
@@ -29,38 +37,38 @@ let changeLanguageUrl = url.pathname.replace(
     id="navigation-mobile-menu-close"
     aria-label={t('close-menu')}
   >
-    <Icon name="cross" />
+    <IconCross class="icon" />
   </button>
-  <a class:list={['element', 'text']} href={`/${locale}/blog`}>
-    <Icon name="grid" />
+  <a class:list={['element', 'element-text']} href={`/${locale}/blog`}>
+    <IconGrid class="icon" />
     <Typography color="inherit" tag="span" size="m">
       {t('blog')}
     </Typography>
   </a>
-  <a class:list={['element', 'text']} href={`/${locale}/projects`}>
-    <Icon name="bulb" />
+  <a class:list={['element', 'element-text']} href={`/${locale}/projects`}>
+    <IconBulb class="icon" />
     <Typography color="inherit" tag="span" size="m">
       {t('projects')}
     </Typography>
   </a>
-  <a class:list={['element', 'text']} href={`/${locale}/about`}>
-    <Icon name="user" />
+  <a class:list={['element', 'element-text']} href={`/${locale}/about`}>
+    <IconUser class="icon" />
     <Typography color="inherit" tag="span" size="m">
       {t('about')}
     </Typography>
   </a>
   <a class:list={['element', 'only-mobile']} href={changeLanguageUrl}>
-    <Icon name="translate" />
+    <IconTranslate class="icon" />
     <Typography color="inherit" tag="span" size="m">
       {t('change-language')}
     </Typography>
   </a>
   <details id="navigation-change-language" class="details">
     <summary
-      class:list={['element', 'icon', 'only-desktop']}
+      class:list={['element', 'element-icon', 'only-desktop']}
       aria-label={t('change-language')}
     >
-      <Icon name="translate" />
+      <IconTranslate class="icon" />
       <Typography color="inherit" tag="span" size="m">
         {t('change-language')}
       </Typography>
@@ -87,23 +95,23 @@ let changeLanguageUrl = url.pathname.replace(
     </div>
   </details>
   <button
+    class:list={['element', 'element-icon']}
     id="navigation-change-color-theme"
-    class:list={['element', 'icon']}
     aria-label={t('change-theme')}
   >
-    <Icon class="theme-light" name="moon" />
-    <Icon class="theme-dark" name="sun" />
+    <IconMoon class:list={['icon', 'theme-light']} />
+    <IconSun class:list={['icon', 'theme-dark']} />
     <Typography color="inherit" tag="span" size="m">
       {t('change-theme')}
     </Typography>
   </button>
   <a
-    class:list={['element', 'icon']}
+    class:list={['element', 'element-icon']}
     href={`/${locale}/rss.xml`}
     aria-label={t('rss')}
     target="_blank"
   >
-    <Icon name="rss" />
+    <IconRss class="icon" />
     <Typography color="inherit" tag="span" size="m">
       {t('rss')}
     </Typography>
@@ -187,6 +195,13 @@ let changeLanguageUrl = url.pathname.replace(
 
   .navigation[data-open='true'] {
     display: flex;
+  }
+
+  .icon {
+    display: flex;
+    flex-shrink: 0;
+    inline-size: var(--size-icon-m);
+    block-size: var(--size-icon-m);
   }
 
   .element {
@@ -326,11 +341,11 @@ let changeLanguageUrl = url.pathname.replace(
       background: none;
     }
 
-    .text svg {
+    .element-text .icon {
       display: none;
     }
 
-    .icon span {
+    .element-icon span {
       display: none;
     }
 

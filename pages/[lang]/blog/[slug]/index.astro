@@ -1,9 +1,10 @@
 ---
 import type { CollectionEntry } from 'astro:content'
 
-import { getCollection } from 'astro:content'
+import { getCollection, render } from 'astro:content'
 
 import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
+import { defaultLocale } from '~/locales/index'
 import BlogLayout from '~/layouts/Blog.astro'
 import { homepage } from '~/package.json'
 
@@ -11,15 +12,18 @@ type Props = CollectionEntry<'blog'>
 
 let post = Astro.props
 
-let { Content } = await post.render()
+let { Content } = await render(post)
 
 export let getStaticPaths = async () => {
   let posts = await getCollection('blog')
   return posts.map(currentPost => {
-    let [slug, locale] = currentPost.slug.split('/')
+    let [slug, locale] = currentPost.id.split('/')
     return {
       params: {
-        lang: getLocaleFromUrl(new URL(locale!, homepage), true),
+        lang: getLocaleFromUrl(
+          new URL(locale ?? defaultLocale, homepage),
+          true,
+        ),
         slug,
       },
       props: currentPost,
@@ -28,6 +32,6 @@ export let getStaticPaths = async () => {
 }
 ---
 
-<BlogLayout body={post.body} slug={post.slug} {...post.data}>
+<BlogLayout body={post.body} slug={post.id} {...post.data}>
   <Content />
 </BlogLayout>

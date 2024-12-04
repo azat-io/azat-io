@@ -1,6 +1,4 @@
 ---
-import { ViewTransitions } from 'astro:transitions'
-
 import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
 import { useTranslations } from '~/utils/use-translations'
 import Analytics from '~/components/Analytics.astro'
@@ -147,5 +145,4 @@ let isProduction = import.meta.env.PROD
   </script>
 
   {isProduction && <Analytics />}
-  <ViewTransitions />
 </head>

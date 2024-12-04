@@ -7,14 +7,14 @@ import BlogDate from '~/components/Blog/BlogDate.astro'
 import Typography from '~/components/Typography.astro'
 
 interface Props {
+  body: undefined | string
   description: string
   title: string
   slug: string
-  body: string
   date: Date
 }
 
-let { description, title, slug, date, body } = Astro.props
+let { description, body = '', title, slug, date } = Astro.props
 
 let locale = getLocaleFromUrl(Astro.url)
 ---

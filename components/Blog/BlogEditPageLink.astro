@@ -3,7 +3,7 @@ import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
 import { useTranslations } from '~/utils/use-translations'
 import Typography from '~/components/Typography.astro'
 import { repository } from '~/package.json'
-import Icon from '~/components/Icon.astro'
+import IconPencil from '~/icons/pencil.svg'
 
 interface Props {
   slug: string
@@ -26,7 +26,7 @@ let t = useTranslations(locale, 'blog')
     color="inherit"
     tag="a"
   >
-    <Icon name="pencil" size="s" />
+    <IconPencil class="icon" />
     {t('edit-this-page')}
   </Typography>
 </div>
@@ -43,5 +43,10 @@ let t = useTranslations(locale, 'blog')
     padding-inline: 0;
     margin-block: 0;
     text-decoration: none;
+  }
+
+  .icon {
+    inline-size: var(--size-icon-s);
+    block-size: var(--size-icon-s);
   }
 </style>

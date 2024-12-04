@@ -1,6 +1,6 @@
 ---
 import BlogInfoElement from '~/components/Blog/BlogInfoElement.astro'
-import Icon from '~/components/Icon.astro'
+import IconCalendar from '~/icons/calendar.svg'
 import Date from '~/components/Date.astro'
 
 interface Props {
@@ -12,6 +12,13 @@ let { date, ...props } = Astro.props
 ---
 
 <BlogInfoElement>
-  <Icon name="calendar" size="xs" />
+  <IconCalendar class="icon" />
   <Date {date} {...props} />
 </BlogInfoElement>
+
+<style>
+  .icon {
+    inline-size: var(--size-icon-xs);
+    block-size: var(--size-icon-xs);
+  }
+</style>

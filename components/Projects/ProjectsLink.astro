@@ -2,7 +2,10 @@
 import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
 import { useTranslations } from '~/utils/use-translations'
 import Typography from '~/components/Typography.astro'
-import Icon from '~/components/Icon.astro'
+import IconGithub from '~/icons/github.svg'
+import IconVscode from '~/icons/vscode.svg'
+import IconGlobe from '~/icons/globe.svg'
+import IconNpm from '~/icons/npm.svg'
 
 type Type = 'website' | 'github' | 'vscode' | 'npm'
 
@@ -16,16 +19,18 @@ let { link, type } = Astro.props
 let locale = getLocaleFromUrl(Astro.url)
 let t = useTranslations(locale, 'projects')
 
-let icons: Record<Type, string> = {
-  website: 'globe',
-  github: 'github',
-  vscode: 'vscode',
-  npm: 'npm',
+let icons = {
+  website: IconGlobe,
+  github: IconGithub,
+  vscode: IconVscode,
+  npm: IconNpm,
 }
+
+let Icon = icons[type]
 ---
 
 <a rel="noopener noreferrer" target="_blank" class="link" href={link}>
-  <Icon name={icons[type]} size="m" />
+  <Icon class="icon" />
   <Typography color="inherit" size="m">
     {t(type)}
   </Typography>
@@ -46,5 +51,10 @@ let icons: Record<Type, string> = {
         color: var(--color-content-link-hover);
       }
     }
+  }
+
+  .icon {
+    inline-size: var(--size-icon-m);
+    block-size: var(--size-icon-m);
   }
 </style>

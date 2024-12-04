@@ -12,7 +12,13 @@ import { locales } from '~/locales'
 let locale = getLocaleFromUrl(Astro.url)
 let t = useTranslations(locale, 'travel-map')
 
-let collection = (await getCollection('travel-map')).map(({ data }) => data)
+let collection = (await getCollection('travel-map'))
+  .map(({ data, id }) => ({
+    ...data,
+    order: Number.parseInt(id.split('-').at(0) ?? '0'),
+  }))
+  .toSorted((a, b) => a.order - b.order)
+
 let total = collection.length
 
 export let getStaticPaths = () =>
