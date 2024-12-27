@@ -116,6 +116,7 @@ export default {
     dorohedoro: 'Дорохедоро',
     duration: 'Длительность',
     adventure: 'приключения',
+    'look-back': 'Обернись',
     'episodes-of': 'эп. по',
     romance: 'романтика',
     thriller: 'триллер',
