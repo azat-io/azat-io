@@ -106,6 +106,7 @@ export default {
     'spy-family': 'Spy × Family',
     'tokyo-ghoul': 'Tokyo Ghoul',
     'kaiju-no-8': 'Kaiju No. 8',
+    'dan-da-dan': 'Dan da dan',
     'elfen-lied': 'Elfen Lied',
     'death-note': 'Death Note',
     'oshi-no-ko': 'Oshi no Ko',

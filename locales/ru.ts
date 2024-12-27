@@ -112,6 +112,7 @@ export default {
     'kaiju-no-8': 'Кайдзю № 8',
     'mushi-shi': 'Мастер Муси',
     'cover-for': 'Обложка для',
+    'dan-da-dan': 'Дандадан',
     dorohedoro: 'Дорохедоро',
     duration: 'Длительность',
     adventure: 'приключения',
