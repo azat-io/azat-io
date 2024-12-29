@@ -26,4 +26,5 @@ export let getProjects = async (
         slug: slug!,
       }
     })
+    .toSorted((a, b) => a.slug.localeCompare(b.slug))
 }
