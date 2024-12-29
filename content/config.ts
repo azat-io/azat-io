@@ -24,7 +24,7 @@ let projects = defineCollection({
       website: z.ostring(),
       github: z.ostring(),
       vscode: z.ostring(),
-      npm: z.string(),
+      npm: z.ostring(),
     }),
     badges: z
       .object({
