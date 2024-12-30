@@ -20,6 +20,9 @@ importers:
       '@astrojs/svelte':
         specifier: ^7.0.1
         version: 7.0.1(@types/node@22.10.2)(astro@5.0.8(@types/node@22.10.2)(jiti@2.4.1)(lightningcss@1.28.2)(rollup@4.28.1)(terser@5.36.0)(typescript@5.7.2)(yaml@2.6.1))(jiti@2.4.1)(lightningcss@1.28.2)(svelte@5.14.1)(terser@5.36.0)(typescript@5.7.2)(yaml@2.6.1)
+      '@kindspells/astro-shield':
+        specifier: ^1.7.1
+        version: 1.7.1(astro@5.0.8(@types/node@22.10.2)(jiti@2.4.1)(lightningcss@1.28.2)(rollup@4.28.1)(terser@5.36.0)(typescript@5.7.2)(yaml@2.6.1))
       '@playform/compress':
         specifier: ^0.1.6
         version: 0.1.6(@types/node@22.10.2)(jiti@2.4.1)(rollup@4.28.1)(typescript@5.7.2)(yaml@2.6.1)
@@ -1621,6 +1624,12 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
+
+  '@kindspells/astro-shield@1.7.1':
+    resolution: {integrity: sha512-8M6rbXNp1v7CbwIjDXJzlgnPuYHmqTLGAiiMK738AhYE191uWGi6mzEhQEW9U4agDzi6Cq6+WFjJ/ZavYDz4pg==}
+    engines: {node: '>= 18.0.0'}
+    peerDependencies:
+      astro: ^4.0.0
 
   '@leichtgewicht/ip-codec@2.0.5':
     resolution: {integrity: sha512-Vo+PSpZG2/fmgmiNzYK9qWRh8h/CHrwD0mo1h1DzL4yzHNSfWYujGTYsWGreD000gcgmZ7K4Ys6Tx9TxtsKdDw==}
@@ -7585,6 +7594,10 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
+
+  '@kindspells/astro-shield@1.7.1(astro@5.0.8(@types/node@22.10.2)(jiti@2.4.1)(lightningcss@1.28.2)(rollup@4.28.1)(terser@5.36.0)(typescript@5.7.2)(yaml@2.6.1))':
+    dependencies:
+      astro: 5.0.8(@types/node@22.10.2)(jiti@2.4.1)(lightningcss@1.28.2)(rollup@4.28.1)(terser@5.36.0)(typescript@5.7.2)(yaml@2.6.1)
 
   '@leichtgewicht/ip-codec@2.0.5': {}
 

@@ -2,6 +2,7 @@ import { sharpImageService, defineConfig } from 'astro/config'
 import rehypeExternalLinks from 'rehype-external-links'
 import { browserslistToTargets } from 'lightningcss'
 import svelteSvg from '@poppanator/sveltekit-svg'
+import { shield } from '@kindspells/astro-shield'
 import remarkSectionize from 'remark-sectionize'
 import compress from '@playform/compress'
 import browserslist from 'browserslist'
@@ -53,6 +54,35 @@ export default defineConfig({
       remarkMath,
     ],
   },
+  integrations: [
+    shield({
+      securityHeaders: {
+        contentSecurityPolicy: {
+          cspDirectives: {
+            'default-src': "'none'",
+          },
+        },
+        enableOnStaticPages: {
+          provider: 'netlify',
+        },
+      },
+      sri: {
+        scriptsAllowListUrls: ['https://analytics.azat.io/script.js'],
+      },
+    }),
+    compress({
+      JavaScript: false,
+      Image: false,
+      HTML: true,
+      CSS: false,
+      SVG: true,
+    }),
+    sitemap({
+      filter: page => !new RegExp(`^${homepage}/?$`).test(page),
+    }),
+    svelte(),
+    mdx(),
+  ],
   vite: {
     build: {
       rollupOptions: {
@@ -79,20 +109,6 @@ export default defineConfig({
     },
     plugins: [svelteSvg()],
   },
-  integrations: [
-    compress({
-      JavaScript: true,
-      Image: false,
-      HTML: true,
-      CSS: false,
-      SVG: true,
-    }),
-    sitemap({
-      filter: page => !new RegExp(`^${homepage}/?$`).test(page),
-    }),
-    svelte(),
-    mdx(),
-  ],
   experimental: {
     svg: {
       mode: 'inline',

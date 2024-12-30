@@ -26,6 +26,7 @@
     "@astrojs/rss": "^4.0.10",
     "@astrojs/sitemap": "^3.2.1",
     "@astrojs/svelte": "^7.0.1",
+    "@kindspells/astro-shield": "^1.7.1",
     "@playform/compress": "^0.1.6",
     "@poppanator/sveltekit-svg": "^5.0.0",
     "@vercel/og": "^0.6.4",
