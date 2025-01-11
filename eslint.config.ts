@@ -1,3 +1,5 @@
+import type { Linter } from 'eslint'
+
 import eslintConfig from '@azat-io/eslint-config'
 
 export default eslintConfig({
@@ -6,4 +8,4 @@ export default eslintConfig({
   svelte: true,
   astro: true,
   node: true,
-})
+}) satisfies Promise<Linter.Config[]>
