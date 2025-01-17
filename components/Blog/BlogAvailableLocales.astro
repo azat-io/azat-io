@@ -18,7 +18,7 @@ let t = useTranslations(locale, 'blog')
 ---
 
 {
-  translations.length ? (
+  translations.length > 0 ? (
     <div class="available-languages">
       <Typography tag="span" size="xs">
         {t('also-translated')}
