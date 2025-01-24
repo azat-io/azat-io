@@ -76,6 +76,7 @@ let anime = defineCollection({
         z.literal('mecha'),
         z.literal('music'),
         z.literal('ecchi'),
+        z.literal('sports'),
       ])
       .array(),
     originName: z.string(),
