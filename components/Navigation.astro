@@ -218,9 +218,9 @@ let changeLanguageUrl = url.pathname.replace(
     }
 
     &:is(button) {
+      outline: none;
       background: transparent;
       border: none;
-      outline: none;
     }
 
     &:is(summary) {
@@ -240,8 +240,8 @@ let changeLanguageUrl = url.pathname.replace(
 
   .element:is(a, button, summary) {
     cursor: pointer;
-    border-radius: var(--border-radius);
     outline: none;
+    border-radius: var(--border-radius);
     transition: box-shadow 200ms;
 
     @media (hover: hover) {

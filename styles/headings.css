@@ -19,8 +19,8 @@ h3 {
   padding-inline: 0;
   text-decoration: none;
   opacity: 0%;
-  transition: opacity 250ms ease-in-out 100ms;
   transform: translateY(calc(-50% - 2px));
+  transition: opacity 250ms ease-in-out 100ms;
 
   &:focus-visible {
     border-radius: 8px;

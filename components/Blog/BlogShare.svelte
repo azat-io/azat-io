@@ -96,7 +96,7 @@
   let share = async (): Promise<void> => {
     if (
       !/android|ipad|iphone|ipod/iu.test(navigator.userAgent) ||
-      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+      // eslint-disable-next-line typescript/no-unnecessary-condition
       !navigator.share
     ) {
       dialog.showModal()
@@ -170,10 +170,10 @@
     padding-inline: 0;
     color: var(--color-content-link);
     text-decoration: none;
+    outline: none;
     background: transparent;
     border: none;
     border-radius: var(--border-radius);
-    outline: none;
     transition: box-shadow 200ms;
 
     @media (hover: hover) {
@@ -223,10 +223,10 @@
     display: flex;
     padding: var(--space-xs);
     color: var(--color-content-primary);
+    outline: none;
     background: transparent;
     border: none;
     border-radius: var(--border-radius);
-    outline: none;
     transition: all 250ms;
 
     &:focus-visible {
