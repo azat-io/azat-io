@@ -28,10 +28,8 @@ export let remarkTypograf: Plugin<[], Root> =
         if (typeof text === 'string') {
           ;(parent.children[index] as Literal).value = typograf.execute(text, {
             ruleFilter: rule =>
-              !(
-                rule.name === 'common/space/trimRight' ||
-                rule.name === 'common/space/trimLeft'
-              ),
+              rule.name !== 'common/space/trimRight' &&
+              rule.name !== 'common/space/trimLeft',
           })
         }
       }
