@@ -55,6 +55,7 @@ export default {
     'howl-s-moving-castle': 'Ходячий Замок Хаула',
     'when-the-cicadas-cry': 'Когда Плачут Цикады',
     'heavenly-delusion': 'Великая Небесная Стена',
+    'solo-leveling': 'Поднятие Уровня в Одиночку',
     'the-apothecary-diaries': 'Записки Аптекаря',
     'spy-family-part-2': 'Семья Шпиона, часть 2',
     'spice-and-wolf-ii': 'Волчица и Пряности II',

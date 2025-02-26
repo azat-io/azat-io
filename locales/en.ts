@@ -96,6 +96,7 @@ export default {
     tekkonkinkreet: 'Tekkonkinkreet',
     'buddy-daddies': 'Buddy Daddies',
     'slice-of-life': 'slice of life',
+    'solo-leveling': 'Solo Leveling',
     psychological: 'psychological',
     'black-butler': 'Black Butler',
     'demon-slayer': 'Demon Slayer',
