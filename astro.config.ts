@@ -10,7 +10,6 @@ import sitemap from '@astrojs/sitemap'
 import remarkMath from 'remark-math'
 import svelte from '@astrojs/svelte'
 import mdx from '@astrojs/mdx'
-import path from 'node:path'
 import JSON5 from 'json5'
 
 import { remarkCopyCode } from './plugins/remark-copy-code'
@@ -100,9 +99,9 @@ export default defineConfig({
     css: {
       lightningcss: {
         targets: browserslistToTargets(
-          browserslist(null, {
-            config: path.join(import.meta.dirname, './.browserslistrc'),
-          }),
+          browserslist(
+            browserslist.loadConfig({ path: '.' }) ?? browserslist.defaults,
+          ),
         ),
       },
       transformer: 'lightningcss',
