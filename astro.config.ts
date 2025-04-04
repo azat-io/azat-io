@@ -109,11 +109,9 @@ export default defineConfig({
     plugins: [svelteSvg()],
   },
   experimental: {
-    svg: {
-      mode: 'inline',
-    },
     responsiveImages: true,
     clientPrerender: true,
+    svg: true,
   },
   prefetch: {
     defaultStrategy: 'viewport',
