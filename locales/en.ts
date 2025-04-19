@@ -8,6 +8,8 @@ export default {
       'Made in Abyss: The Golden City of the Scorching Sun',
     'butareba-the-story-of-a-man-turned-into-a-pig':
       'Butareba — The Story of a Man Turned into a Pig',
+    'solo-leveling-season-2-arise-from-the-shadow':
+      'Solo Leveling Season 2 - Arise from the Shadow',
     'alya-sometimes-hides-her-feelings-in-russian':
       'Alya Sometimes Hides Her Feelings in Russian',
     'mushoku-tensei-jobless-reincarnation-part-2':

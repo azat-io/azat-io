@@ -6,6 +6,8 @@ export default {
       'Атака Титанов: Последний сезон, специальный выпуск 2',
     'made-in-abyss-the-golden-city-of-the-scorching-sun':
       'Созданный в Бездне: Солнце, Вспыхнувшее в Золотом Городе',
+    'solo-leveling-season-2-arise-from-the-shadow':
+      'Поднятие Уровня в Одиночку Сезон 2: Восстаньте из Тени',
     'alya-sometimes-hides-her-feelings-in-russian':
       'Аля Иногда Кокетничает со Мной по-Русски',
     'demon-slayer-entertainment-district-arc':
