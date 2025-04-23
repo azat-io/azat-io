@@ -111,7 +111,6 @@ export default defineConfig({
   experimental: {
     responsiveImages: true,
     clientPrerender: true,
-    svg: true,
   },
   prefetch: {
     defaultStrategy: 'viewport',
