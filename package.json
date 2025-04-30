@@ -20,6 +20,7 @@
     "test:format": "prettier --check \"**/*.{js,ts,astro,css,json,md,yml}\"",
     "test:js": "eslint .",
     "test:markdown": "remark \"**/*.{md,mdx}\" --frail",
+    "test:packages": "pnpm dedupe --check",
     "test:size": "pnpm run build && size-limit",
     "test:spelling": "cspell \"**/*\"",
     "test:svelte": "svelte-check",

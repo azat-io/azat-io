@@ -77,6 +77,20 @@ jobs:
       - name: Test
         run: pnpm test:markdown
 
+  packages:
+    name: Packages
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Tools & Dependencies
+        uses: ./.github/actions/install
+
+      - name: Test
+        run: pnpm test:packages
+
   size:
     name: Size
     runs-on: ubuntu-latest

@@ -2702,6 +2702,7 @@ packages:
   eslint-plugin-react-compiler@19.1.0-rc.1-rc-af1b7da-20250421:
     resolution: {integrity: sha512-nhT4Kv1/99DYSNA6kbMAVSguB44FejL7gvmsupecIcSwUltx8DM0icx2YJhLGKrD2qlFfvhXaBVdxAvvbZl/XA==}
     engines: {node: ^14.17.0 || ^16.0.0 || >= 18.0.0}
+    deprecated: Wrong version name was published
     peerDependencies:
       eslint: '>=7'
 
@@ -7174,7 +7175,7 @@ snapshots:
 
   '@types/sax@1.2.7':
     dependencies:
-      '@types/node': 17.0.45
+      '@types/node': 22.14.1
 
   '@types/supports-color@8.1.3': {}
 
