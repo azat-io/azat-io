@@ -129,7 +129,7 @@
 <Portal>
   <dialog bind:this={dialog} class="dialog">
     <button
-      aria-label={t('close-dialog').toString()}
+      aria-label={t('close-dialog')}
       on:click={closeDialog}
       class="close"
       type="button"
@@ -142,9 +142,9 @@
         <li class="link-wrapper">
           <a
             data-umami-event="Share on social media"
-            aria-label={t(label).toString()}
             data-umami-event-name={name}
             rel="noopener noreferrer"
+            aria-label={t(label)}
             target="_blank"
             class="link"
             href={link}
