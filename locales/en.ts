@@ -35,6 +35,7 @@ export default {
     'charcoal-feather-federation': 'Charcoal Feather Federation',
     'in-this-corner-of-the-world': 'In This Corner of the World',
     'onimai-i-m-now-your-sister': "Onimai: I'm Now Your Sister!",
+    'ameku-m-d-doctor-detective': 'Ameku M.D.: Doctor Detective',
     'la-maison-en-petits-cubes': 'La Maison en Petits Cubes',
     'to-your-eternity-season-2': 'To Your Eternity Season 2',
     'demon-slayer-mugen-train': 'Demon Slayer: Mugen Train',

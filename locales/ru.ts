@@ -32,6 +32,7 @@ export default {
     'the-girl-who-leapt-through-time': 'Девочка, Покорившая Время',
     'to-your-eternity-season-2': 'Для тебя, Бессмертный, сезон 2',
     'keep-your-hands-off-eizouken': 'Руки Прочь от Кинокружка!',
+    'ameku-m-d-doctor-detective': 'Карта Детектива Такао Амэку',
     'godzilla-singular-point': 'Годзилла: Точка Сингулярности',
     'dorohedoro-extra-evil': 'Дорохедоро: Дьявольские Истории',
     'negative-positive-angler': 'Негативный Позитивный Рыбак',
