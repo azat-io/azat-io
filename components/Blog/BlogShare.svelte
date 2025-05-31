@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { on } from 'svelte/events'
   import { onMount } from 'svelte'
 
   import type { Locale } from '~/locales'
@@ -108,7 +109,7 @@
       !navigator.share
     ) {
       dialog.showModal()
-      document.addEventListener('click', clickOutside)
+      on(document, 'click', clickOutside)
     } else {
       await navigator.share({
         text: description,

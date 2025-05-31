@@ -1,6 +1,15 @@
 <script lang="ts">
-  let reference: HTMLElement | null
-  $: reference && document.body.append(reference)
+  import { onDestroy, onMount } from 'svelte'
+
+  let reference: HTMLElement | null = null
+
+  onMount(() => {
+    document.body.append(reference!)
+  })
+
+  onDestroy(() => {
+    reference!.remove()
+  })
 </script>
 
 <div bind:this={reference}>
