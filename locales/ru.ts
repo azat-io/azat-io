@@ -321,6 +321,11 @@ export default {
     'first-name': 'Азат',
     name: 'Азат Ш.',
   },
+  footer: {
+    'follow-me-on': 'Подписаться в',
+    bluesky: 'БлюСкай',
+    github: 'ГитХаб',
+  },
   rss: {
     description: 'Руководство по изобретению велосипедов',
     title: 'Азат Ш.',
@@ -328,10 +333,5 @@ export default {
   header: {
     'skip-to-content': 'Перейти к основному контенту',
     name: 'Азат Ш.',
-  },
-  footer: {
-    'follow-me-on': 'Подписаться в',
-    github: 'ГитХаб',
-    x: 'Икс',
   },
 }

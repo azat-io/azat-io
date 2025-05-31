@@ -316,14 +316,14 @@ export default {
     'first-name': 'Azat',
     name: 'Azat S.',
   },
+  footer: {
+    'follow-me-on': 'Follow me on',
+    bluesky: 'BlueSky',
+    github: 'GitHub',
+  },
   rss: {
     description: 'Manual for reinventing the wheel',
     title: 'Azat S.',
-  },
-  footer: {
-    'follow-me-on': 'Follow me on',
-    github: 'GitHub',
-    x: 'X',
   },
   header: {
     'skip-to-content': 'Skip to main content',

@@ -1,21 +1,21 @@
 ---
-import { SOCIAL_GITHUB, SOCIAL_X_EN, SOCIAL_X_RU } from '~/constants'
 import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
+import { SOCIAL_BLUESKY, SOCIAL_GITHUB } from '~/constants'
 import { useTranslations } from '~/utils/use-translations'
 import Typography from '~/components/Typography.astro'
 import Hidden from '~/components/Hidden.astro'
+import IconBluesky from '~/icons/bluesky.svg'
 import IconGithub from '~/icons/github.svg'
-import IconX from '~/icons/x.svg'
 
 let locale = getLocaleFromUrl(Astro.url)
 let t = useTranslations(locale, 'footer')
 
 let icons = [
   {
-    link: `https://x.com/${locale === 'ru' ? SOCIAL_X_RU : SOCIAL_X_EN}`,
-    name: t('x'),
-    icon: IconX,
-    id: 'X',
+    link: `https://bsky.app/profile/${SOCIAL_BLUESKY}`,
+    name: t('bluesky'),
+    icon: IconBluesky,
+    id: 'Bluesky',
   },
   {
     link: `https://github.com/${SOCIAL_GITHUB}`,
