@@ -1,4 +1,5 @@
 ---
+import { SOCIAL_GITHUB, SOCIAL_X_EN, SOCIAL_X_RU } from '~/constants'
 import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
 import { useTranslations } from '~/utils/use-translations'
 import Typography from '~/components/Typography.astro'
@@ -9,17 +10,15 @@ import IconX from '~/icons/x.svg'
 let locale = getLocaleFromUrl(Astro.url)
 let t = useTranslations(locale, 'footer')
 
-let xUsername = locale === 'ru' ? 'azat_io' : 'azat_io_en'
-
 let icons = [
   {
-    link: `https://x.com/${xUsername}`,
+    link: `https://x.com/${locale === 'ru' ? SOCIAL_X_RU : SOCIAL_X_EN}`,
     name: t('x'),
     icon: IconX,
     id: 'X',
   },
   {
-    link: 'https://github.com/azat-io',
+    link: `https://github.com/${SOCIAL_GITHUB}`,
     name: t('github'),
     icon: IconGithub,
     id: 'GitHub',

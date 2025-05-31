@@ -1,6 +1,7 @@
 ---
 import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
 import { useTranslations } from '~/utils/use-translations'
+import { SOCIAL_X_EN, SOCIAL_X_RU } from '~/constants'
 import Analytics from '~/components/Analytics.astro'
 import '~/styles/base.css'
 import '~/styles/fonts.css'
@@ -35,7 +36,6 @@ let canonicalURL = new URL(Astro.url.pathname, Astro.site)
   .replace(/\.html$/u, '')
 
 let pageTitle = `${title} | ${t('name')}`
-let xUsername = locale === 'ru' ? '@azat_io' : '@azat_io_en'
 
 let isProduction = import.meta.env.PROD
 ---
@@ -124,8 +124,14 @@ let isProduction = import.meta.env.PROD
 
   <meta content="summary_large_image" property="twitter:card" />
   <meta property="twitter:url" content={Astro.url} />
-  <meta name="twitter:creator" content={xUsername} />
-  <meta name="twitter:site" content={xUsername} />
+  <meta
+    content={locale === 'ru' ? SOCIAL_X_RU : SOCIAL_X_EN}
+    name="twitter:creator"
+  />
+  <meta
+    content={locale === 'ru' ? SOCIAL_X_RU : SOCIAL_X_EN}
+    name="twitter:site"
+  />
   <meta property="twitter:title" content={pageTitle} />
   <meta property="twitter:description" content={description} />
   <meta property="twitter:image" content={image} />

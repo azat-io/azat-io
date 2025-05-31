@@ -16,6 +16,7 @@
       "~/layouts/*": ["./layouts/*"],
       "~/locales/*": ["./locales/*"],
       "~/content/*": ["./content/*"],
+      "~/constants": ["./constants"],
       "~/styles/*": ["./styles/*"],
       "~/assets/*": ["./assets/*"],
       "~/pages/*": ["./pages/*"],

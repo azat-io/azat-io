@@ -1,4 +1,17 @@
 ---
+import {
+  SOCIAL_DISCORD_ID,
+  SOCIAL_INSTAGRAM,
+  SOCIAL_LINKEDIN,
+  SOCIAL_MASTODON,
+  SOCIAL_TELEGRAM,
+  SOCIAL_DISCORD,
+  SOCIAL_BLUESKY,
+  SOCIAL_GITHUB,
+  SOCIAL_EMAIL,
+  SOCIAL_X_EN,
+  SOCIAL_X_RU,
+} from '~/constants'
 import AboutSocialLinks from '~/components/About/AboutSocialLinks.astro'
 import AboutSocial from '~/components/About/AboutSocial.astro'
 import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
@@ -13,60 +26,58 @@ import { locales } from '~/locales'
 let locale = getLocaleFromUrl(Astro.url)
 let t = useTranslations(locale, 'about')
 
-let xUsername = locale === 'ru' ? 'azat_io' : 'azat_io_en'
-
 let socialMedia = [
   {
-    link: 'mailto:to@azat.io',
-    username: 'to@azat.io',
+    link: `mailto:${SOCIAL_EMAIL}`,
+    username: SOCIAL_EMAIL,
     name: 'Email',
     type: 'email',
   },
   {
-    link: 'https://github.com/azat-io',
-    username: '@azat-io',
+    link: `https://github.com/${SOCIAL_GITHUB}`,
+    username: `@${SOCIAL_GITHUB}`,
     name: 'GitHub',
     type: 'github',
   },
   {
-    link: `https://x.com/${xUsername}`,
-    username: `@${xUsername}`,
+    link: `https://x.com/${locale === 'ru' ? SOCIAL_X_RU : SOCIAL_X_EN}`,
+    username: `@${locale === 'ru' ? SOCIAL_X_RU : SOCIAL_X_EN}`,
     name: 'X',
     type: 'x',
   },
   {
-    link: 'https://mastodon.social/@azat_io',
-    username: '@azat_io@mastodon.social',
-    name: 'Mastodon',
-    type: 'mastodon',
-  },
-  {
-    link: 'https://bsky.app/profile/azat.io',
-    username: '@azat.io',
+    link: `https://bsky.app/profile/${SOCIAL_BLUESKY}`,
+    username: `@${SOCIAL_BLUESKY}`,
     name: 'BlueSky',
     type: 'bluesky',
   },
   {
-    link: 'https://linkedin.com/in/azat-io',
-    username: '@azat-io',
+    link: `https://mastodon.social/@${SOCIAL_MASTODON}`,
+    username: `@${SOCIAL_MASTODON}`,
+    name: 'Mastodon',
+    type: 'mastodon',
+  },
+  {
+    link: `https://linkedin.com/in/${SOCIAL_LINKEDIN}`,
+    username: `@${SOCIAL_LINKEDIN}`,
     name: 'LinkedIn',
     type: 'linkedin',
   },
   {
-    link: 'https://discordapp.com/users/107017608368271360',
-    username: '@azat_io',
+    link: `https://discordapp.com/users/${SOCIAL_DISCORD_ID}`,
+    username: `@${SOCIAL_DISCORD}`,
     name: 'Discord',
     type: 'discord',
   },
   {
-    link: 'https://t.me/azat_io',
-    username: '@azat_io',
+    link: `https://t.me/${SOCIAL_TELEGRAM}`,
+    username: `@${SOCIAL_TELEGRAM}`,
     name: 'Telegram',
     type: 'telegram',
   },
   {
-    link: 'https://instagram.com/azat_io',
-    username: '@azat_io',
+    link: `https://instagram.com/${SOCIAL_INSTAGRAM}`,
+    username: `@${SOCIAL_INSTAGRAM}`,
     name: 'Instagram',
     type: 'instagram',
   },

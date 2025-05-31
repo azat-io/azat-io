@@ -3,6 +3,12 @@
 
   import type { Locale } from '~/locales'
 
+  import {
+    SOCIAL_MASTODON,
+    SOCIAL_BLUESKY,
+    SOCIAL_X_EN,
+    SOCIAL_X_RU,
+  } from '~/constants'
   import YcombinatorIcon from '~/icons/ycombinator.svg?component'
   import { useTranslations } from '~/utils/use-translations'
   import FacebookIcon from '~/icons/facebook.svg?component'
@@ -22,17 +28,16 @@
   export let url: URL
 
   $: t = useTranslations(locale, 'blog') as (key: string) => string
-  $: xUsername = locale === 'ru' ? 'azat_io' : 'azat_io_en'
 
   $: formattedTitle = encodeURIComponent(title)
   $: formattedXDescription = encodeURIComponent(
-    `${t('quote-start')}${description}${t('quote-end')} ${t('by')} @${xUsername}`,
+    `${t('quote-start')}${description}${t('quote-end')} ${t('by')} @${locale === 'ru' ? SOCIAL_X_RU : SOCIAL_X_EN}`,
   )
   $: formattedBlueskyDescription = encodeURIComponent(
-    `${t('quote-start')}${description}${t('quote-end')} ${t('by')} @azat.io`,
+    `${t('quote-start')}${description}${t('quote-end')} ${t('by')} @${SOCIAL_BLUESKY}`,
   )
   $: formattedMastodonDescription = encodeURIComponent(
-    `${t('quote-start')}${description}${t('quote-end')} ${t('by')} @azat_io@mastodon.social`,
+    `${t('quote-start')}${description}${t('quote-end')} ${t('by')} @${SOCIAL_MASTODON}`,
   )
 
   let dialog: HTMLDialogElement
