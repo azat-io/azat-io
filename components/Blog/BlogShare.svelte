@@ -9,7 +9,7 @@
   import LinkedinIcon from '~/icons/linkedin.svg?component'
   import TelegramIcon from '~/icons/telegram.svg?component'
   import MastodonIcon from '~/icons/mastodon.svg?component'
-  import WhatsappIcon from '~/icons/whatsapp.svg?component'
+  import BlueskyIcon from '~/icons/bluesky.svg?component'
   import RedditIcon from '~/icons/reddit.svg?component'
   import CrossIcon from '~/icons/cross.svg?component'
   import ShareIcon from '~/icons/share.svg?component'
@@ -28,6 +28,9 @@
   $: formattedXDescription = encodeURIComponent(
     `${t('quote-start')}${description}${t('quote-end')} ${t('by')} @${xUsername}`,
   )
+  $: formattedBlueskyDescription = encodeURIComponent(
+    `${t('quote-start')}${description}${t('quote-end')} ${t('by')} @azat.io`,
+  )
   $: formattedMastodonDescription = encodeURIComponent(
     `${t('quote-start')}${description}${t('quote-end')} ${t('by')} @azat_io@mastodon.social`,
   )
@@ -42,6 +45,12 @@
       label: 'share-on-x',
       icon: XIcon,
       name: 'X',
+    },
+    {
+      link: `https://bsky.app/intent/compose?text=${formattedTitle}%0A%0A${formattedBlueskyDescription}%0A%0A${cleanUrl}`,
+      label: 'share-on-bluesky',
+      icon: BlueskyIcon,
+      name: 'Bluesky',
     },
     {
       link: `https://s2f.kytta.dev/?text=${formattedTitle}%0A%0A${formattedMastodonDescription}%0A%0A${cleanUrl}`,
@@ -62,22 +71,16 @@
       name: 'Hacker News',
     },
     {
-      link: `https://reddit.com/submit?url=${cleanUrl}&title=${formattedTitle}`,
-      label: 'share-on-reddit',
-      icon: RedditIcon,
-      name: 'Reddit',
-    },
-    {
       link: `https://facebook.com/sharer/sharer.php?u=${cleanUrl}`,
       label: 'share-on-facebook',
       icon: FacebookIcon,
       name: 'Facebook',
     },
     {
-      link: `https://wa.me/?text=${formattedTitle}%0A%0A${cleanUrl}`,
-      label: 'share-on-whatsapp',
-      icon: WhatsappIcon,
-      name: 'WhatsApp',
+      link: `https://reddit.com/submit?url=${cleanUrl}&title=${formattedTitle}`,
+      label: 'share-on-reddit',
+      icon: RedditIcon,
+      name: 'Reddit',
     },
     {
       link: `https://t.me/share/url?url=${cleanUrl}&text=${formattedTitle}`,
