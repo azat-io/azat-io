@@ -26,6 +26,7 @@ export default {
       'Made in Abyss: Dawn of the Deep Soul',
     'demon-slayer-swordsmith-village-arc':
       'Demon Slayer: Swordsmith Village Arc',
+    'orb-on-the-movements-of-the-earth': 'Orb: On the Movements of the Earth',
     'the-melancholy-of-haruhi-suzumiya': 'The Melancholy of Haruhi Suzumiya',
     'attack-on-titan-the-final-season': 'Attack on Titan: The Final Season',
     'zom-100-bucket-list-of-the-dead': 'Zom 100: Bucket List of the Dead',

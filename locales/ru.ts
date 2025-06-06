@@ -37,6 +37,7 @@ export default {
     'dorohedoro-extra-evil': 'Дорохедоро: Дьявольские Истории',
     'negative-positive-angler': 'Негативный Позитивный Рыбак',
     'la-maison-en-petits-cubes': 'Дом из Маленьких Кубиков',
+    'orb-on-the-movements-of-the-earth': 'О Движении Земли',
     'attack-on-titan-3-part-2': 'Атака Титанов 3, часть 2',
     '5-centimeters-per-second': '5 сантиметров в секунду',
     'the-promised-neverland-2': 'Обещанная Страна Грёз 2',
