@@ -2,7 +2,6 @@
   "plugins": [
     "remark-lint-code-block-split-list",
     "remark-lint-heading-increment",
-    "remark-lint-match-punctuation",
     "remark-lint-fenced-code-flag",
     "remark-lint-no-dead-urls"
   ]

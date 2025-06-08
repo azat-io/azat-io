@@ -74,7 +74,6 @@
     "remark-lint-code-block-split-list": "^1.0.0",
     "remark-lint-fenced-code-flag": "^4.2.0",
     "remark-lint-heading-increment": "^4.0.1",
-    "remark-lint-match-punctuation": "^0.2.1",
     "remark-lint-no-dead-urls": "^2.0.1",
     "size-limit": "^11.2.0",
     "stylelint": "^16.20.0",
