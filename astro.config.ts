@@ -108,10 +108,6 @@ export default defineConfig({
     },
     plugins: [svelteSvg()],
   },
-  experimental: {
-    responsiveImages: true,
-    clientPrerender: true,
-  },
   prefetch: {
     defaultStrategy: 'viewport',
     prefetchAll: true,
@@ -119,6 +115,9 @@ export default defineConfig({
   build: {
     inlineStylesheets: 'always',
     format: 'file',
+  },
+  experimental: {
+    clientPrerender: true,
   },
   image: {
     service: sharpImageService(),
