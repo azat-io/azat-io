@@ -31,6 +31,7 @@ export default {
     'attack-on-titan-the-final-season': 'Attack on Titan: The Final Season',
     'zom-100-bucket-list-of-the-dead': 'Zom 100: Bucket List of the Dead',
     'the-girl-who-leapt-through-time': 'The Girl Who Leapt Through Time',
+    'the-apothecary-diaries-season-2': 'The Apothecary Diaries Season 2',
     'keep-your-hands-off-eizouken': 'Keep Your Hands Off Eizouken!',
     'frieren-beyond-journey-s-end': 'Frieren: Beyond Journey’s End',
     'charcoal-feather-federation': 'Charcoal Feather Federation',

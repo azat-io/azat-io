@@ -30,6 +30,7 @@ export default {
     'the-melancholy-of-haruhi-suzumiya': 'Меланхолия Харухи Судзумии',
     'dead-dead-demon-s-dededededestruction': 'Мёртвые-Мёртвые Демоны',
     'the-girl-who-leapt-through-time': 'Девочка, Покорившая Время',
+    'the-apothecary-diaries-season-2': 'Записки Аптекаря, сезон 2',
     'to-your-eternity-season-2': 'Для тебя, Бессмертный, сезон 2',
     'keep-your-hands-off-eizouken': 'Руки Прочь от Кинокружка!',
     'ameku-m-d-doctor-detective': 'Карта Детектива Такао Амэку',
