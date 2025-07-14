@@ -5,6 +5,5 @@
   --space-m: clamp(1rem, 0.75rem + 1vi, 1.25rem);
   --space-l: clamp(1.5rem, 1.25rem + 1vi, 1.75rem);
   --space-xl: clamp(2rem, 1rem + 4vi, 3rem);
-
   --border-radius: 16px;
 }

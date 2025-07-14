@@ -195,12 +195,12 @@
       background: var(--color-overlay-brand);
       box-shadow: 0 0 0 2px var(--color-border-brand);
     }
-  }
 
-  .share :global(svg) {
-    display: flex;
-    inline-size: var(--size-icon-s);
-    block-size: var(--size-icon-s);
+    & :global(svg) {
+      display: flex;
+      inline-size: var(--size-icon-s);
+      block-size: var(--size-icon-s);
+    }
   }
 
   .dialog {
@@ -253,7 +253,7 @@
   .title {
     margin-block: 0 var(--space-m);
     font: var(--font-zl);
-    font-weight: 700;
+    font-weight: bold;
     color: var(--color-content-primary);
     text-align: center;
   }
@@ -277,11 +277,11 @@
     color: var(--color-content-primary);
     text-decoration: none;
     border-radius: var(--border-radius);
-  }
 
-  .link :global(svg) {
-    inline-size: var(--size-icon-l);
-    block-size: var(--size-icon-l);
+    & :global(svg) {
+      inline-size: var(--size-icon-l);
+      block-size: var(--size-icon-l);
+    }
   }
 
   @media (hover: hover) {

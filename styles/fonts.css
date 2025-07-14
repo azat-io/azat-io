@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Co Text';
-  font-weight: 400;
+  font-weight: normal;
   src: url('/fonts/co-text-regular.woff2');
   font-display: swap;
   unicode-range: U+0000-00FF, U+0400-04FF, U+0500-052F, U+2000-206F;
@@ -8,7 +8,7 @@
 
 @font-face {
   font-family: 'Co Text';
-  font-weight: 700;
+  font-weight: bold;
   src: url('/fonts/co-text-bold.woff2');
   font-display: swap;
   unicode-range: U+0000-00FF, U+0400-04FF, U+0500-052F, U+2000-206F;
@@ -17,7 +17,7 @@
 @font-face {
   font-family: fallback;
   font-style: normal;
-  font-weight: 400;
+  font-weight: normal;
   src: local('Arial');
   size-adjust: 111.98%;
   ascent-override: 88.05%;
@@ -34,7 +34,6 @@
 :root {
   --font-family-base: 'Co Text', fallback, sans-serif;
   --font-family-code: 'Monaspace Neon', monospace;
-
   --font-size-2xs: 0.875rem;
   --font-size-xs: 0.9375rem;
   --font-size-s: clamp(0.9375rem, 0.875rem + 0.25vi, 1rem);
@@ -43,7 +42,6 @@
   --font-size-xl: clamp(1.375rem, 0.75rem + 2.5vi, 2rem);
   --font-size-2xl: clamp(2rem, 1.5rem + 2vi, 2.5rem);
   --font-size-code: clamp(0.9rem, 0.8125rem + 0.375vi, 1rem);
-
   --font-2xs: 400 var(--font-size-2xs) / 1.75 var(--font-family-base);
   --font-xs: 400 var(--font-size-xs) / 1.75 var(--font-family-base);
   --font-s: 400 var(--font-size-s) / 1.75 var(--font-family-base);

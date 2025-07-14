@@ -101,10 +101,10 @@
     @media (width >= 768px) {
       gap: 3px;
     }
-  }
 
-  .timeline :global(.timeline-cell:nth-child(52n)) {
-    counter-increment: year;
+    & :global(.timeline-cell:nth-child(52n)) {
+      counter-increment: year;
+    }
   }
 
   :global(.timeline-cell::before) {

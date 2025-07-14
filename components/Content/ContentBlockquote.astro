@@ -17,14 +17,14 @@ let { type = 'info', title } = Astro.props
 
 <style>
   :root {
-    --color-blockquote-success: oklch(65.64% 0.135 109.12);
-    --color-blockquote-warning: oklch(72.51% 0.143 77.71);
-    --color-blockquote-danger: oklch(54.58% 0.203 28.66);
-    --color-blockquote-info: oklch(36% 0.05 97.5);
-  }
+    --color-blockquote-success: oklch(65.64% 0.135 109.12deg);
+    --color-blockquote-warning: oklch(72.51% 0.143 77.71deg);
+    --color-blockquote-danger: oklch(54.58% 0.203 28.66deg);
+    --color-blockquote-info: oklch(36% 0.05 97.5deg);
 
-  :root[data-theme='dark'] {
-    --color-blockquote-info: oklch(97.2% 0.05 97.5);
+    &[data-theme='dark'] {
+      --color-blockquote-info: oklch(97.2% 0.05 97.5deg);
+    }
   }
 
   .blockquote {
