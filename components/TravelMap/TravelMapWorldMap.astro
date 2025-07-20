@@ -4,10 +4,11 @@ interface Props {
 }
 
 let { countries } = Astro.props
-let colorize = (code: string): string =>
-  countries.includes(code)
+function colorize(code: string): string {
+  return countries.includes(code)
     ? 'var(--color-background-brand)'
     : 'var(--color-background-inverse)'
+}
 ---
 
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1008 650">

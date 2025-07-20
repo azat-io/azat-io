@@ -19,8 +19,9 @@ let collection = (await getCollection('anime'))
   }))
   .toSorted((a, b) => a.order - b.order)
 
-export let getStaticPaths = () =>
-  locales.map(({ code }) => ({ params: { lang: code } }))
+export function getStaticPaths() {
+  return locales.map(({ code }) => ({ params: { lang: code } }))
+}
 ---
 
 <LayoutDefault description={t('description')} title={t('title')} size="l">

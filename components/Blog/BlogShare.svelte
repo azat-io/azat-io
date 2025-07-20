@@ -96,13 +96,13 @@
     },
   ] as const
 
-  let clickOutside = (event: MouseEvent): void => {
+  function clickOutside(event: MouseEvent): void {
     if (event.target === dialog) {
       closeDialog()
     }
   }
 
-  let share = async (): Promise<void> => {
+  async function share(): Promise<void> {
     if (
       !/android|ipad|iphone|ipod/iu.test(navigator.userAgent) ||
       // eslint-disable-next-line typescript/no-unnecessary-condition
@@ -119,7 +119,7 @@
     }
   }
 
-  let closeDialog = (): void => {
+  function closeDialog(): void {
     dialog.close()
     document.removeEventListener('click', clickOutside)
   }

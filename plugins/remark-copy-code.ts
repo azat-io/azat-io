@@ -6,20 +6,7 @@ import type { Parent, Node } from 'unist'
 import { visit } from 'unist-util-visit'
 import { h as _h } from 'hastscript'
 
-let hast = (
-  element: string,
-  attrs: Properties = {},
-  children: unknown[] = [],
-): Paragraph => {
-  let { properties, tagName } = _h(element, attrs)
-  return {
-    data: { hProperties: properties, hName: tagName },
-    children: children as PhrasingContent[],
-    type: 'paragraph',
-  }
-}
-
-let getLanguageName = (lang: string): string => {
+function getLanguageName(lang: string): string {
   let languages: Record<string, string> = {
     tsx: 'TypeScript',
     jsx: 'JavaScript',
@@ -36,6 +23,19 @@ let getLanguageName = (lang: string): string => {
   }
 
   return languages[lang] ?? lang
+}
+
+function hast(
+  element: string,
+  attrs: Properties = {},
+  children: unknown[] = [],
+): Paragraph {
+  let { properties, tagName } = _h(element, attrs)
+  return {
+    data: { hProperties: properties, hName: tagName },
+    children: children as PhrasingContent[],
+    type: 'paragraph',
+  }
 }
 
 export let remarkCopyCode: Plugin<[], Root> =

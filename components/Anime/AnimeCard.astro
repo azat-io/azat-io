@@ -43,7 +43,7 @@ let locale = getLocaleFromUrl(Astro.url)
 let t = useTranslations(locale, 'anime')
 
 let formattedGenres = genres.map(genre => t(genre)).join(', ')
-let timeConvert = (totalMinutes: number): string => {
+function timeConvert(totalMinutes: number): string {
   let hours = totalMinutes / 60
   let roundedHours = Math.floor(hours)
   let minutes = (hours - roundedHours) * 60

@@ -13,7 +13,7 @@ interface Props {
   params: { slug: string }
 }
 
-export let GET = async ({ props }: Props): Promise<ImageResponse> => {
+export async function GET({ props }: Props): Promise<ImageResponse> {
   let { post } = props
 
   let CoText = await fs.readFile(
@@ -21,12 +21,10 @@ export let GET = async ({ props }: Props): Promise<ImageResponse> => {
   )
   let CoTextFont = Buffer.from(new Uint8Array(CoText.buffer))
 
-  let parseUrl = (
-    currentUrl: string,
-  ): {
+  function parseUrl(currentUrl: string): {
     locale: string
     slug: string
-  } => {
+  } {
     let [slugValue, localeValue] = currentUrl.replace(/\.mdx?$/u, '').split('/')
     return { locale: localeValue!, slug: slugValue! }
   }
@@ -123,7 +121,7 @@ export let GET = async ({ props }: Props): Promise<ImageResponse> => {
   })
 }
 
-export let getStaticPaths = async () => {
+export async function getStaticPaths() {
   let posts = await getCollection('blog')
   return posts.map(post => {
     let [slug, locale] = post.id.split('/')

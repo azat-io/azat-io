@@ -7,8 +7,9 @@ import { useTranslations } from '~/utils/use-translations'
 import { getPosts } from '~/utils/get-posts'
 import { locales } from '~/locales'
 
-export let getStaticPaths = () =>
-  locales.map(({ code }) => ({ params: { lang: code } }))
+export function getStaticPaths() {
+  return locales.map(({ code }) => ({ params: { lang: code } }))
+}
 
 export let GET: APIRoute = async ({ site, url }) => {
   let locale = getLocaleFromUrl(url)

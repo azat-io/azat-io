@@ -46,16 +46,17 @@
     hours += 24
   }
 
-  let format = (
+  function format(
     translateFunction: typeof t,
     value: number,
     unit: Unit,
-  ): string =>
-    `${value} ${
+  ): string {
+    return `${value} ${
       (translateFunction(unit) as Record<Intl.LDMLPluralRule, string>)[
         new Intl.PluralRules(locale).select(value)
       ]
     }`
+  }
 
   $: formattedYears = format(t, years, 'years')
   $: formattedMonths = format(t, months, 'months')

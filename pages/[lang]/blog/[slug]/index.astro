@@ -14,7 +14,7 @@ let post = Astro.props
 
 let { Content } = await render(post)
 
-export let getStaticPaths = async () => {
+export async function getStaticPaths() {
   let posts = await getCollection('blog')
   return posts.map(currentPost => {
     let [slug, locale] = currentPost.id.split('/')

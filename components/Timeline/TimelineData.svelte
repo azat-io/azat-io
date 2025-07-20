@@ -18,8 +18,10 @@
   let weeksInYear = 52
 
   let totalWeeks = Math.floor(weeksInYear * lifeExpectancyAtBirth)
-  let getDaysBetweenDates = (date1: Date, date2: Date): number =>
-    Math.floor((Number(date1) - Number(date2)) / (1000 * 60 * 60 * 24))
+
+  function getDaysBetweenDates(date1: Date, date2: Date): number {
+    return Math.floor((Number(date1) - Number(date2)) / (1000 * 60 * 60 * 24))
+  }
 
   $: passedFullYears = Math.ceil(
     Math.abs(

@@ -10,8 +10,9 @@ import { locales } from '~/locales'
 let locale = getLocaleFromUrl(Astro.url)
 let t = useTranslations(locale, 'timeline')
 
-export let getStaticPaths = () =>
-  locales.map(({ code }) => ({ params: { lang: code } }))
+export function getStaticPaths() {
+  return locales.map(({ code }) => ({ params: { lang: code } }))
+}
 ---
 
 <LayoutDefault

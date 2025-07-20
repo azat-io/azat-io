@@ -2,13 +2,11 @@ import type { CollectionEntry } from 'astro:content'
 
 import { getCollection } from 'astro:content'
 
-export let getProjects = async (
-  locale?: string,
-): Promise<
+export async function getProjects(locale?: string): Promise<
   (Omit<CollectionEntry<'projects'>, 'slug'> & {
     slug: string
   })[]
-> => {
+> {
   let collection = await getCollection('projects')
 
   return collection

@@ -36,12 +36,10 @@ let { url } = Astro
 let locale = getLocaleFromUrl(url)
 let realLocale = getLocaleFromUrl(url, true)
 
-let parseUrl = (
-  currentUrl: string,
-): {
+function parseUrl(currentUrl: string): {
   locale: string
   slug: string
-} => {
+} {
   let [slugValue, localeValue] = currentUrl.replace(/\.mdx?$/u, '').split('/')
   return { locale: localeValue!, slug: slugValue! }
 }

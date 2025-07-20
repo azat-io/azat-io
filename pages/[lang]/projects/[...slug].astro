@@ -12,7 +12,7 @@ type Props = CollectionEntry<'projects'>
 let project = Astro.props
 let { Content } = await render(project)
 
-export let getStaticPaths = async () => {
+export async function getStaticPaths() {
   let projects = await getCollection('projects')
   return projects.map(currentProject => {
     let [slug, locale] = currentProject.id.split('/')

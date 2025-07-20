@@ -2,7 +2,7 @@ import type { Locale } from '~/locales'
 
 import { defaultLocale, translations } from '~/locales'
 
-export let getLocaleFromUrl = (url?: URL, anyLang = false): Locale => {
+export function getLocaleFromUrl(url?: URL, anyLang = false): Locale {
   if (!url) {
     return defaultLocale
   }

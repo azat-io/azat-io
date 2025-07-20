@@ -13,8 +13,9 @@ let t = useTranslations(locale, 'blog')
 
 let posts = await getPosts(locale)
 
-export let getStaticPaths = () =>
-  locales.map(({ code }) => ({ params: { lang: code } }))
+export function getStaticPaths() {
+  return locales.map(({ code }) => ({ params: { lang: code } }))
+}
 ---
 
 <LayoutDefault
