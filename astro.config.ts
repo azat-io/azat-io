@@ -26,7 +26,7 @@ export default defineConfig({
       transformers: [
         {
           pre: node => {
-            delete node.properties.style
+            delete node.properties['style']
           },
         },
       ],

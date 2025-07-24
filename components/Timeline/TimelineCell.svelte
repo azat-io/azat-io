@@ -6,7 +6,7 @@
 
 <svelte:element
   this={tag}
-  class={`cell ${$$restProps.class ?? ''}`.trim()}
+  class={`cell ${$$restProps['class'] ?? ''}`.trim()}
   class:passed
   class:healthy
 />

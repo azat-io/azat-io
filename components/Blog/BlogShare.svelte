@@ -129,7 +129,7 @@
   })
 </script>
 
-<div class={`share-wrapper ${$$props.class}`.trim()}>
+<div class={`share-wrapper ${$$props['class']}`.trim()}>
   <button data-umami-event="Share" class="share" on:click={share} type="button">
     <svelte:component this={ShareIcon} />
     <span>{t('share')}</span>

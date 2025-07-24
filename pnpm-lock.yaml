@@ -90,6 +90,9 @@ importers:
       '@azat-io/stylelint-config':
         specifier: ^1.1.0
         version: 1.1.0(stylelint@16.22.0(typescript@5.8.3))
+      '@azat-io/typescript-config':
+        specifier: ^1.1.1
+        version: 1.1.1(typescript@5.8.3)
       '@commitlint/cli':
         specifier: ^19.8.1
         version: 19.8.1(@types/node@24.0.15)(typescript@5.8.3)
@@ -238,6 +241,12 @@ packages:
     engines: {node: '>=18.0.0'}
     peerDependencies:
       stylelint: ^16.0.0
+
+  '@azat-io/typescript-config@1.1.1':
+    resolution: {integrity: sha512-mCWpM1y1X5F1n8I4NAPVxidxnvDfB8gmj/ZHhVSWpv6QCMNwozFS2QjhnidFla77uUCb8p3niyTSQnv1fN3hjw==}
+    engines: {node: '>=18.0.0'}
+    peerDependencies:
+      typescript: ^5.8.0
 
   '@babel/code-frame@7.27.1':
     resolution: {integrity: sha512-cjQ7ZlQ0Mv3b47hABuTevyTuYN4i+loJKGeV9flcCgIK37cCXRh+L1bd3iBHlynerhQ7BhCkn2BPbQUL+rGqFg==}
@@ -6098,6 +6107,10 @@ snapshots:
       stylelint-plugin-defensive-css: 1.0.4(stylelint@16.22.0(typescript@5.8.3))
       stylelint-plugin-logical-css: 1.2.3(stylelint@16.22.0(typescript@5.8.3))
       stylelint-use-nesting: 6.0.0(stylelint@16.22.0(typescript@5.8.3))
+
+  '@azat-io/typescript-config@1.1.1(typescript@5.8.3)':
+    dependencies:
+      typescript: 5.8.3
 
   '@babel/code-frame@7.27.1':
     dependencies:
