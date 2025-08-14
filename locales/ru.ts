@@ -47,6 +47,7 @@ export default {
     'girls-last-tour': 'Девушки в Последнем Путешествии',
     'in-this-corner-of-the-world': 'В Этом Уголке Мира',
     'insomniacs-after-school': 'Бессонница После Школы',
+    'takopi-s-original-sin': 'Первородный грех Такопи',
     'the-promised-neverland': 'Обещанная Страна Грёз',
     'welcome-to-nhk': 'Добро пожаловать в Эн.Эйч.Кэй',
     description: 'Список аниме, которые я посмотрел',
