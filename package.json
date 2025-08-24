@@ -18,7 +18,7 @@
     "test:astro": "astro check",
     "test:css": "stylelint \"**/*.{astro,svelte,css}\"",
     "test:format": "prettier --check \"**/*.{js,ts,astro,css,json,md,yml}\"",
-    "test:js": "eslint .",
+    "test:js": "eslint --concurrency auto .",
     "test:markdown": "remark \"**/*.{md,mdx}\" --frail",
     "test:packages": "pnpm dedupe --check",
     "test:size": "pnpm run build && size-limit",
