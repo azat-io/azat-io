@@ -4,7 +4,7 @@ runs:
   using: composite
   steps:
     - name: Setup Astro cache
-      uses: actions/cache@v4
+      uses: actions/cache@638ed79f9dc94c1de1baef91bcab5edaa19451f4 # v4.2.4
       with:
         path: ./node_modules/.astro
         key: ${{ runner.os }}-astro-${{ hashFiles('**/pnpm-lock.yaml') }}
