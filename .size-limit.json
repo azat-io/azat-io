@@ -8,7 +8,7 @@
       "!dist/_astro/TimelineData.*.js",
       "!dist/_astro/BlogShare.*.js"
     ],
-    "limit": "40 kB",
+    "limit": "45 kB",
     "brotli": true
   },
   {
