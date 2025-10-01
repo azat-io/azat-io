@@ -132,6 +132,7 @@ export default {
     uzumaki: 'Спираль',
     fantasy: 'фэнтези',
     paprika: 'Паприка',
+    lazarus: 'Лазарь',
     comedy: 'комедия',
     rating: 'Рейтинг',
     dororo: 'Дороро',

@@ -127,6 +127,7 @@ export default {
     'odd-taxi': 'Odd Taxi',
     thriller: 'thriller',
     duration: 'Duration',
+    lazarus: 'Lazarus',
     uzumaki: 'Uzumaki',
     fantasy: 'fantasy',
     mystery: 'mystery',
