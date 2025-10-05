@@ -65,6 +65,7 @@ export default {
     'fullmetal-alchemist': 'Fullmetal Alchemist',
     'weathering-with-you': 'Weathering with You',
     'terror-in-resonance': 'Terror in Resonance',
+    'dan-da-dan-season-2': 'Dan da dan Season 2',
     'parasyte-the-maxim': 'Parasyte: The Maxim',
     'my-neighbor-totoro': 'My Neighbor Totoro',
     'mob-psycho-100-iii': 'Mob Psycho 100 III',

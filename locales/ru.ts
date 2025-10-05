@@ -67,6 +67,7 @@ export default {
     'spice-and-wolf-ii': 'Волчица и Пряности II',
     'to-your-eternity': 'Для тебя, Бессмертный',
     'the-boy-and-the-heron': 'Мальчик и Птица',
+    'dan-da-dan-season-2': 'Дандадан, сезон 2',
     'fullmetal-alchemist': 'Стальной Алхимик',
     'mob-psycho-100-iii': 'Моб Психо 100 III',
     'princess-mononoke': 'Принцесса Мононоке',
