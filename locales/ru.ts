@@ -65,6 +65,7 @@ export default {
     'the-apothecary-diaries': 'Записки Аптекаря',
     'spy-family-part-2': 'Семья Шпиона, часть 2',
     'spice-and-wolf-ii': 'Волчица и Пряности II',
+    'kaiju-no-8-season-2': 'Кайдзю № 8, сезон 2',
     'to-your-eternity': 'Для тебя, Бессмертный',
     'the-boy-and-the-heron': 'Мальчик и Птица',
     'dan-da-dan-season-2': 'Дандадан, сезон 2',

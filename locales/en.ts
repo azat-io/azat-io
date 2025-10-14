@@ -62,6 +62,7 @@ export default {
     'howl-s-moving-castle': "Howl's Moving Castle",
     'when-the-cicadas-cry': 'When the Cicadas Cry',
     'spy-family-season-2': 'Spy × Family Season 2',
+    'kaiju-no-8-season-2': 'Kaiju No. 8 Season 2',
     'fullmetal-alchemist': 'Fullmetal Alchemist',
     'weathering-with-you': 'Weathering with You',
     'terror-in-resonance': 'Terror in Resonance',
