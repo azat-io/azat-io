@@ -13,7 +13,12 @@ let { description, title, slug } = Astro.props
 let locale = getLocaleFromUrl(Astro.url)
 ---
 
-<li class="item">
+<li
+  itemtype="https://schema.org/CreativeWork"
+  itemprop="itemListElement"
+  class="item"
+  itemscope
+>
   <a href={`/${locale}/projects/${slug}`} itemprop="url" class="card">
     <ProjectsLogo itemprop="image" id={slug} {title} />
     <dl class="description">
