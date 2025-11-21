@@ -120,6 +120,7 @@ export default {
     'elfen-lied': 'Elfen Lied',
     'death-note': 'Death Note',
     'oshi-no-ko': 'Oshi no Ko',
+    'sonny-boy': 'Sonny Boy',
     'look-back': 'Look Back',
     'mushi-shi': 'Mushi-Shi',
     'cover-for': 'Cover for',
