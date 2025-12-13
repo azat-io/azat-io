@@ -106,6 +106,7 @@ export default defineConfig({
     'poppanator',
     'preact',
     'rehype',
+    'reze',
     'shaimukhametov',
     'shiki',
     'sonarjs',

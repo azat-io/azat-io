@@ -36,6 +36,7 @@ export default {
     'ameku-m-d-doctor-detective': 'Карта Детектива Такао Амэку',
     'godzilla-singular-point': 'Годзилла: Точка Сингулярности',
     'dorohedoro-extra-evil': 'Дорохедоро: Дьявольские Истории',
+    'chainsaw-man-reze-arc': 'Человек-бензопила: История Резе',
     'negative-positive-angler': 'Негативный Позитивный Рыбак',
     'la-maison-en-petits-cubes': 'Дом из Маленьких Кубиков',
     'orb-on-the-movements-of-the-earth': 'О Движении Земли',

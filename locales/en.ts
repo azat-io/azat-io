@@ -55,6 +55,7 @@ export default {
     'the-apothecary-diaries': 'The Apothecary Diaries',
     'cyberpunk-edgerunners': 'Cyberpunk: Edgerunners',
     'dorohedoro-extra-evil': 'Dorohedoro: Extra Evil',
+    'chainsaw-man-reze-arc': 'Chainsaw Man: Reze Arc',
     'takopi-s-original-sin': 'Takopi’s Original Sin',
     'summer-time-rendering': 'Summer Time Rendering',
     'the-boy-and-the-heron': 'The Boy and the Heron',
