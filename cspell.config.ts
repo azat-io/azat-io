@@ -118,7 +118,7 @@ export default defineConfig({
     'tensei',
     'totoro',
     'typograf',
-    'umami',
+    'fathom',
     'uzumaki',
     'ycombinator',
   ],

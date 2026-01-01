@@ -18,9 +18,8 @@ let t = useTranslations(locale, 'blog')
 <div class="edit-link-wrapper">
   <Typography
     href={`https://github.com/${repository}/blob/main/content/blog/${slug}.mdx`}
-    data-umami-event="Edit page"
-    data-umami-event-name={slug}
     rel="noopener noreferrer"
+    id="edit-page-link"
     class="edit-link"
     target="_blank"
     color="inherit"
@@ -30,6 +29,58 @@ let t = useTranslations(locale, 'blog')
     {t('edit-this-page')}
   </Typography>
 </div>
+
+<script define:vars={{ slug }}>
+  {
+    let controller
+
+    let cleanup = () => {
+      controller?.abort()
+      controller = undefined
+    }
+
+    let scheduleNext = () => {
+      document.addEventListener(
+        'astro:before-swap',
+        () => {
+          cleanup()
+        },
+        { once: true },
+      )
+      document.addEventListener(
+        'astro:after-swap',
+        () => {
+          setup()
+        },
+        { once: true },
+      )
+    }
+
+    let setup = () => {
+      cleanup()
+
+      controller = new AbortController()
+
+      let editLink = document.getElementById('edit-page-link')
+
+      if (editLink) {
+        editLink.addEventListener(
+          'click',
+          () => {
+            if (globalThis.fathom) {
+              globalThis.fathom.trackEvent(`edit page: ${slug}`)
+            }
+          },
+          { signal: controller.signal },
+        )
+      }
+
+      scheduleNext()
+    }
+
+    setup()
+  }
+</script>
 
 <style>
   .edit-link-wrapper {

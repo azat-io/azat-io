@@ -103,6 +103,10 @@
   }
 
   async function share(): Promise<void> {
+    if (globalThis.fathom) {
+      globalThis.fathom.trackEvent('share: dialog opened')
+    }
+
     if (
       !/android|ipad|iphone|ipod/iu.test(navigator.userAgent) ||
       // eslint-disable-next-line typescript/no-unnecessary-condition
@@ -124,13 +128,19 @@
     document.removeEventListener('click', clickOutside)
   }
 
+  function trackShare(platform: string): void {
+    if (globalThis.fathom) {
+      globalThis.fathom.trackEvent(`share: ${platform}`)
+    }
+  }
+
   onMount(() => {
     document.querySelector('#share-fallback')?.remove()
   })
 </script>
 
 <div class={`share-wrapper ${$$props['class']}`.trim()}>
-  <button data-umami-event="Share" class="share" on:click={share} type="button">
+  <button class="share" on:click={share} type="button">
     <svelte:component this={ShareIcon} />
     <span>{t('share')}</span>
   </button>
@@ -150,8 +160,7 @@
       {#each links as { label, link, icon, name } (name)}
         <li class="link-wrapper">
           <a
-            data-umami-event="Share on social media"
-            data-umami-event-name={name}
+            on:click={() => trackShare(name.toLowerCase())}
             rel="noopener noreferrer"
             aria-label={t(label)}
             target="_blank"

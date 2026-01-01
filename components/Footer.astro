@@ -60,8 +60,7 @@ let icons = [
       icons.map(({ icon: Icon, name, link, id }) => (
         <a
           aria-label={`${t('follow-me-on')} ${name}`}
-          data-umami-event="Visit footer social link"
-          data-umami-event-name={id}
+          id={`footer-${id.toLowerCase()}`}
           rel="noreferrer noopener"
           target="_blank"
           class="link"
@@ -74,6 +73,71 @@ let icons = [
     }
   </div>
 </footer>
+
+<script>
+  {
+    let controller: AbortController | undefined
+
+    let cleanup = () => {
+      controller?.abort()
+      controller = undefined
+    }
+
+    let scheduleNext = () => {
+      document.addEventListener(
+        'astro:before-swap',
+        () => {
+          cleanup()
+        },
+        { once: true },
+      )
+      document.addEventListener(
+        'astro:after-swap',
+        () => {
+          setup()
+        },
+        { once: true },
+      )
+    }
+
+    let setup = () => {
+      cleanup()
+
+      controller = new AbortController()
+
+      let blueskyLink = document.getElementById('footer-bluesky')
+      let githubLink = document.getElementById('footer-github')
+
+      if (blueskyLink) {
+        blueskyLink.addEventListener(
+          'click',
+          () => {
+            if (globalThis.fathom) {
+              globalThis.fathom.trackEvent('click: footer social bluesky')
+            }
+          },
+          { signal: controller.signal },
+        )
+      }
+
+      if (githubLink) {
+        githubLink.addEventListener(
+          'click',
+          () => {
+            if (globalThis.fathom) {
+              globalThis.fathom.trackEvent('click: footer social github')
+            }
+          },
+          { signal: controller.signal },
+        )
+      }
+
+      scheduleNext()
+    }
+
+    setup()
+  }
+</script>
 
 <style>
   .footer {

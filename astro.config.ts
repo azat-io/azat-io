@@ -66,7 +66,7 @@ export default defineConfig({
         },
       },
       sri: {
-        scriptsAllowListUrls: ['https://analytics.azat.io/script.js'],
+        scriptsAllowListUrls: ['https://cdn.usefathom.com/script.js'],
       },
     }),
     compress({

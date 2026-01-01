@@ -151,8 +151,8 @@ jobs:
         with:
           egress-policy: block
           allowed-endpoints: >
-            analytics.azat.io:443
             api.github.com:443
+            cdn.usefathom.com:443
             github.com:443
             registry.npmjs.org:443
             release-assets.githubusercontent.com:443

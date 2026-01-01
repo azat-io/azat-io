@@ -99,10 +99,9 @@ export function getStaticPaths() {
     </Typography>
     <AboutSocialLinks itemtype="https://schema.org/Person" itemscope>
       {
-        socialMedia.map(({ username, link, name, type }) => (
+        socialMedia.map(({ username, link, type }) => (
           <AboutSocial
-            data-umami-event="Visit social link"
-            data-umami-event-name={name}
+            id={`social-${type}`}
             name={t(type)}
             itemprop="url"
             {username}
@@ -114,3 +113,68 @@ export function getStaticPaths() {
     </AboutSocialLinks>
   </section>
 </LayoutDefault>
+
+<script>
+  {
+    let controller: AbortController | undefined
+
+    let cleanup = () => {
+      controller?.abort()
+      controller = undefined
+    }
+
+    let scheduleNext = () => {
+      document.addEventListener(
+        'astro:before-swap',
+        () => {
+          cleanup()
+        },
+        { once: true },
+      )
+      document.addEventListener(
+        'astro:after-swap',
+        () => {
+          setup()
+        },
+        { once: true },
+      )
+    }
+
+    let setup = () => {
+      cleanup()
+
+      controller = new AbortController()
+
+      let socialTypes = [
+        'email',
+        'github',
+        'x',
+        'bluesky',
+        'mastodon',
+        'linkedin',
+        'discord',
+        'telegram',
+        'instagram',
+      ]
+
+      for (let type of socialTypes) {
+        let link = document.getElementById(`social-${type}`)
+        if (link) {
+          link.addEventListener(
+            'click',
+            () => {
+              if (globalThis.fathom) {
+                globalThis.fathom.trackEvent(`visit social: ${type}`)
+              }
+            },
+            { signal: controller.signal },
+          )
+        }
+      }
+
+      scheduleNext()
+    }
+
+    setup()
+  }
+</script>

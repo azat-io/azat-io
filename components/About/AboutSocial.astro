@@ -28,10 +28,11 @@ interface Props {
   username: string
   link: string
   name: string
+  id?: string
   type: Type
 }
 
-let { username, name, link, type, ...props } = Astro.props
+let { username, name, link, type, id, ...props } = Astro.props
 
 let icons = {
   instagram: IconInstagram,
@@ -54,6 +55,7 @@ let Icon = icons[type]
   target="_blank"
   class="social"
   href={link}
+  {id}
   {...props}
 >
   <Icon class="icon" />

@@ -50,7 +50,13 @@
     !translations.some(({ locale: tLocale }) => tLocale === $userLanguage) &&
     !!desiredLocales[$userLanguage]
 
-  let eventName = $userLanguage.toUpperCase()
+  function trackTranslationClick(): void {
+    if (globalThis.fathom && $userLanguage) {
+      globalThis.fathom.trackEvent(
+        `translation: view instructions ${$userLanguage}`,
+      )
+    }
+  }
 
   onMount(() => (url = new URL(globalThis.location.href)))
 
@@ -74,8 +80,7 @@
       {t('translate-2').replace('{contributing}', '')}
       <a
         href="https://github.com/azat-io/azat-io/blob/main/contributing.md#content-translation"
-        data-umami-event="View translation instructions"
-        data-umami-event-name={eventName}
+        on:click={trackTranslationClick}
         rel="noreferrer noopener"
         target="_blank"
       >
