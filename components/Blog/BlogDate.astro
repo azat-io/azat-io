@@ -13,7 +13,10 @@ let { date, ...props } = Astro.props
 
 <BlogInfoElement>
   <IconCalendar class="icon" />
-  <Date {date} {...props} />
+  <Date
+    {date}
+    {...props}
+  />
 </BlogInfoElement>
 
 <style>

@@ -54,28 +54,52 @@ function timeConvert(totalMinutes: number): string {
   )
 }
 let durationTime =
-  episodes === 1
-    ? timeConvert(duration)
-    : `${episodes} ${t('episodes-of')} ${timeConvert(duration)}`
+  episodes === 1 ?
+    timeConvert(duration)
+  : `${episodes} ${t('episodes-of')} ${timeConvert(duration)}`
 ---
 
 <li class="card">
-  <AnimePicture {name} {lazy} {id} />
+  <AnimePicture
+    {name}
+    {lazy}
+    {id}
+  />
   <div class="data">
     <div class="info">
-      <Typography color="brand" size="s" noWrap>
+      <Typography
+        color="brand"
+        size="s"
+        noWrap
+      >
         {name}
       </Typography>
-      <Typography color="secondary" size="xs" lang="ja" mbe="xs" noWrap>
+      <Typography
+        color="secondary"
+        size="xs"
+        lang="ja"
+        mbe="xs"
+        noWrap
+      >
         {originName}
       </Typography>
-      <Typography color="primary" class="genres" size="xs">
+      <Typography
+        color="primary"
+        class="genres"
+        size="xs"
+      >
         {`${t('genres')}: ${formattedGenres}`}
       </Typography>
-      <Typography color="primary" size="xs">
+      <Typography
+        color="primary"
+        size="xs"
+      >
         {`${t('duration')}: ${durationTime}`}
       </Typography>
-      <Typography color="primary" size="xs">
+      <Typography
+        color="primary"
+        size="xs"
+      >
         {`${t('year')}: ${year}`}
       </Typography>
     </div>

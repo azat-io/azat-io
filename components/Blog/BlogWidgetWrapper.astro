@@ -6,7 +6,10 @@ interface Props {
 let { class: className, ...props } = Astro.props
 ---
 
-<div class:list={['widget-wrapper', className]} {...props}>
+<div
+  class:list={['widget-wrapper', className]}
+  {...props}
+>
   <slot />
 </div>
 

@@ -55,6 +55,7 @@
   "devDependencies": {
     "@astrojs/check": "^0.9.6",
     "@azat-io/eslint-config": "^2.68.0",
+    "@azat-io/prettier-config": "^1.1.1",
     "@azat-io/stylelint-config": "^1.5.0",
     "@azat-io/typescript-config": "^1.1.1",
     "@commitlint/cli": "^20.4.1",
@@ -69,8 +70,6 @@
     "nano-staged": "^0.9.0",
     "postcss-html": "^1.8.1",
     "prettier": "^3.8.1",
-    "prettier-plugin-astro": "^0.14.1",
-    "prettier-plugin-svelte": "^3.4.1",
     "remark-cli": "^12.0.1",
     "remark-lint-code-block-split-list": "^1.0.0",
     "remark-lint-fenced-code-flag": "^4.2.0",

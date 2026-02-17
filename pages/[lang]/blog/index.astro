@@ -26,7 +26,13 @@ export function getStaticPaths() {
   <BlogList>
     {
       posts.map(({ data: { description, title, date }, slug, body }) => (
-        <BlogCard {description} {title} {slug} {date} {body} />
+        <BlogCard
+          {description}
+          {title}
+          {slug}
+          {date}
+          {body}
+        />
       ))
     }
   </BlogList>

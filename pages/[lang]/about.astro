@@ -88,16 +88,30 @@ export function getStaticPaths() {
 }
 ---
 
-<LayoutDefault description={t('description')} title={t('title')} type="profile">
+<LayoutDefault
+  description={t('description')}
+  title={t('title')}
+  type="profile"
+>
   <section aria-labelledby="about">
     <Title id="about">{t('title')}</Title>
     {locale === 'ru' ? <RuAbout /> : <EnAbout />}
   </section>
   <section aria-labelledby="links">
-    <Typography id="links" size="xl" tag="h2" mbs="xl" mbe="l" bold>
+    <Typography
+      id="links"
+      size="xl"
+      tag="h2"
+      mbs="xl"
+      mbe="l"
+      bold
+    >
       {t('links')}
     </Typography>
-    <AboutSocialLinks itemtype="https://schema.org/Person" itemscope>
+    <AboutSocialLinks
+      itemtype="https://schema.org/Person"
+      itemscope
+    >
       {
         socialMedia.map(({ username, link, type }) => (
           <AboutSocial

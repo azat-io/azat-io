@@ -11,7 +11,11 @@ let { class: className, date, ...props } = Astro.props
 let locale = getLocaleFromUrl(Astro.url)
 ---
 
-<time datetime={date.toISOString()} class:list={[className]} {...props}>
+<time
+  datetime={date.toISOString()}
+  class:list={[className]}
+  {...props}
+>
   {
     date.toLocaleDateString(locale, {
       year: 'numeric',

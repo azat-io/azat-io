@@ -8,7 +8,13 @@ type Props = TypographyProps
 let { props } = Astro
 ---
 
-<Typography class:list="text" tag="span" size="2xs" mbs="2xs" {...props}>
+<Typography
+  class:list="text"
+  tag="span"
+  size="2xs"
+  mbs="2xs"
+  {...props}
+>
   <slot />
 </Typography>
 

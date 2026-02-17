@@ -17,12 +17,25 @@ let Tag = tag
 
 <Tag class:list="card-wrapper">
   <figure class="card">
-    <Flag {code} {name} />
+    <Flag
+      {code}
+      {name}
+    />
     <figcaption class="caption">
-      <Typography color="brand" class="name" mbe="2xs" size="s" tag="h2">
+      <Typography
+        color="brand"
+        class="name"
+        mbe="2xs"
+        size="s"
+        tag="h2"
+      >
         {name}
       </Typography>
-      <Typography lang={originLang} class="name" size="2xs" tag="span"
+      <Typography
+        lang={originLang}
+        class="name"
+        size="2xs"
+        tag="span"
         >{originName}</Typography
       >
     </figcaption>

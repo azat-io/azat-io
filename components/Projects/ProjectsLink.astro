@@ -29,9 +29,17 @@ let icons = {
 let Icon = icons[type]
 ---
 
-<a rel="noopener noreferrer" target="_blank" class="link" href={link}>
+<a
+  rel="noopener noreferrer"
+  target="_blank"
+  class="link"
+  href={link}
+>
   <Icon class="icon" />
-  <Typography color="inherit" size="m">
+  <Typography
+    color="inherit"
+    size="m"
+  >
     {t(type)}
   </Typography>
 </a>

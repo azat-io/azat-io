@@ -38,7 +38,10 @@ let logo = logos[id]?.()
 
 {
   logo && (
-    <div class:list={['logo', `size-${size}`, className]} {...props}>
+    <div
+      class:list={['logo', `size-${size}`, className]}
+      {...props}
+    >
       <Fragment set:html={logo} />
       <Hidden>{`${t('logo-of')} ${title}`}</Hidden>
     </div>

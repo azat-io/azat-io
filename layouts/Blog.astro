@@ -80,19 +80,40 @@ let translations = posts
       itemtype="http://schema.org/BlogPosting"
       itemscope
     >
-      <BlogHero itemprop="thumbnail" name={title} {id} />
-      <Container class="content" tag="article" id="main">
-        <Title itemprop="headline" align="start" mbe="s">
+      <BlogHero
+        itemprop="thumbnail"
+        name={title}
+        {id}
+      />
+      <Container
+        class="content"
+        tag="article"
+        id="main"
+      >
+        <Title
+          itemprop="headline"
+          align="start"
+          mbe="s"
+        >
           {title}
         </Title>
         <BlogInfo>
-          <BlogDate itemprop="datePublished" {date} />
-          <BlogReadingTime itemprop="timeRequired" {body} />
+          <BlogDate
+            itemprop="datePublished"
+            {date}
+          />
+          <BlogReadingTime
+            itemprop="timeRequired"
+            {body}
+          />
         </BlogInfo>
         <BlogAvailableLocales {translations} />
         <slot />
       </Container>
-      <Container class="info" tag="aside">
+      <Container
+        class="info"
+        tag="aside"
+      >
         <BlogTranslation
           translations={translations.map(({ locale: localeValue }) => ({
             locale: localeValue,

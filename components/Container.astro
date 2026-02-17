@@ -13,7 +13,10 @@ let { class: className, tag = 'div', size = 'm', ...props } = Astro.props
 let Tag = tag
 ---
 
-<Tag class:list={['container', `size-${size}`, className]} {...props}>
+<Tag
+  class:list={['container', `size-${size}`, className]}
+  {...props}
+>
   <slot />
 </Tag>
 

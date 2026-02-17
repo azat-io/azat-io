@@ -42,13 +42,33 @@ let isProduction = import.meta.env.PROD
 
 <head>
   <meta charset="utf-8" />
-  <meta content="width=device-width,initial-scale=1" name="viewport" />
-  <meta name="theme-color" content="#1b1b1b" />
+  <meta
+    content="width=device-width,initial-scale=1"
+    name="viewport"
+  />
+  <meta
+    name="theme-color"
+    content="#1b1b1b"
+  />
 
-  <link href="/favicon.ico" sizes="any" rel="icon" />
-  <link type="image/svg+xml" href="/icon.svg" rel="icon" />
-  <link href="/apple-touch-icon.png" rel="apple-touch-icon" />
-  <link href={`/manifest-${locale}.json`} rel="manifest" />
+  <link
+    href="/favicon.ico"
+    sizes="any"
+    rel="icon"
+  />
+  <link
+    type="image/svg+xml"
+    href="/icon.svg"
+    rel="icon"
+  />
+  <link
+    href="/apple-touch-icon.png"
+    rel="apple-touch-icon"
+  />
+  <link
+    href={`/manifest-${locale}.json`}
+    rel="manifest"
+  />
 
   <link
     href="/fonts/co-text-regular.woff2"
@@ -67,46 +87,110 @@ let isProduction = import.meta.env.PROD
     as="font"
   />
 
-  <link href={canonicalURL} rel="canonical" />
+  <link
+    href={canonicalURL}
+    rel="canonical"
+  />
   <link
     type="application/rss+xml"
     href={`${locale}/rss.xml`}
     title={t('name')}
     rel="alternate"
   />
-  <link href="/sitemap-index.xml" rel="sitemap" />
+  <link
+    href="/sitemap-index.xml"
+    rel="sitemap"
+  />
 
   <title>{pageTitle}</title>
-  <meta content={pageTitle} name="title" />
-  <meta content={description} name="description" />
-  {keywords && <meta content={keywords.join(', ')} name="keywords" />}
+  <meta
+    content={pageTitle}
+    name="title"
+  />
+  <meta
+    content={description}
+    name="description"
+  />
+  {
+    keywords && (
+      <meta
+        content={keywords.join(', ')}
+        name="keywords"
+      />
+    )
+  }
 
-  <meta property="og:locale" content={realLocale} />
-  <meta content={t('name')} name="author" />
+  <meta
+    property="og:locale"
+    content={realLocale}
+  />
+  <meta
+    content={t('name')}
+    name="author"
+  />
 
-  <meta property="og:type" content={type} />
+  <meta
+    property="og:type"
+    content={type}
+  />
   <meta
     content={Astro.url.toString().replace(/\.html/u, '')}
     property="og:url"
   />
-  <meta property="og:title" content={pageTitle} />
-  <meta property="og:description" content={description} />
-  <meta property="og:image" content={image} />
-  <meta property="og:image:type" content="image/png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta content={`${t('cover-for')} ${pageTitle}`} property="og:image:alt" />
+  <meta
+    property="og:title"
+    content={pageTitle}
+  />
+  <meta
+    property="og:description"
+    content={description}
+  />
+  <meta
+    property="og:image"
+    content={image}
+  />
+  <meta
+    property="og:image:type"
+    content="image/png"
+  />
+  <meta
+    property="og:image:width"
+    content="1200"
+  />
+  <meta
+    property="og:image:height"
+    content="630"
+  />
+  <meta
+    content={`${t('cover-for')} ${pageTitle}`}
+    property="og:image:alt"
+  />
 
   {
     type === 'article' && (
       <>
-        <meta property="article:author" content={t('name')} />
-        <meta property="article:published_time" content={date?.toISOString()} />
+        <meta
+          property="article:author"
+          content={t('name')}
+        />
+        <meta
+          property="article:published_time"
+          content={date?.toISOString()}
+        />
         {keywords?.map(keyword => (
-          <meta property="article:tag" content={keyword} />
+          <meta
+            property="article:tag"
+            content={keyword}
+          />
         ))}
-        <meta property="article:section" content="Technology" />
-        <meta property="article:opinion" content="true" />
+        <meta
+          property="article:section"
+          content="Technology"
+        />
+        <meta
+          property="article:opinion"
+          content="true"
+        />
       </>
     )
   }
@@ -114,16 +198,34 @@ let isProduction = import.meta.env.PROD
   {
     type === 'profile' && (
       <>
-        <meta property="profile:first_name" content={t('first-name')} />
-        <meta property="profile:last_name" content={t('last-name')} />
-        <meta property="profile:username" content="azat_io" />
-        <meta property="profile:gender" content="male" />
+        <meta
+          property="profile:first_name"
+          content={t('first-name')}
+        />
+        <meta
+          property="profile:last_name"
+          content={t('last-name')}
+        />
+        <meta
+          property="profile:username"
+          content="azat_io"
+        />
+        <meta
+          property="profile:gender"
+          content="male"
+        />
       </>
     )
   }
 
-  <meta content="summary_large_image" property="twitter:card" />
-  <meta property="twitter:url" content={Astro.url} />
+  <meta
+    content="summary_large_image"
+    property="twitter:card"
+  />
+  <meta
+    property="twitter:url"
+    content={Astro.url}
+  />
   <meta
     content={locale === 'ru' ? SOCIAL_X_RU : SOCIAL_X_EN}
     name="twitter:creator"
@@ -132,9 +234,18 @@ let isProduction = import.meta.env.PROD
     content={locale === 'ru' ? SOCIAL_X_RU : SOCIAL_X_EN}
     name="twitter:site"
   />
-  <meta property="twitter:title" content={pageTitle} />
-  <meta property="twitter:description" content={description} />
-  <meta property="twitter:image" content={image} />
+  <meta
+    property="twitter:title"
+    content={pageTitle}
+  />
+  <meta
+    property="twitter:description"
+    content={description}
+  />
+  <meta
+    property="twitter:image"
+    content={image}
+  />
   <slot />
 
   <script is:inline>

@@ -14,7 +14,10 @@ export function getStaticPaths() {
 }
 ---
 
-<LayoutDefault description={t('description')} title={t('title')}>
+<LayoutDefault
+  description={t('description')}
+  title={t('title')}
+>
   <div class="content">
     <Avatar alt={t('avatar')} />
     <article>
@@ -24,14 +27,28 @@ export function getStaticPaths() {
         itemprop="slogan"
         itemscope
       >
-        <Typography class="heading" color="brand" size="2xl" tag="span" bold>
+        <Typography
+          class="heading"
+          color="brand"
+          size="2xl"
+          tag="span"
+          bold
+        >
           {t('website-title')}
         </Typography>
-        <Typography class="heading" color="brand" tag="span" size="l">
+        <Typography
+          class="heading"
+          color="brand"
+          tag="span"
+          size="l"
+        >
           {t('website-subtitle')}
         </Typography>
       </h1>
-      <Typography tag="p" mbs="m">
+      <Typography
+        tag="p"
+        mbs="m"
+      >
         {t('greeting')}
       </Typography>
     </article>

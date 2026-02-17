@@ -37,17 +37,19 @@ let nextPost = isLastPost ? null : posts.at(indexOfCurrentPost - 1)
 {
   locale === parseUrl(slug).locale && (
     <>
-      {isFirstPost ? (
+      {isFirstPost ?
         <div />
-      ) : (
-        <div class:list={['post', 'post-previous']}>
+      : <div class:list={['post', 'post-previous']}>
           <a
             href={`/${locale}/blog/${previousPost?.slug}`}
             class="link link-previous"
           >
             <IconArrowLeft class="icon" />
             <div>
-              <Typography color="primary" size="s">
+              <Typography
+                color="primary"
+                size="s"
+              >
                 {t('previous-post')}
               </Typography>
               <Typography color="inherit">
@@ -56,12 +58,18 @@ let nextPost = isLastPost ? null : posts.at(indexOfCurrentPost - 1)
             </div>
           </a>
         </div>
-      )}
+      }
       {!isLastPost && (
         <div class:list={['post', 'post-next']}>
-          <a href={`/${locale}/blog/${nextPost?.slug}`} class="link link-next">
+          <a
+            href={`/${locale}/blog/${nextPost?.slug}`}
+            class="link link-next"
+          >
             <div>
-              <Typography color="primary" size="s">
+              <Typography
+                color="primary"
+                size="s"
+              >
                 {t('next-post')}
               </Typography>
               <Typography color="inherit">{nextPost?.data.title}</Typography>

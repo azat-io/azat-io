@@ -31,7 +31,10 @@ let changeLanguageUrl = url.pathname.replace(
 >
   <IconMenu class="icon" />
 </button>
-<nav id="navigation-main" class="navigation">
+<nav
+  id="navigation-main"
+  class="navigation"
+>
   <button
     class:list={['element', 'mobile-menu', 'mobile-menu-close']}
     id="navigation-mobile-menu-close"
@@ -39,37 +42,72 @@ let changeLanguageUrl = url.pathname.replace(
   >
     <IconCross class="icon" />
   </button>
-  <a class:list={['element', 'element-text']} href={`/${locale}/blog`}>
+  <a
+    class:list={['element', 'element-text']}
+    href={`/${locale}/blog`}
+  >
     <IconGrid class="icon" />
-    <Typography color="inherit" tag="span" size="m">
+    <Typography
+      color="inherit"
+      tag="span"
+      size="m"
+    >
       {t('blog')}
     </Typography>
   </a>
-  <a class:list={['element', 'element-text']} href={`/${locale}/projects`}>
+  <a
+    class:list={['element', 'element-text']}
+    href={`/${locale}/projects`}
+  >
     <IconBulb class="icon" />
-    <Typography color="inherit" tag="span" size="m">
+    <Typography
+      color="inherit"
+      tag="span"
+      size="m"
+    >
       {t('projects')}
     </Typography>
   </a>
-  <a class:list={['element', 'element-text']} href={`/${locale}/about`}>
+  <a
+    class:list={['element', 'element-text']}
+    href={`/${locale}/about`}
+  >
     <IconUser class="icon" />
-    <Typography color="inherit" tag="span" size="m">
+    <Typography
+      color="inherit"
+      tag="span"
+      size="m"
+    >
       {t('about')}
     </Typography>
   </a>
-  <a class:list={['element', 'only-mobile']} href={changeLanguageUrl}>
+  <a
+    class:list={['element', 'only-mobile']}
+    href={changeLanguageUrl}
+  >
     <IconTranslate class="icon" />
-    <Typography color="inherit" tag="span" size="m">
+    <Typography
+      color="inherit"
+      tag="span"
+      size="m"
+    >
       {t('change-language')}
     </Typography>
   </a>
-  <details id="navigation-change-language" class="details">
+  <details
+    id="navigation-change-language"
+    class="details"
+  >
     <summary
       class:list={['element', 'element-icon', 'only-desktop']}
       aria-label={t('change-language')}
     >
       <IconTranslate class="icon" />
-      <Typography color="inherit" tag="span" size="m">
+      <Typography
+        color="inherit"
+        tag="span"
+        size="m"
+      >
         {t('change-language')}
       </Typography>
     </summary>
@@ -80,10 +118,20 @@ let changeLanguageUrl = url.pathname.replace(
             .replace(/^\/\w{2}/u, `/${code}`)
             .replace(/\.html$/u, '')
           return (
-            <a aria-label={t(code)} class="locale" href={path}>
-              <Flag name={t(code)} code={flag} />
+            <a
+              aria-label={t(code)}
+              class="locale"
+              href={path}
+            >
+              <Flag
+                name={t(code)}
+                code={flag}
+              />
               <div class="name-container">
-                <Typography color="brand" size="s">
+                <Typography
+                  color="brand"
+                  size="s"
+                >
                   {t(code)}
                 </Typography>
                 <Typography size="xs">{originName}</Typography>
@@ -101,7 +149,11 @@ let changeLanguageUrl = url.pathname.replace(
   >
     <IconMoon class:list={['icon', 'theme-light']} />
     <IconSun class:list={['icon', 'theme-dark']} />
-    <Typography color="inherit" tag="span" size="m">
+    <Typography
+      color="inherit"
+      tag="span"
+      size="m"
+    >
       {t('change-theme')}
     </Typography>
   </button>
@@ -112,7 +164,11 @@ let changeLanguageUrl = url.pathname.replace(
     target="_blank"
   >
     <IconRss class="icon" />
-    <Typography color="inherit" tag="span" size="m">
+    <Typography
+      color="inherit"
+      tag="span"
+      size="m"
+    >
       {t('rss')}
     </Typography>
   </a>

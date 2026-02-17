@@ -32,6 +32,10 @@ export async function getStaticPaths() {
 }
 ---
 
-<BlogLayout body={post.body} slug={post.id} {...post.data}>
+<BlogLayout
+  body={post.body}
+  slug={post.id}
+  {...post.data}
+>
   <Content />
 </BlogLayout>

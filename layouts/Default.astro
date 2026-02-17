@@ -19,7 +19,11 @@ let { type = 'website', description, size = 'm', title } = Astro.props
 ---
 
 <Html>
-  <Head {description} {title} {type} />
+  <Head
+    {description}
+    {title}
+    {type}
+  />
   <Body class="app">
     <Header />
     <Container

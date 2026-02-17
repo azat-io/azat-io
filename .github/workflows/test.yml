@@ -17,9 +17,7 @@ jobs:
         with:
           egress-policy: block
           allowed-endpoints: >
-            api.github.com:443
-            github.com:443
-            registry.npmjs.org:443
+            api.github.com:443 github.com:443 registry.npmjs.org:443
             release-assets.githubusercontent.com:443
 
       - name: Checkout
@@ -41,9 +39,7 @@ jobs:
         with:
           egress-policy: block
           allowed-endpoints: >
-            api.github.com:443
-            github.com:443
-            registry.npmjs.org:443
+            api.github.com:443 github.com:443 registry.npmjs.org:443
             release-assets.githubusercontent.com:443
 
       - name: Checkout
@@ -65,9 +61,7 @@ jobs:
         with:
           egress-policy: block
           allowed-endpoints: >
-            api.github.com:443
-            github.com:443
-            registry.npmjs.org:443
+            api.github.com:443 github.com:443 registry.npmjs.org:443
             release-assets.githubusercontent.com:443
 
       - name: Checkout
@@ -89,9 +83,7 @@ jobs:
         with:
           egress-policy: block
           allowed-endpoints: >
-            api.github.com:443
-            github.com:443
-            registry.npmjs.org:443
+            api.github.com:443 github.com:443 registry.npmjs.org:443
             release-assets.githubusercontent.com:443
 
       - name: Checkout
@@ -127,9 +119,7 @@ jobs:
         with:
           egress-policy: block
           allowed-endpoints: >
-            api.github.com:443
-            github.com:443
-            registry.npmjs.org:443
+            api.github.com:443 github.com:443 registry.npmjs.org:443
             release-assets.githubusercontent.com:443
 
       - name: Checkout
@@ -151,11 +141,8 @@ jobs:
         with:
           egress-policy: block
           allowed-endpoints: >
-            api.github.com:443
-            cdn.usefathom.com:443
-            github.com:443
-            registry.npmjs.org:443
-            release-assets.githubusercontent.com:443
+            api.github.com:443 cdn.usefathom.com:443 github.com:443
+            registry.npmjs.org:443 release-assets.githubusercontent.com:443
             telemetry.astro.build:443
 
       - name: Checkout
@@ -180,9 +167,7 @@ jobs:
         with:
           egress-policy: block
           allowed-endpoints: >
-            api.github.com:443
-            github.com:443
-            registry.npmjs.org:443
+            api.github.com:443 github.com:443 registry.npmjs.org:443
             release-assets.githubusercontent.com:443
 
       - name: Checkout
@@ -204,9 +189,7 @@ jobs:
         with:
           egress-policy: block
           allowed-endpoints: >
-            api.github.com:443
-            github.com:443
-            registry.npmjs.org:443
+            api.github.com:443 github.com:443 registry.npmjs.org:443
             release-assets.githubusercontent.com:443
 
       - name: Checkout
@@ -228,9 +211,7 @@ jobs:
         with:
           egress-policy: block
           allowed-endpoints: >
-            api.github.com:443
-            github.com:443
-            registry.npmjs.org:443
+            api.github.com:443 github.com:443 registry.npmjs.org:443
             release-assets.githubusercontent.com:443
 
       - name: Checkout

@@ -20,7 +20,11 @@ let { description, keywords, badges, links, title, id } = Astro.props
 ---
 
 <Html>
-  <Head {description} {keywords} {title} />
+  <Head
+    {description}
+    {keywords}
+    {title}
+  />
   <Body class="app">
     <Header />
     <Container
@@ -33,10 +37,22 @@ let { description, keywords, badges, links, title, id } = Astro.props
       <header>
         <Title itemprop="name">{title}</Title>
         <div class="badges">
-          {badges.map(({ name, url }) => <img alt={name} src={url} />)}
+          {
+            badges.map(({ name, url }) => (
+              <img
+                alt={name}
+                src={url}
+              />
+            ))
+          }
         </div>
       </header>
-      <ProjectsInfobox class="info" {links} {title} {id} />
+      <ProjectsInfobox
+        class="info"
+        {links}
+        {title}
+        {id}
+      />
       <slot />
     </Container>
     <Footer />

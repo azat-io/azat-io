@@ -13,7 +13,10 @@ let locale = getLocaleFromUrl(url)
 let t = useTranslations(locale, 'header')
 ---
 
-<header transition:animate={fade({ duration: '200ms' })} class="header">
+<header
+  transition:animate={fade({ duration: '200ms' })}
+  class="header"
+>
   <SkipToContent />
   <a
     itemtype="https://schema.org/Brand"
@@ -22,8 +25,16 @@ let t = useTranslations(locale, 'header')
     itemscope
     id="logo"
   >
-    <Logo itemprop="logo" class="logo" />
-    <Typography itemprop="name" class="name" size="l" bold>
+    <Logo
+      itemprop="logo"
+      class="logo"
+    />
+    <Typography
+      itemprop="name"
+      class="name"
+      size="l"
+      bold
+    >
       {t('name')}
     </Typography>
   </a>
