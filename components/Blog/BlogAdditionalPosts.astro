@@ -85,6 +85,7 @@ let nextPost = isLastPost ? null : posts.at(indexOfCurrentPost - 1)
 <style>
   .link {
     display: inline-flex;
+    flex-wrap: nowrap;
     gap: var(--space-s);
     block-size: 100%;
     padding-inline: 0;
@@ -117,6 +118,7 @@ let nextPost = isLastPost ? null : posts.at(indexOfCurrentPost - 1)
 
   .post {
     display: flex;
+    flex-wrap: nowrap;
   }
 
   .post-next {

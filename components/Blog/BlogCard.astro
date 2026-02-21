@@ -55,6 +55,7 @@ let locale = getLocaleFromUrl(Astro.url)
 <style>
   .item {
     display: flex;
+    flex-wrap: nowrap;
   }
 
   .card {
@@ -65,8 +66,10 @@ let locale = getLocaleFromUrl(Astro.url)
     padding: var(--space-s) var(--space-xs);
     text-decoration: none;
     border-radius: var(--border-radius);
-    transition: all 250ms;
-    will-change: box-shadow, background;
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: all 250ms;
+    }
 
     @media (hover: hover) {
       &:hover:not(:focus-visible) {

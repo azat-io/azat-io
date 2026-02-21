@@ -92,13 +92,13 @@
 <style>
   .timeline {
     display: grid;
-    grid-template-columns: repeat(52, 1fr);
+    grid-template-columns: repeat(52, [week] 1fr);
     gap: 2px;
     inline-size: 100%;
     padding-inline-start: 0;
     margin-block: 0;
     margin-inline: auto;
-    list-style: none;
+    list-style: "";
 
     @media (width >= 768px) {
       gap: 3px;

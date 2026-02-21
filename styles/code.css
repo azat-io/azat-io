@@ -23,11 +23,15 @@
     inset-block-start: var(--space-xs);
     inset-inline-end: var(--space-m);
     display: flex;
+    flex-wrap: nowrap;
     font: var(--font-2xs);
     color: var(--color-content-secondary);
     user-select: none;
     opacity: 100%;
-    transition: opacity 250ms ease-in-out 250ms;
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: opacity 250ms ease-in-out 250ms;
+    }
   }
 
   .copy-code-button {
@@ -36,6 +40,7 @@
     inset-inline-end: var(--space-m);
     z-index: 1;
     display: flex;
+    flex-wrap: nowrap;
     inline-size: var(--copy-code-icon-size);
     block-size: var(--copy-code-icon-size);
     padding: calc(var(--space-m) + var(--space-2xs));
@@ -49,7 +54,10 @@
     border: 1px solid var(--color-border-primary);
     border-radius: var(--border-radius);
     opacity: 0%;
-    transition: all 250ms ease-in-out 0ms;
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: all 250ms ease-in-out 0ms;
+    }
 
     @media (hover: hover) {
       &:hover {
@@ -75,13 +83,19 @@
       &:hover {
         .copy-code-button {
           opacity: 100%;
-          transition: opacity 250ms ease-in-out 250ms;
+
+          @media (prefers-reduced-motion: no-preference) {
+            transition: opacity 250ms ease-in-out 250ms;
+          }
         }
 
         .copy-code-label {
           visibility: hidden;
           opacity: 0%;
-          transition: opacity 250ms ease-in-out 0ms;
+
+          @media (prefers-reduced-motion: no-preference) {
+            transition: opacity 250ms ease-in-out 0ms;
+          }
         }
       }
     }
@@ -89,10 +103,12 @@
 
   .copy-code-button-copied {
     background-image: var(--copy-code-copied-icon);
+    background-repeat: no-repeat;
   }
 
   pre {
     display: flex;
+    flex-wrap: nowrap;
     place-items: center;
     min-block-size: calc(
       var(--copy-code-icon-size) + calc(var(--space-m) + var(--space-2xs)) * 2

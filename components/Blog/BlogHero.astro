@@ -41,7 +41,10 @@ let t = useTranslations(locale, 'blog')
   .hero {
     background: var(--color-blog-hero-background);
     box-shadow: 0 0 1px var(--color-border-primary);
-    transition: background 200ms;
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: background 200ms;
+    }
 
     .hero-container {
       padding: 0;
@@ -58,7 +61,10 @@ let t = useTranslations(locale, 'blog')
     block-size: auto;
     user-select: none;
     filter: var(--color-blog-hero-filter);
-    transition: filter 200ms;
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: filter 200ms;
+    }
 
     @container (inline-size >= 560px) {
       margin-block: calc(0px - var(--space-m));

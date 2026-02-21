@@ -233,6 +233,7 @@ let changeLanguageUrl = url.pathname.replace(
 <style>
   .mobile-menu {
     display: flex;
+    flex-wrap: nowrap;
   }
 
   .mobile-menu-close {
@@ -243,19 +244,21 @@ let changeLanguageUrl = url.pathname.replace(
     position: fixed;
     inset: 0;
     display: none;
-    flex-direction: column;
+    flex-flow: column nowrap;
     gap: var(--space-2xs);
     padding: var(--space-m);
     background: var(--color-background-primary);
 
     &[data-open='true'] {
       display: flex;
+      flex-wrap: nowrap;
     }
   }
 
   .icon {
     display: flex;
     flex-shrink: 0;
+    flex-wrap: nowrap;
     inline-size: var(--size-icon-m);
     block-size: var(--size-icon-m);
   }
@@ -263,6 +266,7 @@ let changeLanguageUrl = url.pathname.replace(
   .element {
     position: relative;
     display: flex;
+    flex-wrap: nowrap;
     gap: var(--space-s);
     place-items: center;
     padding: var(--space-xs) var(--space-s);
@@ -298,7 +302,10 @@ let changeLanguageUrl = url.pathname.replace(
     cursor: pointer;
     outline: none;
     border-radius: var(--border-radius);
-    transition: box-shadow 200ms;
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: box-shadow 200ms;
+    }
 
     @media (hover: hover) {
       &:hover {
@@ -325,6 +332,7 @@ let changeLanguageUrl = url.pathname.replace(
 
     .theme-dark {
       display: flex;
+      flex-wrap: nowrap;
     }
   }
 
@@ -334,7 +342,7 @@ let changeLanguageUrl = url.pathname.replace(
     inset-inline-end: 0;
     z-index: 1;
     display: flex;
-    flex-direction: column;
+    flex-flow: column nowrap;
     padding: 16px;
     background: var(--color-background-primary);
     border: 1px solid var(--color-border-primary);
@@ -342,24 +350,22 @@ let changeLanguageUrl = url.pathname.replace(
 
     .details[open] & {
       transform-origin: top center;
-      animation: grow-down 250ms ease-in-out forwards;
 
-      @media (prefers-reduced-motion: reduce) {
-        animation: none;
+      @media (prefers-reduced-motion: no-preference) {
+        animation: grow-down 250ms ease-in-out forwards;
       }
     }
 
     .details-close[open] & {
-      animation: close 250ms ease-in-out forwards;
-
-      @media (prefers-reduced-motion: reduce) {
-        animation-duration: 10ms;
+      @media (prefers-reduced-motion: no-preference) {
+        animation: close 250ms ease-in-out forwards;
       }
     }
   }
 
   .locale {
     display: flex;
+    flex-wrap: nowrap;
     gap: var(--space-s);
     place-items: center;
     min-inline-size: 160px;
@@ -377,6 +383,7 @@ let changeLanguageUrl = url.pathname.replace(
 
   .only-mobile {
     display: flex;
+    flex-wrap: nowrap;
   }
 
   .only-desktop {
@@ -391,7 +398,10 @@ let changeLanguageUrl = url.pathname.replace(
     .navigation {
       position: static;
       display: flex;
+      /* stylelint-disable declaration-block-no-redundant-longhand-properties */
       flex-direction: row;
+      flex-wrap: nowrap;
+      /* stylelint-enable declaration-block-no-redundant-longhand-properties */
       place-items: center;
       padding: 0;
       background: none;
@@ -411,6 +421,7 @@ let changeLanguageUrl = url.pathname.replace(
 
     .only-desktop {
       display: flex;
+      flex-wrap: nowrap;
     }
   }
 

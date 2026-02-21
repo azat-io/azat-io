@@ -3,8 +3,10 @@ h3 {
   position: relative;
 
   @media (width >= 768px) {
-    &:hover .heading-anchor {
-      opacity: 100%;
+    @media (hover: hover) {
+      &:hover .heading-anchor {
+        opacity: 100%;
+      }
     }
   }
 }
@@ -20,7 +22,10 @@ h3 {
   text-decoration: none;
   opacity: 0%;
   transform: translateY(calc(-50% - 2px));
-  transition: opacity 250ms ease-in-out 100ms;
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: opacity 250ms ease-in-out 100ms;
+  }
 
   &:focus-visible {
     border-radius: 8px;
@@ -29,5 +34,6 @@ h3 {
 
   @media (width >= 768px) {
     display: flex;
+    flex-wrap: nowrap;
   }
 }

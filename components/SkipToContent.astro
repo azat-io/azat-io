@@ -38,6 +38,7 @@ let t = useTranslations(locale, 'header')
     inset-inline-start: var(--space-m);
     z-index: 1;
     display: flex;
+    flex-wrap: nowrap;
     gap: var(--space-xs);
     align-items: end;
     padding: var(--space-xs) var(--space-m);
@@ -56,11 +57,15 @@ let t = useTranslations(locale, 'header')
         var(--color-background-primary),
         var(--color-background-primary)
       );
+    background-repeat: no-repeat;
     border-radius: var(--border-radius);
     opacity: 100%;
-    transition: box-shadow 200ms;
 
-    &:focus {
+    @media (prefers-reduced-motion: no-preference) {
+      transition: box-shadow 200ms;
+    }
+
+    &:focus-visible {
       opacity: 100%;
 
       & + :global(#logo) {

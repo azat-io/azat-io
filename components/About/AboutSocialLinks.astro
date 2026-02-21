@@ -9,16 +9,16 @@
 <style>
   .social-links {
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(1, [column] 1fr);
     gap: var(--space-m);
     inline-size: 100%;
 
     @container (inline-size >= 560px) {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, [column] 1fr);
     }
 
     @container (inline-size >= 800px) {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, [column] 1fr);
     }
 
     @container (inline-size >= 960px) {

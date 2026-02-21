@@ -44,6 +44,7 @@
 
   .demo-value {
     display: flex;
+    flex-wrap: nowrap;
     gap: var(--space-xs);
     place-items: center;
   }

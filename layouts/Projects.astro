@@ -62,7 +62,7 @@ let { description, keywords, badges, links, title, id } = Astro.props
 <style>
   .app {
     display: grid;
-    grid-template-rows: min-content 1fr min-content;
+    grid-template-rows: [header] min-content [content] 1fr [footer] min-content;
     min-block-size: 100dvb;
   }
 

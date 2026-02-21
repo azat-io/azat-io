@@ -16,7 +16,7 @@ let { class: className, ...props } = Astro.props
 <style>
   .widget-wrapper {
     display: grid;
-    grid-template-columns: repeat(var(--columns), 1fr);
+    grid-template-columns: repeat(var(--columns), [column] 1fr);
     gap: var(--space-m);
     margin-block: var(--space-m);
     container-type: inline-size;

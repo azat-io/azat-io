@@ -54,7 +54,9 @@ let ElementTag = tag
   }
 
   .interactive {
-    transition: all 250ms;
+    @media (prefers-reduced-motion: no-preference) {
+      transition: all 250ms;
+    }
 
     @media (hover: hover) {
       &:hover {

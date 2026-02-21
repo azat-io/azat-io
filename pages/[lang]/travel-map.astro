@@ -57,13 +57,16 @@ export function getStaticPaths() {
     inline-size: 100%;
     padding-inline-start: 0;
     margin-block-start: var(--space-xl);
-    list-style: none;
+    list-style: '';
   }
 
   @container (inline-size >= 680px) {
     .list {
-      grid-template-rows: repeat(calc(var(--total) / var(--columns)), 1fr);
-      grid-template-columns: repeat(var(--columns), 1fr);
+      grid-template-rows: repeat(
+        calc(var(--total) / var(--columns)),
+        [row] 1fr
+      );
+      grid-template-columns: repeat(var(--columns), [column] 1fr);
       grid-auto-flow: column;
       --columns: 2;
     }

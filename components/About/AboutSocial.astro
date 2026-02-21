@@ -80,13 +80,16 @@ let Icon = icons[type]
 <style>
   .social {
     display: inline-flex;
+    flex-wrap: nowrap;
     gap: var(--space-s);
     place-items: center;
     padding-block: var(--space-s);
     text-decoration: none;
     border-radius: var(--border-radius);
-    transition: all 250ms;
-    will-change: box-shadow, background, color;
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: all 250ms;
+    }
 
     @media (hover: hover) {
       &:hover {

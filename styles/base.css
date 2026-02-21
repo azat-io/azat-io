@@ -67,13 +67,19 @@ a {
   text-underline-offset: 0.25em;
   outline: none;
   border-radius: var(--border-radius);
-  transition: box-shadow 200ms;
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: box-shadow 200ms;
+  }
 
   @media (hover: hover) {
     &:hover {
       color: var(--color-content-link-hover);
       border-color: var(--color-border-link-hover);
-      transition: all 200ms;
+
+      @media (prefers-reduced-motion: no-preference) {
+        transition: all 200ms;
+      }
     }
   }
 
@@ -170,6 +176,7 @@ img {
 picture {
   display: flex;
   flex-shrink: 0;
+  flex-wrap: nowrap;
 }
 
 pre,
@@ -203,7 +210,10 @@ pre {
   overflow: auto;
   outline: none;
   border-radius: var(--border-radius);
-  transition: box-shadow 200ms;
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: box-shadow 200ms;
+  }
 
   code {
     padding: 0;

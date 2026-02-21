@@ -178,11 +178,13 @@
 <style>
   .share-wrapper {
     display: flex;
+    flex-wrap: nowrap;
     place-items: start;
   }
 
   .share {
     display: flex;
+    flex-wrap: nowrap;
     gap: var(--space-s);
     place-items: center;
     padding-inline: 0;
@@ -192,7 +194,10 @@
     background: transparent;
     border: none;
     border-radius: var(--border-radius);
-    transition: box-shadow 200ms;
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: box-shadow 200ms;
+    }
 
     @media (hover: hover) {
       &:hover {
@@ -207,6 +212,7 @@
 
     & :global(svg) {
       display: flex;
+      flex-wrap: nowrap;
       inline-size: var(--size-icon-s);
       block-size: var(--size-icon-s);
     }
@@ -219,8 +225,10 @@
     border: 1px solid var(--color-border-primary);
     border-radius: var(--border-radius);
     opacity: 0%;
-    animation: scale-up 300ms cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-    will-change: opacity, transform;
+
+    @media (prefers-reduced-motion: no-preference) {
+      animation: scale-up 300ms cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+    }
 
     &::backdrop {
       background: var(--color-overlay-primary);
@@ -239,13 +247,17 @@
     inset-block-start: var(--space-s);
     inset-inline-end: var(--space-s);
     display: flex;
+    flex-wrap: nowrap;
     padding: var(--space-xs);
     color: var(--color-content-primary);
     outline: none;
     background: transparent;
     border: none;
     border-radius: var(--border-radius);
-    transition: all 250ms;
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: all 250ms;
+    }
 
     &:focus-visible {
       background: var(--color-overlay-brand);
@@ -273,15 +285,16 @@
 
   .links {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, [column] 1fr);
     gap: var(--space-2xs);
     padding-inline-start: 0;
     margin-block: 0;
-    list-style: none;
+    list-style: "";
   }
 
   .link {
     display: flex;
+    flex-wrap: nowrap;
     padding: var(--space-xs);
     color: var(--color-content-primary);
     text-decoration: none;

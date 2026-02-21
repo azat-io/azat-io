@@ -18,7 +18,7 @@
     aspect-ratio: 1 / 1;
     padding: 0;
     margin-block: 0;
-    list-style: none;
+    list-style: "";
     background: var(--color-background-inverse-hover);
     border: 1px solid var(--color-border-inverse);
     border-radius: 0.5px;
