@@ -53,6 +53,7 @@ export default {
     'grave-of-the-fireflies': 'Grave of the Fireflies',
     'the-promised-neverland': 'The Promised Neverland',
     'the-apothecary-diaries': 'The Apothecary Diaries',
+    'i-have-a-crush-at-work': 'I Have a Crush at Work',
     'cyberpunk-edgerunners': 'Cyberpunk: Edgerunners',
     'dorohedoro-extra-evil': 'Dorohedoro: Extra Evil',
     'chainsaw-man-reze-arc': 'Chainsaw Man: Reze Arc',
