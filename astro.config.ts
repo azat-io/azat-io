@@ -127,7 +127,7 @@ export default defineConfig({
     port: 8080,
     host: true,
   },
-  srcDir: import.meta.dirname,
   compressHTML: true,
   site: homepage,
+  srcDir: '.',
 })
