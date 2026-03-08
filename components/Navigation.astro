@@ -398,10 +398,7 @@ let changeLanguageUrl = url.pathname.replace(
     .navigation {
       position: static;
       display: flex;
-      /* stylelint-disable declaration-block-no-redundant-longhand-properties */
-      flex-direction: row;
-      flex-wrap: nowrap;
-      /* stylelint-enable declaration-block-no-redundant-longhand-properties */
+      flex-flow: row nowrap;
       place-items: center;
       padding: 0;
       background: none;
