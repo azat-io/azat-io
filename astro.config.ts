@@ -116,16 +116,15 @@ export default defineConfig({
     inlineStylesheets: 'always',
     format: 'file',
   },
-  experimental: {
-    clientPrerender: true,
-    svgo: true,
-  },
   image: {
     service: sharpImageService(),
   },
   server: {
     port: 8080,
     host: true,
+  },
+  experimental: {
+    svgo: true,
   },
   compressHTML: true,
   site: homepage,
