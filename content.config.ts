@@ -1,5 +1,6 @@
-import { defineCollection, z } from 'astro:content'
+import { defineCollection } from 'astro:content'
 import { glob } from 'astro/loaders'
+import { z } from 'astro/zod'
 import path from 'node:path'
 
 let blog = defineCollection({
@@ -13,7 +14,7 @@ let blog = defineCollection({
     title: z.string(),
   }),
   loader: glob({
-    base: path.join(import.meta.dirname, 'blog'),
+    base: path.join(import.meta.dirname, 'content', 'blog'),
     pattern: '**/*.mdx',
   }),
 })
@@ -21,10 +22,10 @@ let blog = defineCollection({
 let projects = defineCollection({
   schema: z.object({
     links: z.object({
-      website: z.ostring(),
-      github: z.ostring(),
-      vscode: z.ostring(),
-      npm: z.ostring(),
+      website: z.string().optional(),
+      github: z.string().optional(),
+      vscode: z.string().optional(),
+      npm: z.string().optional(),
     }),
     badges: z
       .object({
@@ -39,20 +40,20 @@ let projects = defineCollection({
     id: z.string(),
   }),
   loader: glob({
-    base: path.join(import.meta.dirname, 'projects'),
+    base: path.join(import.meta.dirname, 'content', 'projects'),
     pattern: '**/*.mdx',
   }),
 })
 
 let travelMap = defineCollection({
+  loader: glob({
+    base: path.join(import.meta.dirname, 'content', 'travel-map'),
+    pattern: '**/*.json',
+  }),
   schema: z.object({
     originName: z.string(),
     originLang: z.string(),
     code: z.string(),
-  }),
-  loader: glob({
-    base: path.join(import.meta.dirname, 'travel-map'),
-    pattern: '**/*.json',
   }),
 })
 
@@ -87,7 +88,7 @@ let anime = defineCollection({
     id: z.string(),
   }),
   loader: glob({
-    base: path.join(import.meta.dirname, 'anime'),
+    base: path.join(import.meta.dirname, 'content', 'anime'),
     pattern: '**/*.json',
   }),
 })
