@@ -11,7 +11,7 @@ export function getStaticPaths() {
   return locales.map(({ code }) => ({ params: { lang: code } }))
 }
 
-export let GET: APIRoute = async ({ site, url }) => {
+export const GET: APIRoute = async ({ site, url }) => {
   let locale = getLocaleFromUrl(url)
   let t = useTranslations(locale, 'rss')
 
