@@ -1,5 +1,7 @@
 export default {
   anime: {
+    'higehiro-after-being-rejected-i-shaved-and-took-in-a-high-school-runaway':
+      'Я Побрился. Затем Привёл Домой Старшеклассницу',
     'attack-on-titan-final-season-the-final-chapters-special-1':
       'Атака Титанов: Последний сезон, специальный выпуск 1',
     'attack-on-titan-final-season-the-final-chapters-special-2':

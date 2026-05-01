@@ -83,6 +83,7 @@ export default defineConfig({
     'gruvbox',
     'haruhi',
     'hastscript',
+    'higehiro',
     'infobox',
     'kaiju',
     'kaisen',

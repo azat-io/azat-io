@@ -1,5 +1,7 @@
 export default {
   anime: {
+    'higehiro-after-being-rejected-i-shaved-and-took-in-a-high-school-runaway':
+      'Higehiro: After Being Rejected, I Shaved and Took in a High School Runaway',
     'attack-on-titan-final-season-the-final-chapters-special-1':
       'Attack on Titan: Final Season The Final Chapters Special 1',
     'attack-on-titan-final-season-the-final-chapters-special-2':
