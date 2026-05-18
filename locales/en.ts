@@ -271,6 +271,7 @@ export default {
     tr: 'Turkey',
     ke: 'Kenya',
     in: 'India',
+    jp: 'Japan',
   },
   index: {
     greeting:
