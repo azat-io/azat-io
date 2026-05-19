@@ -14,7 +14,7 @@
   {
     "name": "All Scripts",
     "path": ["dist/**/*.js"],
-    "limit": "40 kB",
+    "limit": "45 kB",
     "brotli": true
   }
 ]

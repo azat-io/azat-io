@@ -1,4 +1,4 @@
-import { sharpImageService, defineConfig } from 'astro/config'
+import { sharpImageService, svgoOptimizer, defineConfig } from 'astro/config'
 import rehypeExternalLinks from 'rehype-external-links'
 import { browserslistToTargets } from 'lightningcss'
 import svelteSvg from '@poppanator/sveltekit-svg'
@@ -116,15 +116,15 @@ export default defineConfig({
     inlineStylesheets: 'always',
     format: 'file',
   },
+  experimental: {
+    svgOptimizer: svgoOptimizer(),
+  },
   image: {
     service: sharpImageService(),
   },
   server: {
     port: 8080,
     host: true,
-  },
-  experimental: {
-    svgo: true,
   },
   compressHTML: true,
   site: homepage,

@@ -1,6 +1,6 @@
 import type { PhrasingContent, Paragraph, Root, Code } from 'mdast'
-import type { Properties, Result } from 'hastscript'
 import type { Transformer, Plugin } from 'unified'
+import type { Properties } from 'hastscript'
 import type { Parent, Node } from 'unist'
 
 import { visit } from 'unist-util-visit'
@@ -68,7 +68,7 @@ export let remarkCopyCode: Plugin<[], Root> =
                 },
               ],
             ),
-          node as unknown as Result,
+          node,
         ],
       )
 
