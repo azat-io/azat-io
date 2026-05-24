@@ -258,6 +258,7 @@ export default {
     az: 'Azerbaijan',
     ps: 'Palestine',
     sg: 'Singapore',
+    hk: 'Hong Kong',
     th: 'Thailand',
     kh: 'Cambodia',
     ge: 'Georgia',
