@@ -270,6 +270,7 @@ export default {
     ug: 'Uganda',
     fr: 'France',
     tr: 'Turkey',
+    mo: 'Macau',
     ke: 'Kenya',
     in: 'India',
     jp: 'Japan',
