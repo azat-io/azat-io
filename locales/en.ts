@@ -255,6 +255,7 @@ export default {
     ru: 'Russian Federation',
     'flag-of': 'Flag of',
     title: 'Travel Map',
+    ph: 'Philippines',
     az: 'Azerbaijan',
     ps: 'Palestine',
     sg: 'Singapore',
