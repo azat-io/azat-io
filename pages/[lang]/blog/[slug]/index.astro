@@ -17,7 +17,7 @@ let { Content } = await render(post)
 export async function getStaticPaths() {
   let posts = await getCollection('blog')
   return posts.map(currentPost => {
-    let [slug, locale] = currentPost.id.split('/')
+    let [slug, locale] = currentPost.id.split('/', 2)
     return {
       params: {
         lang: getLocaleFromUrl(

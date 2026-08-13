@@ -19,7 +19,7 @@ function parseUrl(url: string): {
   locale: string
   slug: string
 } {
-  let [slugValue, localeValue] = url.replace(/\.mdx?$/u, '').split('/')
+  let [slugValue, localeValue] = url.replace(/\.mdx?$/u, '').split('/', 2)
   return { locale: localeValue!, slug: slugValue! }
 }
 

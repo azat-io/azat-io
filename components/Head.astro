@@ -31,9 +31,8 @@ let {
   date,
 } = Astro.props
 
-let canonicalURL = new URL(Astro.url.pathname, Astro.site)
-  .toString()
-  .replace(/\.html$/u, '')
+let canonicalUrlObject = new URL(Astro.url.pathname, Astro.site)
+let canonicalURL = canonicalUrlObject.href.replace(/\.html$/u, '')
 
 let pageTitle = `${title} | ${t('name')}`
 
@@ -134,7 +133,7 @@ let isProduction = import.meta.env.PROD
     content={type}
   />
   <meta
-    content={Astro.url.toString().replace(/\.html/u, '')}
+    content={Astro.url.href.replace(/\.html/u, '')}
     property="og:url"
   />
   <meta

@@ -18,14 +18,15 @@ let t = useTranslations(locale, 'blog')
 
 let time = Math.ceil(readingTime(body).minutes)
 let coffeeCups = Math.ceil(time / 5)
+let pluralRules = new Intl.PluralRules(locale)
 ---
 
 <BlogInfoElement {...props}>
-  {Array.from({ length: coffeeCups }).map(() => <IconCoffee class="icon" />)}
+  {Array.from({ length: coffeeCups }, () => <IconCoffee class="icon" />)}
   {
     `${time} ${
       (t('minutes-to-read') as Record<Intl.LDMLPluralRule, string>)[
-        new Intl.PluralRules(locale).select(time)
+        pluralRules.select(time)
       ]
     }`
   }

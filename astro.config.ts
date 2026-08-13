@@ -21,12 +21,44 @@ import { remarkKatex } from './plugins/remark-katex'
 import { homepage } from './package.json'
 
 export default defineConfig({
+  integrations: [
+    shield({
+      securityHeaders: {
+        contentSecurityPolicy: {
+          cspDirectives: {
+            'default-src': "'none'",
+          },
+        },
+        enableOnStaticPages: {
+          provider: 'netlify',
+        },
+      },
+      sri: {
+        scriptsAllowListUrls: ['https://cdn.usefathom.com/script.js'],
+      },
+    }),
+    compress({
+      JavaScript: false,
+      Image: false,
+      HTML: true,
+      CSS: false,
+      SVG: true,
+    }),
+    sitemap({
+      filter: page => {
+        let homepagePattern = new RegExp(`^${homepage}/?$`)
+        return !homepagePattern.test(page)
+      },
+    }),
+    svelte(),
+    mdx(),
+  ],
   markdown: {
     shikiConfig: {
       transformers: [
         {
           pre: node => {
-            delete node.properties['style']
+            delete node.properties.style
           },
         },
       ],
@@ -53,35 +85,6 @@ export default defineConfig({
       remarkMath,
     ],
   },
-  integrations: [
-    shield({
-      securityHeaders: {
-        contentSecurityPolicy: {
-          cspDirectives: {
-            'default-src': "'none'",
-          },
-        },
-        enableOnStaticPages: {
-          provider: 'netlify',
-        },
-      },
-      sri: {
-        scriptsAllowListUrls: ['https://cdn.usefathom.com/script.js'],
-      },
-    }),
-    compress({
-      JavaScript: false,
-      Image: false,
-      HTML: true,
-      CSS: false,
-      SVG: true,
-    }),
-    sitemap({
-      filter: page => !new RegExp(`^${homepage}/?$`).test(page),
-    }),
-    svelte(),
-    mdx(),
-  ],
   vite: {
     build: {
       rollupOptions: {

@@ -15,7 +15,7 @@ let { Content } = await render(project)
 export async function getStaticPaths() {
   let projects = await getCollection('projects')
   return projects.map(currentProject => {
-    let [slug, locale] = currentProject.id.split('/')
+    let [slug, locale] = currentProject.id.split('/', 2)
     return {
       params: {
         lang: getLocaleFromUrl(new URL(locale!, homepage), true),

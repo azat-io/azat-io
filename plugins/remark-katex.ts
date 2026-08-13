@@ -10,8 +10,8 @@ export let remarkKatex: Plugin<[], Root> =
     let hasMath = false
     visit(tree, (node: Node, index: undefined | number, parent: Parent) => {
       if (
-        (node.type === 'inlineMath' || node.type === 'math') &&
-        typeof index === 'number'
+        typeof index === 'number' &&
+        (node.type === 'inlineMath' || node.type === 'math')
       ) {
         hasMath = true
         let html = katex
@@ -32,26 +32,9 @@ export let remarkKatex: Plugin<[], Root> =
     let treeChildren = (tree as Parent).children
 
     if (hasMath as boolean) {
-      ;(treeChildren as Literal[]).unshift({
-        value: `<link
-          integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV"
-          href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
-          crossorigin="anonymous"
-          rel="stylesheet"
-        />`,
-        type: 'html',
-      })
-      ;(treeChildren as Literal[]).unshift({
-        value: `<script
-          integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8"
-          src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"
-          crossorigin="anonymous"
-          defer
-        ></script>`,
-        type: 'html',
-      })
-      ;(treeChildren as Literal[]).unshift({
-        value: `<style>
+      ;(treeChildren as Literal[]).unshift(
+        {
+          value: `<style>
           .katex-block {
             display: block;
             max-inline-size: 100%;
@@ -64,7 +47,26 @@ export let remarkKatex: Plugin<[], Root> =
             display: inline-block;
           }
         </style>`,
-        type: 'html',
-      })
+          type: 'html',
+        },
+        {
+          value: `<script
+          integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8"
+          src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"
+          crossorigin="anonymous"
+          defer
+        ></script>`,
+          type: 'html',
+        },
+        {
+          value: `<link
+          integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV"
+          href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
+          crossorigin="anonymous"
+          rel="stylesheet"
+        />`,
+          type: 'html',
+        },
+      )
     }
   }

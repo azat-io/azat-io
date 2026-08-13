@@ -19,13 +19,17 @@ export async function GET({ props }: Props): Promise<ImageResponse> {
   let CoText = await fs.readFile(
     path.resolve('./public/fonts/co-text-bold.ttf'),
   )
-  let CoTextFont = Buffer.from(new Uint8Array(CoText.buffer))
+  let CoTextFont = Buffer.from(
+    new Uint8Array(CoText.buffer, CoText.byteOffset, CoText.byteLength),
+  )
 
   function parseUrl(currentUrl: string): {
     locale: string
     slug: string
   } {
-    let [slugValue, localeValue] = currentUrl.replace(/\.mdx?$/u, '').split('/')
+    let [slugValue, localeValue] = currentUrl
+      .replace(/\.mdx?$/u, '')
+      .split('/', 2)
     return { locale: localeValue!, slug: slugValue! }
   }
 
@@ -124,7 +128,7 @@ export async function GET({ props }: Props): Promise<ImageResponse> {
 export async function getStaticPaths() {
   let posts = await getCollection('blog')
   return posts.map(post => {
-    let [slug, locale] = post.id.split('/')
+    let [slug, locale] = post.id.split('/', 2)
     return {
       params: {
         lang: getLocaleFromUrl(new URL(locale!, homepage), true),

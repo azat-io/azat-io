@@ -43,7 +43,7 @@
 
   let dialog: HTMLDialogElement
 
-  $: cleanUrl = url.toString().replace(/\.html$/u, '')
+  $: cleanUrl = url.href.replace(/\.html$/u, '')
 
   $: links = [
     {
@@ -260,6 +260,7 @@
     }
 
     &:focus-visible {
+      outline: 2px solid transparent;
       background: var(--color-overlay-brand);
       box-shadow: 0 0 0 2px var(--color-border-brand);
       transition-property: box-shadow;

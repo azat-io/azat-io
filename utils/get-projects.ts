@@ -14,11 +14,11 @@ export async function getProjects(locale?: string): Promise<
       if (!locale) {
         return true
       }
-      let [_, localeValue] = page.id.split('/')
+      let [_, localeValue] = page.id.split('/', 2)
       return localeValue === locale
     })
     .map(page => {
-      let [slug] = page.id.split('/')
+      let [slug] = page.id.split('/', 1)
       return {
         ...page,
         slug: slug!,

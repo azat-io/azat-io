@@ -20,7 +20,7 @@
   $: minutes = date.getMinutes() - dateOfBirth.getMinutes()
   $: seconds = date.getSeconds() - dateOfBirth.getSeconds()
 
-  $: if (months <= 0 && date.getDate() - dateOfBirth.getDate() < 0) {
+  $: if (months <= 0 && date.getDate() < dateOfBirth.getDate()) {
     years--
     months += 12
   }
@@ -51,9 +51,10 @@
     value: number,
     unit: Unit,
   ): string {
+    let pluralRules = new Intl.PluralRules(locale)
     return `${value} ${
       (translateFunction(unit) as Record<Intl.LDMLPluralRule, string>)[
-        new Intl.PluralRules(locale).select(value)
+        pluralRules.select(value)
       ]
     }`
   }
@@ -65,7 +66,7 @@
   $: formattedMinutes = format(t, minutes, 'minutes')
   $: formattedSeconds = format(t, seconds, 'seconds')
 
-  onMount(() => (url = new URL(globalThis.location.href)))
+  onMount(() => (url = new URL(location.href)))
 </script>
 
 <span role="timer">

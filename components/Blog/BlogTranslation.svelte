@@ -47,21 +47,21 @@
   $: shouldRender =
     $userLanguage &&
     $userLanguage !== translationLocale &&
-    !translations.some(({ locale: tLocale }) => tLocale === $userLanguage) &&
-    !!desiredLocales[$userLanguage]
+    translations.every(({ locale: tLocale }) => tLocale !== $userLanguage) &&
+    Object.hasOwn(desiredLocales, $userLanguage)
 
   function trackTranslationClick(): void {
-    if (globalThis.fathom && $userLanguage) {
+    if ($userLanguage && globalThis.fathom) {
       globalThis.fathom.trackEvent(
         `translation: view instructions ${$userLanguage}`,
       )
     }
   }
 
-  onMount(() => (url = new URL(globalThis.location.href)))
+  onMount(() => (url = new URL(location.href)))
 
   onMount(() => {
-    userLanguage.set(globalThis.navigator.language.slice(0, 2))
+    userLanguage.set(navigator.language.slice(0, 2))
   })
 </script>
 

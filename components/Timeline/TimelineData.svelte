@@ -23,11 +23,8 @@
     return Math.floor((Number(date1) - Number(date2)) / (1000 * 60 * 60 * 24))
   }
 
-  $: passedFullYears = Math.ceil(
-    Math.abs(
-      new Date(today.getTime() - dateOfBirth.getTime()).getFullYear() - 1970,
-    ),
-  )
+  $: ageDate = new Date(today.getTime() - dateOfBirth.getTime())
+  $: passedFullYears = Math.ceil(Math.abs(ageDate.getFullYear() - 1970))
 
   $: lastBirthday = new Date(
     new Date(
@@ -55,7 +52,7 @@
     (getDaysBetweenDates(today, lastBirthday) / daysInLastYear) * weeksInYear,
   )
 
-  onMount(() => (url = new URL(globalThis.location.href)))
+  onMount(() => (url = new URL(location.href)))
 
   onMount(() => {
     let interval = setInterval(() => {

@@ -15,9 +15,9 @@ export let remarkTypograf: Plugin<[], Root> =
         .pop()
       if (
         locale &&
-        ['en', 'ru'].includes(locale) &&
+        typeof index === 'number' &&
         node.type === 'text' &&
-        typeof index === 'number'
+        ['en', 'ru'].includes(locale)
       ) {
         let localeValue = locale === 'en' ? ['en-US'] : ['ru', 'en-US']
         let typograf = new Typograf({

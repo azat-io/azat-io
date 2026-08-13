@@ -9,7 +9,7 @@
   $: locale = getLocaleFromUrl(url)
   $: t = useTranslations(locale, 'timeline')
 
-  onMount(() => (url = new URL(globalThis.location.href)))
+  onMount(() => (url = new URL(location.href)))
 </script>
 
 <div class="demo">

@@ -15,7 +15,7 @@ let t = useTranslations(locale, 'anime')
 let collection = (await getCollection('anime'))
   .map(({ data, id }) => ({
     ...data,
-    order: Number.parseInt(id.split('-').at(0) ?? '0'),
+    order: Number.parseInt(id.split('-', 1).at(0) ?? '0'),
   }))
   .toSorted((a, b) => a.order - b.order)
 
