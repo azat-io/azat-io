@@ -1,8 +1,16 @@
 ---
+interface Props {
+  itemscope?: boolean
+  itemtype?: string
+}
 
+let { props } = Astro
 ---
 
-<div class="social-links">
+<div
+  class="social-links"
+  {...props}
+>
   <slot />
 </div>
 

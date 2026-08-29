@@ -25,6 +25,7 @@ import { locales } from '~/locales'
 
 let locale = getLocaleFromUrl(Astro.url)
 let t = useTranslations(locale, 'about')
+let tHead = useTranslations(locale, 'head')
 
 let socialMedia = [
   {
@@ -112,6 +113,10 @@ export function getStaticPaths() {
       itemtype="https://schema.org/Person"
       itemscope
     >
+      <meta
+        content={tHead('name')}
+        itemprop="name"
+      />
       {
         socialMedia.map(({ username, link, type }) => (
           <AboutSocial
