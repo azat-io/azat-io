@@ -15,16 +15,19 @@
 <div class="demo">
   <div class="demo-value">
     <TimelineCell class="timeline-demo-cell" passed={true} tag="div" />
+    <!-- eslint-disable-next-line slop/no-em-dash -->
     <span>—</span>
     <span>{t('past-week')}</span>
   </div>
   <div class="demo-value">
     <TimelineCell class="timeline-demo-cell" healthy={true} tag="div" />
+    <!-- eslint-disable-next-line slop/no-em-dash -->
     <span>—</span>
     <span>{t('healthy-life-expectancy')}</span>
   </div>
   <div class="demo-value">
     <TimelineCell class="timeline-demo-cell" tag="div" />
+    <!-- eslint-disable-next-line slop/no-em-dash -->
     <span>—</span>
     <span>{t('life-expectancy-at-birth')}</span>
   </div>

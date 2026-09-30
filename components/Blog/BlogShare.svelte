@@ -96,12 +96,6 @@
     },
   ] as const
 
-  function clickOutside(event: MouseEvent): void {
-    if (event.target === dialog) {
-      closeDialog()
-    }
-  }
-
   async function share(): Promise<void> {
     if (globalThis.fathom) {
       globalThis.fathom.trackEvent('share: dialog opened')
@@ -123,15 +117,21 @@
     }
   }
 
-  function closeDialog(): void {
-    dialog.close()
-    document.removeEventListener('click', clickOutside)
-  }
-
   function trackShare(platform: string): void {
     if (globalThis.fathom) {
       globalThis.fathom.trackEvent(`share: ${platform}`)
     }
+  }
+
+  function clickOutside(event: MouseEvent): void {
+    if (event.target === dialog) {
+      closeDialog()
+    }
+  }
+
+  function closeDialog(): void {
+    dialog.close()
+    document.removeEventListener('click', clickOutside)
   }
 
   onMount(() => {

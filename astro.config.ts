@@ -1,6 +1,7 @@
 import { sharpImageService, svgoOptimizer, defineConfig } from 'astro/config'
 import rehypeExternalLinks from 'rehype-external-links'
 import { browserslistToTargets } from 'lightningcss'
+import { unified } from '@astrojs/markdown-remark'
 import svelteSvg from '@poppanator/sveltekit-svg'
 import { shield } from '@kindspells/astro-shield'
 import remarkSectionize from 'remark-sectionize'
@@ -21,6 +22,40 @@ import { remarkKatex } from './plugins/remark-katex'
 import { homepage } from './package.json'
 
 export default defineConfig({
+  markdown: {
+    processor: unified({
+      rehypePlugins: [
+        [
+          rehypeExternalLinks,
+          {
+            rel: ['noopener', 'noreferrer'],
+            target: '_blank',
+          },
+        ],
+      ],
+      remarkPlugins: [
+        remarkSectionize,
+        remarkCopyCode,
+        remarkHeadings,
+        remarkTypograf,
+        remarkKatex,
+        remarkMath,
+      ],
+    }),
+    shikiConfig: {
+      transformers: [
+        {
+          pre: node => {
+            delete node.properties.style
+          },
+        },
+      ],
+      themes: {
+        light: JSON5.parse(gruvboxLight),
+        dark: JSON5.parse(gruvboxDark),
+      },
+    },
+  },
   integrations: [
     shield({
       securityHeaders: {
@@ -53,38 +88,6 @@ export default defineConfig({
     svelte(),
     mdx(),
   ],
-  markdown: {
-    shikiConfig: {
-      transformers: [
-        {
-          pre: node => {
-            delete node.properties.style
-          },
-        },
-      ],
-      themes: {
-        light: JSON5.parse(gruvboxLight),
-        dark: JSON5.parse(gruvboxDark),
-      },
-    },
-    rehypePlugins: [
-      [
-        rehypeExternalLinks,
-        {
-          rel: ['noopener', 'noreferrer'],
-          target: '_blank',
-        },
-      ],
-    ],
-    remarkPlugins: [
-      remarkSectionize,
-      remarkCopyCode,
-      remarkHeadings,
-      remarkTypograf,
-      remarkKatex,
-      remarkMath,
-    ],
-  },
   vite: {
     build: {
       rollupOptions: {

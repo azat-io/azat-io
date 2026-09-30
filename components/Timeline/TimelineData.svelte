@@ -57,7 +57,7 @@
   onMount(() => {
     let interval = setInterval(() => {
       today = new Date()
-    }, 1000) as unknown as number
+    }, 1000)
 
     return () => {
       clearInterval(interval)

@@ -9,7 +9,7 @@ export default {
     'made-in-abyss-the-golden-city-of-the-scorching-sun':
       'Made in Abyss: The Golden City of the Scorching Sun',
     'butareba-the-story-of-a-man-turned-into-a-pig':
-      'Butareba — The Story of a Man Turned into a Pig',
+      'Butareba: The Story of a Man Turned into a Pig',
     'solo-leveling-season-2-arise-from-the-shadow':
       'Solo Leveling Season 2 - Arise from the Shadow',
     'alya-sometimes-hides-her-feelings-in-russian':
@@ -167,7 +167,7 @@ export default {
     description:
       'Personal blog of Azat S. Front-end developer, creator of technical content, open source community member',
     'translate-2':
-      'Want to help? Check out the {contributing} file — it has all the information you need to get started.',
+      'Want to help? The {contributing} file has all the information you need to get started.',
     'minutes-to-read': {
       other: 'minutes to read',
       one: 'minute to read',
@@ -212,6 +212,7 @@ export default {
     'quote-end': '”',
     share: 'Share',
     title: 'Blog',
+    // eslint-disable-next-line slop/no-em-dash
     by: '— by',
   },
   timeline: {
