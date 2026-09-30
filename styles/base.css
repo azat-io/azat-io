@@ -69,6 +69,7 @@ a {
   text-underline-offset: 0.25em;
   outline: none;
   border-radius: var(--border-radius);
+  corner-shape: squircle;
 
   @media (prefers-reduced-motion: no-preference) {
     transition: box-shadow 200ms;
@@ -139,6 +140,7 @@ table {
   border-collapse: collapse;
   border-style: hidden;
   border-radius: var(--border-radius);
+  corner-shape: squircle;
   box-shadow: 0 0 0 1px var(--color-border-primary);
 }
 
@@ -201,6 +203,7 @@ code {
   padding: var(--space-2xs);
   white-space: nowrap;
   border-radius: calc(var(--border-radius) / 2);
+  corner-shape: squircle;
 }
 
 main {
@@ -212,6 +215,7 @@ pre {
   overflow: auto;
   outline: none;
   border-radius: var(--border-radius);
+  corner-shape: squircle;
 
   @media (prefers-reduced-motion: no-preference) {
     transition: box-shadow 200ms;

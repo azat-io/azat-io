@@ -194,6 +194,7 @@
     background: transparent;
     border: none;
     border-radius: var(--border-radius);
+    corner-shape: squircle;
 
     @media (prefers-reduced-motion: no-preference) {
       transition: box-shadow 200ms;
@@ -224,6 +225,7 @@
     background: var(--color-background-secondary);
     border: 1px solid var(--color-border-primary);
     border-radius: var(--border-radius);
+    corner-shape: squircle;
     opacity: 0%;
 
     @media (prefers-reduced-motion: no-preference) {
@@ -254,6 +256,7 @@
     background: transparent;
     border: none;
     border-radius: var(--border-radius);
+    corner-shape: squircle;
 
     @media (prefers-reduced-motion: no-preference) {
       transition: all 250ms;
@@ -300,6 +303,7 @@
     color: var(--color-content-primary);
     text-decoration: none;
     border-radius: var(--border-radius);
+    corner-shape: squircle;
 
     & :global(svg) {
       inline-size: var(--size-icon-l);

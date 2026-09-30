@@ -6,4 +6,8 @@
   --space-l: clamp(1.5rem, 1.25rem + 1vi, 1.75rem);
   --space-xl: clamp(2rem, 1rem + 4vi, 3rem);
   --border-radius: 16px;
+
+  @supports (corner-shape: squircle) {
+    --border-radius: 27px;
+  }
 }

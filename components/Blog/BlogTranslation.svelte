@@ -98,6 +98,7 @@
     background: var(--color-background-secondary);
     border: 1px solid var(--color-border-primary);
     border-radius: var(--border-radius);
+    corner-shape: squircle;
 
     & :global(svg) {
       position: absolute;

@@ -29,7 +29,12 @@ h3 {
 
   &:focus-visible {
     border-radius: 8px;
+    corner-shape: squircle;
     opacity: 100%;
+
+    @supports (corner-shape: squircle) {
+      border-radius: 14px;
+    }
   }
 
   @media (width >= 768px) {
