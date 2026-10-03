@@ -1,0 +1,46 @@
+---
+id: eyecons
+title: Eyecons
+description:
+  VS Code icon theme that recolors icons to match the editor's color theme
+type: other
+badges:
+  - name: Version
+    url: https://img.shields.io/github/package-json/v/azat-io/eyecons?color=f6bd40&labelColor=181818
+  - name: GitHub stars
+    url: https://img.shields.io/github/stars/azat-io/eyecons?style=flat&color=f6bd40&labelColor=181818
+  - name: Installs
+    url: https://vsmarketplacebadges.dev/installs-short/azat-io.eyecons.svg?color=f6bd40&labelColor=181818
+  - name: License
+    url: https://img.shields.io/github/license/azat-io/eyecons?color=f6bd40&labelColor=181818
+links:
+  website: https://eyecons.dev
+  github: https://github.com/azat-io/eyecons
+  vscode: https://marketplace.visualstudio.com/items?itemName=azat-io.eyecons
+---
+
+I made Eyecons purely for aesthetics. File icons usually come with their own
+colors, and those don’t always match the editor theme.
+
+Eyecons recolors icons using the theme’s colors. For each color in an icon, it
+finds the most similar color in the theme. Red parts of an icon stay red and
+gray parts stay gray, but the exact shade comes from the theme. It compares
+colors in the OKLCH color space rather than by HEX codes. OKLCH is closer to how
+the eye sees color.
+
+Eyecons supports Nord, Gruvbox, Dracula, Tokyo Night, and other themes. It
+detects the editor theme automatically. If your theme isn’t on the list, the
+icons use the colors of the built-in Dark (Visual Studio) theme.
+
+You can see how the icons look with different themes
+[on the project website](https://eyecons.dev).
+
+## How to start using it?
+
+Install the extension from the Visual Studio Marketplace or with this command:
+
+```sh
+code --install-extension azat-io.eyecons
+```
+
+Then select Eyecons with the `Preferences: File Icon Theme` command.

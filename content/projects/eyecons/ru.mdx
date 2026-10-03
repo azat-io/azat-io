@@ -1,0 +1,46 @@
+---
+id: eyecons
+title: Eyecons
+description:
+  Иконочная тема для VS Code, которая перекрашивает иконки в цвета темы
+  редактора
+type: other
+badges:
+  - name: Version
+    url: https://img.shields.io/github/package-json/v/azat-io/eyecons?color=f6bd40&labelColor=181818
+  - name: GitHub stars
+    url: https://img.shields.io/github/stars/azat-io/eyecons?style=flat&color=f6bd40&labelColor=181818
+  - name: Installs
+    url: https://vsmarketplacebadges.dev/installs-short/azat-io.eyecons.svg?color=f6bd40&labelColor=181818
+  - name: License
+    url: https://img.shields.io/github/license/azat-io/eyecons?color=f6bd40&labelColor=181818
+links:
+  website: https://eyecons.dev
+  github: https://github.com/azat-io/eyecons
+  vscode: https://marketplace.visualstudio.com/items?itemName=azat-io.eyecons
+---
+
+Eyecons я сделал просто ради красоты. У иконок файлов обычно свои цвета, и с
+темой редактора они сочетаются не всегда.
+
+Eyecons перекрашивает иконки в цвета темы. Для каждого цвета иконки он ищет
+самый похожий цвет в теме. Красные части иконки остаются красными, серые —
+серыми, но точный оттенок берётся из темы. Похожесть он оценивает не по
+HEX-кодам, а в пространстве OKLCH. Оно ближе к тому, как цвета видит глаз.
+
+Eyecons поддерживает Nord, Gruvbox, Dracula, Tokyo Night и другие темы. Тему
+редактора он определяет сам. Если вашей темы нет в списке, иконки возьмут цвета
+стандартной тёмной темы VS Code.
+
+Как иконки выглядят в разных темах, видно
+[на сайте проекта](https://eyecons.dev).
+
+## Как начать его использовать?
+
+Установите расширение из Visual Studio Marketplace или командой:
+
+```sh
+code --install-extension azat-io.eyecons
+```
+
+Затем выберите Eyecons через команду `Preferences: File Icon Theme`.
