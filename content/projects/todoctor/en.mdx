@@ -1,0 +1,50 @@
+---
+id: todoctor
+title: Todoctor
+description: CLI tool that tracks TODO comments using Git history
+type: other
+badges:
+  - name: Version
+    url: https://img.shields.io/github/package-json/v/azat-io/todoctor?color=f6bd40&labelColor=181818
+  - name: GitHub stars
+    url: https://img.shields.io/github/stars/azat-io/todoctor?style=flat&color=f6bd40&labelColor=181818
+  - name: Downloads per week
+    url: https://img.shields.io/npm/dm/todoctor?color=f6bd40&labelColor=181818
+  - name: License
+    url: https://img.shields.io/github/license/azat-io/todoctor?color=f6bd40&labelColor=181818
+links:
+  website: https://todoctor.azat.io
+  github: https://github.com/azat-io/todoctor
+  npm: https://npmjs.com/package/todoctor
+---
+
+Todoctor grew out of a work project. Lots of TODO comments had piled up in our
+codebase, and we wanted to understand what was happening with them: how many
+there were, how long they had been there, and whether their number was growing.
+Comments like these rarely make it into an issue tracker and can sit in the code
+for years.
+
+Todoctor finds comments with TODO, FIXME, and similar tags in JavaScript and
+TypeScript files. Then it walks through the Git history and uses `git blame` to
+find out who left each comment and when.
+
+The result is an HTML report that opens in your browser automatically. It
+includes:
+
+- a chart of how the number of comments changed over time
+- the total number of comments, the age of the oldest one, and the average age
+- a table of all comments with their files and authors
+
+You can see what the report looks like
+[in this example](https://todoctor.azat.io).
+
+## How to start using it?
+
+Run Todoctor in the root of your repository:
+
+```sh
+npx todoctor
+```
+
+The `--months` flag sets how many months of history to analyze. To get the
+report in JSON or CSV, use the `--output-format` flag.

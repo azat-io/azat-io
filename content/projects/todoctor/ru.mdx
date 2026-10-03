@@ -1,0 +1,47 @@
+---
+id: todoctor
+title: Todoctor
+description: Утилита для отслеживания TODO-комментариев по истории Git
+type: other
+badges:
+  - name: Version
+    url: https://img.shields.io/github/package-json/v/azat-io/todoctor?color=f6bd40&labelColor=181818
+  - name: GitHub stars
+    url: https://img.shields.io/github/stars/azat-io/todoctor?style=flat&color=f6bd40&labelColor=181818
+  - name: Downloads per week
+    url: https://img.shields.io/npm/dm/todoctor?color=f6bd40&labelColor=181818
+  - name: License
+    url: https://img.shields.io/github/license/azat-io/todoctor?color=f6bd40&labelColor=181818
+links:
+  website: https://todoctor.azat.io
+  github: https://github.com/azat-io/todoctor
+  npm: https://npmjs.com/package/todoctor
+---
+
+Todoctor вырос из рабочего проекта. В кодовой базе накопилось много
+TODO-комментариев, и хотелось понять, что с ними происходит: сколько их, как
+давно они лежат и становится ли их больше. Такие комментарии редко доходят до
+трекера задач и могут годами оставаться в коде.
+
+Todoctor находит в JavaScript и TypeScript файлах комментарии с TODO, FIXME и
+похожими метками. Затем он проходит по истории Git и через `git blame` узнаёт,
+кто и когда оставил каждый комментарий.
+
+Результат — HTML-отчёт, который сам открывается в браузере. В нём есть:
+
+- график, как менялось число комментариев со временем;
+- общее число комментариев, возраст самого старого и средний возраст;
+- таблица со всеми комментариями, файлами и авторами.
+
+Как выглядит отчёт, видно [на примере](https://todoctor.azat.io).
+
+## Как начать его использовать?
+
+Запустите Todoctor в корне репозитория:
+
+```sh
+npx todoctor
+```
+
+Сколько месяцев истории анализировать, задаёт флаг `--months`. Чтобы получить
+отчёт в JSON или CSV, используйте флаг `--output-format`.
