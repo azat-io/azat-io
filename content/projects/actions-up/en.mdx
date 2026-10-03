@@ -1,0 +1,60 @@
+---
+id: actions-up
+title: Actions Up
+description:
+  Interactive CLI tool to update GitHub Actions to latest versions with SHA
+  pinning
+type: other
+badges:
+  - name: Version
+    url: https://img.shields.io/github/package-json/v/azat-io/actions-up?color=f6bd40&labelColor=181818
+  - name: GitHub stars
+    url: https://img.shields.io/github/stars/azat-io/actions-up?style=flat&color=f6bd40&labelColor=181818
+  - name: Downloads per week
+    url: https://img.shields.io/npm/dm/actions-up?color=f6bd40&labelColor=181818
+  - name: License
+    url: https://img.shields.io/github/license/azat-io/actions-up?color=f6bd40&labelColor=181818
+links:
+  github: https://github.com/azat-io/actions-up
+  npm: https://npmjs.com/package/actions-up
+---
+
+I wanted to keep GitHub Actions up to date and protect against supply chain
+attacks at the same time. Checking every action by hand takes a long time, so I
+decided to automate it.
+
+Actions Up finds every action in the `.github` directory, checks for new
+versions, and lets you choose what to update. It pins updated actions to a
+commit SHA and keeps the version number in a comment.
+
+Before:
+
+```yaml
+- uses: actions/checkout@v4
+- uses: actions/setup-node@v4
+```
+
+After:
+
+```yaml
+- uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+- uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+```
+
+Actions run third-party code in CI, often with access to secrets. A tag like
+`v4` can be moved to a different commit, and the next run will execute different
+code. That can’t happen with a SHA.
+
+By default, Actions Up also doesn’t offer releases that are less than a day old.
+This protects against attacks through freshly published versions. You can change
+the threshold with the `--min-age` flag.
+
+## How to start using it?
+
+Run Actions Up in the root of your repository:
+
+```sh
+npx actions-up
+```
+
+To just see the updates without changing anything, add the `--dry-run` flag.

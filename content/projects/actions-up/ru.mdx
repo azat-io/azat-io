@@ -1,0 +1,61 @@
+---
+id: actions-up
+title: Actions Up
+description:
+  Интерактивная консольная утилита, которая обновляет GitHub Actions до
+  последних версий и закрепляет их по SHA коммита
+type: other
+badges:
+  - name: Version
+    url: https://img.shields.io/github/package-json/v/azat-io/actions-up?color=f6bd40&labelColor=181818
+  - name: GitHub stars
+    url: https://img.shields.io/github/stars/azat-io/actions-up?style=flat&color=f6bd40&labelColor=181818
+  - name: Downloads per week
+    url: https://img.shields.io/npm/dm/actions-up?color=f6bd40&labelColor=181818
+  - name: License
+    url: https://img.shields.io/github/license/azat-io/actions-up?color=f6bd40&labelColor=181818
+links:
+  github: https://github.com/azat-io/actions-up
+  npm: https://npmjs.com/package/actions-up
+---
+
+Мне хотелось держать GitHub Actions в актуальном состоянии и при этом защититься
+от атак на цепочку поставок. Проверять каждый экшен руками долго, поэтому я
+решил это автоматизировать.
+
+Actions Up находит все экшены в папке `.github`, проверяет, вышли ли новые
+версии, и даёт выбрать, что обновить. Обновлённые экшены он закрепляет по SHA
+коммита, а номер версии оставляет в комментарии.
+
+Было:
+
+```yaml
+- uses: actions/checkout@v4
+- uses: actions/setup-node@v4
+```
+
+Стало:
+
+```yaml
+- uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+- uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+```
+
+Экшены запускают чужой код в CI, часто с доступом к секретам. Тег вроде `v4`
+можно перевесить на другой коммит, и при следующем запуске выполнится уже другой
+код. С SHA так не получится.
+
+Ещё Actions Up по умолчанию не предлагает релизы младше суток. Это защищает от
+атак через только что опубликованные версии. Порог можно поменять флагом
+`--min-age`.
+
+## Как начать его использовать?
+
+Запустите Actions Up в корне репозитория:
+
+```sh
+npx actions-up
+```
+
+Чтобы только посмотреть обновления и ничего не менять, добавьте флаг
+`--dry-run`.
