@@ -1,0 +1,73 @@
+---
+id: eslint-plugin-de-morgan
+title: ESLint Plugin De Morgan
+description:
+  ESLint plugin for transforming negated boolean expressions via De Morgan's
+  laws
+type: eslint
+badges:
+  - name: Version
+    url: https://img.shields.io/github/package-json/v/azat-io/eslint-plugin-de-morgan?color=f6bd40&labelColor=181818
+  - name: GitHub stars
+    url: https://img.shields.io/github/stars/azat-io/eslint-plugin-de-morgan?style=flat&color=f6bd40&labelColor=181818
+  - name: Downloads per week
+    url: https://img.shields.io/npm/dm/eslint-plugin-de-morgan?color=f6bd40&labelColor=181818
+  - name: License
+    url: https://img.shields.io/github/license/azat-io/eslint-plugin-de-morgan?color=f6bd40&labelColor=181818
+links:
+  github: https://github.com/azat-io/eslint-plugin-de-morgan
+  npm: https://npmjs.com/package/eslint-plugin-de-morgan
+---
+
+The idea came up at work. I kept running into conditions with a negation in
+front of the parentheses, and every time I had to unpack them in my head. It
+seemed to me that a linter could do this just fine.
+
+ESLint Plugin De Morgan rewrites such conditions according to De Morgan’s laws.
+These are two laws of Boolean algebra:
+
+- `!(a && b)` equals `!a || !b`
+- `!(a || b)` equals `!a && !b`
+
+Before:
+
+```js
+if (!(user.role === 'admin' || user.isOwner)) {
+  throw new Error('Access denied')
+}
+```
+
+After:
+
+```js
+if (user.role !== 'admin' && !user.isOwner) {
+  throw new Error('Access denied')
+}
+```
+
+The plugin has two rules: `no-negated-conjunction` for `!(a && b)` and
+`no-negated-disjunction` for `!(a || b)`.
+
+The plugin doesn’t change how the code behaves. For example, it writes the
+negation of `count >= 10` as `!(count >= 10)`, not `count < 10`. If `count` is
+`NaN`, both comparisons return `false`, so that replacement would break the
+condition.
+
+## How to start using it?
+
+Install ESLint and the plugin:
+
+```sh
+npm install --save-dev eslint eslint-plugin-de-morgan
+```
+
+Add the recommended config to `eslint.config.js`:
+
+```js
+import deMorgan from 'eslint-plugin-de-morgan'
+
+export default [deMorgan.configs.recommended]
+```
+
+Both rules fix the code automatically. Run ESLint with the `--fix` flag, and the
+plugin will rewrite all the expressions itself.
