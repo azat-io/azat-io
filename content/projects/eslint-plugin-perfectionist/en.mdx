@@ -18,32 +18,62 @@ links:
   npm: https://npmjs.com/package/eslint-plugin-perfectionist
 ---
 
-The aesthetic and structural integrity of code is a vital aspect of software development, one that I find particularly crucial. A meticulously organized codebase not only elevates its readability but also significantly bolsters collaborative efficiency among developers. ESLint Plugin Perfectionist emerges as a standout tool for enhancing code quality.
+Sorting in ESLint used to be split across several plugins: one for imports,
+another for object keys, a third for JSX props. Each had its own settings. I
+wanted one plugin for all sorting, so I wrote Perfectionist.
 
-This ESLint plugin is designed to sort various data in code: imports, objects, Typescript types and interfaces, JSX properties, classes and more.
+Today it sorts imports, objects, types, JSX props, classes, and much more. Every
+rule fixes the code automatically.
 
-Moreover, the plugin assures safety and integrity in the modification process. It is designed to respect various elements such as comments, JSDoc annotations, and spreads in objects, thus ensuring that the essence and functionality of the code remain intact.
+Before:
 
-## How to start using it?
-
-First of all, you need to install ESLint itself on the project:
-
-```sh
-npm install --save-dev eslint
-```
-
-Next, install the plugin:
-
-```sh
-npm install --save-dev eslint-plugin-perfectionist
-```
-
-The easiest way to start using the plugin is to import one of the three ready-made configs into your `.eslintrc` config. For example, the config with alphabetical sorting:
-
-```json
-{
-  "extends": ["plugin:perfectionist/recommended-alphabetical"]
+```js
+let config = {
+  port: 8080,
+  // Use HTTPS in production
+  https: true,
+  host: 'localhost',
 }
 ```
 
-After installation, the linter may show many errors in the code. However, this is not a problem because all of the plugin's rules can be fixed. This means that you do not need to fix anything manually. Just run eslint with the `--fix` flag, and the plugin will fix everything automatically.
+After:
+
+```js
+let config = {
+  host: 'localhost',
+  // Use HTTPS in production
+  https: true,
+  port: 8080,
+}
+```
+
+It’s important that sorting doesn’t break anything. A comment moves together
+with its line, and keys never jump over a `...spread`, because their order
+decides which value ends up in the object.
+
+You choose the sort order: alphabetical, natural (`item2` before `item10`), by
+line length, or your own. I sort by line length myself, so my imports form a
+staircase.
+
+## How to start using it?
+
+Install ESLint and the plugin:
+
+```sh
+npm install --save-dev eslint eslint-plugin-perfectionist
+```
+
+Add one of the ready-made configs to `eslint.config.js`, for example the one
+with natural sorting:
+
+```js
+import perfectionist from 'eslint-plugin-perfectionist'
+
+export default [perfectionist.configs['recommended-natural']]
+```
+
+At first, the linter will show a lot of errors. That’s fine: run ESLint with the
+`--fix` flag, and the plugin will sort everything for you.
+
+All rules and their options are documented at
+[perfectionist.dev](https://perfectionist.dev).
