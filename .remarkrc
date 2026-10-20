@@ -3,6 +3,13 @@
     "remark-lint-code-block-split-list",
     "remark-lint-heading-increment",
     "remark-lint-fenced-code-flag",
-    "remark-lint-no-dead-urls"
+    [
+      "remark-lint-no-dead-urls",
+      {
+        "deadOrAliveOptions": {
+          "timeout": 10000
+        }
+      }
+    ]
   ]
 }
