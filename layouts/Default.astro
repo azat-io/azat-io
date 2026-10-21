@@ -1,6 +1,4 @@
 ---
-import { fade } from 'astro:transitions'
-
 import Container from '~/components/Container.astro'
 import Header from '~/components/Header.astro'
 import Footer from '~/components/Footer.astro'
@@ -27,7 +25,6 @@ let { type = 'website', description, size = 'm', title } = Astro.props
   <Body class="app">
     <Header />
     <Container
-      transition:animate={fade({ duration: '100ms' })}
       tag="main"
       id="main"
       {size}
