@@ -1,4 +1,6 @@
 ---
+import { ClientRouter } from 'astro:transitions'
+
 import { getLocaleFromUrl } from '~/utils/get-locale-from-url'
 import { useTranslations } from '~/utils/use-translations'
 import { SOCIAL_X_EN, SOCIAL_X_RU } from '~/constants'
@@ -65,6 +67,7 @@ let isProduction = import.meta.env.PROD
     rel="apple-touch-icon"
   />
   <link
+    transition:persist={`manifest-${locale}`}
     href={`/manifest-${locale}.json`}
     rel="manifest"
   />
@@ -261,4 +264,5 @@ let isProduction = import.meta.env.PROD
   </script>
 
   {isProduction && <Analytics />}
+  <ClientRouter />
 </head>

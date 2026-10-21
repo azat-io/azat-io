@@ -191,10 +191,10 @@ let changeLanguageUrl = url.pathname.replace(
   }
 
   let initChangeLanguage = () => {
-    let changeLanguageButton = document.querySelector(
-      '#navigation-change-language',
-    )
     document.addEventListener('click', event => {
+      let changeLanguageButton = document.querySelector(
+        '#navigation-change-language',
+      )
       if (!changeLanguageButton.contains(event.target)) {
         changeLanguageButton.removeAttribute('open')
       }
@@ -222,10 +222,10 @@ let changeLanguageUrl = url.pathname.replace(
 
   let init = () => {
     initChangeColorTheme()
-    initChangeLanguage()
     initMobileMenu()
   }
 
+  initChangeLanguage()
   document.addEventListener('astro:after-swap', init)
   document.addEventListener('DOMContentLoaded', init)
 </script>

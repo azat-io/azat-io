@@ -115,7 +115,7 @@ export default defineConfig({
     plugins: [svelteSvg()],
   },
   prefetch: {
-    defaultStrategy: 'viewport',
+    defaultStrategy: 'hover',
     prefetchAll: true,
   },
   build: {
