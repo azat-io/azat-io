@@ -43,20 +43,17 @@ let locale = getLocaleFromUrl(Astro.url)
 let t = useTranslations(locale, 'anime')
 
 let formattedGenres = genres.map(genre => t(genre)).join(', ')
-function timeConvert(totalMinutes: number): string {
-  let hours = totalMinutes / 60
-  let roundedHours = Math.floor(hours)
-  let minutes = (hours - roundedHours) * 60
-  let roundedMinutes = Math.round(minutes)
-  return (
-    (roundedHours > 0 ? `${roundedHours} ${t('hours')} ` : '') +
-    (roundedMinutes > 0 ? `${roundedMinutes} ${t('minutes')}` : '')
-  )
-}
+let hours = duration / 60
+let roundedHours = Math.floor(hours)
+let minutes = (hours - roundedHours) * 60
+let roundedMinutes = Math.round(minutes)
+let formattedDuration =
+  (roundedHours > 0 ? `${roundedHours} ${t('hours')} ` : '') +
+  (roundedMinutes > 0 ? `${roundedMinutes} ${t('minutes')}` : '')
 let durationTime =
-  episodes === 1 ?
-    timeConvert(duration)
-  : `${episodes} ${t('episodes-of')} ${timeConvert(duration)}`
+  episodes === 1 ? formattedDuration : (
+    `${episodes} ${t('episodes-of')} ${formattedDuration}`
+  )
 ---
 
 <li class="card">

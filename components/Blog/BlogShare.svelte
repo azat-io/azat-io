@@ -102,18 +102,18 @@
     }
 
     if (
-      !/android|ipad|iphone|ipod/iu.test(navigator.userAgent) ||
+      /android|ipad|iphone|ipod/iu.test(navigator.userAgent) &&
       // eslint-disable-next-line typescript/no-unnecessary-condition
-      !navigator.share
+      navigator.share
     ) {
-      dialog.showModal()
-      on(document, 'click', clickOutside)
-    } else {
       await navigator.share({
         text: description,
         url: cleanUrl,
         title,
       })
+    } else {
+      dialog.showModal()
+      on(document, 'click', clickOutside)
     }
   }
 

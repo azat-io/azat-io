@@ -163,7 +163,7 @@ export default {
   },
   blog: {
     'translate-1':
-      'Glad you enjoyed the post and found it useful. Your support helps the development of the blog and I am grateful for any help. I am looking for contributors to translate this post into {language}.',
+      'Glad you enjoyed the\u{A0}post and\u{A0}found it useful. Your support helps the\u{A0}development of\u{A0}the\u{A0}blog and I\u{A0}am grateful for\u{A0}any help. I am looking for contributors to\u{A0}translate this post into {language}.',
     description:
       'Personal blog of Azat S. Front-end developer, creator of technical content, open source community member',
     'translate-2':
@@ -217,8 +217,8 @@ export default {
   },
   timeline: {
     description:
-      'My lifetime visualization. Each cell represents one week. There are 52 weeks in each row, which equals 1 year.',
-    'time-since-i-was-born': "It's been a long time since I was born:",
+      'My lifetime visualization. Each cell represents one week. There are 52 weeks in\u{A0}each row, which equals 1\u{A0}year.',
+    'time-since-i-was-born': "It's been a long time since I\u{A0}was born:",
     minutes: {
       other: 'minutes',
       one: 'minute',
@@ -227,6 +227,7 @@ export default {
       other: 'seconds',
       one: 'second',
     },
+    'life-expectancy-at-birth': 'Life expectancy at\u{A0}birth',
     months: {
       other: 'months',
       one: 'month',
@@ -240,7 +241,6 @@ export default {
       other: 'hours',
       one: 'hour',
     },
-    'life-expectancy-at-birth': 'Life expectancy at birth',
     'healthy-life-expectancy': 'Healthy life expectancy',
     days: {
       other: 'days',
@@ -279,7 +279,7 @@ export default {
   },
   index: {
     greeting:
-      'Hi there! My name is Azat. I am a frontend developer. On this site I share my thoughts and ideas about development and modern technologies.',
+      'Hi there! My name is Azat. I am a frontend developer. On\u{A0}this site I share my thoughts and ideas about development and\u{A0}modern technologies.',
     description:
       'Personal website of Azat S. Front-end developer, creator of technical content, open source community member',
     'website-subtitle': 'for reinventing the wheel',
