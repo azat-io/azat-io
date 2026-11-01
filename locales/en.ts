@@ -263,6 +263,7 @@ export default {
     hk: 'Hong Kong',
     th: 'Thailand',
     kh: 'Cambodia',
+    my: 'Malaysia',
     ge: 'Georgia',
     ua: 'Ukraine',
     by: 'Belarus',
