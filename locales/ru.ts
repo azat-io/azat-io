@@ -117,6 +117,7 @@ export default {
     'death-parade': 'Парад Смерти',
     'death-note': 'Тетрадь Смерти',
     'sci-fi': 'научная фантастика',
+    'chainsmoker-cat': 'Табакошка',
     'one-punch-man': 'Ванпанчмен',
     tekkonkinkreet: 'Железобетон',
     'psycho-pass': 'Психопаспорт',

@@ -88,6 +88,7 @@ export default {
     'to-your-eternity': 'To Your Eternity',
     'girls-last-tour': "Girls' Last Tour",
     'bocchi-the-rock': 'Bocchi the Rock!',
+    'chainsmoker-cat': 'Chainsmoker Cat',
     'rumbling-hearts': 'Rumbling Hearts',
     'black-butler-ii': 'Black Butler II',
     'attack-on-titan': 'Attack on Titan',
